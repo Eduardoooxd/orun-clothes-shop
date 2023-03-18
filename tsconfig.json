@@ -20,7 +20,10 @@
             }
         ],
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "@/assets/*": ["./public/assets/*"],
+            "@/images/*": ["./public/assets/images/*"],
+            "@/components/*": ["./src/components/*"]
         }
     },
     "include": [
