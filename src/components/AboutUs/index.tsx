@@ -6,42 +6,33 @@ const AboutUs: FunctionComponent = () => {
     return (
         <section className="m-4">
             <Container>
-                <MainSectionTitle>About Us</MainSectionTitle>
-                <div className="flex">
-                    <div className="mt-12 prose prose-lg text-gray-600  max-w-3xl">
-                        <p className="mb-6 leading-loose">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit
-                            maximus, molestie est a, tempor magna. Curabitur in justo neque. Morbi
-                            nec dolor at metus cursus interdum. In posuere sollicitudin aliquam.
-                            Suspendisse quis urna vitae purus faucibus euismod ut ac velit.
-                        </p>
-                        <p className="mb-6 leading-loose">
-                            Sed consectetur felis et dolor placerat, vel tempor justo bibendum.
-                            Quisque quis mattis mauris. Vestibulum fringilla semper metus. Donec
-                            auctor tristique ligula in malesuada. Mauris at consequat est. Ut vel
-                            vestibulum elit. Integer in urna bibendum, commodo augue quis, lacinia
-                            urna.
-                        </p>
-                    </div>
-                    <div className="mt-12 prose prose-lg text-gray-600  max-w-3xl">
-                        <p className="mb-6 leading-loose">
-                            Sed consectetur felis et dolor placerat, vel tempor justo bibendum.
-                            Quisque quis mattis mauris. Vestibulum fringilla semper metus. Donec
-                            auctor tristique ligula in malesuada. Mauris at consequat est. Ut vel
-                            vestibulum elit. Integer in urna bibendum, commodo augue quis, lacinia
-                            urna.
-                        </p>
-                        <p className="mb-6 leading-loose">
-                            Sed consectetur felis et dolor placerat, vel tempor justo bibendum.
-                            Quisque quis mattis mauris. Vestibulum fringilla semper metus. Donec
-                            auctor tristique ligula in malesuada. Mauris at consequat est. Ut vel
-                            vestibulum elit. Integer in urna bibendum, commodo augue quis, lacinia
-                            urna.
-                        </p>
-                    </div>
+                <MainSectionTitle textAlign="text-center">About Us</MainSectionTitle>
+                <div className="flex flex-col gap-4 sm:flex-row">
+                    <AboutUsText />
+                    <AboutUsText />
                 </div>
             </Container>
         </section>
+    );
+};
+
+const AboutUsText: FunctionComponent = () => {
+    return (
+        <div className="lg:mt-12 prose prose-lg text-gray-600  max-w-3xl">
+            <p className={`mb-6 leading-loose`}>
+                Orun is an online shopping destination for individuals who are passionate about
+                environmental sustainability, organic living, and spiritual awareness. Our carefully
+                curated collection of clothing features unique designs made from ethically sourced
+                and eco-friendly materials, ensuring that our customers not only look great but feel
+                good about their impact on the planet.
+            </p>
+            <p className="mb-6 leading-loose">
+                At Orun, we believe that fashion should be both beautiful and conscious, which is
+                why we prioritize sustainable production methods and materials. From organic cotton
+                and linen to recycled fabrics and natural dyes, we carefully select each item to
+                ensure that it meets our high standards for quality, style, and sustainability.
+            </p>
+        </div>
     );
 };
 
