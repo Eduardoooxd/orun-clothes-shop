@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Hero() {
     return (
-        <section className="relative w-full min-h-screen">
+        <section className="relative min-h-screen w-full">
             <Image
                 priority
                 src="/../public/assets/images/background_2.jpg"
@@ -13,7 +13,7 @@ export default function Hero() {
                 style={{ objectFit: 'cover' }}
             />
             <div
-                className={`flex w-full min-h-screen justify-center items-center text-8xl ${futuraPTLight.variable} font-futuraPTLight`}
+                className={`flex min-h-screen w-full items-center justify-center text-5xl font-bold sm:text-8xl ${futuraPTLight.variable} font-futuraPTLight`}
             >
                 <h2>MADE IN EARTH</h2>
             </div>

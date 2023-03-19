@@ -6,7 +6,7 @@ interface ContainerProps {
 
 const Container: FunctionComponent<ContainerProps> = ({ children, ...props }) => {
     return (
-        <div className="w-full container mx-auto p-4 sm:p-6" {...props}>
+        <div className="container mx-auto w-full p-4 sm:p-6" {...props}>
             {children}
         </div>
     );

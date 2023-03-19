@@ -18,7 +18,7 @@ const AboutUs: FunctionComponent = () => {
 
 const AboutUsText: FunctionComponent = () => {
     return (
-        <div className="lg:mt-12 prose prose-lg text-gray-600  max-w-3xl">
+        <div className="prose prose-lg max-w-3xl text-gray-600  lg:mt-12">
             <p className={`mb-6 leading-loose`}>
                 Orun is an online shopping destination for individuals who are passionate about
                 environmental sustainability, organic living, and spiritual awareness. Our carefully
