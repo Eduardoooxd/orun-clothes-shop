@@ -79,13 +79,6 @@ const DesktopNavBar: FunctionComponent = () => {
                 >
                     CATEGORIES
                 </Link>
-
-                <Link
-                    className={`${commutersSans.variable} font-commutersSans font-extralight`}
-                    href=""
-                >
-                    ABOUT US
-                </Link>
             </div>
             <div>
                 <Link href="">
@@ -93,6 +86,13 @@ const DesktopNavBar: FunctionComponent = () => {
                 </Link>
             </div>
             <div className="flex items-center gap-10">
+                <Link
+                    className={`${commutersSans.variable} font-commutersSans font-extralight`}
+                    href=""
+                >
+                    ABOUT US
+                </Link>
+
                 <Link
                     className={`${commutersSans.variable} font-commutersSans font-extralight`}
                     href=""

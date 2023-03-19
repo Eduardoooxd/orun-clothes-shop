@@ -4,7 +4,7 @@ import Container from '../Container';
 
 const AboutUs: FunctionComponent = () => {
     return (
-        <section className="m-4">
+        <section className="my-4">
             <Container>
                 <MainSectionTitle textAlign="text-center">About Us</MainSectionTitle>
                 <div className="flex flex-col gap-4 sm:flex-row">
