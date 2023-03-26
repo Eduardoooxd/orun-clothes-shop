@@ -57,7 +57,7 @@ const FooterColumn: FunctionComponent<FooterColumnProps> = ({ title, links }) =>
     return (
         <div className="lg:col-span-1">
             <h3
-                className={`${futuraPTLight.variable} font-futuraPTLight text-sm font-bold uppercase text-black`}
+                className={`${futuraPTLight.variable} font-futuraPTLight text-sm font-bold uppercase tracking-wider text-black`}
             >
                 {title}
             </h3>

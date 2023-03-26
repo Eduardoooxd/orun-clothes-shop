@@ -32,7 +32,10 @@ export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
-    const stylesOnScroll = isScrolled || isMobileMenuOpen ? 'bg-white shadow-md' : 'bg-transparent';
+    const stylesOnScroll =
+        isScrolled || isMobileMenuOpen
+            ? 'bg-white shadow-md border-b border-black'
+            : 'bg-transparent';
 
     useEffect(() => {
         const handleScroll = () => {
