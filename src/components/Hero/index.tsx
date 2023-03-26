@@ -1,3 +1,4 @@
+import BackgroundImage from '@/images/background_2.jpg';
 import { futuraPTLight } from '@/lib/fontLoader';
 import Image from 'next/image';
 
@@ -6,7 +7,7 @@ export default function Hero() {
         <section className="relative mt-[-5rem] min-h-screen w-full">
             <Image
                 priority
-                src="/../public/assets/images/background_2.jpg"
+                src={BackgroundImage}
                 alt="background"
                 fill
                 className="z-[-10]"
