@@ -4,7 +4,6 @@ import LogoImage from '@/images/logo/orun-logo.png';
 import Image from 'next/image';
 import { Dispatch, FunctionComponent, SetStateAction, useEffect, useState } from 'react';
 
-import { useScrollBlock } from '@/hooks/useScrollBlock';
 import { commutersSans } from '@/lib/fontLoader';
 import { Transition } from '@headlessui/react';
 import Link from 'next/link';
@@ -119,9 +118,6 @@ const MobileNavBar: FunctionComponent<NobileNavBarProps> = ({
     isMobileMenuOpen,
     setIsMobileMenuOpen,
 }) => {
-    const [blockScroll, allowScroll] = useScrollBlock();
-    isMobileMenuOpen ? blockScroll() : allowScroll();
-
     return (
         <>
             <div className="container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6 md:hidden">
