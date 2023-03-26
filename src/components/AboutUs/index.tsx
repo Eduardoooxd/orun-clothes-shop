@@ -7,7 +7,7 @@ const AboutUs: FunctionComponent = () => {
         <section className="my-4">
             <Container>
                 <MainSectionTitle textAlign="text-center">About Us</MainSectionTitle>
-                <div className="flex flex-col gap-4 sm:flex-row">
+                <div className="mt-16 flex flex-col gap-4 sm:flex-row">
                     <AboutUsText />
                     <AboutUsText />
                 </div>
