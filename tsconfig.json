@@ -22,9 +22,11 @@
         "paths": {
             "@/*": ["./src/*"],
             "@/assets/*": ["./public/assets/*"],
+            "@/app/*": ["./src/app/*"],
             "@/images/*": ["./public/assets/images/*"],
             "@/components/*": ["./src/components/*"],
-            "@/hooks/*": ["./src/hooks/*"]
+            "@/hooks/*": ["./src/hooks/*"],
+            "@/lib/*": ["./lib/*"]
         }
     },
     "include": [

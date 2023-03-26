@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen w-full">
+        <section className="relative mt-[-5rem] min-h-screen w-full">
             <Image
                 priority
                 src="/../public/assets/images/background_2.jpg"

@@ -51,7 +51,7 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`fixed top-0 z-50 flex min-h-[5rem] w-full flex-col justify-evenly  transition duration-300 ease-in-out ${stylesOnScroll}`}
+            className={`sticky top-0 z-50 flex min-h-[5rem] w-full flex-col justify-evenly transition duration-300 ease-in-out ${stylesOnScroll}`}
         >
             <MobileNavBar
                 isMobileMenuOpen={isMobileMenuOpen}
@@ -79,6 +79,13 @@ const DesktopNavBar: FunctionComponent = () => {
                 >
                     CATEGORIES
                 </Link>
+
+                <Link
+                    className={`${commutersSans.variable} font-commutersSans font-extralight`}
+                    href=""
+                >
+                    ABOUT US
+                </Link>
             </div>
             <div>
                 <Link href="">
@@ -86,13 +93,6 @@ const DesktopNavBar: FunctionComponent = () => {
                 </Link>
             </div>
             <div className="flex items-center gap-10">
-                <Link
-                    className={`${commutersSans.variable} font-commutersSans font-extralight`}
-                    href=""
-                >
-                    ABOUT US
-                </Link>
-
                 <Link
                     className={`${commutersSans.variable} font-commutersSans font-extralight`}
                     href=""
