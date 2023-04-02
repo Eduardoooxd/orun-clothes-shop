@@ -1,6 +1,6 @@
 'use client';
 
-import LogoImage from '@/images/logo/logo.webp';
+import MiniLogoImage from '@/images/logo/logo-mini.png';
 import Image from 'next/image';
 import { Dispatch, FunctionComponent, SetStateAction, useEffect, useState } from 'react';
 
@@ -14,9 +14,6 @@ import { ClosedHamburgerMenu, OpenHamburgerMenu } from '../Icons/HamburguerMenu'
 import NavbarLink, { NavbarLinkProps } from './NavbarLink';
 
 const NAVBAR_LINKS: NavbarLinkProps[] = [
-    {
-        text: 'Men',
-    },
     {
         text: 'Categories',
     },
@@ -91,7 +88,7 @@ const DesktopNavBar: FunctionComponent = () => {
             </div>
             <div>
                 <Link href="">
-                    <Image priority src={LogoImage} alt="logo" width={100} height={20} />
+                    <Image priority src={MiniLogoImage} alt="logo" width={100} height={20} />
                 </Link>
             </div>
             <div className="flex items-center gap-10">
@@ -126,7 +123,7 @@ const MobileNavBar: FunctionComponent<NobileNavBarProps> = ({
             <div className="container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6 md:hidden">
                 <div>
                     <Link href="">
-                        <Image priority src={LogoImage} alt="logo" width={100} height={20} />
+                        <Image priority src={MiniLogoImage} alt="logo" width={90} height={20} />
                     </Link>
                 </div>
                 <button

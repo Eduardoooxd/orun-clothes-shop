@@ -1,5 +1,5 @@
+import SmallLogoAlternativeImage from '@/images/logo/logo-small-alternative.png';
 import BackgroundImage from '@/images/main_background.webp';
-import { futuraPTLight } from '@/lib/fontLoader';
 import Image from 'next/image';
 
 export default function Hero() {
@@ -13,10 +13,14 @@ export default function Hero() {
                 className="z-[-10]"
                 style={{ objectFit: 'cover' }}
             />
-            <div
-                className={`flex min-h-screen w-full items-center justify-center text-5xl font-bold sm:text-8xl ${futuraPTLight.variable} font-futuraPTLight`}
-            >
-                <h2>MADE IN EARTH</h2>
+            <div className={`flex min-h-screen w-full items-center justify-center `}>
+                <Image
+                    priority
+                    src={SmallLogoAlternativeImage}
+                    alt="logo"
+                    width={400}
+                    height={300}
+                />
             </div>
         </section>
     );
