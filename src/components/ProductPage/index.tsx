@@ -27,7 +27,7 @@ const ProductPage: FunctionComponent<ProductPageProps> = ({ product }) => {
             <div className="p-4 lg:p-24">
                 <div>
                     {/** Section to Title and Price */}
-                    <header className="mx-auto max-w-lg py-4">
+                    <header className=" max-w-lg py-4 ">
                         <h1
                             className={`${futuraPTLight.variable} font-futuraPTLight text-4xl font-bold leading-10 text-black`}
                         >
