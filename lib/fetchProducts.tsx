@@ -15,3 +15,9 @@ export async function getProducts(): Promise<Product[]> {
     // map each product in the array to an instance of the Product interface
     return products;
 }
+
+export async function getProduct(id: string): Promise<Product | undefined> {
+    const products = await fetchProducts();
+
+    return products.find((product) => product.id === id);
+}

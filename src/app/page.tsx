@@ -4,15 +4,18 @@ import Hero from '@/components/Hero';
 import Navbar from '@/components/Navbar';
 import Separator from '@/components/Separator';
 import TopPicks from '@/components/TopPicks';
+import { getProducts } from '@/lib/fetchProducts';
 
-export default function Home() {
+export default async function Page() {
+    const products = await getProducts();
+
     return (
         <main className="min-h-screen w-full">
             <Navbar />
             <Hero />
             <AboutUs />
             <Separator />
-            <TopPicks />
+            <TopPicks products={products} />
             <Separator />
             <Footer />
         </main>

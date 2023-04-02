@@ -1,47 +1,61 @@
+import CloseUpProduct1 from '@/images/products/product1/closeup.jpg';
+import FrontImageProduct1 from '@/images/products/product1/front.jpg';
+import PreviewProduct1 from '@/images/products/product1/preview.jpg';
+import SideProduct1 from '@/images/products/product1/side.jpg';
+import PreviewProduct2 from '@/images/products/product2/preview.jpg';
+import CloseUpProduct3 from '@/images/products/product3/closeup.jpg';
+import FrontImageProduct3 from '@/images/products/product3/front.jpg';
+import PreviewProduct3 from '@/images/products/product3/preview.jpg';
+import SideProduct3 from '@/images/products/product3/side.jpg';
+import CloseUpProduct4 from '@/images/products/product4/closeup.jpg';
+import PreviewProduct4 from '@/images/products/product4/preview.jpg';
+import SideProduct4 from '@/images/products/product4/side.jpg';
+import { StaticImageData } from 'next/image';
+
 export interface Product {
     id: string;
     title: string;
     price: number;
     description: string;
     category: string;
-    image: string;
-    rating: Rating;
-}
-
-export interface Rating {
-    rate: number;
-    count: number;
+    images: StaticImageData[];
 }
 
 export const exampleProducts: Product[] = [
     {
         id: '1',
-        title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-        price: 109.95,
+        title: 'Finibus Bonorum',
+        price: 109,
         description:
-            'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
+            'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.',
         category: "men's clothing",
-        image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-        rating: { rate: 3.9, count: 120 },
+        images: [PreviewProduct1, FrontImageProduct1, CloseUpProduct1, SideProduct1],
     },
     {
         id: '2',
-        title: 'Mens Casual Premium Slim Fit T-Shirts ',
-        price: 22.3,
+        title: 'Nunc augue orci',
+        price: 269,
         description:
-            'Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.',
+            'Nullam vitae ultrices risus, blandit vehicula lectus. Duis ut velit eu erat euismod malesuada sit amet a tellus. Maecenas id mollis purus. Duis lectus arcu, malesuada sed pretium eu, placerat et sem. In sem tellus, lacinia et vestibulum eu, sodales at ligula. Etiam leo sapien, semper in consequat ac, viverra sit amet sem.',
         category: "men's clothing",
-        image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
-        rating: { rate: 4.1, count: 259 },
+        images: [PreviewProduct2, PreviewProduct2],
     },
     {
         id: '3',
-        title: 'Mens Cotton Jacket',
-        price: 55.99,
+        title: 'Fusce laoreet',
+        price: 329,
         description:
-            'great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.',
+            ' Etiam quis quam porta, mollis mi eu, faucibus metus. Donec pharetra est ornare urna cursus pellentesque. Aliquam tincidunt venenatis tortor, a congue velit fringilla nec. Sed fermentum, ipsum a vestibulum elementum, magna est scelerisque massa, ac ultricies velit risus at nibh.',
         category: "men's clothing",
-        image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
-        rating: { rate: 4.7, count: 500 },
+        images: [PreviewProduct3, FrontImageProduct3, CloseUpProduct3, SideProduct3],
+    },
+    {
+        id: '4',
+        title: 'Ut vel tempus tortor',
+        price: 59,
+        description:
+            'Vestibulum eleifend mollis ipsum nec molestie. Ut at nisi ut risus eleifend aliquet. Donec efficitur odio at dolor dapibus dictum. Praesent lobortis sem et justo laoreet rutrum. Proin eu neque nec lorem finibus facilisis.',
+        category: "men's clothing",
+        images: [PreviewProduct4, PreviewProduct4, CloseUpProduct4, SideProduct4],
     },
 ];

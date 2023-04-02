@@ -2,6 +2,8 @@ import '@/app/globals.css';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 
+export const dynamicParams = false;
+
 export const metadata = {
     title: 'Orun',
     description:

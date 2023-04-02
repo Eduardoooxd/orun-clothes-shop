@@ -1,4 +1,4 @@
-import BackgroundImage from '@/images/background_2.jpg';
+import BackgroundImage from '@/images/main_background.webp';
 import { futuraPTLight } from '@/lib/fontLoader';
 import Image from 'next/image';
 

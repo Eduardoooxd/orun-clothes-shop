@@ -1,4 +1,4 @@
-import LogoImage from '@/images/logo/orun-logo.png';
+import LogoImage from '@/images/logo/logo.webp';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,14 +17,14 @@ const Footer: FunctionComponent = () => {
                         <FooterColumn key={index} {...column} />
                     ))}
 
-                    <div className="col-span-full flex flex-col  lg:order-first lg:col-span-4 ">
+                    <div className="col-span-full flex flex-col  justify-between lg:order-first lg:col-span-4">
                         <div className="mb-6 hidden md:mb-0 lg:block">
                             <Link href="/">
                                 <Image
                                     src={LogoImage}
                                     alt="Orun Colored Logo"
-                                    width={150}
-                                    height={32}
+                                    width={125}
+                                    height={65}
                                 />
                             </Link>
                         </div>
@@ -62,8 +62,8 @@ const FooterColumn: FunctionComponent<FooterColumnProps> = ({ title, links }) =>
                 {title}
             </h3>
             <ul className="mt-2">
-                {links.map((link) => (
-                    <li key={link.href}>
+                {links.map((link, index) => (
+                    <li key={index}>
                         <Link
                             className={`text-sm capitalize text-gray-500 hover:underline ${commutersSans.variable} font-commutersSans font-extralight uppercase`}
                             href={link.href}

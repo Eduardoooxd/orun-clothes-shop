@@ -1,4 +1,5 @@
-import { getProducts } from '@/lib/fetchProducts';
+import ProductPage from '@/components/ProductPage';
+import { getProduct, getProducts } from '@/lib/fetchProducts';
 import { notFound } from 'next/navigation';
 
 interface PageProps {
@@ -17,12 +18,11 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: PageProps) {
     const { id } = params;
+    const product = await getProduct(id);
 
-    const products = await getProducts();
-
-    if (!products.find((product) => product.id === id)) {
+    if (!product) {
         notFound();
     }
 
-    return <div>My Post</div>;
+    return <ProductPage product={product} />;
 }
