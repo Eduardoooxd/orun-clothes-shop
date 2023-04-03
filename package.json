@@ -12,6 +12,7 @@
     "dependencies": {
         "@headlessui/react": "^1.7.13",
         "@types/react-image-magnify": "^2.7.1",
+        "@vercel/analytics": "^0.1.11",
         "next": "13.2.3",
         "react": "18.2.0",
         "react-dom": "18.2.0",

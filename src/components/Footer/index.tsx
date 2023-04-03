@@ -4,42 +4,46 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FunctionComponent } from 'react';
 import Container from '../Container';
+import Separator from '../Separator';
 import { ABOUT_LINKS } from './data';
 
 const Footer: FunctionComponent = () => {
     const CURRENT_YEAR = new Date().getFullYear();
 
     return (
-        <footer className="mb-4 lg:mb-12">
-            <Container>
-                <div className="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:gap-8">
-                    {ABOUT_LINKS.map((column, index) => (
-                        <FooterColumn key={index} {...column} />
-                    ))}
+        <>
+            <Separator />
+            <footer className="mb-4 lg:mb-12">
+                <Container>
+                    <div className="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:gap-8">
+                        {ABOUT_LINKS.map((column, index) => (
+                            <FooterColumn key={index} {...column} />
+                        ))}
 
-                    <div className="col-span-full flex flex-col  justify-between lg:order-first lg:col-span-4">
-                        <div className="mb-6 hidden md:mb-0 lg:block">
-                            <Link href="/">
-                                <Image
-                                    src={LogoImage}
-                                    alt="Orun Colored Logo"
-                                    width={125}
-                                    height={65}
-                                />
-                            </Link>
+                        <div className="col-span-full flex flex-col  justify-between lg:order-first lg:col-span-4">
+                            <div className="mb-6 hidden md:mb-0 lg:block">
+                                <Link href="/">
+                                    <Image
+                                        src={LogoImage}
+                                        alt="Orun Colored Logo"
+                                        width={125}
+                                        height={65}
+                                    />
+                                </Link>
+                            </div>
+
+                            <span className="mt-4 text-xs text-gray-500 lg:mt-0">
+                                © {CURRENT_YEAR} {''}
+                                <Link className="hover:underline" href="/">
+                                    Orun™.
+                                </Link>{' '}
+                                All Rights Reserved.
+                            </span>
                         </div>
-
-                        <span className="mt-4 text-xs text-gray-500 lg:mt-0">
-                            © {CURRENT_YEAR} {''}
-                            <Link className="hover:underline" href="/">
-                                Orun™.
-                            </Link>{' '}
-                            All Rights Reserved.
-                        </span>
                     </div>
-                </div>
-            </Container>
-        </footer>
+                </Container>
+            </footer>
+        </>
     );
 };
 

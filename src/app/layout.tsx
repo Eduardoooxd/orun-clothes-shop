@@ -1,3 +1,6 @@
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 
 export const metadata = {
@@ -9,7 +12,14 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="pt">
-            <body>{children}</body>
+            <body>
+                <main className="min-h-screen w-full">
+                    <Navbar />
+                    {children}
+                    <Footer />
+                </main>
+                <Analytics />
+            </body>
         </html>
     );
 }
