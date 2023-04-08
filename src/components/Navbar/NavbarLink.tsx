@@ -10,7 +10,7 @@ const NavbarLink: FunctionComponent<NavbarLinkProps> = ({ text }) => {
     return (
         <Link
             className={`${commutersSans.variable} font-commutersSans font-extralight uppercase`}
-            href=""
+            href="/"
         >
             {text}
         </Link>

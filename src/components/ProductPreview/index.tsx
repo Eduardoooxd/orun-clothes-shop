@@ -14,7 +14,7 @@ const ProductPreview: FunctionComponent<ProductPreviewProps> = ({ product }) => 
 
     return (
         <div className="mt-4 sm:m-0">
-            <Link href={`/products/${id}`}>
+            <Link href={`/product/${id}`}>
                 <div className="relative aspect-square">
                     <Image
                         src={previewImage}

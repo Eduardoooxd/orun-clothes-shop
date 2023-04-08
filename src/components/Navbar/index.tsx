@@ -4,10 +4,14 @@ import MiniLogoImage from '@/images/logo/logo-mini.png';
 import Image from 'next/image';
 import './styles.css';
 
+import { useClerk, useUser } from '@clerk/nextjs/app-beta/client';
+
 import {
     Dispatch,
     FunctionComponent,
+    memo,
     SetStateAction,
+    Suspense,
     useCallback,
     useEffect,
     useState,
@@ -66,33 +70,33 @@ const DesktopNavBar: FunctionComponent = () => {
             <div className="flex items-center gap-6 lg:gap-10">
                 <Link
                     className={`${commutersSans.variable} font-commutersSans font-extralight`}
-                    href=""
+                    href="/"
                 >
                     MEN
                 </Link>
                 <Link
                     className={`${commutersSans.variable} font-commutersSans font-extralight`}
-                    href=""
+                    href="/"
                 >
                     CATEGORIES
                 </Link>
 
                 <Link
                     className={`${commutersSans.variable} font-commutersSans font-extralight`}
-                    href=""
+                    href="/"
                 >
                     ABOUT US
                 </Link>
             </div>
             <div>
-                <Link href="">
+                <Link href="/">
                     <Image priority src={MiniLogoImage} alt="logo" width={100} height={20} />
                 </Link>
             </div>
             <div className="flex items-center gap-10">
                 <Link
                     className={`${commutersSans.variable} font-commutersSans font-extralight`}
-                    href=""
+                    href="/"
                 >
                     CONTACT US
                 </Link>
@@ -111,7 +115,8 @@ const DesktopNavBar: FunctionComponent = () => {
     );
 };
 
-const DesktopAccountDropDown: FunctionComponent = () => {
+const DesktopAccountDropDown = memo(function DesktopAccountDropDown() {
+    const { isSignedIn, user } = useUser();
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const handleDropdownToggle = useCallback(() => {
@@ -126,26 +131,93 @@ const DesktopAccountDropDown: FunctionComponent = () => {
                         aria-label="Login / Sign-up options"
                         className=" grid aspect-square w-12 place-items-center focus:outline-none"
                     >
-                        <RxPerson size={'1.5rem'} />
+                        {isSignedIn ? (
+                            <Suspense fallback={<RxPerson size={'1.5rem'} />}>
+                                <Image
+                                    priority
+                                    src={user?.profileImageUrl}
+                                    alt="User profile picture"
+                                    width={24}
+                                    height={24}
+                                    className="rounded-full"
+                                />
+                            </Suspense>
+                        ) : (
+                            <RxPerson size={'1.5rem'} />
+                        )}
                     </button>
                 </DropdownMenu.Trigger>
 
                 <DropdownMenu.Portal>
                     <DropdownMenu.Content
-                        className={`DropdownMenuContent solid absolute right-0 z-[60] flex w-80 flex-col gap-y-2 rounded-lg border border-black bg-white py-2 px-4 shadow-lg `}
+                        className={`DropdownMenuContent solid absolute right-0 z-[60] flex w-80 flex-col gap-y-1 rounded-lg border border-black bg-white py-2 px-4 shadow-lg `}
                     >
-                        <DropdownMenu.Label
-                            className={`${commutersSans.variable} font-commutersSans text-sm font-extralight capitalize text-gray-500 `}
-                        >
-                            Login options
-                        </DropdownMenu.Label>
-                        <DropdownMenu.Item className=" text-gray-700 hover:bg-red-700">
-                            Hello World
-                        </DropdownMenu.Item>
+                        <DropdownMenuUserOptions />
                     </DropdownMenu.Content>
                 </DropdownMenu.Portal>
             </DropdownMenu.Root>
         </div>
+    );
+});
+
+const DropdownMenuUserOptions: FunctionComponent = () => {
+    const { isLoaded, isSignedIn, user } = useUser();
+    const { signOut } = useClerk();
+
+    if (!isLoaded || !isSignedIn) {
+        return (
+            <>
+                <DropdownMenu.Label
+                    className={`${commutersSans.variable} font-commutersSans text-sm font-extralight capitalize text-gray-500 `}
+                >
+                    Login options
+                </DropdownMenu.Label>
+                <DropdownMenu.Item className="hover:outline-none">
+                    <Link
+                        className={`${commutersSans.variable} w-full font-commutersSans font-extralight hover:underline`}
+                        href="/sign-in"
+                    >
+                        Sign in
+                    </Link>
+                </DropdownMenu.Item>
+                <DropdownMenu.Item className="hover:outline-none">
+                    <Link
+                        className={`${commutersSans.variable} w-full font-commutersSans font-extralight hover:underline`}
+                        href="/sign-up"
+                    >
+                        Sign up
+                    </Link>
+                </DropdownMenu.Item>
+            </>
+        );
+    }
+
+    return (
+        <>
+            <DropdownMenu.Label
+                className={`${commutersSans.variable} font-commutersSans text-sm font-extralight capitalize text-gray-500`}
+            >
+                {`Welcome back ${user?.fullName}`}
+            </DropdownMenu.Label>
+            <DropdownMenu.Separator />
+
+            <DropdownMenu.Item className="hover:outline-none">
+                <Link
+                    className={`${commutersSans.variable} w-full font-commutersSans font-extralight hover:underline`}
+                    href="/user/profile"
+                >
+                    Profile
+                </Link>
+            </DropdownMenu.Item>
+            <DropdownMenu.Item className="hover:outline-none">
+                <button
+                    className={`${commutersSans.variable} w-full text-left font-commutersSans font-extralight hover:underline`}
+                    onClick={() => signOut()}
+                >
+                    Sign out
+                </button>
+            </DropdownMenu.Item>
+        </>
     );
 };
 
@@ -174,7 +246,7 @@ const MobileNavBar: FunctionComponent<NobileNavBarProps> = ({
         <>
             <div className="container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6 md:hidden">
                 <div>
-                    <Link href="">
+                    <Link href="/">
                         <Image priority src={MiniLogoImage} alt="logo" width={90} height={20} />
                     </Link>
                 </div>

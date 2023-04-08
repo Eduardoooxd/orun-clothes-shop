@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import { ClerkProvider } from '@clerk/nextjs/app-beta';
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 
@@ -12,14 +13,16 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="pt">
-            <body>
-                <main className="min-h-screen w-full">
-                    <Navbar />
-                    {children}
-                    <Footer />
-                </main>
-                <Analytics />
-            </body>
+            <ClerkProvider>
+                <body>
+                    <main className="flex min-h-screen w-full flex-col items-center justify-between">
+                        <Navbar />
+                        {children}
+                        <Footer />
+                    </main>
+                    <Analytics />
+                </body>
+            </ClerkProvider>
         </html>
     );
 }

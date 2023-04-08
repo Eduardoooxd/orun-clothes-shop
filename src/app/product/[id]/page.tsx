@@ -1,5 +1,5 @@
 import ProductPage from '@/components/ProductPage';
-import { getProduct, getProducts } from '@/lib/fetchProducts';
+import { getProduct } from '@/lib/fetchProducts';
 import { notFound } from 'next/navigation';
 
 interface PageProps {
@@ -7,14 +7,14 @@ interface PageProps {
         id: string;
     };
 }
-
+/*
 export async function generateStaticParams() {
     const products = await getProducts();
 
     return products.map((product) => {
         return { id: product.id };
     });
-}
+}*/
 
 export default async function Page({ params }: PageProps) {
     const { id } = params;
