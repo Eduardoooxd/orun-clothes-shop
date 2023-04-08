@@ -2,28 +2,26 @@
 
 import MiniLogoImage from '@/images/logo/logo-mini.png';
 import Image from 'next/image';
-import { Dispatch, FunctionComponent, SetStateAction, useEffect, useState } from 'react';
+import './styles.css';
+
+import {
+    Dispatch,
+    FunctionComponent,
+    SetStateAction,
+    useCallback,
+    useEffect,
+    useState,
+} from 'react';
 
 import { commutersSans } from '@/lib/fontLoader';
 import { Transition } from '@headlessui/react';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import Link from 'next/link';
 import { CiSearch } from 'react-icons/ci';
 import { RxPerson } from 'react-icons/rx';
 import Bag from '../Icons/Bag';
 import { ClosedHamburgerMenu, OpenHamburgerMenu } from '../Icons/HamburguerMenu';
 import NavbarLink, { NavbarLinkProps } from './NavbarLink';
-
-const NAVBAR_LINKS: NavbarLinkProps[] = [
-    {
-        text: 'Categories',
-    },
-    {
-        text: 'About us',
-    },
-    {
-        text: 'Contact us',
-    },
-];
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -99,15 +97,69 @@ const DesktopNavBar: FunctionComponent = () => {
                     CONTACT US
                 </Link>
 
-                <CiSearch size={'1.5rem'} />
+                <div className="grid aspect-square w-12 place-items-center">
+                    <CiSearch size={'1.5rem'} />
+                </div>
 
-                <RxPerson size={'1.5rem'} />
+                <DesktopAccountDropDown />
 
-                <Bag />
+                <div className="grid aspect-square w-12 place-items-center">
+                    <Bag />
+                </div>
             </div>
         </div>
     );
 };
+
+const DesktopAccountDropDown: FunctionComponent = () => {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const handleDropdownToggle = useCallback(() => {
+        setDropdownOpen((prevState) => !prevState);
+    }, []);
+
+    return (
+        <div className="relative">
+            <DropdownMenu.Root open={dropdownOpen} onOpenChange={setDropdownOpen}>
+                <DropdownMenu.Trigger asChild onClick={handleDropdownToggle}>
+                    <button
+                        aria-label="Login / Sign-up options"
+                        className=" grid aspect-square w-12 place-items-center focus:outline-none"
+                    >
+                        <RxPerson size={'1.5rem'} />
+                    </button>
+                </DropdownMenu.Trigger>
+
+                <DropdownMenu.Portal>
+                    <DropdownMenu.Content
+                        className={`DropdownMenuContent solid absolute right-0 z-[60] flex w-80 flex-col gap-y-2 rounded-lg border border-black bg-white py-2 px-4 shadow-lg `}
+                    >
+                        <DropdownMenu.Label
+                            className={`${commutersSans.variable} font-commutersSans text-sm font-extralight capitalize text-gray-500 `}
+                        >
+                            Login options
+                        </DropdownMenu.Label>
+                        <DropdownMenu.Item className=" text-gray-700 hover:bg-red-700">
+                            Hello World
+                        </DropdownMenu.Item>
+                    </DropdownMenu.Content>
+                </DropdownMenu.Portal>
+            </DropdownMenu.Root>
+        </div>
+    );
+};
+
+const NAVBAR_LINKS: NavbarLinkProps[] = [
+    {
+        text: 'Categories',
+    },
+    {
+        text: 'About us',
+    },
+    {
+        text: 'Contact us',
+    },
+];
 
 interface NobileNavBarProps {
     isMobileMenuOpen: boolean;
