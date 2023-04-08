@@ -21,6 +21,7 @@ import { commutersSans } from '@/lib/fontLoader';
 import { Transition } from '@headlessui/react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { CiSearch } from 'react-icons/ci';
 import { RxPerson } from 'react-icons/rx';
 import Bag from '../Icons/Bag';
@@ -150,7 +151,7 @@ const DesktopAccountDropDown = memo(function DesktopAccountDropDown() {
 
                 <DropdownMenu.Portal>
                     <DropdownMenu.Content
-                        className={`DropdownMenuContent solid absolute right-0 z-[60] flex w-80 flex-col gap-y-1 rounded-lg border border-black bg-white py-2 px-4 shadow-lg `}
+                        className={`DropdownMenuContent absolute right-0 z-[60] flex w-80 flex-col gap-y-1 rounded-lg border border-black bg-white py-2 px-4 shadow-lg `}
                     >
                         <DropdownMenuUserOptions />
                     </DropdownMenu.Content>
@@ -163,6 +164,7 @@ const DesktopAccountDropDown = memo(function DesktopAccountDropDown() {
 const DropdownMenuUserOptions: FunctionComponent = () => {
     const { isLoaded, isSignedIn, user } = useUser();
     const { signOut } = useClerk();
+    const router = useRouter();
 
     if (!isLoaded || !isSignedIn) {
         return (
@@ -195,7 +197,7 @@ const DropdownMenuUserOptions: FunctionComponent = () => {
     return (
         <>
             <DropdownMenu.Label
-                className={`${commutersSans.variable} font-commutersSans text-sm font-extralight capitalize text-gray-500`}
+                className={`${commutersSans.variable} font-commutersSans text-sm font-extralight text-gray-500`}
             >
                 {`Welcome back ${user?.fullName}`}
             </DropdownMenu.Label>
@@ -212,7 +214,10 @@ const DropdownMenuUserOptions: FunctionComponent = () => {
             <DropdownMenu.Item className="hover:outline-none">
                 <button
                     className={`${commutersSans.variable} w-full text-left font-commutersSans font-extralight hover:underline`}
-                    onClick={() => signOut()}
+                    onClick={() => {
+                        router.push('/');
+                        signOut();
+                    }}
                 >
                     Sign out
                 </button>
