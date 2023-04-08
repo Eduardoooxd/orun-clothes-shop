@@ -9,7 +9,7 @@ export interface NavbarLinkProps {
 const NavbarLink: FunctionComponent<NavbarLinkProps> = ({ text }) => {
     return (
         <Link
-            className={`${commutersSans.variable} font-commutersSans font-extralight uppercase`}
+            className={`${commutersSans.variable} flex h-8 items-center font-commutersSans font-extralight uppercase`}
             href="/"
         >
             {text}

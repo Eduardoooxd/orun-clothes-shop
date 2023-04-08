@@ -4,7 +4,7 @@ import MiniLogoImage from '@/images/logo/logo-mini.png';
 import Image from 'next/image';
 import './styles.css';
 
-import { useClerk, useUser } from '@clerk/nextjs/app-beta/client';
+import { SignIn, useClerk, UserButton, useUser } from '@clerk/nextjs/app-beta/client';
 
 import {
     Dispatch,
@@ -279,7 +279,9 @@ const MobileNavBar: FunctionComponent<NobileNavBarProps> = ({
             >
                 {() => (
                     <div className="h-[calc(100dvh-5rem)] p-4 sm:p-6 md:hidden">
-                        <div className="flex flex-col">
+                        <div className="flex flex-col gap-4">
+                            <MobileMenuUserOptions />
+
                             {NAVBAR_LINKS.map((navBarLink, index) => (
                                 <NavbarLink key={index} {...navBarLink} />
                             ))}
@@ -287,6 +289,83 @@ const MobileNavBar: FunctionComponent<NobileNavBarProps> = ({
                     </div>
                 )}
             </Transition>
+        </>
+    );
+};
+
+const MobileMenuUserOptions: FunctionComponent = ({}) => {
+    const { isLoaded, isSignedIn } = useUser();
+
+    if (!isLoaded || !isSignedIn) {
+        return <MobileSignInDropDown />;
+    }
+
+    return (
+        <UserButton
+            showName
+            appearance={{
+                elements: {
+                    rootBox: 'w-full',
+                    userButtonBox: 'w-full justify-between',
+                    userButtonOuterIdentifier: `${commutersSans.variable} font-commutersSans font-extralight uppercase text-base`,
+                },
+            }}
+        />
+    );
+};
+
+const MobileSignInDropDown: FunctionComponent = () => {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const handleDropdownToggle = useCallback(() => {
+        setDropdownOpen((prevState) => !prevState);
+    }, []);
+
+    const SingInOptions = [
+        {
+            text: 'Sign in',
+            component: (
+                <SignIn
+                    signUpUrl="/sign-up"
+                    afterSignInUrl="/"
+                    appearance={{
+                        elements: {
+                            rootBox: 'bg-transparent w-full',
+                            card: 'py-2 px-0 shadow-none max-w-sm mx-auto w-full',
+                            header: 'hidden',
+                        },
+                    }}
+                />
+            ),
+        },
+    ];
+
+    return (
+        <>
+            {SingInOptions.map((option, index) => (
+                <DropdownMenu.Root key={index} open={dropdownOpen} onOpenChange={setDropdownOpen}>
+                    <DropdownMenu.Trigger asChild onClick={handleDropdownToggle}>
+                        <button
+                            aria-label={option.text}
+                            className={`${commutersSans.variable} text-left font-commutersSans font-extralight uppercase`}
+                        >
+                            {option.text}
+                        </button>
+                    </DropdownMenu.Trigger>
+
+                    <DropdownMenu.Portal>
+                        <DropdownMenu.Content
+                            align="start"
+                            side="left"
+                            className={`absolute left-0 z-[60] mt-8 flex w-80 bg-transparent`}
+                        >
+                            <DropdownMenu.Item className="w-full">
+                                {option.component}
+                            </DropdownMenu.Item>
+                        </DropdownMenu.Content>
+                    </DropdownMenu.Portal>
+                </DropdownMenu.Root>
+            ))}
         </>
     );
 };
