@@ -18,44 +18,121 @@ export interface Product {
     price: number;
     description: string;
     category: string;
+    sizes: string[];
+    colors: string[];
     images: StaticImageData[];
 }
 
-export const exampleProducts: Product[] = [
+export const TunicasProducts: Product[] = [
     {
         id: '1',
-        title: 'Finibus Bonorum',
-        price: 109,
+        title: 'Túnica Trespasse - LYNX',
+        price: 89,
         description:
-            'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.',
-        category: "men's clothing",
+            'Peça que evoca a sensualidade masculina de forma descomplexada e arrojada. Decote livre numa peça cavada, em malha de duas folhas semi-transparente de alta qualidade. Com detalhes únicos no ombro a marcar e a definir o estilo do homem Orun.',
+        category: 'Túnicas',
+        sizes: ['S/M', 'M/L'],
+        colors: ['Preta', 'Verde'],
         images: [PreviewProduct1, FrontImageProduct1, CloseUpProduct1, SideProduct1],
     },
     {
         id: '2',
-        title: 'Nunc augue orci',
-        price: 269,
+        title: 'Túnica aberta - HAMMAL',
+        price: 89,
         description:
-            'Nullam vitae ultrices risus, blandit vehicula lectus. Duis ut velit eu erat euismod malesuada sit amet a tellus. Maecenas id mollis purus. Duis lectus arcu, malesuada sed pretium eu, placerat et sem. In sem tellus, lacinia et vestibulum eu, sodales at ligula. Etiam leo sapien, semper in consequat ac, viverra sit amet sem.',
-        category: "men's clothing",
+            'Peça fluída, inspirada nos homens medicina, conhecedores dos segredos e mistérios da Terra e que são seguros de si. Peça que evoca o vento pela sua composição e que remete a um imaginário tribal composto por guerreiros, xamãs, e homens que expressam a sua masculinidade de forma sensual.',
+        category: 'Túnicas',
+        sizes: ['S/M', 'M/L'],
+        colors: ['Preta'],
         images: [PreviewProduct2, PreviewProduct2],
     },
     {
         id: '3',
-        title: 'Fusce laoreet',
-        price: 329,
+        title: 'Túnica aberta - ADHIL',
+        price: 89,
         description:
-            ' Etiam quis quam porta, mollis mi eu, faucibus metus. Donec pharetra est ornare urna cursus pellentesque. Aliquam tincidunt venenatis tortor, a congue velit fringilla nec. Sed fermentum, ipsum a vestibulum elementum, magna est scelerisque massa, ac ultricies velit risus at nibh.',
-        category: "men's clothing",
+            'Fluidez, naturalidade, pureza: traços que definem o Homem Orun. Peça em malha de caimento único que exalta a sensualidade, o sagrado e o amor.',
+        category: 'Túnicas',
+        sizes: ['Fluído'],
+        colors: ['Branca'],
         images: [PreviewProduct3, FrontImageProduct3, CloseUpProduct3, SideProduct3],
     },
     {
         id: '4',
-        title: 'Ut vel tempus tortor',
-        price: 59,
+        title: 'Túnica aberta - VEGA',
+        price: 79,
+        sizes: ['Fluído'],
+        colors: ['Beje'],
         description:
-            'Vestibulum eleifend mollis ipsum nec molestie. Ut at nisi ut risus eleifend aliquet. Donec efficitur odio at dolor dapibus dictum. Praesent lobortis sem et justo laoreet rutrum. Proin eu neque nec lorem finibus facilisis.',
-        category: "men's clothing",
+            'Descontração, inspiração cultural da América do Sul e a imagem de um homem moderno e espiritual. Fácilmente adaptável a um estilo mais formal ou informal, esta peça pretende trazer a quem a veste a imagem de um homem seguro, intemporal, elegante e espiritual.',
+        category: 'Túnicas',
         images: [PreviewProduct4, PreviewProduct4, CloseUpProduct4, SideProduct4],
+    },
+];
+
+export const CamisolasProducts: Product[] = [
+    {
+        id: '5',
+        title: 'Camisola - RIGEL',
+        price: 120,
+        description:
+            'Peça inspirada no movimento Sports and streetwear dos anos 70. Decote arrojado em V, manga cava. Com estilo clássico mas com a contemporaniedade necessária para trazer inovação ao homem que a veste. Malha de algodão que confere conforto superior.',
+        category: 'Camisola',
+        sizes: ['S/M', 'M/L'],
+        colors: ['Branca'],
+        images: [PreviewProduct1, FrontImageProduct1, CloseUpProduct1, SideProduct1],
+    },
+];
+
+export const CamisasProducts: Product[] = [
+    {
+        id: '6',
+        title: 'Camisa-Quimono - CEPTUS',
+        price: 77,
+        description:
+            'Malha de qualidade superior fluída, de toque macio. Corte largo e de decote livre. Ideal para ser usada como camisa ou como peça aberta correspondendo a um estilo descomprometido, sensual, discreto e marcante.',
+        category: 'Camisa',
+        sizes: ['S/M', 'M/L'],
+        colors: ['Terracota', 'Preta'],
+        images: [PreviewProduct2, PreviewProduct2],
+    },
+];
+
+export const CalcaoProducts: Product[] = [
+    {
+        id: '7',
+        title: 'Calção praia - AZHA-BEACH',
+        price: 55,
+        description:
+            'Com três folhas de malha e um design único este calção proporciona um look descontraído, fluído, e diferenciado. Veste a tua sunga e por cima o calção AZHA- BEACH, e prepara-te para dias de praia, calor, sensualidade e descontração.',
+        category: 'Calção',
+        sizes: ['Tamanho ajustável'],
+        colors: ['Preto', 'Verde'],
+        images: [PreviewProduct3, FrontImageProduct3, CloseUpProduct3, SideProduct3],
+    },
+    {
+        id: '8',
+        title: 'Calção Sport - AZHA-STREET',
+        price: 72,
+        description:
+            'Calção de corte fluído, com acabamentos rústicos que conferem uma peça de design único, arrojado e ao mesmo tempo clássico e elegante.',
+        category: 'Calção',
+        sizes: ['Tamanho ajustável'],
+        colors: ['Verde Caqui'],
+        images: [PreviewProduct4, PreviewProduct4, CloseUpProduct4, SideProduct4],
+    },
+];
+
+export const ExclusivoProducts: Product[] = [
+    {
+        id: '9',
+        title: 'Quimono - DIWO',
+        price: 189,
+        description:
+            'Peça única, exclusiva e irrepetível. Tecido de alta qualidade de influências orientais. Corte largo e ajustável a qualquer tamanho.',
+        category: 'Exclusivo',
+        sizes: ['Tamanho ajustável'],
+        colors: [''],
+        images: [PreviewProduct1, FrontImageProduct1, CloseUpProduct1, SideProduct1],
     },
 ];

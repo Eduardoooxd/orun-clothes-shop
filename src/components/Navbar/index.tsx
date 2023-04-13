@@ -58,12 +58,10 @@ const DesktopNavBar: FunctionComponent = () => {
     return (
         <div className="container mx-auto hidden h-20 w-full items-center justify-between p-4 sm:p-6 md:flex">
             <div className="flex items-center gap-6 lg:gap-10">
-                <Link
-                    className={`${commutersSans.variable} font-commutersSans font-extralight`}
-                    href="/"
-                >
-                    MEN
+                <Link href="/">
+                    <Image priority src={MiniLogoImage} alt="logo" width={100} height={20} />
                 </Link>
+
                 <Link
                     className={`${commutersSans.variable} font-commutersSans font-extralight`}
                     href="/"
@@ -77,20 +75,14 @@ const DesktopNavBar: FunctionComponent = () => {
                 >
                     ABOUT US
                 </Link>
-            </div>
-            <div>
-                <Link href="/">
-                    <Image priority src={MiniLogoImage} alt="logo" width={100} height={20} />
-                </Link>
-            </div>
-            <div className="flex items-center gap-10">
                 <Link
                     className={`${commutersSans.variable} font-commutersSans font-extralight`}
                     href="/"
                 >
                     CONTACT US
                 </Link>
-
+            </div>
+            <div className="flex items-center gap-10">
                 <div className="grid aspect-square w-12 place-items-center">
                     <CiSearch size={'1.5rem'} />
                 </div>
