@@ -30,14 +30,16 @@ function CarouselItems({ product }: CarouselItemsProps) {
 
     return (
         <>
-            {images.map((image, index) => (
-                <div key={image.src} className="relative h-full min-h-[500px] cursor-crosshair">
+            {images.map((image) => (
+                <div
+                    key={image.src}
+                    className="relative h-full min-h-[400px] cursor-crosshair sm:min-h-[500px]"
+                >
                     <Image
                         src={image}
-                        priority={index === 0}
+                        priority
                         alt={description}
                         fill
-                        loading={index === 0 ? 'eager' : 'lazy'}
                         style={{ objectFit: 'cover' }}
                     />
                 </div>
