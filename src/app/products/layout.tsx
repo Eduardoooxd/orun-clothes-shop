@@ -6,7 +6,7 @@ interface ProductsLayoutProps {
 
 export default async function ProductsLayout({ children }: ProductsLayoutProps) {
     return (
-        <div className=" w-full">
+        <div className="w-full">
             <Container>{children}</Container>
         </div>
     );

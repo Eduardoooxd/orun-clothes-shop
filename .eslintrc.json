@@ -9,7 +9,8 @@
     ],
     "rules": {
         // I suggest you add those two rules:
-        "@typescript-eslint/no-explicit-any": "error"
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/ban-ts-comment": "off"
     },
     "overrides": [
         {

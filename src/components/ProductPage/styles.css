@@ -1,0 +1,3 @@
+:is(.carousel-slider, .slider-wrapper, .slider-wrapper .slider) {
+    height: 100%;
+}
