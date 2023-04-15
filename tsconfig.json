@@ -26,7 +26,8 @@
             "@/images/*": ["./public/assets/images/*"],
             "@/components/*": ["./src/components/*"],
             "@/hooks/*": ["./src/hooks/*"],
-            "@/lib/*": ["./lib/*"]
+            "@/lib/*": ["./lib/*"],
+            "@/config/*": ["./config/*"]
         }
     },
     "include": [

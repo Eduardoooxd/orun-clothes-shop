@@ -40,6 +40,7 @@ function CarouselItems({ product }: CarouselItemsProps) {
                         priority
                         alt={description}
                         fill
+                        loading={'eager'}
                         style={{ objectFit: 'cover' }}
                     />
                 </div>

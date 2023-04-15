@@ -3,7 +3,6 @@
 ## First Release (MVP)
 
 -   Implement an image magnifier on the product page to allow users to see products in detail.
--   Implement a carousel on the product page to display multiple images of a product.
 -   Implement internationalization (i18n) for all pages to cater to a diverse audience.
 -   Create a product page with a search bar to make it easier for users to find specific products.
 -   Implement analytics to track user behavior and improve website performance.
