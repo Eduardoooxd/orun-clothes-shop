@@ -1,18 +1,15 @@
 'use client';
 
-import { commutersSans } from '@/lib/fontLoader';
 import { Transition } from '@headlessui/react';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Dispatch, FunctionComponent, SetStateAction, useCallback, useState } from 'react';
+import { Dispatch, FunctionComponent, SetStateAction } from 'react';
 import { ClosedHamburgerMenu, OpenHamburgerMenu } from '../Icons/HamburguerMenu';
 import NavbarLink, { NavbarLinkProps } from './NavbarLink';
 
 import MiniLogoImage from '@/images/logo/logo-mini.png';
 
 import { useLockBody } from '@/hooks/useLockBody';
-import { SignIn, UserButton, useUser } from '@clerk/nextjs/app-beta/client';
 
 const NAVBAR_LINKS: NavbarLinkProps[] = [
     {
@@ -65,6 +62,7 @@ interface MobileNavBarMenuProps {
 }
 
 const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({ isMobileMenuOpen }) => {
+    useLockBody();
     return (
         <>
             <Transition
@@ -79,8 +77,6 @@ const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({ isMobileMe
                 {() => (
                     <div className="h-[calc(100dvh-5rem)] p-4 sm:p-6 md:hidden">
                         <div className="flex flex-col gap-4">
-                            <UserRelatedOptions />
-
                             {NAVBAR_LINKS.map((navBarLink, index) => (
                                 <NavbarLink key={index} {...navBarLink} />
                             ))}
@@ -88,85 +84,6 @@ const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({ isMobileMe
                     </div>
                 )}
             </Transition>
-        </>
-    );
-};
-
-const UserRelatedOptions: FunctionComponent = ({}) => {
-    useLockBody();
-
-    const { isLoaded, isSignedIn } = useUser();
-
-    if (!isLoaded || !isSignedIn) {
-        return <UserLoginOption />;
-    }
-
-    return (
-        <UserButton
-            showName
-            appearance={{
-                elements: {
-                    rootBox: 'w-full',
-                    userButtonBox: 'w-full justify-between',
-                    userButtonOuterIdentifier: `${commutersSans.variable} font-commutersSans font-extralight uppercase text-base`,
-                },
-            }}
-        />
-    );
-};
-
-const UserLoginOption: FunctionComponent = () => {
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-
-    const handleDropdownToggle = useCallback(() => {
-        setDropdownOpen((prevState) => !prevState);
-    }, []);
-
-    const SingInOptions = [
-        {
-            text: 'Sign in',
-            component: (
-                <SignIn
-                    signUpUrl="/sign-up"
-                    afterSignInUrl="/"
-                    appearance={{
-                        elements: {
-                            rootBox: 'bg-transparent w-full',
-                            card: 'py-2 px-0 shadow-none max-w-sm mx-auto w-full',
-                            header: 'hidden',
-                        },
-                    }}
-                />
-            ),
-        },
-    ];
-
-    return (
-        <>
-            {SingInOptions.map((option, index) => (
-                <DropdownMenu.Root key={index} open={dropdownOpen} onOpenChange={setDropdownOpen}>
-                    <DropdownMenu.Trigger asChild onClick={handleDropdownToggle}>
-                        <button
-                            aria-label={option.text}
-                            className={`${commutersSans.variable} text-left font-commutersSans font-extralight uppercase`}
-                        >
-                            {option.text}
-                        </button>
-                    </DropdownMenu.Trigger>
-
-                    <DropdownMenu.Portal>
-                        <DropdownMenu.Content
-                            align="start"
-                            side="left"
-                            className={`absolute left-0 z-[60] mt-8 flex w-80 bg-transparent`}
-                        >
-                            <DropdownMenu.Item className="w-full">
-                                {option.component}
-                            </DropdownMenu.Item>
-                        </DropdownMenu.Content>
-                    </DropdownMenu.Portal>
-                </DropdownMenu.Root>
-            ))}
         </>
     );
 };
