@@ -1,20 +1,33 @@
 import ProductPage from '@/components/ProductPage';
-import { getProduct } from '@/lib/fetchProducts';
+import { i18nConfig } from '@/config/i18nConfig';
+import { getProduct, getProducts } from '@/lib/fetchProducts';
 import { notFound } from 'next/navigation';
 
 interface PageProps {
     params: {
         id: string;
+        lang: string;
     };
 }
-/*
 export async function generateStaticParams() {
+    const { locales } = i18nConfig;
     const products = await getProducts();
 
-    return products.map((product) => {
-        return { id: product.id };
+    const params: [
+        {
+            id: string;
+            lang: string;
+        }?
+    ] = [];
+
+    products.forEach((product) => {
+        locales.forEach((locale) => {
+            params.push({ id: product.id, lang: locale });
+        });
     });
-}*/
+
+    return params;
+}
 
 export default async function Page({ params }: PageProps) {
     const { id } = params;
