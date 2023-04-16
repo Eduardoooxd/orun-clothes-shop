@@ -1,6 +1,8 @@
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Layout/Navbar';
+import { Locale } from '@/config/i18nConfig';
 import { siteConfig } from '@/config/site';
+import { getDictionary } from '@/lib/getDictionary';
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 
@@ -17,12 +19,14 @@ export const metadata = {
 interface PageLayoutProps {
     children: React.ReactNode;
     params: {
-        lang: string;
+        lang: Locale;
     };
 }
 
-export default function PageLayout({ children, params }: PageLayoutProps) {
+export default async function PageLayout({ children, params }: PageLayoutProps) {
     const { lang } = params;
+    const dictionary = await getDictionary(lang);
+
     return (
         <html lang={lang}>
             <body>

@@ -31,17 +31,19 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav
+        <header
             className={`sticky top-0 z-50 flex min-h-[5rem] w-full flex-col justify-evenly transition duration-300 ease-in-out ${stylesOnScroll}`}
         >
-            {isMobile ? (
-                <MobileNavBar
-                    isMobileMenuOpen={isMobileMenuOpen}
-                    setIsMobileMenuOpen={setIsMobileMenuOpen}
-                />
-            ) : (
-                <DesktopNavBar />
-            )}
-        </nav>
+            <nav>
+                {isMobile ? (
+                    <MobileNavBar
+                        isMobileMenuOpen={isMobileMenuOpen}
+                        setIsMobileMenuOpen={setIsMobileMenuOpen}
+                    />
+                ) : (
+                    <DesktopNavBar />
+                )}
+            </nav>
+        </header>
     );
 }
