@@ -5,10 +5,15 @@ import Link from 'next/link';
 import { FunctionComponent } from 'react';
 import Container from '../Container';
 import Separator from '../Separator';
-import { ABOUT_LINKS } from './data';
 
-const Footer: FunctionComponent = () => {
+interface FooterProps {
+    dictionary: Dictionary;
+}
+
+const Footer: FunctionComponent<FooterProps> = ({ dictionary }) => {
     const CURRENT_YEAR = new Date().getFullYear();
+    const { footer } = dictionary;
+    const { ABOUT_LINKS } = footer;
 
     return (
         <>

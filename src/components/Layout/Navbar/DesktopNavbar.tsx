@@ -7,22 +7,11 @@ import Bag from '../../Icons/Bag';
 import LocaleSwitcher from './LocaleSwitcher';
 import NavbarLink, { NavbarLinkProps } from './NavbarLink';
 
-const NAVBAR_LINKS: NavbarLinkProps[] = [
-    {
-        text: 'Categories',
-        href: '/',
-    },
-    {
-        text: 'About us',
-        href: '/',
-    },
-    {
-        text: 'Contact us',
-        href: '/',
-    },
-];
+interface DesktopNavBarProps {
+    links: NavbarLinkProps[];
+}
 
-export const DesktopNavBar: FunctionComponent = () => {
+export const DesktopNavBar: FunctionComponent<DesktopNavBarProps> = ({ links }) => {
     return (
         <div className="container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6">
             <div className="flex items-center gap-6 lg:gap-10">
@@ -30,7 +19,7 @@ export const DesktopNavBar: FunctionComponent = () => {
                     <Image priority src={MiniLogoImage} alt="logo" width={100} height={20} />
                 </Link>
 
-                {NAVBAR_LINKS.map((navBarLink, index) => (
+                {links.map((navBarLink, index) => (
                     <NavbarLink key={index} {...navBarLink} />
                 ))}
             </div>

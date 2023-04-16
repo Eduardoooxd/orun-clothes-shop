@@ -1,15 +1,20 @@
 'use client';
 
 import useIsMobile from '@/hooks/useIsMobile';
-import { useEffect, useState } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 import { DesktopNavBar } from './DesktopNavbar';
 import { MobileNavBar } from './Mobile';
 import './styles.css';
 
-export default function Navbar() {
+interface NavbarProps {
+    dictionary: Dictionary;
+}
+
+export const Navbar: FunctionComponent<NavbarProps> = ({ dictionary }) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const isMobile = useIsMobile();
+    const { NAVBAR_LINKS } = dictionary.navBar;
 
     const stylesOnScroll =
         isScrolled || isMobileMenuOpen
@@ -39,11 +44,12 @@ export default function Navbar() {
                     <MobileNavBar
                         isMobileMenuOpen={isMobileMenuOpen}
                         setIsMobileMenuOpen={setIsMobileMenuOpen}
+                        links={NAVBAR_LINKS}
                     />
                 ) : (
-                    <DesktopNavBar />
+                    <DesktopNavBar links={NAVBAR_LINKS} />
                 )}
             </nav>
         </header>
     );
-}
+};

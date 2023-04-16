@@ -12,29 +12,16 @@ import MiniLogoImage from '@/images/logo/logo-mini.png';
 import { useLockBody } from '@/hooks/useLockBody';
 import LocaleSwitcher from './LocaleSwitcher';
 
-const NAVBAR_LINKS: NavbarLinkProps[] = [
-    {
-        text: 'Categories',
-        href: '/',
-    },
-    {
-        text: 'About us',
-        href: '/',
-    },
-    {
-        text: 'Contact us',
-        href: '/',
-    },
-];
-
 interface MobileNavBarProps {
     isMobileMenuOpen: boolean;
     setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
+    links: NavbarLinkProps[];
 }
 
 export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
     isMobileMenuOpen,
     setIsMobileMenuOpen,
+    links,
 }) => {
     return (
         <>
@@ -56,16 +43,20 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
                     <ClosedHamburgerMenu isOpen={isMobileMenuOpen} />
                 </button>
             </div>
-            <MobileNavBarMenu isMobileMenuOpen={isMobileMenuOpen} />
+            <MobileNavBarMenu links={links} isMobileMenuOpen={isMobileMenuOpen} />
         </>
     );
 };
 
 interface MobileNavBarMenuProps {
     isMobileMenuOpen: boolean;
+    links: NavbarLinkProps[];
 }
 
-const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({ isMobileMenuOpen }) => {
+const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({
+    isMobileMenuOpen,
+    links,
+}) => {
     return (
         <>
             <Transition
@@ -77,19 +68,23 @@ const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({ isMobileMe
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
             >
-                {() => <MobileNavBarMenuOpen />}
+                {() => <MobileNavBarMenuOpen links={links} />}
             </Transition>
         </>
     );
 };
 
-const MobileNavBarMenuOpen: FunctionComponent = () => {
+interface MobileNavBarMenuOpenProps {
+    links: NavbarLinkProps[];
+}
+
+const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({ links }) => {
     useLockBody();
 
     return (
         <div className="h-[calc(100dvh-5rem)] p-4 sm:p-6 md:hidden">
             <div className="flex flex-col gap-4">
-                {NAVBAR_LINKS.map((navBarLink, index) => (
+                {links.map((navBarLink, index) => (
                     <NavbarLink key={index} {...navBarLink} />
                 ))}
                 <LocaleSwitcher />

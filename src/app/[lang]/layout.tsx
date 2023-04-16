@@ -1,5 +1,5 @@
 import Footer from '@/components/Footer';
-import Navbar from '@/components/Layout/Navbar';
+import { Navbar } from '@/components/Layout/Navbar';
 import { Locale } from '@/config/i18nConfig';
 import { siteConfig } from '@/config/site';
 import { getDictionary } from '@/lib/getDictionary';
@@ -31,9 +31,9 @@ export default async function PageLayout({ children, params }: PageLayoutProps) 
         <html lang={lang}>
             <body>
                 <main className="flex min-h-screen w-full flex-col items-center justify-between">
-                    <Navbar />
+                    <Navbar dictionary={dictionary} />
                     {children}
-                    <Footer />
+                    <Footer dictionary={dictionary} />
                 </main>
                 <Analytics />
             </body>

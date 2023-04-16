@@ -1,11 +1,19 @@
-import { Locale } from '@/config/i18nConfig';
+import { i18nConfig, Locale } from '@/config/i18nConfig';
+import { dictionary as en } from '@/dictionaries/en';
+import { dictionary as pt } from '@/dictionaries/pt';
 import 'server-only';
 
-// We enumerate all dictionaries here for better linting and typescript support
-// We also get the default import for cleaner types
 const dictionaries = {
-    en: () => import('../dictionaries/en.json').then((module) => module.default),
-    pt: () => import('../dictionaries/pt.json').then((module) => module.default),
+    en,
+    pt,
 };
 
-export const getDictionary = async (locale: Locale) => dictionaries[locale]();
+export const getDictionary = async (locale: Locale): Promise<Dictionary> => {
+    const { defaultLocale } = i18nConfig;
+
+    if (!(locale in dictionaries)) {
+        return dictionaries[defaultLocale];
+    }
+
+    return dictionaries[locale];
+};
