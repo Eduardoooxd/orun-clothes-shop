@@ -1,6 +1,7 @@
 'use client';
 
 import { i18nConfig } from '@/config/i18nConfig';
+import useGetCurrentLocale from '@/hooks/useGetCurrentLocale';
 import { commutersSans } from '@/lib/fontLoader';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -16,7 +17,7 @@ export default function LocaleSwitcher() {
     };
 
     const { locales } = i18nConfig;
-    const activeLocale = pathName?.split('/')[1];
+    const activeLocale = useGetCurrentLocale();
 
     return (
         <ul className="flex  flex-row gap-2">

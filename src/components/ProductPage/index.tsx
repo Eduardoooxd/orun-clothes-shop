@@ -59,10 +59,10 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
     const { title, price, description, category } = product;
 
     return (
-        <div className="p-4 lg:p-24">
+        <div className="px-4 lg:px-24">
             <div>
                 {/** Section to Title and Price */}
-                <header className=" max-w-lg py-4 ">
+                <header className=" max-w-lg pb-4 ">
                     <h1
                         className={`${futuraPTLight.variable} font-futuraPTLight text-4xl font-bold leading-10 text-black`}
                     >
@@ -126,13 +126,57 @@ interface ProductContactFormProps {
 }
 
 const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ product }) => {
+    const { title, price, category, sizes } = product;
+
+    const generateMailSubject = () => {
+        return `I'm interested in buying "${title}"`;
+    };
+
+    const generateMailBody = () => {
+        const lineBreak = '%0D%0A';
+        const space = '%20';
+
+        const mailBody = `
+    Hello,
+    ${lineBreak}
+    ${lineBreak}
+    ${space}${space}${space}${space}I'm interested in purchasing the following product:
+    ${lineBreak}
+    ${space}${space}${space}${space}${space}${space}${space}${space}${title} with size [to be chosen] with color [to be chosen]
+    ${lineBreak}
+    ${lineBreak}
+    ${space}${space}${space}${space}Please let me know how I can proceed with the purchase.
+    ${lineBreak}
+    ${lineBreak}
+    Product Details:
+    ${lineBreak}
+    ------------------
+    ${lineBreak}
+    ${space}${space}${space}${space}Category: ${category}
+    ${lineBreak}
+    ${space}${space}${space}${space}Price: ${price}
+    ${lineBreak}
+    ${space}${space}${space}${space}Available Sizes:
+    ${lineBreak}
+    ${space}${space}${space}${space}${sizes.join(', ')}
+    ${lineBreak}
+    ${lineBreak}
+    ${lineBreak}
+    Thank you!
+  `;
+
+        return mailBody;
+    };
+
     return (
         <section className="py-4">
             <a
                 className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
-                href={`mailto:${process.env.CONTACT_EMAIL}?subject=Mail from our Website&body=Some body text here`}
+                href={`mailto:${
+                    process.env.CONTACT_EMAIL
+                }?subject=${generateMailSubject()}&body=${generateMailBody()}`}
             >
-                Add to bag
+                Order
             </a>
         </section>
     );
