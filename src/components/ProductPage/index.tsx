@@ -115,14 +115,25 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                 </section>
                 <hr className="border-t border-black" />
                 {/** Section for button */}
-                <section className="py-4">
-                    <button
-                        className={`${futuraPTLight.variable} w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
-                    >
-                        Add to bag
-                    </button>
-                </section>
+                <ProductContactForm product={product} />
             </div>
         </div>
+    );
+};
+
+interface ProductContactFormProps {
+    product: Product;
+}
+
+const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ product }) => {
+    return (
+        <section className="py-4">
+            <a
+                className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
+                href={`mailto:${process.env.CONTACT_EMAIL}?subject=Mail from our Website&body=Some body text here`}
+            >
+                Add to bag
+            </a>
+        </section>
     );
 };
