@@ -27,7 +27,8 @@
             "@/components/*": ["./src/components/*"],
             "@/hooks/*": ["./src/hooks/*"],
             "@/lib/*": ["./lib/*"],
-            "@/config/*": ["./config/*"]
+            "@/config/*": ["./config/*"],
+            "@/dictionaries/*": ["./dictionaries/*"]
         }
     },
     "include": [

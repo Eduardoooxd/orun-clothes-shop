@@ -1,14 +1,13 @@
 import { i18nConfig } from '@/config/i18nConfig';
-import { match } from '@formatjs/intl-localematcher';
-import { parse } from 'accept-language-parser';
-
+import { match as matchLocale } from '@formatjs/intl-localematcher';
+import Negotiator from 'negotiator';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 export function middleware(request: NextRequest) {
     const { locales } = i18nConfig;
 
-    const pathName = request.nextUrl.pathname;
+    let pathName = request.nextUrl.pathname;
 
     const pathnameIsMissingLocale = locales.every(
         (locale) => !pathName.startsWith(`/${locale}/`) && pathName !== `/${locale}`
@@ -18,25 +17,24 @@ export function middleware(request: NextRequest) {
     if (pathnameIsMissingLocale) {
         const localeToRedirect = getLocale(request);
 
+        locales.forEach((locale) => {
+            pathName = pathName.replace(`/${locale}/`, '/');
+        });
+
         return NextResponse.redirect(new URL(`/${localeToRedirect}/${pathName}`, request.url));
     }
-
-    return NextResponse.next();
 }
 
 const getLocale = (request: NextRequest) => {
     const { locales, defaultLocale } = i18nConfig;
-    const acceptLanguage = request.headers.get('Accept-Language') || '';
+    // Negotiator expects plain object so we need to transform headers
+    const negotiatorHeaders: Record<string, string> = {};
+    request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
-    const requestedLanguages = parse(acceptLanguage).map((lang) => {
-        const { code, region } = lang;
-        if (region) {
-            return `${code}-${region}`;
-        }
-        return code;
-    });
-
-    return match(requestedLanguages, locales, defaultLocale);
+    const requestedLanguages = new Negotiator({ headers: negotiatorHeaders }).languages();
+    // @ts-ignore locales are readonly
+    const appLocales: string[] = locales;
+    return matchLocale(requestedLanguages, appLocales, defaultLocale);
 };
 
 // Stop Middleware running on static files

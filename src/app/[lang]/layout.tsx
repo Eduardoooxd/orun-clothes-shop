@@ -1,5 +1,5 @@
 import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/Layout/Navbar';
 import { siteConfig } from '@/config/site';
 import { Analytics } from '@vercel/analytics/react';
 import './globals.css';

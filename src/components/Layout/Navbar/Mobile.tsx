@@ -4,22 +4,26 @@ import { Transition } from '@headlessui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
-import { ClosedHamburgerMenu, OpenHamburgerMenu } from '../Icons/HamburguerMenu';
+import { ClosedHamburgerMenu, OpenHamburgerMenu } from '../../Icons/HamburguerMenu';
 import NavbarLink, { NavbarLinkProps } from './NavbarLink';
 
 import MiniLogoImage from '@/images/logo/logo-mini.png';
 
 import { useLockBody } from '@/hooks/useLockBody';
+import LocaleSwitcher from './LocaleSwitcher';
 
 const NAVBAR_LINKS: NavbarLinkProps[] = [
     {
         text: 'Categories',
+        href: '/',
     },
     {
         text: 'About us',
+        href: '/',
     },
     {
         text: 'Contact us',
+        href: '/',
     },
 ];
 
@@ -34,7 +38,7 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
 }) => {
     return (
         <>
-            <div className="container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6 md:hidden">
+            <div className="container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6">
                 <div>
                     <Link href="/">
                         <Image priority src={MiniLogoImage} alt="logo" width={90} height={20} />
@@ -62,7 +66,6 @@ interface MobileNavBarMenuProps {
 }
 
 const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({ isMobileMenuOpen }) => {
-    useLockBody();
     return (
         <>
             <Transition
@@ -74,16 +77,23 @@ const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({ isMobileMe
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
             >
-                {() => (
-                    <div className="h-[calc(100dvh-5rem)] p-4 sm:p-6 md:hidden">
-                        <div className="flex flex-col gap-4">
-                            {NAVBAR_LINKS.map((navBarLink, index) => (
-                                <NavbarLink key={index} {...navBarLink} />
-                            ))}
-                        </div>
-                    </div>
-                )}
+                {() => <MobileNavBarMenuOpen />}
             </Transition>
         </>
+    );
+};
+
+const MobileNavBarMenuOpen: FunctionComponent = () => {
+    useLockBody();
+
+    return (
+        <div className="h-[calc(100dvh-5rem)] p-4 sm:p-6 md:hidden">
+            <div className="flex flex-col gap-4">
+                {NAVBAR_LINKS.map((navBarLink, index) => (
+                    <NavbarLink key={index} {...navBarLink} />
+                ))}
+                <LocaleSwitcher />
+            </div>
+        </div>
     );
 };
