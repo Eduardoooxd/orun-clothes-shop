@@ -1,19 +1,16 @@
 import LogoImage from '@/images/logo/logo.webp';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
+import { store } from '@/store';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FunctionComponent } from 'react';
 import Container from '../Container';
 import Separator from '../Separator';
 
-interface FooterProps {
-    dictionary: Dictionary;
-}
-
-const Footer: FunctionComponent<FooterProps> = ({ dictionary }) => {
+const Footer: FunctionComponent = () => {
     const CURRENT_YEAR = new Date().getFullYear();
-    const { footer } = dictionary;
-    const { ABOUT_LINKS } = footer;
+    const dictionary = store.getState().dictionary.dictionary;
+    const { ABOUT_LINKS } = dictionary.footer;
 
     return (
         <>

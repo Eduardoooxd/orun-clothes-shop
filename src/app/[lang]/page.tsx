@@ -3,7 +3,6 @@ import Hero from '@/components/Hero';
 import Separator from '@/components/Separator';
 import TopPicks from '@/components/TopPicks';
 import { i18nConfig } from '@/config/i18nConfig';
-import { getProducts } from '@/lib/fetchProducts';
 
 export async function generateStaticParams() {
     const { locales } = i18nConfig;
@@ -14,14 +13,13 @@ export async function generateStaticParams() {
 }
 
 export default async function Page() {
-    const products = await getProducts();
-
     return (
         <>
             <Hero />
             <AboutUs />
             <Separator />
-            <TopPicks products={products} />
+            {/* @ts-ignore */}
+            <TopPicks />
         </>
     );
 }

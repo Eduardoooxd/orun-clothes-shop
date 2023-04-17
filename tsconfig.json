@@ -28,7 +28,8 @@
             "@/hooks/*": ["./src/hooks/*"],
             "@/lib/*": ["./lib/*"],
             "@/config/*": ["./config/*"],
-            "@/dictionaries/*": ["./dictionaries/*"]
+            "@/dictionaries/*": ["./dictionaries/*"],
+            "@/store/*": ["./src/store/*"]
         }
     },
     "include": [

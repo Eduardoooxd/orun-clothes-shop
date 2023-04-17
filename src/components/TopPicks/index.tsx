@@ -1,14 +1,11 @@
 import { MainSectionTitle } from '@/components/Text';
-import { Product } from '@/lib/product';
-import { FunctionComponent } from 'react';
+import { getProducts } from '@/lib/fetchProducts';
 import Container from '../Container';
 import ProductPreview from '../ProductPreview';
 
-interface TopPicksProps {
-    products: Product[];
-}
+const TopPicks = async () => {
+    const products = await getProducts();
 
-const TopPicks: FunctionComponent<TopPicksProps> = ({ products }) => {
     return (
         <>
             <section className="my-4 w-full">
