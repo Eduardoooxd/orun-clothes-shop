@@ -4,10 +4,9 @@
 
 -   Implement an image magnifier on the product page to allow users to see products in detail.
 -   Implement internationalization (i18n) for all pages to cater to a diverse audience.
+    -   https://github.dev/amannn/next-intl/tree/feat/next-13-rsc/packages/example-next-13-with-pages
 -   Create a product page with a search bar to make it easier for users to find specific products.
--   Implement analytics to track user behavior and improve website performance.
 -   Fix issues in the category panel for better user experience.
--   Research the best way to track orders and implement the tracking system.
 -   Add Suspense and Error handling to improve user experience.
 
 ## Second Release
@@ -17,6 +16,8 @@
 -   Implement a newsletter feature to increase customer engagement.
 -   Create a page for the return policy to establish clear guidelines for returns.
 -   Research and implement the best way to store and handle information related to order shipping.
+-   Implement analytics to track user behavior and improve website performance.
+-   Research the best way to track orders and implement the tracking system.
 
 ## Bugfixes
 
@@ -26,3 +27,7 @@
 
 -   https://oascompany.com/ie
 -   https://www.asos.com
+
+## To Implement
+
+https://github.dev/amannn/next-intl/tree/feat/next-13-rsc/packages/example-next-13-with-pages
