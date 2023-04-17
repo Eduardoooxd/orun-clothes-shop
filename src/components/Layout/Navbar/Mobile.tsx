@@ -16,6 +16,7 @@ interface MobileNavBarProps {
     isMobileMenuOpen: boolean;
     setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
     links: NavbarLinkProps[];
+    categories: JSX.Element[];
 }
 
 export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({

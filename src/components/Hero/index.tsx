@@ -1,10 +1,11 @@
 import SmallLogoAlternativeImage from '@/images/logo/logo-small-alternative.png';
 import BackgroundImage from '@/images/main_background.webp';
 import Image from 'next/image';
+import './styles.css';
 
 export default function Hero() {
     return (
-        <section className="relative mt-[-5rem] min-h-screen w-full">
+        <section className="hero-container relative mt-[-5rem] min-h-screen w-full">
             <Image
                 priority
                 src={BackgroundImage}
