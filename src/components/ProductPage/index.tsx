@@ -62,7 +62,7 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
         <div className="px-4 lg:px-24">
             <div>
                 {/** Section to Title and Price */}
-                <header className=" max-w-lg pb-4 ">
+                <header className=" max-w-lg py-4 sm:pt-0">
                     <h1
                         className={`${futuraPTLight.variable} font-futuraPTLight text-4xl font-bold leading-10 text-black`}
                     >
@@ -76,14 +76,14 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                 </header>
                 <hr className="border-t border-black" />
                 {/** Section to Description */}
-                <section className="py-4">
+                <section className="my-4 py-4">
                     <p className={`${futuraPTLight.variable} font-futuraPTLight text-base`}>
                         {description}
                     </p>
                 </section>
                 <hr className="border-t border-black" />
                 {/** Section to chose Size */}
-                <section className="py-4">
+                <section className="my-4 py-4">
                     <button
                         type="button"
                         aria-label="Open size selector"
@@ -169,7 +169,7 @@ const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ produc
     };
 
     return (
-        <section className="py-4">
+        <section className="my-4 py-4">
             <a
                 className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
                 href={`mailto:${
