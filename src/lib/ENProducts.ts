@@ -129,8 +129,8 @@ export const ShirtProducts: Product[] = [
         sizes: ['S/M', 'M/L'],
         colors: ['Terracotta', 'Black'],
         images: [
-            PreviewImageCEPTUS,
             PrincipalImageCEPTUS,
+            PreviewImageCEPTUS,
             FrontImageCEPTUS,
             SideBlackImageCEPTUS,
             CloseUpImageCEPTUS,

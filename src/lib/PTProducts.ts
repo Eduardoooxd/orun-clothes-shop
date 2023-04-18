@@ -129,8 +129,8 @@ export const CamisasProducts: Product[] = [
         sizes: ['S/M', 'M/L'],
         colors: ['Terracota', 'Preta'],
         images: [
-            PreviewImageCEPTUS,
             PrincipalImageCEPTUS,
+            PreviewImageCEPTUS,
             FrontImageCEPTUS,
             SideBlackImageCEPTUS,
             CloseUpImageCEPTUS,
