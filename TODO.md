@@ -3,8 +3,6 @@
 ## First Release (MVP)
 
 -   Implement an image magnifier on the product page to allow users to see products in detail.
--   Implement internationalization (i18n) for all pages to cater to a diverse audience.
-    -   https://github.dev/amannn/next-intl/tree/feat/next-13-rsc/packages/example-next-13-with-pages
 -   Create a product page with a search bar to make it easier for users to find specific products.
 -   Fix issues in the category panel for better user experience.
 -   Add Suspense and Error handling to improve user experience.
@@ -27,7 +25,3 @@
 
 -   https://oascompany.com/ie
 -   https://www.asos.com
-
-## To Implement
-
-https://github.dev/amannn/next-intl/tree/feat/next-13-rsc/packages/example-next-13-with-pages
