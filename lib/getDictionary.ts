@@ -1,4 +1,5 @@
 import { i18nConfig, Locale } from '@/config/i18nConfig';
+import { Dictionary } from '@/dictionaries/dictionaries';
 import { dictionary as en } from '@/dictionaries/en';
 import { dictionary as pt } from '@/dictionaries/pt';
 import 'server-only';

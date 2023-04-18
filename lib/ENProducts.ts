@@ -10,6 +10,7 @@ import SideProduct3 from '@/images/products/product3/side.jpg';
 import CloseUpProduct4 from '@/images/products/product4/closeup.jpg';
 import PreviewProduct4 from '@/images/products/product4/preview.jpg';
 import SideProduct4 from '@/images/products/product4/side.jpg';
+import { Product } from './products';
 
 export const TunicsProducts: Product[] = [
     {
