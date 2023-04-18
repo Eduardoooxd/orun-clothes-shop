@@ -1,38 +1,95 @@
-import CloseUpADHIL from '@/images/products/ADHIL/closeup.jpg';
+import BackADHIL from '@/images/products/ADHIL/back.webp';
+import CloseUpADHIL from '@/images/products/ADHIL/closeup.webp';
 import FrontImageADHIL from '@/images/products/ADHIL/front.webp';
-import FrontImage2ADHIL from '@/images/products/ADHIL/front2.jpg';
-import PreviewADHIL from '@/images/products/ADHIL/preview.jpg';
-import SideADHIL from '@/images/products/ADHIL/side.jpg';
+import PrincipalADHIL from '@/images/products/ADHIL/principal.webp';
+import SideADHIL from '@/images/products/ADHIL/side.webp';
+import BackImageAZHA_BEACH from '@/images/products/AZHA_BEACH/back.webp';
+import BackImageGreenAZHA_BEACH from '@/images/products/AZHA_BEACH/back_green.webp';
+import CloseUpAZHA_BEACH from '@/images/products/AZHA_BEACH/closeup.webp';
+import FrontImageAZHA_BEACH from '@/images/products/AZHA_BEACH/front.webp';
+import FrontImageGreenAZHA_BEACH from '@/images/products/AZHA_BEACH/front_green.webp';
+import SideAZHA_BEACH from '@/images/products/AZHA_BEACH/side.webp';
+import SideGreenAZHA_BEACH from '@/images/products/AZHA_BEACH/side_green.webp';
 import BackImageAZHA_STREET from '@/images/products/AZHA_STREET/back.webp';
 import FrontImageAZHA_STREET from '@/images/products/AZHA_STREET/front.webp';
+import BackImageCEPTUS from '@/images/products/CEPTUS/back.webp';
+import BackBlackImageCEPTUS from '@/images/products/CEPTUS/back_black.webp';
 import CloseUpImageCEPTUS from '@/images/products/CEPTUS/closeup.webp';
 import CloseUpImage2CEPTUS from '@/images/products/CEPTUS/closeup2.webp';
+import CloseUpImage3CEPTUS from '@/images/products/CEPTUS/closeup3.webp';
 import FrontImageCEPTUS from '@/images/products/CEPTUS/front.webp';
+import FrontImage2CEPTUS from '@/images/products/CEPTUS/front2.webp';
+import FrontImageBlackCEPTUS from '@/images/products/CEPTUS/front_black.webp';
+import PreviewImageCEPTUS from '@/images/products/CEPTUS/preview.webp';
+import PrincipalImageCEPTUS from '@/images/products/CEPTUS/principal.webp';
+import SideBlackImageCEPTUS from '@/images/products/CEPTUS/side_black.webp';
+import FrontImageDIWO from '@/images/products/DIWO/front.webp';
+import PreviewImageDIWO from '@/images/products/DIWO/preview.webp';
+import SideImageDIWO from '@/images/products/DIWO/side.webp';
+import BackImageLYNX from '@/images/products/LYNX/back.webp';
+import BackGreenImageLYNX from '@/images/products/LYNX/back_green.webp';
+import CloseUpImageLYNX from '@/images/products/LYNX/closeup.webp';
+import FrontImageLYNX from '@/images/products/LYNX/front.webp';
+import FrontImageGreenLYNX from '@/images/products/LYNX/front_green.webp';
+import PreviewImageLYNX from '@/images/products/LYNX/preview.webp';
+import PreviewImageGreenLYNX from '@/images/products/LYNX/preview_green.webp';
+import SideGreenImageLYNX from '@/images/products/LYNX/side_green.webp';
+import BackImageRIGEL from '@/images/products/RIGEL/back.webp';
+import CloseUpImageRIGEL from '@/images/products/RIGEL/closeup.webp';
+import FrontImageRIGEL from '@/images/products/RIGEL/front.webp';
+import BackImageSUOPUS from '@/images/products/SUOPUS/back.webp';
+import FrontImageSUOPUS from '@/images/products/SUOPUS/front.webp';
+import PreviewImageSUOPUS from '@/images/products/SUOPUS/preview.webp';
+import SideImageSUOPUS from '@/images/products/SUOPUS/side.webp';
+
 import FrontImageHAMMAL from '@/images/products/HAMMAL/front.webp';
 import SideImageHAMMAL from '@/images/products/HAMMAL/side.webp';
-import PreviewProduct2 from '@/images/products/product2/preview.jpg';
-import CloseUpProduct3 from '@/images/products/product3/closeup.jpg';
-import FrontImageProduct3 from '@/images/products/product3/front.jpg';
-import PreviewProduct3 from '@/images/products/product3/preview.jpg';
-import SideProduct3 from '@/images/products/product3/side.jpg';
-import CloseUpProduct4 from '@/images/products/product4/closeup.jpg';
-import PreviewProduct4 from '@/images/products/product4/preview.jpg';
-import SideProduct4 from '@/images/products/product4/side.jpg';
+import CloseUpVEGA from '@/images/products/VEGA/closeup.webp';
+import FrontImageVEGA from '@/images/products/VEGA/front.webp';
+import SideVEGA from '@/images/products/VEGA/side.webp';
 
 export {
+    BackImageSUOPUS,
+    FrontImageSUOPUS,
+    PreviewImageSUOPUS,
+    SideImageSUOPUS,
+    FrontImageRIGEL,
+    BackImageRIGEL,
+    CloseUpImageRIGEL,
+    BackImageLYNX,
+    BackGreenImageLYNX,
+    CloseUpImageLYNX,
+    FrontImageLYNX,
+    FrontImageGreenLYNX,
+    PreviewImageLYNX,
+    PreviewImageGreenLYNX,
+    SideGreenImageLYNX,
+    FrontImageDIWO,
+    PreviewImageDIWO,
+    SideImageDIWO,
+    BackBlackImageCEPTUS,
+    BackImageCEPTUS,
+    CloseUpImage3CEPTUS,
+    FrontImageBlackCEPTUS,
+    FrontImage2CEPTUS,
+    PreviewImageCEPTUS,
+    PrincipalImageCEPTUS,
+    SideBlackImageCEPTUS,
     CloseUpADHIL,
     FrontImageADHIL,
-    FrontImage2ADHIL,
-    PreviewADHIL,
+    PrincipalADHIL,
+    BackADHIL,
     SideADHIL,
-    PreviewProduct2,
-    CloseUpProduct3,
-    FrontImageProduct3,
-    PreviewProduct3,
-    SideProduct3,
-    CloseUpProduct4,
-    PreviewProduct4,
-    SideProduct4,
+    CloseUpVEGA,
+    FrontImageVEGA,
+    SideVEGA,
+    BackImageGreenAZHA_BEACH,
+    BackImageAZHA_BEACH,
+    CloseUpAZHA_BEACH,
+    FrontImageGreenAZHA_BEACH,
+    FrontImageAZHA_BEACH,
+    SideGreenAZHA_BEACH,
+    SideAZHA_BEACH,
     FrontImageAZHA_STREET,
     BackImageAZHA_STREET,
     FrontImageCEPTUS,
