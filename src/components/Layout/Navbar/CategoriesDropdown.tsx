@@ -36,7 +36,7 @@ export const CategoriesDropdown: FunctionComponent<CategoriesDropdownProps> = ({
                 className="cursor-default select-none rounded px-4 hover:underline focus-visible:outline-none data-[state=open]:underline"
             >
                 <span
-                    className={`${commutersSans.variable} font-commutersSans flex h-8 items-center font-extralight uppercase`}
+                    className={`${commutersSans.variable} flex h-8 items-center font-commutersSans font-extralight uppercase`}
                 >
                     {children}
                 </span>

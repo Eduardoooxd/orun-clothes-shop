@@ -27,7 +27,7 @@ export default function LocaleSwitcher() {
                         <Link
                             className={`${
                                 commutersSans.variable
-                            } font-commutersSans flex font-extralight uppercase transition  ${
+                            } flex font-commutersSans font-extralight uppercase transition  ${
                                 activeLocale === locale ? 'underline' : 'hover:underline'
                             }`}
                             href={redirectedPathName(locale)}
