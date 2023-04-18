@@ -1,4 +1,5 @@
 'use client';
+import useGetDictionary from '@/hooks/useGetDictionary';
 import { futuraPTLight } from '@/lib/fontLoader';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
@@ -20,6 +21,9 @@ const ChooseSize: FunctionComponent<ChooseSizeProps> = ({ sizes }) => {
         }
     }, [controls, open]);
 
+    const dictionary = useGetDictionary();
+    const { sizeText, chooseSizeText } = dictionary.productPage.sizeContent;
+
     return (
         <section className="my-4 py-4">
             <DropdownMenu.Root open={open} onOpenChange={setOpen}>
@@ -32,14 +36,14 @@ const ChooseSize: FunctionComponent<ChooseSizeProps> = ({ sizes }) => {
                         <h4
                             className={`${futuraPTLight.variable} font-futuraPTLight text-sm uppercase`}
                         >
-                            Size
+                            {sizeText}
                         </h4>
 
                         <div className="flex items-center gap-x-2 ">
                             <h4
                                 className={`${futuraPTLight.variable} sizeText font-futuraPTLight text-sm uppercase transition active:underline group-hover:underline`}
                             >
-                                Choose size
+                                {chooseSizeText}
                             </h4>
                             <MdOutlineKeyboardArrowDown className="downIcon h-9 w-9 transition" />
                         </div>

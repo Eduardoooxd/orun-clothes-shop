@@ -1,11 +1,25 @@
 import ProductPreview from '@/components/ProductPreview';
 import { MainSectionTitle } from '@/components/Text';
+import { i18nConfig, Locale } from '@/config/i18nConfig';
 import { getProducts } from '@/lib/fetchProducts';
-import { Product } from '@/lib/product';
+import { Product } from '@/lib/products';
 import Sidebar from './sidebar';
 
-export default async function Products() {
-    const products = await getProducts();
+interface ProductsPageProps {
+    params: {
+        lang: Locale;
+    };
+}
+
+export async function generateStaticParams() {
+    const { locales } = i18nConfig;
+
+    return locales.map((lang) => ({ lang }));
+}
+
+export default async function Products({ params }: ProductsPageProps) {
+    const { lang } = params;
+    const products = await getProducts(lang);
     const categories = getCategories(products);
 
     return (

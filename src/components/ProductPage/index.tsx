@@ -1,5 +1,6 @@
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
-import { Product } from '@/lib/product';
+import { Product } from '@/lib/products';
+import { store } from '@/store';
 import Image from 'next/image';
 import { FunctionComponent } from 'react';
 import ChooseSize from './ChooseSize';
@@ -63,15 +64,19 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
         <div className="px-4 lg:px-24">
             <div>
                 {/** Section to Title and Price */}
-                <header className=" max-w-lg py-4 sm:pt-0">
+                <header className=" py-4 sm:pt-0">
                     <h1
-                        className={`${futuraPTLight.variable} font-futuraPTLight text-4xl font-bold leading-10 text-black`}
+                        className={`${futuraPTLight.variable} -ml-1 font-futuraPTLight text-4xl font-bold leading-10 text-black`}
                     >
                         {title}
                     </h1>
                     <div className="flex w-full justify-between">
                         <p
-                            className={`${futuraPTLight.variable} mt-4 font-futuraPTLight text-base font-bold text-black`}
+                            className={`${
+                                futuraPTLight.variable
+                            } mt-4 font-futuraPTLight text-2xl font-bold text-black ${
+                                price > 99 ? 'ml-[-6px]' : ''
+                            } `}
                         >
                             {price}&nbsp;EUR
                         </p>
@@ -147,12 +152,15 @@ const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ produc
         return mailBody;
     };
 
+    const dictionary = store.getState().dictionary.dictionary;
+    const { comingSoonText, orderText } = dictionary.productPage;
+
     return (
         <section className="my-4 flex flex-col gap-2 py-4">
             <span
-                className={`text-xs capitalize text-gray-500  ${commutersSans.variable} font-commutersSans font-extralight uppercase`}
+                className={`text-xs uppercase text-gray-500  ${commutersSans.variable} font-commutersSans font-extralight uppercase`}
             >
-                Online shop coming soon
+                {comingSoonText}
             </span>
             <a
                 className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
@@ -160,7 +168,7 @@ const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ produc
                     process.env.CONTACT_EMAIL
                 }?subject=${generateMailSubject()}&body=${generateMailBody()}`}
             >
-                Order
+                {orderText}
             </a>
         </section>
     );

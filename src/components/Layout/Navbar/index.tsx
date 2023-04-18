@@ -1,6 +1,5 @@
 'use client';
 
-import useGetDictionary from '@/hooks/useGetDictionary';
 import useIsMobile from '@/hooks/useIsMobile';
 import { cn } from '@/lib/utils';
 import { FunctionComponent, useEffect, useState } from 'react';
@@ -10,19 +9,11 @@ import { MobileNavBar } from './Mobile';
 
 import './styles.css';
 
-interface NavbarProps {
-    categories: JSX.Element[];
-}
-
-export const Navbar: FunctionComponent<NavbarProps> = ({ categories }) => {
+export const Navbar: FunctionComponent = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
     const isMobile = useIsMobile();
-    const dictionary = useGetDictionary();
-
-    const { NAVBAR_LINKS } = dictionary.navBar;
-    console.log(NAVBAR_LINKS);
 
     const stylesOnScroll =
         isScrolled || isMobileMenuOpen
@@ -56,15 +47,9 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ categories }) => {
                     <MobileNavBar
                         isMobileMenuOpen={isMobileMenuOpen}
                         setIsMobileMenuOpen={setIsMobileMenuOpen}
-                        links={NAVBAR_LINKS}
-                        categories={categories}
                     />
                 ) : (
-                    <DesktopNavBar
-                        setIsDropdownOpen={setIsDropdownOpen}
-                        links={NAVBAR_LINKS}
-                        categories={categories}
-                    />
+                    <DesktopNavBar setIsDropdownOpen={setIsDropdownOpen} />
                 )}
             </nav>
         </header>

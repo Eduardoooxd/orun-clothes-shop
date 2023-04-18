@@ -1,23 +1,65 @@
-type FooterLink = {
+export interface NavBar {
+    NAVBAR_LINKS: {
+        Category: {
+            text: string;
+            href: string;
+        };
+        AboutUs: {
+            text: string;
+            href: string;
+        };
+        ContactUs: {
+            text: string;
+            href: string;
+        };
+    };
+}
+
+export interface AboutUs {
+    title: string;
+    content: AboutUsContent[];
+}
+
+export interface AboutUsContent {
+    title: string;
+    paragraphs: string[];
+}
+
+export interface ProductPage {
+    title: string;
+    sizeContent: SizeContent;
+    comingSoonText: string;
+    orderText: string;
+}
+
+export interface SizeContent {
+    sizeText: string;
+    chooseSizeText: string;
+}
+
+export interface TopPicks {
+    title: string;
+}
+
+export interface Footer {
+    ABOUT_LINKS: FooterLinkGroup[];
+}
+
+export interface FooterLink {
     href: string;
     text: string;
-};
+}
 
-type FooterLinkGroup = {
+export interface FooterLinkGroup {
     title: string;
     links: FooterLink[];
-};
+}
 
-type NavBar = {
-    NAVBAR_LINKS: NavbarLinkProps[];
-};
-
-type Footer = {
-    ABOUT_LINKS: FooterLinkGroup[];
-};
-
-type Dictionary = {
+export interface Dictionary {
     language: string;
     navBar: NavBar;
+    aboutUs: AboutUs;
+    topPicks: TopPicks;
+    productPage: ProductPage;
     footer: Footer;
-};
+}

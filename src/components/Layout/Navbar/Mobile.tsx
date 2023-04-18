@@ -5,24 +5,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
 import { ClosedHamburgerMenu, OpenHamburgerMenu } from '../../Icons/HamburguerMenu';
-import NavbarLink, { NavbarLinkProps } from './NavbarLink';
+import NavbarLink from './NavbarLink';
 
 import MiniLogoImage from '@/images/logo/logo-mini.png';
 
+import useGetDictionary from '@/hooks/useGetDictionary';
 import { useLockBody } from '@/hooks/useLockBody';
 import LocaleSwitcher from './LocaleSwitcher';
 
 interface MobileNavBarProps {
     isMobileMenuOpen: boolean;
     setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
-    links: NavbarLinkProps[];
-    categories: JSX.Element[];
 }
 
 export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
     isMobileMenuOpen,
     setIsMobileMenuOpen,
-    links,
 }) => {
     return (
         <>
@@ -44,20 +42,16 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
                     <ClosedHamburgerMenu isOpen={isMobileMenuOpen} />
                 </button>
             </div>
-            <MobileNavBarMenu links={links} isMobileMenuOpen={isMobileMenuOpen} />
+            <MobileNavBarMenu isMobileMenuOpen={isMobileMenuOpen} />
         </>
     );
 };
 
 interface MobileNavBarMenuProps {
     isMobileMenuOpen: boolean;
-    links: NavbarLinkProps[];
 }
 
-const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({
-    isMobileMenuOpen,
-    links,
-}) => {
+const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({ isMobileMenuOpen }) => {
     return (
         <>
             <Transition
@@ -69,25 +63,25 @@ const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
             >
-                {() => <MobileNavBarMenuOpen links={links} />}
+                {() => <MobileNavBarMenuOpen />}
             </Transition>
         </>
     );
 };
 
-interface MobileNavBarMenuOpenProps {
-    links: NavbarLinkProps[];
-}
-
-const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({ links }) => {
+const MobileNavBarMenuOpen: FunctionComponent = () => {
+    const dictionary = useGetDictionary();
     useLockBody();
+
+    const { Category, AboutUs, ContactUs } = dictionary.navBar.NAVBAR_LINKS;
 
     return (
         <div className="h-[calc(100dvh-5rem)] p-4 sm:p-6 md:hidden">
             <div className="flex flex-col gap-4">
-                {links.map((navBarLink, index) => (
+                {[Category, AboutUs, ContactUs].map((navBarLink, index) => (
                     <NavbarLink key={index} {...navBarLink} />
                 ))}
+
                 <LocaleSwitcher />
             </div>
         </div>

@@ -10,22 +10,10 @@ import SideProduct3 from '@/images/products/product3/side.jpg';
 import CloseUpProduct4 from '@/images/products/product4/closeup.jpg';
 import PreviewProduct4 from '@/images/products/product4/preview.jpg';
 import SideProduct4 from '@/images/products/product4/side.jpg';
-import { StaticImageData } from 'next/image';
-
-export interface Product {
-    id: string;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    sizes: string[];
-    colors: string[];
-    images: StaticImageData[];
-}
 
 export const TunicasProducts: Product[] = [
     {
-        id: '1',
+        id: 'LYNX',
         title: 'Túnica Trespasse - LYNX',
         price: 89,
         description:
@@ -36,7 +24,7 @@ export const TunicasProducts: Product[] = [
         images: [PreviewProduct1, FrontImageProduct1, CloseUpProduct1, SideProduct1],
     },
     {
-        id: '2',
+        id: 'HAMMAL',
         title: 'Túnica aberta - HAMMAL',
         price: 89,
         description:
@@ -47,7 +35,7 @@ export const TunicasProducts: Product[] = [
         images: [PreviewProduct2, PreviewProduct2],
     },
     {
-        id: '3',
+        id: 'ADHIL',
         title: 'Túnica aberta - ADHIL',
         price: 89,
         description:
@@ -58,7 +46,7 @@ export const TunicasProducts: Product[] = [
         images: [PreviewProduct3, FrontImageProduct3, CloseUpProduct3, SideProduct3],
     },
     {
-        id: '4',
+        id: 'VEGA',
         title: 'Túnica aberta - VEGA',
         price: 79,
         sizes: ['Fluído'],
@@ -72,7 +60,7 @@ export const TunicasProducts: Product[] = [
 
 export const CamisolasProducts: Product[] = [
     {
-        id: '5',
+        id: 'RIGEL',
         title: 'Camisola - RIGEL',
         price: 120,
         description:
@@ -86,7 +74,7 @@ export const CamisolasProducts: Product[] = [
 
 export const CamisasProducts: Product[] = [
     {
-        id: '6',
+        id: 'CEPTUS',
         title: 'Camisa-Quimono - CEPTUS',
         price: 77,
         description:
@@ -100,7 +88,7 @@ export const CamisasProducts: Product[] = [
 
 export const CalcaoProducts: Product[] = [
     {
-        id: '7',
+        id: 'AZHA-BEACH',
         title: 'Calção praia - AZHA-BEACH',
         price: 55,
         description:
@@ -111,7 +99,7 @@ export const CalcaoProducts: Product[] = [
         images: [PreviewProduct3, FrontImageProduct3, CloseUpProduct3, SideProduct3],
     },
     {
-        id: '8',
+        id: 'AZHA-STREET',
         title: 'Calção Sport - AZHA-STREET',
         price: 72,
         description:
@@ -125,7 +113,7 @@ export const CalcaoProducts: Product[] = [
 
 export const ExclusivoProducts: Product[] = [
     {
-        id: '9',
+        id: 'DIWO',
         title: 'Quimono - DIWO',
         price: 189,
         description:
@@ -136,3 +124,11 @@ export const ExclusivoProducts: Product[] = [
         images: [PreviewProduct1, FrontImageProduct1, CloseUpProduct1, SideProduct1],
     },
 ];
+
+export const PTProducts = [
+    TunicasProducts,
+    CamisolasProducts,
+    CamisasProducts,
+    CalcaoProducts,
+    ExclusivoProducts,
+].flat();

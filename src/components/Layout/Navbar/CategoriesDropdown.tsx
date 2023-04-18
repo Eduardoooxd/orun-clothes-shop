@@ -1,21 +1,26 @@
 'use client';
 
+import useGetProductsStore from '@/hooks/useGetProductsStore';
 import { commutersSans } from '@/lib/fontLoader';
 import * as HoverCard from '@radix-ui/react-hover-card';
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
 import { Dispatch, FunctionComponent, SetStateAction, useEffect, useState } from 'react';
+import CategoriesDropdownItem from './CategoriesDropdownItem';
 
 interface CategoriesDropdownProps {
-    categories: JSX.Element[];
     setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
+    children: React.ReactNode;
 }
 
 export const CategoriesDropdown: FunctionComponent<CategoriesDropdownProps> = ({
-    categories,
     setIsDropdownOpen,
+    children,
 }) => {
+    const productsStore = useGetProductsStore();
     const [open, setOpen] = useState(false);
     const controls = useAnimationControls();
+
+    const categoriesItems = productsStore.categories;
 
     useEffect(() => {
         setIsDropdownOpen(open);
@@ -33,7 +38,7 @@ export const CategoriesDropdown: FunctionComponent<CategoriesDropdownProps> = ({
                 <span
                     className={`${commutersSans.variable} flex h-8 items-center font-commutersSans font-extralight uppercase`}
                 >
-                    Categories
+                    {children}
                 </span>
             </HoverCard.Trigger>
 
@@ -66,7 +71,12 @@ export const CategoriesDropdown: FunctionComponent<CategoriesDropdownProps> = ({
                                 }}
                             >
                                 <div className="container mx-auto flex flex-col p-4 sm:p-6">
-                                    {categories}
+                                    {categoriesItems.map((category) => (
+                                        <CategoriesDropdownItem
+                                            key={category}
+                                            category={category}
+                                        />
+                                    ))}
                                 </div>
                             </motion.div>
                         </HoverCard.Content>
