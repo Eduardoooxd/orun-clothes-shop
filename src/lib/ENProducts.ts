@@ -1,16 +1,25 @@
-import CloseUpProduct1 from '@/images/products/product1/closeup.jpg';
-import FrontImageProduct1 from '@/images/products/product1/front.jpg';
-import PreviewProduct1 from '@/images/products/product1/preview.jpg';
-import SideProduct1 from '@/images/products/product1/side.jpg';
-import PreviewProduct2 from '@/images/products/product2/preview.jpg';
-import CloseUpProduct3 from '@/images/products/product3/closeup.jpg';
-import FrontImageProduct3 from '@/images/products/product3/front.jpg';
-import PreviewProduct3 from '@/images/products/product3/preview.jpg';
-import SideProduct3 from '@/images/products/product3/side.jpg';
-import CloseUpProduct4 from '@/images/products/product4/closeup.jpg';
-import PreviewProduct4 from '@/images/products/product4/preview.jpg';
-import SideProduct4 from '@/images/products/product4/side.jpg';
 import { Product } from './products';
+import {
+    BackImageAZHA_STREET,
+    CloseUpADHIL,
+    CloseUpImage2CEPTUS,
+    CloseUpImageCEPTUS,
+    CloseUpProduct3,
+    CloseUpProduct4,
+    FrontImage2ADHIL,
+    FrontImageADHIL,
+    FrontImageAZHA_STREET,
+    FrontImageCEPTUS,
+    FrontImageHAMMAL,
+    FrontImageProduct3,
+    PreviewADHIL,
+    PreviewProduct3,
+    PreviewProduct4,
+    SideADHIL,
+    SideImageHAMMAL,
+    SideProduct3,
+    SideProduct4,
+} from './ProductsImages';
 
 export const TunicsProducts: Product[] = [
     {
@@ -22,7 +31,7 @@ export const TunicsProducts: Product[] = [
         category: 'Tunic',
         sizes: ['S/M', 'M/L'],
         colors: ['Black', 'Green'],
-        images: [PreviewProduct1, FrontImageProduct1, CloseUpProduct1, SideProduct1],
+        images: [PreviewProduct3, FrontImageProduct3, CloseUpProduct3, SideProduct3],
     },
     {
         id: 'HAMMAL',
@@ -33,7 +42,7 @@ export const TunicsProducts: Product[] = [
         category: 'Tunics',
         sizes: ['S/M', 'M/L'],
         colors: ['Black'],
-        images: [PreviewProduct2, PreviewProduct2],
+        images: [FrontImageHAMMAL, SideImageHAMMAL],
     },
     {
         id: 'ADHIL',
@@ -44,7 +53,7 @@ export const TunicsProducts: Product[] = [
         category: 'Tunics',
         sizes: ['Fluid'],
         colors: ['White'],
-        images: [PreviewProduct3, FrontImageProduct3, CloseUpProduct3, SideProduct3],
+        images: [PreviewADHIL, FrontImageADHIL, CloseUpADHIL, SideADHIL, FrontImage2ADHIL],
     },
     {
         id: 'VEGA',
@@ -69,7 +78,7 @@ export const SweatersProducts: Product[] = [
         category: 'Sweater',
         sizes: ['S/M', 'M/L'],
         colors: ['White'],
-        images: [PreviewProduct1, FrontImageProduct1, CloseUpProduct1, SideProduct1],
+        images: [PreviewProduct3, FrontImageProduct3, CloseUpProduct3, SideProduct3],
     },
 ];
 
@@ -83,7 +92,7 @@ export const ShirtProducts: Product[] = [
         category: 'Shirt',
         sizes: ['S/M', 'M/L'],
         colors: ['Terracotta', 'Black'],
-        images: [PreviewProduct2, PreviewProduct2],
+        images: [FrontImageCEPTUS, CloseUpImageCEPTUS, CloseUpImage2CEPTUS],
     },
 ];
 
@@ -97,7 +106,7 @@ export const ShortsProducts: Product[] = [
         category: 'Shorts',
         sizes: ['Adjustable size'],
         colors: ['Black', 'Green'],
-        images: [PreviewProduct3, FrontImageProduct3, CloseUpProduct3, SideProduct3],
+        images: [FrontImageAZHA_STREET, BackImageAZHA_STREET],
     },
     {
         id: 'AZHA-STREET',
@@ -108,7 +117,7 @@ export const ShortsProducts: Product[] = [
         category: 'Shorts',
         sizes: ['Adjustable size'],
         colors: ['Khaki Green'],
-        images: [PreviewProduct4, PreviewProduct4, CloseUpProduct4, SideProduct4],
+        images: [FrontImageAZHA_STREET, BackImageAZHA_STREET],
     },
 ];
 
@@ -122,7 +131,7 @@ export const ExclusiveProducts: Product[] = [
         category: 'Exclusive',
         sizes: ['Adjustable size'],
         colors: [''],
-        images: [PreviewProduct1, FrontImageProduct1, CloseUpProduct1, SideProduct1],
+        images: [PreviewProduct3, FrontImageProduct3, CloseUpProduct3, SideProduct3],
     },
 ];
 

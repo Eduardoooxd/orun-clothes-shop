@@ -4,6 +4,7 @@
 
 -   Implement an image magnifier on the product page to allow users to see products in detail.
 -   Create a product page with a search bar to make it easier for users to find specific products.
+-   Create a popup announcing that a online shop will be introduced soon
 -   Fix issues in the category panel for better user experience.
 -   Add Suspense and Error handling to improve user experience.
 
