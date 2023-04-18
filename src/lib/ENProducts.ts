@@ -185,7 +185,7 @@ export const ExclusiveProducts: Product[] = [
             'Unique, exclusive, and unrepeatable piece. High-quality fabric with oriental influences. Wide cut and adjustable to any size.',
         category: 'Exclusive',
         sizes: ['Adjustable size'],
-        colors: [''],
+        colors: [],
         images: [PreviewImageDIWO, FrontImageDIWO, SideImageDIWO],
     },
     {
@@ -195,7 +195,7 @@ export const ExclusiveProducts: Product[] = [
         description: 'Unique and unrepeatable piece. Wide cut and adjustable to any size.',
         category: 'Exclusive',
         sizes: ['Adjustable size'],
-        colors: [''],
+        colors: [],
         images: [PreviewImageSUOPUS, FrontImageSUOPUS, BackImageSUOPUS, SideImageSUOPUS],
     },
 ];

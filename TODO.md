@@ -20,7 +20,8 @@
 
 ## Bugfixes
 
--   Fix the font family that does not have - or letters to ensure proper display of text on the website.
+-   Fix a bug that on next link to / it redirects to /pt instead of /en
+-   Fix a bug where /product/SUOPUS does not have a good width for desktop
 
 ## Inspirations for design
 

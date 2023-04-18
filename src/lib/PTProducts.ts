@@ -185,7 +185,7 @@ export const ExclusivoProducts: Product[] = [
             'Peça única, exclusiva e irrepetível. Tecido de alta qualidade de influências orientais. Corte largo e ajustável a qualquer tamanho.',
         category: 'Exclusivo',
         sizes: ['Tamanho ajustável'],
-        colors: [''],
+        colors: [],
         images: [PreviewImageDIWO, FrontImageDIWO, SideImageDIWO],
     },
     {
@@ -195,7 +195,7 @@ export const ExclusivoProducts: Product[] = [
         description: 'Peça única e irrepetível. Corte largo e ajustável a qualquer tamanho.',
         category: 'Exclusivo',
         sizes: ['Tamanho ajustável'],
-        colors: [''],
+        colors: [],
         images: [PreviewImageSUOPUS, FrontImageSUOPUS, BackImageSUOPUS, SideImageSUOPUS],
     },
 ];

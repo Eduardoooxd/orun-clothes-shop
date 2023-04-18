@@ -16,7 +16,7 @@ export default function ProductsCarousel({ children, ...props }: ProductsCarouse
 
     return (
         <Carousel
-            className="h-full"
+            className="h-full flex-1"
             showArrows={!isMobile}
             renderArrowPrev={(clickHandler, hasPrev, label) => (
                 <CustomPrevArrow clickHandler={clickHandler} hasPrev={hasPrev} label={label} />

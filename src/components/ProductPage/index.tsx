@@ -58,7 +58,10 @@ interface ProductDescriptionProps {
 }
 
 const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ product }) => {
-    const { title, price, description, category, sizes } = product;
+    const { title, price, description, category, sizes, colors } = product;
+
+    const dictionary = store.getState().dictionary.dictionary;
+    const { colorsText } = dictionary.productPage;
 
     return (
         <div className="px-4 lg:px-24">
@@ -96,8 +99,37 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                 </section>
                 <hr className="border-t border-black" />
                 {/** Section to chose Size */}
+                {colors?.length > 0 && (
+                    <>
+                        <section className="my-4 flex justify-between py-4">
+                            <p
+                                className={`${futuraPTLight.variable} font-futuraPTLight text-base uppercase`}
+                            >
+                                {colorsText}
+                            </p>
+                            <div className="flex items-center justify-between gap-2">
+                                {colors.map((color, index) => (
+                                    <>
+                                        <p
+                                            className={`${futuraPTLight.variable} flex list-none justify-end font-futuraPTLight text-sm uppercase`}
+                                            key={index}
+                                        >
+                                            {color}
+                                        </p>
+                                        {index != colors.length - 1 && (
+                                            <p className="text-black">|</p>
+                                        )}
+                                    </>
+                                ))}
+                            </div>
+                        </section>
+                        <hr className="border-t border-black" />
+                    </>
+                )}
+
                 <ChooseSize sizes={sizes} />
                 <hr className="border-t border-black" />
+
                 {/** Section for button */}
                 <ProductContactForm product={product} />
             </div>
@@ -112,47 +144,22 @@ interface ProductContactFormProps {
 const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ product }) => {
     const { title, price, category, sizes } = product;
 
-    const generateMailSubject = () => {
-        return `I'm interested in buying "${title}"`;
-    };
-
-    const generateMailBody = () => {
-        const lineBreak = '%0D%0A';
-        const space = '%20';
-
-        const mailBody = `
-    Hello,
-    ${lineBreak}
-    ${lineBreak}
-    ${space}${space}${space}${space}I'm interested in purchasing the following product:
-    ${lineBreak}
-    ${space}${space}${space}${space}${space}${space}${space}${space}${title} with size [to be chosen] with color [to be chosen]
-    ${lineBreak}
-    ${lineBreak}
-    ${space}${space}${space}${space}Please let me know how I can proceed with the purchase.
-    ${lineBreak}
-    ${lineBreak}
-    Product Details:
-    ${lineBreak}
-    ------------------
-    ${lineBreak}
-    ${space}${space}${space}${space}Category: ${category}
-    ${lineBreak}
-    ${space}${space}${space}${space}Price: ${price}
-    ${lineBreak}
-    ${space}${space}${space}${space}Available Sizes:
-    ${lineBreak}
-    ${space}${space}${space}${space}${sizes.join(', ')}
-    ${lineBreak}
-    ${lineBreak}
-    ${lineBreak}
-    Thank you!
-  `;
-
-        return mailBody;
-    };
-
     const dictionary = store.getState().dictionary.dictionary;
+    const { mailSubject, mailBody } = dictionary.productPage.contactForm;
+
+    const parsedEmailSubject = mailSubject.replace('${title}', title);
+
+    const mailBodyReplacements = {
+        '${title}': title,
+        '${category}': category,
+        '${price}': price,
+    };
+
+    const mailBodyParsed = mailBody.replace(/${title}|${category}|${price}/g, (matched) => {
+        // @ts-ignore
+        return mailBodyReplacements[matched];
+    });
+
     const { comingSoonText, orderText } = dictionary.productPage;
 
     return (
@@ -164,9 +171,7 @@ const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ produc
             </span>
             <a
                 className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
-                href={`mailto:${
-                    process.env.CONTACT_EMAIL
-                }?subject=${generateMailSubject()}&body=${generateMailBody()}`}
+                href={`mailto:${process.env.CONTACT_EMAIL}?subject=${parsedEmailSubject}&body=${mailBodyParsed}`}
             >
                 {orderText}
             </a>

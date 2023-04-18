@@ -1,6 +1,7 @@
-import { MainSectionTitle } from '@/components/Text';
 import { getTopPicks } from '@/lib/fetchProducts';
+import { futuraPTLight } from '@/lib/fontLoader';
 import { store } from '@/store';
+import Link from 'next/link';
 import Container from '../Container';
 import ProductPreview from '../ProductPreview';
 
@@ -15,7 +16,13 @@ const TopPicks = async () => {
             <section className="my-4 w-full">
                 <Container>
                     <div className="flex">
-                        <MainSectionTitle textAlign="text-left">{title}</MainSectionTitle>
+                        <Link href="/products">
+                            <h2
+                                className={`font-futuraPTLight text-2xl font-semibold uppercase sm:text-3xl ${futuraPTLight.variable} text-left hover:underline`}
+                            >
+                                {title}
+                            </h2>
+                        </Link>
                     </div>
 
                     <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

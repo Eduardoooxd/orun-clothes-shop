@@ -33,7 +33,7 @@ export const CategoriesDropdown: FunctionComponent<CategoriesDropdownProps> = ({
         <HoverCard.Root open={open} openDelay={300} onOpenChange={setOpen}>
             <HoverCard.Trigger
                 onClick={() => setOpen((prev) => !prev)}
-                className="cursor-default select-none rounded px-4 hover:underline focus-visible:outline-none data-[state=open]:underline"
+                className="cursor-default select-none rounded hover:underline focus-visible:outline-none data-[state=open]:underline"
             >
                 <span
                     className={`${commutersSans.variable} flex h-8 items-center font-commutersSans font-extralight uppercase`}

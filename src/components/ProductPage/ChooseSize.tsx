@@ -1,7 +1,6 @@
 'use client';
 import useGetDictionary from '@/hooks/useGetDictionary';
 import { futuraPTLight } from '@/lib/fontLoader';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
 import { FunctionComponent, useEffect, useState } from 'react';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
@@ -26,73 +25,63 @@ const ChooseSize: FunctionComponent<ChooseSizeProps> = ({ sizes }) => {
 
     return (
         <section className="my-4 py-4">
-            <DropdownMenu.Root open={open} onOpenChange={setOpen}>
-                <DropdownMenu.Trigger asChild>
-                    <button
-                        type="button"
-                        aria-label="Open size selector"
-                        className="chooseSizeButton group flex w-full cursor-pointer items-center justify-between focus-visible:outline-none"
+            <button
+                type="button"
+                aria-label="Open size selector"
+                className="chooseSizeButton group flex w-full cursor-pointer items-center justify-between focus-visible:outline-none"
+                onClick={() => setOpen((prev) => !prev)}
+            >
+                <h4 className={`${futuraPTLight.variable} font-futuraPTLight text-sm uppercase`}>
+                    {sizeText}
+                </h4>
+
+                <div className="flex items-center gap-x-2 ">
+                    <h4
+                        className={`${futuraPTLight.variable} sizeText font-futuraPTLight text-sm uppercase transition active:underline group-hover:underline`}
                     >
-                        <h4
-                            className={`${futuraPTLight.variable} font-futuraPTLight text-sm uppercase`}
-                        >
-                            {sizeText}
-                        </h4>
+                        {chooseSizeText}
+                    </h4>
+                    <MdOutlineKeyboardArrowDown
+                        className={`downIcon h-9 w-9 transition ${open && 'rotate-180'}`}
+                    />
+                </div>
+            </button>
 
-                        <div className="flex items-center gap-x-2 ">
-                            <h4
-                                className={`${futuraPTLight.variable} sizeText font-futuraPTLight text-sm uppercase transition active:underline group-hover:underline`}
+            <AnimatePresence>
+                {open && (
+                    <motion.div
+                        className="mb-4 flex flex-col gap-y-4"
+                        initial="closed"
+                        animate={controls}
+                        exit="closed"
+                        variants={{
+                            open: {
+                                translateY: '30%',
+                                transition: {
+                                    ease: 'easeOut',
+                                    duration: 0.1,
+                                },
+                            },
+                            closed: {
+                                translateY: 0,
+                                transition: {
+                                    ease: 'easeIn',
+                                    duration: 0.2,
+                                },
+                            },
+                        }}
+                    >
+                        {sizes.map((size) => (
+                            <li
+                                className={`${futuraPTLight.variable} flex list-none justify-end font-futuraPTLight text-sm uppercase`}
+                                key={size}
                             >
-                                {chooseSizeText}
-                            </h4>
-                            <MdOutlineKeyboardArrowDown className="downIcon h-9 w-9 transition" />
-                        </div>
-                    </button>
-                </DropdownMenu.Trigger>
-
-                <AnimatePresence>
-                    {open && (
-                        <DropdownMenu.Portal forceMount className="w-full">
-                            <DropdownMenu.Content
-                                align="start"
-                                className="mt-1 w-full overflow-hidden bg-white/75 text-left shadow backdrop-blur"
-                                asChild
-                            >
-                                <motion.div
-                                    initial="closed"
-                                    animate={controls}
-                                    exit="closed"
-                                    variants={{
-                                        open: {
-                                            translateY: '100%',
-                                            transition: {
-                                                ease: 'easeOut',
-                                                duration: 0.1,
-                                            },
-                                        },
-                                        closed: {
-                                            translateY: 0,
-                                            transition: {
-                                                ease: 'easeIn',
-                                                duration: 0.2,
-                                            },
-                                        },
-                                    }}
-                                >
-                                    {sizes.map((size) => (
-                                        <DropdownMenu.Item
-                                            className={`${futuraPTLight.variable} font-futuraPTLight text-sm uppercase`}
-                                            key={size}
-                                        >
-                                            {size}
-                                        </DropdownMenu.Item>
-                                    ))}
-                                </motion.div>
-                            </DropdownMenu.Content>
-                        </DropdownMenu.Portal>
-                    )}
-                </AnimatePresence>
-            </DropdownMenu.Root>
+                                {size}
+                            </li>
+                        ))}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };

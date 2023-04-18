@@ -27,9 +27,16 @@ export interface AboutUsContent {
 
 export interface ProductPage {
     title: string;
+    colorsText: string;
     sizeContent: SizeContent;
     comingSoonText: string;
     orderText: string;
+    contactForm: ProductContactForm;
+}
+
+export interface ProductContactForm {
+    mailSubject: string;
+    mailBody: string;
 }
 
 export interface SizeContent {
