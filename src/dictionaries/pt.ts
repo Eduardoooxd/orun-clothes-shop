@@ -27,15 +27,16 @@ export const dictionary: Dictionary = {
             {
                 title: 'Orun. Céu. Liberdade. Espírito Livre.',
                 paragraphs: [
-                    'Surge de uma vontade de diferenciação. Num mundo onde a formatação impera, Orun vem para desconstruir, para quebrar padrões e para celebrar a unissidade e autenticidade de cada um. Orun não entra em tendências, cria livremente. Trazendo estilos e designs únicos, peças exclusivas ou produzidas em micro escala. Por isso, ao veres uma peça Orun, olha bem para ela, pois é pouco provável que consigas vê-la outra vez.',
-                    'Traz também no seu ADN o cuidado pela natureza, utilizando tecidos de alta qualidade provenientes do desperdício industrial do setor têxtil. A nossa ideologia assenta na sustentabilidade e reaproveitamento de materiais. Orun trás de volta o trabalho manual. Num mundo de máquinas e de automatismos Orun regressa ao poder do trabalho artesanal. As nossas peças são produzidas por quem se entrega ao poder do detalhe e pormenor, regidos pelo amor ao tecido. Produzidas em Portugal, artesanalmente.',
+                    'O homem que rompe com uma imagem fechada de masculinidade e se entrega ao carácter, à ousadia e à libertação de conceitos pré-definidos. Pretendemos descomplexar e sensualizar a imagem masculina trabalhando com tecidos e cortes fluídos que conferem suavidade, movimento e sensibilidade ao mesmo tempo, que despertamos o sagrado em cada um através da criação de peças únicas.',
+                    'Sendo a indústria têxtil a mais contribui para a poluição, tomamos como urgente a necessidade de utilização de recursos que são desperdício industrial do setor têxtil e apoiamos a nossa ideologia na sustentabilidade e reaproveitamento.',
                 ],
             },
             {
-                title: 'For the Spirit Men',
+                title: 'Inspira-nos o céu e o vento. A terra, o fogo e a água.',
                 paragraphs: [
-                    'O homem que rompe com uma imagem fechada de masculinidade e se entrega ao carácter, à ousadia e à libertação de conceitos pré-definidos - pretendemos descomplexar e sensualizar a imagem masculina trabalhando com tecidos e cortes fluídos que conferem suavidade, movimento e sensibilidade. Tomamos como urgente a necessidade de utilização de recursos que são desperdício industrial do setor têxtil e apoiamos a nossa ideologia na sustentabilidade e reaproveitamento.',
-                    'Criamos peças intemporais inseridas na definição de Slow Fashion, saindo da obrigatoriedade de produção por estações ou de seguir tendências de mercado. Trabalhamos de forma livre: sem colecções sazonais, defendendo a qualidade dos materiais, o design, a exclusividade, a produção local e artesanal. Inspired in heaven, made by earth.',
+                    'Criamos peças intemporais inseridas na definição de Slow Fashion, produzindo em pequena escala e livres da volatilidade das tendências de mercado.',
+                    'Trabalhamos de forma livre: sem colecções sazonais, defendendo a qualidade dos materiais, o design, a exclusividade, a produção local e artesanal, escolhendo matérias primas que garantam maior durabilidade.',
+                    'Inspired in heaven, made by earth, for the spirit men.',
                 ],
             },
         ],
@@ -43,7 +44,9 @@ export const dictionary: Dictionary = {
             {
                 title: 'Orun. Céu. Liberdade. Espírito Livre.',
                 paragraphs: [
-                    'Surge de uma vontade de diferenciação. Num mundo onde a formatação impera, Orun vem para desconstruir, para quebrar padrões e para celebrar a unissidade e autenticidade de cada um. Orun não entra em tendências, cria livremente. Trazendo estilos e designs únicos, peças exclusivas ou produzidas em micro escala. Por isso, ao veres uma peça Orun, olha bem para ela, pois é pouco provável que consigas vê-la outra vez.',
+                    'O homem que rompe com uma imagem fechada de masculinidade e se entrega ao carácter, à ousadia e à libertação de conceitos pré-definidos. Tomamos como urgente a necessidade de utilização de recursos que são desperdício industrial do setor têxtil e apoiamos a nossa ideologia na sustentabilidade e reaproveitamento.  Trabalhamos de forma livre: sem colecções sazonais, defendendo a qualidade dos materiais, o design, a exclusividade, a produção local, artesanal e em pequena escala, escolhendo matérias primas que garantam maior durabilidade.',
+                    'Inspira-nos o céu. A terra, o fogo  e a água.',
+                    'Inspired in heaven, made by earth, for the spirit men.',
                 ],
             },
         ],

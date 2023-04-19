@@ -10,7 +10,7 @@ const AboutUs: FunctionComponent = () => {
     const { title, desktopContent, mobileContent } = dictionary.aboutUs;
 
     return (
-        <section className="my-4" id="aboutUs">
+        <section className="my-4 w-full" id="aboutUs">
             <Container>
                 <MainSectionTitle textAlign="text-center">{title}</MainSectionTitle>
                 <DesktopContent desktopContent={desktopContent} />
@@ -21,14 +21,14 @@ const AboutUs: FunctionComponent = () => {
 };
 
 const DesktopContent = ({ desktopContent }: { desktopContent: AboutUsContent[] }) => (
-    <div className="mt-8 hidden flex-col gap-8 text-justify sm:mt-12 sm:flex sm:flex-row sm:gap-24 ">
+    <div className="mt-8 hidden flex-col justify-between gap-8 text-justify sm:mt-12 sm:flex sm:flex-row sm:gap-24 ">
         {desktopContent.map((content, index) => {
             const { title, paragraphs } = content;
             const ParagraphsComponents = paragraphs.map((paragraph, index) => (
                 <ContentText key={index}> {paragraph} </ContentText>
             ));
             return (
-                <div key={index} className="max-w-3xl text-gray-600 lg:mt-12">
+                <div key={index} className="w-[50%] text-gray-600 lg:mt-12">
                     <ContentTitle> {title} </ContentTitle>
                     {ParagraphsComponents}
                 </div>
