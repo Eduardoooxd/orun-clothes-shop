@@ -63,7 +63,7 @@ export const dictionary: Dictionary = {
         contactForm: {
             mailSubject: 'Estou interessado no produto "${title}"',
             mailBody:
-                'Olá !%0D%0A%0D%0A%20%20%20%20Quero comprar o seguinte produto:%0D%0A%20%20%20%20${title} com tamanho (se aplicável) [a escrever].%0D%0A%0D%0A%20%20%20%20Detalhes de envio:%0D%0A------------------%0D%0A%0D%0A%20%20%20%20 Telemóvel: [a escrever]%0D%0A%20%20%20%20 Morada : [a escrever]%0D%0A%20%20%20%20 NIF : [a escrever] (Opcional)%0D%0A%0D%0ADetalhes do Produto:%0D%0A------------------%0D%0A%20%20%20%20Nome da peça: ${title}%0D%0A%20%20%20%20Preço: ${price} euros%0D%0A%0D%0A%0D%0A%0D%0AObrigado!',
+                'Olá !%0D%0A%0D%0A%20%20%20%20Quero comprar o seguinte produto:%0D%0A%20%20%20%20${title} com tamanho (se aplicável) [inserir tamanho].%0D%0A%0D%0A%20%20%20%20Detalhes de envio:%0D%0A------------------%0D%0A%0D%0A%20%20%20%20Telemóvel: [inserir contacto telefónico]%0D%0A%20%20%20%20 Morada : [inserir morada]%0D%0A%20%20%20%20 NIF (Opcional) : [inserir NIF]%0D%0A%0D%0ADetalhes do Produto:%0D%0A------------------%0D%0A%20%20%20%20Nome da peça: ${title}%0D%0A%20%20%20%20Preço: ${price} euros%0D%0A%0D%0A%0D%0A%0D%0AObrigado!',
         },
     },
     footer: {
