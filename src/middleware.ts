@@ -1,32 +1,41 @@
-import { withClerkMiddleware } from '@clerk/nextjs/server';
+import { i18nConfig } from '@/config/i18nConfig';
+import { match as matchLocale } from '@formatjs/intl-localematcher';
+import Negotiator from 'negotiator';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-// Set the paths that don't require the user to be signed in
-const publicPaths = ['/', '/sign-in*', '/sign-up*', '/products*'];
+export function middleware(request: NextRequest) {
+    const { locales } = i18nConfig;
 
-const isPublic = (path: string) => {
-    return publicPaths.find((x) => path.match(new RegExp(`^${x}$`.replace('*$', '($|/)'))));
+    let pathName = request.nextUrl.pathname;
+
+    const pathnameIsMissingLocale = locales.every(
+        (locale) => !pathName.startsWith(`/${locale}/`) && pathName !== `/${locale}`
+    );
+
+    // Redirect if there is no locale
+    if (pathnameIsMissingLocale) {
+        const localeToRedirect = getLocale(request);
+
+        locales.forEach((locale) => {
+            pathName = pathName.replace(`/${locale}/`, '/');
+        });
+
+        return NextResponse.redirect(new URL(`/${localeToRedirect}/${pathName}`, request.url));
+    }
+}
+
+const getLocale = (request: NextRequest) => {
+    const { locales, defaultLocale } = i18nConfig;
+    // Negotiator expects plain object so we need to transform headers
+    const negotiatorHeaders: Record<string, string> = {};
+    request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
+
+    const requestedLanguages = new Negotiator({ headers: negotiatorHeaders }).languages();
+    // @ts-ignore locales are readonly
+    const appLocales: string[] = locales;
+    return matchLocale(requestedLanguages, appLocales, defaultLocale);
 };
 
-export default withClerkMiddleware((request: NextRequest) => {
-    return NextResponse.next();
-    /*
-    if (isPublic(request.nextUrl.pathname)) {
-        return NextResponse.next();
-    }
-    // if the user is not signed in redirect them to the sign in page.
-    const { userId } = getAuth(request);
-
-    if (!userId) {
-        // redirect the users to /pages/sign-in/[[...index]].ts
-
-        const signInUrl = new URL('/sign-in', request.url);
-        signInUrl.searchParams.set('redirect_url', request.url);
-        return NextResponse.redirect(signInUrl);
-    }
-    return NextResponse.next();*/
-});
-
 // Stop Middleware running on static files
-export const config = { matcher: '/((?!_next/image|_next/static|favicon.ico).*)' };
+export const config = { matcher: ['/((?!_next|.*\\..*).*)'] };

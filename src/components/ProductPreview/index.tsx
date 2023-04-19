@@ -1,5 +1,5 @@
 import { futuraPTLight } from '@/lib/fontLoader';
-import { Product } from '@/lib/product';
+import { Product } from '@/lib/products';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FunctionComponent } from 'react';

@@ -3,12 +3,9 @@
 ## First Release (MVP)
 
 -   Implement an image magnifier on the product page to allow users to see products in detail.
--   Implement a carousel on the product page to display multiple images of a product.
--   Implement internationalization (i18n) for all pages to cater to a diverse audience.
 -   Create a product page with a search bar to make it easier for users to find specific products.
--   Implement analytics to track user behavior and improve website performance.
+-   Create a popup announcing that a online shop will be introduced soon
 -   Fix issues in the category panel for better user experience.
--   Research the best way to track orders and implement the tracking system.
 -   Add Suspense and Error handling to improve user experience.
 
 ## Second Release
@@ -18,10 +15,13 @@
 -   Implement a newsletter feature to increase customer engagement.
 -   Create a page for the return policy to establish clear guidelines for returns.
 -   Research and implement the best way to store and handle information related to order shipping.
+-   Implement analytics to track user behavior and improve website performance.
+-   Research the best way to track orders and implement the tracking system.
 
 ## Bugfixes
 
--   Fix the font family that does not have - or letters to ensure proper display of text on the website.
+-   Fix a bug that on next link to / it redirects to /pt instead of /en
+-   Fix a bug where /product/SUOPUS does not have a good width for desktop
 
 ## Inspirations for design
 

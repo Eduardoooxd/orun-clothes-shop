@@ -4,6 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './styles.css';
 
+import useIsMobile from '@/hooks/useIsMobile';
 import React from 'react';
 
 interface ProductsCarouselProps {
@@ -11,10 +12,12 @@ interface ProductsCarouselProps {
 }
 
 export default function ProductsCarousel({ children, ...props }: ProductsCarouselProps) {
+    const isMobile = useIsMobile();
+
     return (
         <Carousel
-            className="h-full"
-            axis="horizontal"
+            className="h-full flex-1"
+            showArrows={!isMobile}
             renderArrowPrev={(clickHandler, hasPrev, label) => (
                 <CustomPrevArrow clickHandler={clickHandler} hasPrev={hasPrev} label={label} />
             )}
@@ -58,7 +61,7 @@ function CustomNextArrow({ clickHandler, hasNext }: CustomNextArrow) {
     return (
         <div
             className={`${
-                hasNext ? 'absolute' : 'hidden'
+                hasNext ? 'sm:absolute' : 'hidden'
             } inset-y-0 right-0 z-20 flex cursor-pointer items-center justify-center p-3 opacity-30 hover:opacity-100`}
             onClick={clickHandler}
         >

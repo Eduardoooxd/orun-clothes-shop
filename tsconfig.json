@@ -26,7 +26,10 @@
             "@/images/*": ["./public/assets/images/*"],
             "@/components/*": ["./src/components/*"],
             "@/hooks/*": ["./src/hooks/*"],
-            "@/lib/*": ["./lib/*"]
+            "@/lib/*": ["./src/lib/*"],
+            "@/config/*": ["./src/config/*"],
+            "@/dictionaries/*": ["./src/dictionaries/*"],
+            "@/store/*": ["./src/store/*"]
         }
     },
     "include": [

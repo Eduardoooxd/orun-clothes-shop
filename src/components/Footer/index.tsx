@@ -1,14 +1,16 @@
 import LogoImage from '@/images/logo/logo.webp';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
+import { store } from '@/store';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FunctionComponent } from 'react';
 import Container from '../Container';
 import Separator from '../Separator';
-import { ABOUT_LINKS } from './data';
 
 const Footer: FunctionComponent = () => {
     const CURRENT_YEAR = new Date().getFullYear();
+    const dictionary = store.getState().dictionary.dictionary;
+    const { ABOUT_LINKS } = dictionary.footer;
 
     return (
         <>
