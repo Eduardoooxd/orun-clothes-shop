@@ -147,4 +147,12 @@ export const dictionary: Dictionary = {
             },
         ],
     },
+    productsPage: {
+        productsContent: {
+            title: 'Products',
+        },
+        categoriesContent: {
+            title: 'Categories',
+        },
+    },
 };

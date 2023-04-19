@@ -83,7 +83,7 @@ export const TunicsProducts: Product[] = [
         price: 89,
         description:
             'Fluid piece inspired by medicine men who are knowledgeable about the secrets and mysteries of the Earth and who are confident in themselves. A piece that evokes the wind through its composition and refers to a tribal imaginary composed of warriors, shamans, and men who express their masculinity sensually.',
-        category: 'Tunics',
+        category: 'Tunic',
         sizes: ['S/M', 'M/L'],
         colors: ['Black'],
         images: [FrontImageHAMMAL, SideImageHAMMAL],
@@ -94,7 +94,7 @@ export const TunicsProducts: Product[] = [
         price: 89,
         description:
             'Fluidity, naturalness, purity: traits that define the Orun Man. A piece of unique knit that exalts sensuality, the sacred, and love.',
-        category: 'Tunics',
+        category: 'Tunic',
         sizes: ['Fluid'],
         colors: ['White'],
         images: [PrincipalADHIL, FrontImageADHIL, CloseUpADHIL, SideADHIL, BackADHIL],
@@ -107,7 +107,7 @@ export const TunicsProducts: Product[] = [
         colors: ['Beige'],
         description:
             'Relaxation, cultural inspiration from South America, and the image of a modern and spiritual man. Easily adaptable to a more formal or informal style, this piece intends to bring to those who wear it the image of a confident, timeless, elegant, and spiritual man.',
-        category: 'Tunics',
+        category: 'Tunic',
         images: [FrontImageVEGA, SideVEGA, CloseUpVEGA],
     },
 ];

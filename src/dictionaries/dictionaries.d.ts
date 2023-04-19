@@ -66,6 +66,19 @@ export interface FooterLinkGroup {
     links: FooterLink[];
 }
 
+export interface ProductsPage {
+    productsContent: ProductsContent;
+    categoriesContent: CategoriesContent;
+}
+
+export interface ProductsContent {
+    title: string;
+}
+
+export interface CategoriesContent {
+    title: string;
+}
+
 export interface Dictionary {
     language: string;
     navBar: NavBar;
@@ -73,4 +86,5 @@ export interface Dictionary {
     topPicks: TopPicks;
     productPage: ProductPage;
     footer: Footer;
+    productsPage: ProductsPage;
 }
