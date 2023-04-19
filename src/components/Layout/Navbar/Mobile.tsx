@@ -9,8 +9,9 @@ import { ClosedHamburgerMenu, OpenHamburgerMenu } from '../../Icons/HamburguerMe
 import useGetDictionary from '@/hooks/useGetDictionary';
 import { useLockBody } from '@/hooks/useLockBody';
 import LinkI18N from '../LinkI18N';
-import { CategoriesDropdown } from './CategoriesDropdown';
 import LocaleSwitcher from './LocaleSwitcher';
+import MobileCategoriesDropdown from './MobileCategoriesDropdown';
+import NavbarLink from './NavbarLink';
 
 interface MobileNavBarProps {
     isMobileMenuOpen: boolean;
@@ -58,6 +59,7 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
                 </button>
             </div>
             <MobileNavBarMenu
+                setIsMobileMenuOpen={setIsMobileMenuOpen}
                 isMobileMenuOpen={isMobileMenuOpen}
                 setIsDropdownOpen={setIsDropdownOpen}
             />
@@ -67,11 +69,13 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
 
 interface MobileNavBarMenuProps {
     isMobileMenuOpen: boolean;
+    setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
     setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({
     isMobileMenuOpen,
+    setIsMobileMenuOpen,
     setIsDropdownOpen,
 }) => {
     return (
@@ -85,7 +89,12 @@ const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
             >
-                {() => <MobileNavBarMenuOpen setIsDropdownOpen={setIsDropdownOpen} />}
+                {() => (
+                    <MobileNavBarMenuOpen
+                        setIsDropdownOpen={setIsDropdownOpen}
+                        setIsMobileMenuOpen={setIsMobileMenuOpen}
+                    />
+                )}
             </Transition>
         </>
     );
@@ -93,10 +102,12 @@ const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({
 
 interface MobileNavBarMenuOpenProps {
     setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
+    setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
     setIsDropdownOpen,
+    setIsMobileMenuOpen,
 }) => {
     const dictionary = useGetDictionary();
     useLockBody();
@@ -106,13 +117,17 @@ const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
     return (
         <div className="h-[calc(100dvh-5rem)] p-4 sm:p-6 md:hidden">
             <div className="flex flex-col gap-4">
-                {/*[Category, AboutUs, ContactUs].map((navBarLink, index) => (
-                    <NavbarLink key={index} {...navBarLink} />
-                ))*/}
-
-                <CategoriesDropdown setIsDropdownOpen={setIsDropdownOpen}>
+                <MobileCategoriesDropdown onClickItem={() => setIsMobileMenuOpen(false)}>
                     {Category.text}
-                </CategoriesDropdown>
+                </MobileCategoriesDropdown>
+
+                {[AboutUs, ContactUs].map((navBarLink, index) => (
+                    <NavbarLink
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        key={index}
+                        {...navBarLink}
+                    />
+                ))}
 
                 <LocaleSwitcher />
             </div>

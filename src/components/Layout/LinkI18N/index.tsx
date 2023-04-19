@@ -9,12 +9,14 @@ interface LinkI18NProps {
     children: React.ReactNode;
     href: string;
     className?: string;
+    onClick?: () => void;
 }
 
 const LinkI18N: FunctionComponent<LinkI18NProps> = ({
     children,
     href,
     className,
+    onClick,
 }: LinkI18NProps) => {
     const currentLocale = useGetCurrentLocale();
 
@@ -31,7 +33,7 @@ const LinkI18N: FunctionComponent<LinkI18NProps> = ({
     };
 
     return (
-        <Link className={className} href={redirectedWithLocale(href)}>
+        <Link className={className} onClick={onClick} href={redirectedWithLocale(href)}>
             {children}
         </Link>
     );

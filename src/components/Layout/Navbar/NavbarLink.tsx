@@ -5,13 +5,15 @@ import LinkI18N from '../LinkI18N';
 export interface NavbarLinkProps {
     text: string;
     href: string;
+    onClick?: () => void;
 }
 
-const NavbarLink: FunctionComponent<NavbarLinkProps> = ({ text, href }) => {
+const NavbarLink: FunctionComponent<NavbarLinkProps> = ({ text, href, onClick }) => {
     return (
         <LinkI18N
             className={`${commutersSans.variable} flex h-8 items-center font-commutersSans font-extralight uppercase transition hover:underline`}
             href={href}
+            onClick={onClick}
         >
             {text}
         </LinkI18N>
