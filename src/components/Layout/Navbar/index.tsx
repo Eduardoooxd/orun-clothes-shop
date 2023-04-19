@@ -54,6 +54,7 @@ export const Navbar: FunctionComponent = () => {
                 ) : (
                     <DesktopNavBar
                         isScrolled={isScrolled || !isRootPage}
+                        isDropdownOpen={isDropdownOpen}
                         setIsDropdownOpen={setIsDropdownOpen}
                     />
                 )}

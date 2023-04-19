@@ -14,9 +14,11 @@ import NavbarLink from './NavbarLink';
 interface DesktopNavBarProps {
     setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
     isScrolled: boolean;
+    isDropdownOpen: boolean;
 }
 
 export const DesktopNavBar: FunctionComponent<DesktopNavBarProps> = ({
+    isDropdownOpen,
     setIsDropdownOpen,
     isScrolled,
 }) => {
@@ -26,7 +28,7 @@ export const DesktopNavBar: FunctionComponent<DesktopNavBarProps> = ({
     return (
         <div
             className={`${
-                isScrolled ? '' : 'text-white'
+                isScrolled || isDropdownOpen ? '' : 'text-white'
             } container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6`}
         >
             <div className="flex  flex-1 items-center gap-6 lg:gap-10">

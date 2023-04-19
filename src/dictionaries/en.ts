@@ -10,7 +10,7 @@ export const dictionary: Dictionary = {
             },
             AboutUs: {
                 text: 'About us',
-                href: '/',
+                href: '#aboutUs',
             },
             ContactUs: {
                 text: 'Contact us',
@@ -20,7 +20,7 @@ export const dictionary: Dictionary = {
     },
     aboutUs: {
         title: 'About us',
-        content: [
+        desktopContent: [
             {
                 title: 'Orun. Sky. Freedom. Free Spirit.',
                 paragraphs: [
@@ -31,7 +31,16 @@ export const dictionary: Dictionary = {
             {
                 title: 'For the Spirit Men',
                 paragraphs: [
-                    'The man who breaks away from a closed image of masculinity and surrenders to character, boldness and the liberation of predefined concepts - we aim to uncomplicate and sensualize the male image by working with fluid fabrics and cuts that confer softness, movement and sensitivity. We consider the use of resources that are industrial waste in the textile sector urgent and we support our ideology in sustainability and reuse. We create timeless pieces that fit into the definition of Slow Fashion, departing from the obligation of producing by seasons or following market trends. We work freely: without seasonal collections, defending the quality of materials, design, exclusivity, local and artisanal production. Inspired in heaven, made by earth.',
+                    'The man who breaks away from a closed image of masculinity and surrenders to character, boldness and the liberation of predefined concepts - we aim to uncomplicate and sensualize the male image by working with fluid fabrics and cuts that confer softness, movement and sensitivity. We consider the use of resources that are industrial waste in the textile sector urgent and we support our ideology in sustainability and reuse.',
+                    'We create timeless pieces that fit into the definition of Slow Fashion, departing from the obligation of producing by seasons or following market trends. We work freely: without seasonal collections, defending the quality of materials, design, exclusivity, local and artisanal production. Inspired in heaven, made by earth.',
+                ],
+            },
+        ],
+        mobileContent: [
+            {
+                title: 'Orun. Sky. Freedom. Free Spirit.',
+                paragraphs: [
+                    'Emerges from a desire for differentiation. In a world where conformity prevails, Orun comes to deconstruct, to break patterns and to celebrate the uniqueness and authenticity of each individual. Orun doesn’t follow trends, it creates freely. Bringing unique styles and designs, exclusive pieces or produced on a small scale. So, when you see an Orun piece, look closely at it, as it’s unlikely that you’ll see it again.',
                 ],
             },
         ],
@@ -60,11 +69,11 @@ export const dictionary: Dictionary = {
                 title: 'About',
                 links: [
                     {
-                        href: '/story',
+                        href: '/en/#aboutUs',
                         text: 'Our Story',
                     },
                     /*
-                    {
+                    {href: '/en/#aboutUs',
                         href: '/stores',
                         text: 'Our Stores',
                     },

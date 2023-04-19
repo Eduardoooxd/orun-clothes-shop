@@ -29,6 +29,7 @@ import {
     FrontImageRIGEL,
     FrontImageSUOPUS,
     FrontImageVEGA,
+    PreviewImageAZHA_STREET,
     PreviewImageCEPTUS,
     PreviewImageDIWO,
     PreviewImageGreenLYNX,
@@ -41,6 +42,7 @@ import {
     SideBlackImageCEPTUS,
     SideGreenAZHA_BEACH,
     SideGreenImageLYNX,
+    SideImageAZHA_STREET,
     SideImageDIWO,
     SideImageHAMMAL,
     SideImageSUOPUS,
@@ -188,7 +190,12 @@ export const ShortsProducts: Product[] = [
         category: 'Shorts',
         sizes: ['Adjustable size'],
         colors: ['Khaki Green'],
-        images: [FrontImageAZHA_STREET, BackImageAZHA_STREET],
+        images: [
+            PreviewImageAZHA_STREET,
+            FrontImageAZHA_STREET,
+            BackImageAZHA_STREET,
+            SideImageAZHA_STREET,
+        ],
     },
 ];
 

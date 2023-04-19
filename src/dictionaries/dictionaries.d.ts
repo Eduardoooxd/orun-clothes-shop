@@ -17,7 +17,8 @@ export interface NavBar {
 
 export interface AboutUs {
     title: string;
-    content: AboutUsContent[];
+    desktopContent: AboutUsContent[];
+    mobileContent: AboutUsContent[];
 }
 
 export interface AboutUsContent {

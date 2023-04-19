@@ -29,6 +29,7 @@ import {
     FrontImageRIGEL,
     FrontImageSUOPUS,
     FrontImageVEGA,
+    PreviewImageAZHA_STREET,
     PreviewImageCEPTUS,
     PreviewImageDIWO,
     PreviewImageGreenLYNX,
@@ -41,6 +42,7 @@ import {
     SideBlackImageCEPTUS,
     SideGreenAZHA_BEACH,
     SideGreenImageLYNX,
+    SideImageAZHA_STREET,
     SideImageDIWO,
     SideImageHAMMAL,
     SideImageSUOPUS,
@@ -188,7 +190,12 @@ export const CalcaoProducts: Product[] = [
         category: 'Calção',
         sizes: ['Tamanho ajustável'],
         colors: ['Verde Caqui'],
-        images: [FrontImageAZHA_STREET, BackImageAZHA_STREET],
+        images: [
+            PreviewImageAZHA_STREET,
+            FrontImageAZHA_STREET,
+            BackImageAZHA_STREET,
+            SideImageAZHA_STREET,
+        ],
     },
 ];
 
