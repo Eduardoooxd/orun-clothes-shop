@@ -49,21 +49,28 @@ import {
 
 export const TunicsProducts: Product[] = [
     {
-        id: 'LYNX',
-        title: 'Trespasse Tunic - LYNX',
+        id: 'LYNX-BLACK',
+        title: 'Trespasse Tunic - LYNX BLACK',
         price: 89,
         description:
             'A piece that evokes male sensuality in an uncomplicated and bold way. Free neckline in a low-cut piece, in high-quality, semi-transparent two-ply knit. With unique details on the shoulder marking and defining the style of the Orun man.',
         category: 'Tunic',
         sizes: ['S/M', 'M/L'],
-        colors: ['Black', 'Green'],
+        colors: ['Black'],
+        images: [PreviewImageLYNX, FrontImageLYNX, BackImageLYNX, CloseUpImageLYNX],
+    },
+    {
+        id: 'LYNX-GREEN',
+        title: 'Trespasse Tunic - LYNX GREEN',
+        price: 89,
+        description:
+            'A piece that evokes male sensuality in an uncomplicated and bold way. Free neckline in a low-cut piece, in high-quality, semi-transparent two-ply knit. With unique details on the shoulder marking and defining the style of the Orun man.',
+        category: 'Tunic',
+        sizes: ['S/M', 'M/L'],
+        colors: ['Green'],
         images: [
-            PreviewImageLYNX,
-            FrontImageLYNX,
             PreviewImageGreenLYNX,
-            BackImageLYNX,
             BackGreenImageLYNX,
-            CloseUpImageLYNX,
             FrontImageGreenLYNX,
             SideGreenImageLYNX,
         ],

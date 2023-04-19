@@ -49,21 +49,28 @@ import {
 
 export const TunicasProducts: Product[] = [
     {
-        id: 'LYNX',
-        title: 'Túnica Trespasse - LYNX',
+        id: 'LYNX-BLACK',
+        title: 'Túnica Trespasse - LYNX PRETA',
         price: 89,
         description:
             'Peça que evoca a sensualidade masculina de forma descomplexada e arrojada. Decote livre numa peça cavada, em malha de duas folhas semi-transparente de alta qualidade. Com detalhes únicos no ombro a marcar e a definir o estilo do homem Orun.',
         category: 'Túnicas',
         sizes: ['S/M', 'M/L'],
-        colors: ['Preta', 'Verde'],
+        colors: ['Preta'],
+        images: [PreviewImageLYNX, FrontImageLYNX, BackImageLYNX, CloseUpImageLYNX],
+    },
+    {
+        id: 'LYNX-GREEN',
+        title: 'Túnica Trespasse - LYNX VERDE',
+        price: 89,
+        description:
+            'Peça que evoca a sensualidade masculina de forma descomplexada e arrojada. Decote livre numa peça cavada, em malha de duas folhas semi-transparente de alta qualidade. Com detalhes únicos no ombro a marcar e a definir o estilo do homem Orun.',
+        category: 'Túnicas',
+        sizes: ['S/M', 'M/L'],
+        colors: ['Verde'],
         images: [
-            PreviewImageLYNX,
-            FrontImageLYNX,
             PreviewImageGreenLYNX,
-            BackImageLYNX,
             BackGreenImageLYNX,
-            CloseUpImageLYNX,
             FrontImageGreenLYNX,
             SideGreenImageLYNX,
         ],
