@@ -50,6 +50,7 @@ export const Navbar: FunctionComponent = () => {
                         isMobileMenuOpen={isMobileMenuOpen}
                         setIsMobileMenuOpen={setIsMobileMenuOpen}
                         isScrolled={isScrolled || !isRootPage}
+                        setIsDropdownOpen={setIsDropdownOpen}
                     />
                 ) : (
                     <DesktopNavBar

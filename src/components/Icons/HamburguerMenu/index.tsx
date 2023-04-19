@@ -24,5 +24,5 @@ export const OpenHamburgerMenu: FunctionComponent<HamburgerMenuProps> = ({ isOpe
 };
 
 export const ClosedHamburgerMenu: FunctionComponent<HamburgerMenuProps> = ({ isOpen }) => {
-    return isOpen ? <RxCross1 size={'1.5rem'} /> : null;
+    return isOpen ? <RxCross1 size={'1.5rem'} color={isOpen && 'black'} /> : null;
 };

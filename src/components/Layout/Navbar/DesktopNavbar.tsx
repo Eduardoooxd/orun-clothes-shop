@@ -28,7 +28,7 @@ export const DesktopNavBar: FunctionComponent<DesktopNavBarProps> = ({
     return (
         <div
             className={`${
-                isScrolled || isDropdownOpen ? '' : 'text-white'
+                isScrolled || isDropdownOpen ? 'text-black' : 'text-white'
             } container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6`}
         >
             <div className="flex  flex-1 items-center gap-6 lg:gap-10">

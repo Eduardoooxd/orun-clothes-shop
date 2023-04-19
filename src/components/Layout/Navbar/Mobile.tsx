@@ -1,34 +1,35 @@
 'use client';
 
 import MiniBlackLogoImage from '@/images/logo/logo-mini.png';
-import MiniWhiteLogoImage from '@/images/logo/logo-white-mini.png';
 import { Transition } from '@headlessui/react';
 import Image from 'next/image';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
 import { ClosedHamburgerMenu, OpenHamburgerMenu } from '../../Icons/HamburguerMenu';
-import NavbarLink from './NavbarLink';
 
 import useGetDictionary from '@/hooks/useGetDictionary';
 import { useLockBody } from '@/hooks/useLockBody';
 import LinkI18N from '../LinkI18N';
+import { CategoriesDropdown } from './CategoriesDropdown';
 import LocaleSwitcher from './LocaleSwitcher';
 
 interface MobileNavBarProps {
     isMobileMenuOpen: boolean;
     isScrolled: boolean;
     setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
+    setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
     isMobileMenuOpen,
     setIsMobileMenuOpen,
+    setIsDropdownOpen,
     isScrolled,
 }) => {
     return (
         <>
             <div
                 className={`${
-                    isScrolled ? '' : 'text-white'
+                    isScrolled ? 'text-black' : 'text-white'
                 } container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6`}
             >
                 <div>
@@ -41,15 +42,7 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
                                 width={100}
                                 height={20}
                             />
-                        ) : (
-                            <Image
-                                priority
-                                src={MiniWhiteLogoImage}
-                                alt="logo"
-                                width={100}
-                                height={20}
-                            />
-                        )}
+                        ) : null}
                     </LinkI18N>
                 </div>
                 <button
@@ -64,16 +57,23 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
                     <ClosedHamburgerMenu isOpen={isMobileMenuOpen} />
                 </button>
             </div>
-            <MobileNavBarMenu isMobileMenuOpen={isMobileMenuOpen} />
+            <MobileNavBarMenu
+                isMobileMenuOpen={isMobileMenuOpen}
+                setIsDropdownOpen={setIsDropdownOpen}
+            />
         </>
     );
 };
 
 interface MobileNavBarMenuProps {
     isMobileMenuOpen: boolean;
+    setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({ isMobileMenuOpen }) => {
+const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({
+    isMobileMenuOpen,
+    setIsDropdownOpen,
+}) => {
     return (
         <>
             <Transition
@@ -85,13 +85,19 @@ const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({ isMobileMe
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
             >
-                {() => <MobileNavBarMenuOpen />}
+                {() => <MobileNavBarMenuOpen setIsDropdownOpen={setIsDropdownOpen} />}
             </Transition>
         </>
     );
 };
 
-const MobileNavBarMenuOpen: FunctionComponent = () => {
+interface MobileNavBarMenuOpenProps {
+    setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
+    setIsDropdownOpen,
+}) => {
     const dictionary = useGetDictionary();
     useLockBody();
 
@@ -100,9 +106,13 @@ const MobileNavBarMenuOpen: FunctionComponent = () => {
     return (
         <div className="h-[calc(100dvh-5rem)] p-4 sm:p-6 md:hidden">
             <div className="flex flex-col gap-4">
-                {[Category, AboutUs, ContactUs].map((navBarLink, index) => (
+                {/*[Category, AboutUs, ContactUs].map((navBarLink, index) => (
                     <NavbarLink key={index} {...navBarLink} />
-                ))}
+                ))*/}
+
+                <CategoriesDropdown setIsDropdownOpen={setIsDropdownOpen}>
+                    {Category.text}
+                </CategoriesDropdown>
 
                 <LocaleSwitcher />
             </div>
