@@ -59,7 +59,7 @@ export const TunicasProducts: Product[] = [
         category: 'Túnicas',
         sizes: ['S/M', 'M/L'],
         colors: ['Preta'],
-        images: [PreviewImageLYNX, FrontImageLYNX, BackImageLYNX, CloseUpImageLYNX],
+        images: [FrontImageLYNX, PreviewImageLYNX, BackImageLYNX, CloseUpImageLYNX],
     },
     {
         id: 'LYNX-GREEN',

@@ -59,7 +59,7 @@ export const TunicsProducts: Product[] = [
         category: 'Tunic',
         sizes: ['S/M', 'M/L'],
         colors: ['Black'],
-        images: [PreviewImageLYNX, FrontImageLYNX, BackImageLYNX, CloseUpImageLYNX],
+        images: [FrontImageLYNX, PreviewImageLYNX, BackImageLYNX, CloseUpImageLYNX],
     },
     {
         id: 'LYNX-GREEN',
