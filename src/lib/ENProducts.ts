@@ -12,7 +12,6 @@ import {
     CloseUpADHIL,
     CloseUpAZHA_BEACH,
     CloseUpImage2CEPTUS,
-    CloseUpImage3CEPTUS,
     CloseUpImageCEPTUS,
     CloseUpImageLYNX,
     CloseUpImageRIGEL,
@@ -114,32 +113,39 @@ export const SweatersProducts: Product[] = [
         category: 'Sweater',
         sizes: ['S/M', 'M/L'],
         colors: ['White'],
-        images: [FrontImageRIGEL, CloseUpImageRIGEL, BackImageRIGEL],
+        images: [CloseUpImageRIGEL, FrontImageRIGEL, BackImageRIGEL],
     },
 ];
 
 export const ShirtProducts: Product[] = [
     {
-        id: 'CEPTUS',
-        title: 'Kimono Shirt - CEPTUS',
+        id: 'CEPTUS-TERRACOTA',
+        title: 'Kimono Shirt - CEPTUS TERRACOTA',
         price: 77,
         description:
             'Fluid superior quality fabric with a soft touch. Wide cut and free neckline. Ideal to be worn as a shirt or as an open piece corresponding to a casual, sensual, discreet, and striking style.',
         category: 'Shirt',
         sizes: ['S/M', 'M/L'],
-        colors: ['Terracotta', 'Black'],
+        colors: ['Terracotta'],
         images: [
-            PrincipalImageCEPTUS,
-            PreviewImageCEPTUS,
+            FrontImage2CEPTUS,
             FrontImageCEPTUS,
-            SideBlackImageCEPTUS,
+            PreviewImageCEPTUS,
             CloseUpImageCEPTUS,
             CloseUpImage2CEPTUS,
-            FrontImage2CEPTUS,
-            CloseUpImage3CEPTUS,
-            BackBlackImageCEPTUS,
             BackImageCEPTUS,
         ],
+    },
+    {
+        id: 'CEPTUS-BLACK',
+        title: 'Kimono Shirt - CEPTUS BLACK',
+        price: 77,
+        description:
+            'Fluid superior quality fabric with a soft touch. Wide cut and free neckline. Ideal to be worn as a shirt or as an open piece corresponding to a casual, sensual, discreet, and striking style.',
+        category: 'Shirt',
+        sizes: ['S/M', 'M/L'],
+        colors: ['Black'],
+        images: [PrincipalImageCEPTUS, SideBlackImageCEPTUS, BackBlackImageCEPTUS],
     },
 ];
 
@@ -154,13 +160,12 @@ export const ShortsProducts: Product[] = [
         sizes: ['Adjustable size'],
         colors: ['Black', 'Green'],
         images: [
+            SideGreenAZHA_BEACH,
             FrontImageAZHA_BEACH,
             FrontImageGreenAZHA_BEACH,
             CloseUpAZHA_BEACH,
-            BackImageAZHA_STREET,
             BackImageGreenAZHA_BEACH,
             SideAZHA_BEACH,
-            SideGreenAZHA_BEACH,
         ],
     },
     {

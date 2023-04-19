@@ -12,7 +12,6 @@ import {
     CloseUpADHIL,
     CloseUpAZHA_BEACH,
     CloseUpImage2CEPTUS,
-    CloseUpImage3CEPTUS,
     CloseUpImageCEPTUS,
     CloseUpImageLYNX,
     CloseUpImageRIGEL,
@@ -114,32 +113,39 @@ export const CamisolasProducts: Product[] = [
         category: 'Camisola',
         sizes: ['S/M', 'M/L'],
         colors: ['Branca'],
-        images: [FrontImageRIGEL, CloseUpImageRIGEL, BackImageRIGEL],
+        images: [CloseUpImageRIGEL, FrontImageRIGEL, BackImageRIGEL],
     },
 ];
 
 export const CamisasProducts: Product[] = [
     {
-        id: 'CEPTUS',
-        title: 'Camisa-Quimono - CEPTUS',
+        id: 'CEPTUS-TERRACOTA',
+        title: 'Camisa-Quimono - CEPTUS TERRACOTA',
         price: 77,
         description:
             'Malha de qualidade superior fluída, de toque macio. Corte largo e de decote livre. Ideal para ser usada como camisa ou como peça aberta correspondendo a um estilo descomprometido, sensual, discreto e marcante.',
         category: 'Camisa',
         sizes: ['S/M', 'M/L'],
-        colors: ['Terracota', 'Preta'],
+        colors: ['Terracotta'],
         images: [
-            PrincipalImageCEPTUS,
-            PreviewImageCEPTUS,
+            FrontImage2CEPTUS,
             FrontImageCEPTUS,
-            SideBlackImageCEPTUS,
+            PreviewImageCEPTUS,
             CloseUpImageCEPTUS,
             CloseUpImage2CEPTUS,
-            FrontImage2CEPTUS,
-            CloseUpImage3CEPTUS,
-            BackBlackImageCEPTUS,
             BackImageCEPTUS,
         ],
+    },
+    {
+        id: 'CEPTUS-BLACK',
+        title: 'Camisa-Quimono - CEPTUS PRETA',
+        price: 77,
+        description:
+            'Malha de qualidade superior fluída, de toque macio. Corte largo e de decote livre. Ideal para ser usada como camisa ou como peça aberta correspondendo a um estilo descomprometido, sensual, discreto e marcante.',
+        category: 'Camisa',
+        sizes: ['S/M', 'M/L'],
+        colors: ['Preta'],
+        images: [PrincipalImageCEPTUS, SideBlackImageCEPTUS, BackBlackImageCEPTUS],
     },
 ];
 
@@ -154,13 +160,12 @@ export const CalcaoProducts: Product[] = [
         sizes: ['Tamanho ajustável'],
         colors: ['Preto', 'Verde'],
         images: [
+            SideGreenAZHA_BEACH,
             FrontImageAZHA_BEACH,
             FrontImageGreenAZHA_BEACH,
             CloseUpAZHA_BEACH,
-            BackImageAZHA_STREET,
             BackImageGreenAZHA_BEACH,
             SideAZHA_BEACH,
-            SideGreenAZHA_BEACH,
         ],
     },
     {
