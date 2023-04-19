@@ -1,11 +1,11 @@
-import SmallLogoAlternativeImage from '@/images/logo/logo-small-alternative.png';
-import BackgroundImage from '@/images/main_background.webp';
+import BackgroundImage from '@/images/background_2.webp';
+import LogoWhiteAlternativeImage from '@/images/logo/logo-white-small-alternative.png';
+
 import Image from 'next/image';
-import './styles.css';
 
 export default function Hero() {
     return (
-        <section className="hero-container relative mt-[-5rem] min-h-screen w-full">
+        <section className="relative mt-[-5rem] min-h-screen w-full">
             <Image
                 priority
                 src={BackgroundImage}
@@ -17,10 +17,10 @@ export default function Hero() {
             <div className={`flex min-h-screen w-full items-center justify-center `}>
                 <Image
                     priority
-                    src={SmallLogoAlternativeImage}
+                    src={LogoWhiteAlternativeImage}
                     alt="logo"
-                    width={400}
-                    height={300}
+                    width={700}
+                    height={500}
                 />
             </div>
         </section>
