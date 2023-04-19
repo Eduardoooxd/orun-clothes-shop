@@ -10,7 +10,7 @@ export interface NavbarLinkProps {
 const NavbarLink: FunctionComponent<NavbarLinkProps> = ({ text, href }) => {
     return (
         <LinkI18N
-            className={`${commutersSans.variable} flex h-8 items-center font-commutersSans font-extralight uppercase`}
+            className={`${commutersSans.variable} flex h-8 items-center font-commutersSans font-extralight uppercase transition hover:underline`}
             href={href}
         >
             {text}

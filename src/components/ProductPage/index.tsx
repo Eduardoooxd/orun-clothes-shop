@@ -142,16 +142,15 @@ interface ProductContactFormProps {
 }
 
 const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ product }) => {
-    const { title, price, category, sizes } = product;
+    const { title, price } = product;
 
     const dictionary = store.getState().dictionary.dictionary;
     const { mailSubject } = dictionary.productPage.contactForm;
 
     const parsedEmailSubject = mailSubject.replace('${title}', title);
     // TODO Improve this
-    let mailBody = dictionary.productPage.contactForm.mailBody.replace('${title}', title);
-    mailBody = mailBody.replace('${category}', category);
-    mailBody = mailBody.replace('${price}', price.toString());
+    let mailBody = dictionary.productPage.contactForm.mailBody.replaceAll('${title}', title);
+    mailBody = mailBody.replaceAll('${price}', price.toString());
 
     const { comingSoonText, orderText } = dictionary.productPage;
 
