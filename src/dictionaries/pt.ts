@@ -63,6 +63,7 @@ export const dictionary: Dictionary = {
                         href: '/story',
                         text: 'Nossa História',
                     },
+                    /*
                     {
                         href: '/stores',
                         text: 'Nossas Lojas',
@@ -74,11 +75,11 @@ export const dictionary: Dictionary = {
                     {
                         href: '/press',
                         text: 'Imprensa',
-                    },
+                    },*/
                 ],
             },
             {
-                title: 'Serviço ao Cliente',
+                title: 'Serviço',
                 links: [
                     {
                         href: '/delivery',
@@ -88,29 +89,25 @@ export const dictionary: Dictionary = {
                         href: '/delivery',
                         text: 'Devoluções',
                     },
-                    {
-                        href: '/accessibility',
-                        text: 'Acessibilidade',
-                    },
                 ],
             },
             {
                 title: 'Redes Sociais',
                 links: [
                     {
-                        href: 'https://www.instagram.com/orun.menclothing/',
+                        href: 'https://www.instagram.com/orun.menswear/',
                         text: 'instagram',
                     },
                     {
-                        href: 'https://www.instagram.com/orun.menclothing/',
+                        href: 'https://www.facebook.com/profile.php?id=100083324353901',
                         text: 'facebook',
                     },
                     {
-                        href: 'https://www.instagram.com/orun.menclothing/',
+                        href: 'http://tiktok.com/@orunfreespiritmen',
                         text: 'tik tok',
                     },
                     {
-                        href: 'https://www.instagram.com/orun.menclothing/',
+                        href: 'https://pin.it/3KhN1lp',
                         text: 'pinterest',
                     },
                 ],
@@ -120,7 +117,7 @@ export const dictionary: Dictionary = {
                 links: [
                     {
                         href: '',
-                        text: 'Política de Privacidade',
+                        text: 'Privacidade',
                     },
                     {
                         href: '',

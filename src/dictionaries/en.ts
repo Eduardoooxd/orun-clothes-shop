@@ -63,6 +63,7 @@ export const dictionary: Dictionary = {
                         href: '/story',
                         text: 'Our Story',
                     },
+                    /*
                     {
                         href: '/stores',
                         text: 'Our Stores',
@@ -74,7 +75,7 @@ export const dictionary: Dictionary = {
                     {
                         href: '/press',
                         text: 'Press',
-                    },
+                    },*/
                 ],
             },
             {
@@ -88,29 +89,25 @@ export const dictionary: Dictionary = {
                         href: '/delivery',
                         text: 'Returns',
                     },
-                    {
-                        href: '/accessibility',
-                        text: 'accessibility',
-                    },
                 ],
             },
             {
                 title: 'Social',
                 links: [
                     {
-                        href: 'https://www.instagram.com/orun.menclothing/',
+                        href: 'https://www.instagram.com/orun.menswear/',
                         text: 'instagram',
                     },
                     {
-                        href: 'https://www.instagram.com/orun.menclothing/',
+                        href: 'https://www.facebook.com/profile.php?id=100083324353901',
                         text: 'facebook',
                     },
                     {
-                        href: 'https://www.instagram.com/orun.menclothing/',
+                        href: 'http://tiktok.com/@orunfreespiritmen',
                         text: 'tik tok',
                     },
                     {
-                        href: 'https://www.instagram.com/orun.menclothing/',
+                        href: 'https://pin.it/3KhN1lp',
                         text: 'pinterest',
                     },
                 ],

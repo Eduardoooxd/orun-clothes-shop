@@ -70,12 +70,13 @@ const FooterColumn: FunctionComponent<FooterColumnProps> = ({ title, links }) =>
             <ul className="mt-2">
                 {links.map((link, index) => (
                     <li key={index}>
-                        <Link
+                        <a
                             className={`text-sm capitalize text-gray-500 hover:underline ${commutersSans.variable} font-commutersSans font-extralight uppercase`}
                             href={link.href}
+                            target="_blank"
                         >
                             {link.text}
-                        </Link>
+                        </a>
                     </li>
                 ))}
             </ul>
