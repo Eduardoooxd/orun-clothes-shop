@@ -2,9 +2,9 @@ import LogoImage from '@/images/logo/logo.webp';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { store } from '@/store';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FunctionComponent } from 'react';
 import Container from '../Container';
+import LinkI18N from '../Layout/LinkI18N';
 import Separator from '../Separator';
 
 const Footer: FunctionComponent = () => {
@@ -24,21 +24,21 @@ const Footer: FunctionComponent = () => {
 
                         <div className="col-span-full flex flex-col  justify-between lg:order-first lg:col-span-4">
                             <div className="mb-6 hidden md:mb-0 lg:block">
-                                <Link href="/">
+                                <LinkI18N href="/">
                                     <Image
                                         src={LogoImage}
                                         alt="Orun Colored Logo"
                                         width={125}
                                         height={65}
                                     />
-                                </Link>
+                                </LinkI18N>
                             </div>
 
                             <span className="mt-4 text-xs text-gray-500 lg:mt-0">
                                 © {CURRENT_YEAR} {''}
-                                <Link className="hover:underline" href="/">
+                                <LinkI18N className="hover:underline" href="/">
                                     Orun™.
-                                </Link>{' '}
+                                </LinkI18N>
                                 All Rights Reserved.
                             </span>
                         </div>

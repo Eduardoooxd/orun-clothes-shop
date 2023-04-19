@@ -1,8 +1,8 @@
 import { futuraPTLight } from '@/lib/fontLoader';
 import { Product } from '@/lib/products';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FunctionComponent } from 'react';
+import LinkI18N from '../Layout/LinkI18N';
 
 export interface ProductPreviewProps {
     product: Product;
@@ -14,7 +14,7 @@ const ProductPreview: FunctionComponent<ProductPreviewProps> = ({ product }) => 
 
     return (
         <div className="mt-4 sm:m-0">
-            <Link href={`/product/${id}`}>
+            <LinkI18N href={`/product/${id}`}>
                 <div className="relative aspect-square">
                     <Image
                         src={previewImage}
@@ -35,7 +35,7 @@ const ProductPreview: FunctionComponent<ProductPreviewProps> = ({ product }) => 
                         {price}&nbsp;EUR
                     </p>
                 </div>
-            </Link>
+            </LinkI18N>
         </div>
     );
 };

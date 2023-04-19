@@ -4,13 +4,13 @@ import MiniBlackLogoImage from '@/images/logo/logo-mini.png';
 import MiniWhiteLogoImage from '@/images/logo/logo-white-mini.png';
 import { Transition } from '@headlessui/react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
 import { ClosedHamburgerMenu, OpenHamburgerMenu } from '../../Icons/HamburguerMenu';
 import NavbarLink from './NavbarLink';
 
 import useGetDictionary from '@/hooks/useGetDictionary';
 import { useLockBody } from '@/hooks/useLockBody';
+import LinkI18N from '../LinkI18N';
 import LocaleSwitcher from './LocaleSwitcher';
 
 interface MobileNavBarProps {
@@ -32,7 +32,7 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
                 } container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6`}
             >
                 <div>
-                    <Link href="/">
+                    <LinkI18N href="/">
                         {isScrolled || isMobileMenuOpen ? (
                             <Image
                                 priority
@@ -50,7 +50,7 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
                                 height={20}
                             />
                         )}
-                    </Link>
+                    </LinkI18N>
                 </div>
                 <button
                     type="button"

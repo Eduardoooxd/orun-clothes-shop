@@ -1,6 +1,6 @@
 import { commutersSans } from '@/lib/fontLoader';
-import Link from 'next/link';
 import { FunctionComponent } from 'react';
+import LinkI18N from '../LinkI18N';
 
 interface CategoriesDropdownItemProps {
     category: string;
@@ -8,12 +8,12 @@ interface CategoriesDropdownItemProps {
 
 const CategoriesDropdownItem: FunctionComponent<CategoriesDropdownItemProps> = ({ category }) => {
     return (
-        <Link
+        <LinkI18N
             className={`${commutersSans.variable} flex h-8 items-center font-commutersSans font-extralight uppercase`}
             href={`products/${category}`}
         >
             {category}
-        </Link>
+        </LinkI18N>
     );
 };
 

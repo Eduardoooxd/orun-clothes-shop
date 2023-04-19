@@ -4,9 +4,9 @@ import useGetDictionary from '@/hooks/useGetDictionary';
 import MiniBlackLogoImage from '@/images/logo/logo-mini.png';
 import MiniWhiteLogoImage from '@/images/logo/logo-white-mini.png';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
 import { CiSearch } from 'react-icons/ci';
+import LinkI18N from '../LinkI18N';
 import { CategoriesDropdown } from './CategoriesDropdown';
 import LocaleSwitcher from './LocaleSwitcher';
 import NavbarLink from './NavbarLink';
@@ -41,7 +41,7 @@ export const DesktopNavBar: FunctionComponent<DesktopNavBarProps> = ({
                 ))}
             </div>
             <div className="flex items-center gap-6 lg:gap-10 ">
-                <Link href="/">
+                <LinkI18N href="/">
                     {isScrolled ? (
                         <Image
                             priority
@@ -59,7 +59,7 @@ export const DesktopNavBar: FunctionComponent<DesktopNavBarProps> = ({
                             height={20}
                         />
                     )}
-                </Link>
+                </LinkI18N>
             </div>
             <div className="flex flex-1 items-center justify-end gap-10">
                 {/* 
