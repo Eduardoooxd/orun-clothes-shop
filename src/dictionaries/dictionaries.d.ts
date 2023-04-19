@@ -13,6 +13,9 @@ export interface NavBar {
             href: string;
         };
     };
+    CategoryDropdown: {
+        allProductsText: string;
+    };
 }
 
 export interface AboutUs {

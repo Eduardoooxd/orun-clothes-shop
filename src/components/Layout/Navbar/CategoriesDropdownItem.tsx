@@ -9,8 +9,8 @@ interface CategoriesDropdownItemProps {
 const CategoriesDropdownItem: FunctionComponent<CategoriesDropdownItemProps> = ({ category }) => {
     return (
         <LinkI18N
-            className={`${commutersSans.variable} flex h-8 items-center font-commutersSans font-extralight uppercase`}
-            href={`products/${category}`}
+            className={`${commutersSans.variable} flex h-8 items-center font-commutersSans font-extralight uppercase transition hover:underline`}
+            href={`products?category=${category}`}
         >
             {category}
         </LinkI18N>

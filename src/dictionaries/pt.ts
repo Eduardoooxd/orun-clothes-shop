@@ -17,6 +17,9 @@ export const dictionary: Dictionary = {
                 href: '/',
             },
         },
+        CategoryDropdown: {
+            allProductsText: 'Todos os produtos',
+        },
     },
     aboutUs: {
         title: 'Sobre nós',
