@@ -1,5 +1,5 @@
-import BackgroundImage from '@/images/background_2.webp';
 import LogoWhiteAlternativeImage from '@/images/logo/logo-white-small-alternative.png';
+import BackgroundImage from '@/images/main_background.webp';
 
 import Image from 'next/image';
 
@@ -12,15 +12,15 @@ export default function Hero() {
                 alt="background"
                 fill
                 className="z-[-10]"
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', objectPosition: '25%' }}
             />
-            <div className={`flex min-h-screen w-full items-center justify-center `}>
+            <div className={`flex min-h-screen w-full items-center justify-center`}>
                 <Image
                     priority
                     src={LogoWhiteAlternativeImage}
                     alt="logo"
-                    width={700}
-                    height={500}
+                    width={900}
+                    height={900}
                 />
             </div>
         </section>
