@@ -158,22 +158,26 @@ export const ShirtProducts: Product[] = [
 
 export const ShortsProducts: Product[] = [
     {
-        id: 'AZHA-BEACH',
-        title: 'Beach Shorts - AZHA-BEACH',
+        id: 'AZHA-BEACH-BLACK',
+        title: 'Beach Shorts - AZHA-BEACH BLACK',
         price: 55,
         description:
             'With three layers of fabric and a unique design, these shorts provide a relaxed, fluid, and differentiated look. Wear your swimsuit underneath and the AZHA-BEACH shorts on top, and get ready for days of beach, heat, sensuality, and relaxation.',
         category: 'Shorts',
         sizes: ['Adjustable size'],
-        colors: ['Black', 'Green'],
-        images: [
-            SideGreenAZHA_BEACH,
-            FrontImageAZHA_BEACH,
-            FrontImageGreenAZHA_BEACH,
-            CloseUpAZHA_BEACH,
-            BackImageGreenAZHA_BEACH,
-            SideAZHA_BEACH,
-        ],
+        colors: ['Black'],
+        images: [FrontImageAZHA_BEACH, CloseUpAZHA_BEACH, SideAZHA_BEACH],
+    },
+    {
+        id: 'AZHA-BEACH-GREEN',
+        title: 'Beach Shorts - AZHA-BEACH GREEN',
+        price: 55,
+        description:
+            'With three layers of fabric and a unique design, these shorts provide a relaxed, fluid, and differentiated look. Wear your swimsuit underneath and the AZHA-BEACH shorts on top, and get ready for days of beach, heat, sensuality, and relaxation.',
+        category: 'Shorts',
+        sizes: ['Adjustable size'],
+        colors: ['Green'],
+        images: [SideGreenAZHA_BEACH, FrontImageGreenAZHA_BEACH, BackImageGreenAZHA_BEACH],
     },
     {
         id: 'AZHA-STREET',

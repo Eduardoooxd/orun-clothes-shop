@@ -158,22 +158,26 @@ export const CamisasProducts: Product[] = [
 
 export const CalcaoProducts: Product[] = [
     {
-        id: 'AZHA-BEACH',
-        title: 'Calção praia - AZHA-BEACH',
+        id: 'AZHA-BEACH-BLACK',
+        title: 'Calção praia - AZHA-BEACH PRETO',
         price: 55,
         description:
             'Com três folhas de malha e um design único este calção proporciona um look descontraído, fluído, e diferenciado. Veste a tua sunga e por cima o calção AZHA- BEACH, e prepara-te para dias de praia, calor, sensualidade e descontração.',
         category: 'Calção',
         sizes: ['Tamanho ajustável'],
-        colors: ['Preto', 'Verde'],
-        images: [
-            SideGreenAZHA_BEACH,
-            FrontImageAZHA_BEACH,
-            FrontImageGreenAZHA_BEACH,
-            CloseUpAZHA_BEACH,
-            BackImageGreenAZHA_BEACH,
-            SideAZHA_BEACH,
-        ],
+        colors: ['Preto'],
+        images: [FrontImageAZHA_BEACH, CloseUpAZHA_BEACH, SideAZHA_BEACH],
+    },
+    {
+        id: 'AZHA-BEACH-GREEN',
+        title: 'Calção praia - AZHA-BEACH VERDE',
+        price: 55,
+        description:
+            'Com três folhas de malha e um design único este calção proporciona um look descontraído, fluído, e diferenciado. Veste a tua sunga e por cima o calção AZHA- BEACH, e prepara-te para dias de praia, calor, sensualidade e descontração.',
+        category: 'Calção',
+        sizes: ['Tamanho ajustável'],
+        colors: ['Verde'],
+        images: [SideGreenAZHA_BEACH, FrontImageGreenAZHA_BEACH, BackImageGreenAZHA_BEACH],
     },
     {
         id: 'AZHA-STREET',
