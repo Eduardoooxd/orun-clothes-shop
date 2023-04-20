@@ -20,10 +20,14 @@
 
 ## Bugfixes
 
--   URGENT: Fix a bug that on next link to / it redirects to /pt instead of /en
 -   Fix a bug where /product/SUOPUS does not have a good width for desktop
 
 ## Inspirations for design
 
 -   https://oascompany.com/ie
 -   https://www.asos.com
+
+##
+
+TODO CREATE THE LINKS ON NAV
+, CONTACT US PAGE, Privacy policy, Licensing, terms page

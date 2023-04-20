@@ -1,4 +1,4 @@
-import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
+import { futuraPTLight } from '@/lib/fontLoader';
 import { Product } from '@/lib/products';
 import { store } from '@/store';
 import Image from 'next/image';
@@ -152,15 +152,10 @@ const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ produc
     let mailBody = dictionary.productPage.contactForm.mailBody.replaceAll('${title}', title);
     mailBody = mailBody.replaceAll('${price}', price.toString());
 
-    const { comingSoonText, orderText } = dictionary.productPage;
+    const { orderText } = dictionary.productPage;
 
     return (
         <section className="my-4 flex flex-col gap-2 py-4">
-            <span
-                className={`text-xs uppercase text-gray-500  ${commutersSans.variable} font-commutersSans font-extralight uppercase`}
-            >
-                {comingSoonText}
-            </span>
             <a
                 className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
                 href={`mailto:${process.env.CONTACT_EMAIL}?subject=${parsedEmailSubject}&body=${mailBody}`}
