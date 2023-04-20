@@ -1,4 +1,3 @@
-import { MainSectionTitle } from '@/components/Text';
 import { AboutUsContent } from '@/dictionaries/dictionaries';
 import { futuraPTLight } from '@/lib/fontLoader';
 import { store } from '@/store';
@@ -7,12 +6,11 @@ import Container from '../Container';
 
 const AboutUs: FunctionComponent = () => {
     const dictionary = store.getState().dictionary.dictionary;
-    const { title, desktopContent, mobileContent } = dictionary.aboutUs;
+    const { desktopContent, mobileContent } = dictionary.aboutUs;
 
     return (
         <section className="my-4 w-full" id="aboutUs">
             <Container>
-                <MainSectionTitle textAlign="text-center">{title}</MainSectionTitle>
                 <DesktopContent desktopContent={desktopContent} />
                 <MobileContent mobileContent={mobileContent} />
             </Container>

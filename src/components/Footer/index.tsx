@@ -1,3 +1,4 @@
+import { FooterLinkGroup } from '@/dictionaries/dictionaries';
 import LogoImage from '@/images/logo/logo.webp';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { store } from '@/store';
@@ -19,7 +20,7 @@ const Footer: FunctionComponent = () => {
                 <Container>
                     <div className="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:gap-8">
                         {ABOUT_LINKS.map((column, index) => (
-                            <FooterColumn key={index} {...column} />
+                            <FooterColumn key={index} footerLinkColumn={column} />
                         ))}
 
                         <div className="col-span-full flex flex-col  justify-between lg:order-first lg:col-span-4">
@@ -49,17 +50,12 @@ const Footer: FunctionComponent = () => {
     );
 };
 
-interface FooterColumnLink {
-    href: string;
-    text: string;
-}
-
 export interface FooterColumnProps {
-    title: string;
-    links: FooterColumnLink[];
+    footerLinkColumn: FooterLinkGroup;
 }
 
-const FooterColumn: FunctionComponent<FooterColumnProps> = ({ title, links }) => {
+const FooterColumn: FunctionComponent<FooterColumnProps> = ({ footerLinkColumn }) => {
+    const { title, links } = footerLinkColumn;
     return (
         <div className="lg:col-span-1">
             <h3
@@ -68,17 +64,29 @@ const FooterColumn: FunctionComponent<FooterColumnProps> = ({ title, links }) =>
                 {title}
             </h3>
             <ul className="mt-2">
-                {links.map((link, index) => (
-                    <li key={index}>
-                        <a
-                            className={`text-sm capitalize text-gray-500 hover:underline ${commutersSans.variable} font-commutersSans font-extralight uppercase`}
-                            href={link.href}
-                            target="_blank"
-                        >
-                            {link.text}
-                        </a>
-                    </li>
-                ))}
+                {links.map((link, index) => {
+                    const { href, text, isExternal } = link;
+                    return (
+                        <li key={index}>
+                            {isExternal ? (
+                                <a
+                                    className={`text-sm capitalize text-gray-500 hover:underline ${commutersSans.variable} font-commutersSans font-extralight uppercase`}
+                                    href={href}
+                                    target="_blank"
+                                >
+                                    {text}
+                                </a>
+                            ) : (
+                                <LinkI18N
+                                    className={`text-sm capitalize text-gray-500 hover:underline ${commutersSans.variable} font-commutersSans font-extralight uppercase`}
+                                    href={href}
+                                >
+                                    {text}
+                                </LinkI18N>
+                            )}
+                        </li>
+                    );
+                })}
             </ul>
         </div>
     );

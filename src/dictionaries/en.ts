@@ -10,11 +10,11 @@ export const dictionary: Dictionary = {
             },
             AboutUs: {
                 text: 'About us',
-                href: '#aboutUs',
+                href: '/aboutUs',
             },
             ContactUs: {
                 text: 'Contact us',
-                href: '/',
+                href: '/contact',
             },
         },
         CategoryDropdown: {
@@ -76,8 +76,9 @@ export const dictionary: Dictionary = {
                 title: 'About',
                 links: [
                     {
-                        href: '/en/#aboutUs',
+                        href: '/aboutUs',
                         text: 'Our Story',
+                        isExternal: false,
                     },
                     /*
                     {href: '/en/#aboutUs',
@@ -100,10 +101,12 @@ export const dictionary: Dictionary = {
                     {
                         href: '/delivery',
                         text: 'Delivery',
+                        isExternal: false,
                     },
                     {
                         href: '/delivery',
                         text: 'Returns',
+                        isExternal: false,
                     },
                 ],
             },
@@ -113,18 +116,22 @@ export const dictionary: Dictionary = {
                     {
                         href: 'https://www.instagram.com/orun.menswear/',
                         text: 'instagram',
+                        isExternal: true,
                     },
                     {
                         href: 'https://www.facebook.com/profile.php?id=100083324353901',
                         text: 'facebook',
+                        isExternal: true,
                     },
                     {
                         href: 'http://tiktok.com/@orunfreespiritmen',
                         text: 'tik tok',
+                        isExternal: true,
                     },
                     {
                         href: 'https://pin.it/3KhN1lp',
                         text: 'pinterest',
+                        isExternal: true,
                     },
                 ],
             },
@@ -134,14 +141,17 @@ export const dictionary: Dictionary = {
                     {
                         href: '',
                         text: 'Privacy Policy',
+                        isExternal: false,
                     },
                     {
                         href: '',
                         text: 'Licensing',
+                        isExternal: false,
                     },
                     {
                         href: '',
                         text: 'Terms',
+                        isExternal: false,
                     },
                 ],
             },
@@ -154,5 +164,18 @@ export const dictionary: Dictionary = {
         categoriesContent: {
             title: 'Categories',
         },
+    },
+    aboutUsPage: {
+        title: 'Orun',
+        text: [
+            "I designed clothes that I wanted to wear that I couldn't find for sale - that was basically it. From then on, I reactivated and pacified my taste for the image, giving opportunity to the vein of creativity to express itself, now in a mature way. I intend to uncomplicate and sensualize the male image by working with fluid fabrics and cuts that provide smoothness, movement and sensitivity.",
+            'There is a personal process that accompanies the birth of Orun: it is as if it were the culmination of a phase in which I kept for myself, and only for myself, the creative freedom that in my case takes on multiple forms. The notion of harmony, the taste for beauty, and the will to create typical of a Libra, led him to design a concept brand for a man who breaks with a closed image of masculinity and surrenders to character, daring and liberation of pre-defined concepts.',
+            'Awaken male sensuality. With something sacred and something profane. As the textile industry is the one that most contributes to pollution, I took the urgent need to use resources that are industrial waste in the textile sector, supporting myself in an ideology of sustainability and reuse.',
+            'I create timeless pieces within the definition of Slow Fashion, with small-scale production and free from the volatility of market trends. Free-form work: without seasonal collections, defending the quality of materials, design, exclusivity, local and artisanal production, choosing raw materials that guarantee greater durability.',
+            'The sky and the wind inspire me. Earth, fire and water. Inspire me what is divine. Inspire me who freed himself.',
+            'Like me. Carla, Conceição, Carlos, and Berto inspire me. Thiago, Rodrigo, Diogo, Andréia and Rafael. I am inspired by those who conspire in favor of Good. Like me. This is free territory. And so it will continue to be.',
+            'Orun.',
+            'Tiago Bastos.',
+        ],
     },
 };

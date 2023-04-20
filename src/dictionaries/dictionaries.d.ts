@@ -59,6 +59,7 @@ export interface Footer {
 export interface FooterLink {
     href: string;
     text: string;
+    isExternal: boolean;
 }
 
 export interface FooterLinkGroup {
@@ -79,6 +80,11 @@ export interface CategoriesContent {
     title: string;
 }
 
+export interface AboutUsPage {
+    title: string;
+    text: string[];
+}
+
 export interface Dictionary {
     language: string;
     navBar: NavBar;
@@ -87,4 +93,5 @@ export interface Dictionary {
     productPage: ProductPage;
     footer: Footer;
     productsPage: ProductsPage;
+    aboutUsPage: AboutUsPage;
 }

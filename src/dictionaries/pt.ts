@@ -10,11 +10,11 @@ export const dictionary: Dictionary = {
             },
             AboutUs: {
                 text: 'Sobre nós',
-                href: '/pt#aboutUs',
+                href: '/aboutUs',
             },
             ContactUs: {
                 text: 'Contacto',
-                href: '/',
+                href: '/contact',
             },
         },
         CategoryDropdown: {
@@ -75,8 +75,9 @@ export const dictionary: Dictionary = {
                 title: 'Sobre',
                 links: [
                     {
-                        href: '/story',
+                        href: '/aboutUs',
                         text: 'Nossa História',
+                        isExternal: false,
                     },
                     /*
                     {
@@ -99,10 +100,12 @@ export const dictionary: Dictionary = {
                     {
                         href: '/delivery',
                         text: 'Entrega',
+                        isExternal: false,
                     },
                     {
                         href: '/delivery',
                         text: 'Devoluções',
+                        isExternal: false,
                     },
                 ],
             },
@@ -112,18 +115,22 @@ export const dictionary: Dictionary = {
                     {
                         href: 'https://www.instagram.com/orun.menswear/',
                         text: 'instagram',
+                        isExternal: true,
                     },
                     {
                         href: 'https://www.facebook.com/profile.php?id=100083324353901',
                         text: 'facebook',
+                        isExternal: true,
                     },
                     {
                         href: 'http://tiktok.com/@orunfreespiritmen',
                         text: 'tik tok',
+                        isExternal: true,
                     },
                     {
                         href: 'https://pin.it/3KhN1lp',
                         text: 'pinterest',
+                        isExternal: true,
                     },
                 ],
             },
@@ -133,14 +140,17 @@ export const dictionary: Dictionary = {
                     {
                         href: '',
                         text: 'Privacidade',
+                        isExternal: false,
                     },
                     {
                         href: '',
                         text: 'Licenciamento',
+                        isExternal: false,
                     },
                     {
                         href: '',
                         text: 'Termos',
+                        isExternal: false,
                     },
                 ],
             },
@@ -153,5 +163,18 @@ export const dictionary: Dictionary = {
         categoriesContent: {
             title: 'Categorias',
         },
+    },
+    aboutUsPage: {
+        title: 'Orun',
+        text: [
+            'Desenhei roupa que queria vestir e que não encontrava à venda - basicamente foi isso. A partir daí, reactivei e pacifiquei o meu gosto pela imagem dando oportunidade à veia da criatividade de se expressar, agora de forma madura. Pretendo descomplexar e sensualizar a imagem masculina trabalhando com tecidos e cortes fluídos que conferem suavidade, movimento e sensibilidade.',
+            'Há um processo pessoal que acompanha o nascimento da Orun: é como se fosse o culminar de uma fase em que guardei para mim, e só para mim, a liberdade criativa que no meu caso ocupa múltiplas formas. A noção de harmonia, o gosto pelo belo, e a vontade de criar típica de um libriano, fez com que desenhasse uma marca-conceito para um homem que rompe com uma imagem fechada de masculinidade e se entrega ao carácter, à ousadia e à libertação de conceitos pré-definidos.',
+            'Despertar a sensualidade masculina. Com um quê de sagrado, outro de profano. Sendo a indústria têxtil a que mais contribui para a poluição, tomei como urgente a necessidade de utilização de recursos que são desperdício industrial do setor têxtil, apoiando-me numa ideologia na sustentabilidade e reaproveitamento.',
+            'Crio peças intemporais inseridas na definição de Slow Fashion, com produção em pequena escala e livre da volatilidade das tendências de mercado. Trabalho de forma livre: sem colecções sazonais, defendendo a qualidade dos materiais, o design, a exclusividade, a produção local e artesanal, escolhendo matérias primas que garantam maior durabilidade.',
+            'Inspira-me o céu e o vento. A terra, o fogo e a água. Inspira-me o que é  divino. Inspira-me quem se libertou.',
+            'Como eu. Inspira-me a Carla, a Conceição, o Carlos, e o Berto. O Thiago, o Rodrigo, o Diogo, a Andréia e o Rafael. Inspira-me quem conspira a favor do Bem. Como eu. Este é um território livre. E assim continuará a ser.',
+            'Orun.',
+            'Tiago Bastos.',
+        ],
     },
 };
