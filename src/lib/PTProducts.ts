@@ -191,10 +191,10 @@ export const CalcaoProducts: Product[] = [
         sizes: ['Tamanho ajustável'],
         colors: ['Verde Caqui'],
         images: [
-            PreviewImageAZHA_STREET,
-            FrontImageAZHA_STREET,
-            BackImageAZHA_STREET,
             SideImageAZHA_STREET,
+            FrontImageAZHA_STREET,
+            PreviewImageAZHA_STREET,
+            BackImageAZHA_STREET,
         ],
     },
 ];
