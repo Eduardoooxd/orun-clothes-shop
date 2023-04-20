@@ -14,7 +14,7 @@ function ContactPage() {
                 <p className="mt-6">{description}</p>
                 <div className="flex flex-col gap-6">
                     <h2 className="mb-2 text-xl font-bold uppercase">Email</h2>
-                    <p className="mb-2">info@orun.pt | orunmenswear@gmail.com</p>
+                    <p className="mb-2">info@orun.pt</p>
                     <h2 className="mb-2 text-xl font-bold uppercase">WhatsApp</h2>
                     <p>+351 927 757 633</p>
                 </div>
