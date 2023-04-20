@@ -142,23 +142,15 @@ interface ProductContactFormProps {
 }
 
 const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ product }) => {
-    const { title, price, category, sizes } = product;
+    const { title, price } = product;
 
     const dictionary = store.getState().dictionary.dictionary;
-    const { mailSubject, mailBody } = dictionary.productPage.contactForm;
+    const { mailSubject } = dictionary.productPage.contactForm;
 
     const parsedEmailSubject = mailSubject.replace('${title}', title);
-
-    const mailBodyReplacements = {
-        '${title}': title,
-        '${category}': category,
-        '${price}': price,
-    };
-
-    const mailBodyParsed = mailBody.replace(/${title}|${category}|${price}/g, (matched) => {
-        // @ts-ignore
-        return mailBodyReplacements[matched];
-    });
+    // TODO Improve this
+    let mailBody = dictionary.productPage.contactForm.mailBody.replaceAll('${title}', title);
+    mailBody = mailBody.replaceAll('${price}', price.toString());
 
     const { comingSoonText, orderText } = dictionary.productPage;
 
@@ -171,7 +163,7 @@ const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ produc
             </span>
             <a
                 className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
-                href={`mailto:${process.env.CONTACT_EMAIL}?subject=${parsedEmailSubject}&body=${mailBodyParsed}`}
+                href={`mailto:${process.env.CONTACT_EMAIL}?subject=${parsedEmailSubject}&body=${mailBody}`}
             >
                 {orderText}
             </a>

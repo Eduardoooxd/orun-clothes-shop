@@ -12,11 +12,12 @@ import SideAZHA_BEACH from '@/images/products/AZHA_BEACH/side.webp';
 import SideGreenAZHA_BEACH from '@/images/products/AZHA_BEACH/side_green.webp';
 import BackImageAZHA_STREET from '@/images/products/AZHA_STREET/back.webp';
 import FrontImageAZHA_STREET from '@/images/products/AZHA_STREET/front.webp';
+import PreviewImageAZHA_STREET from '@/images/products/AZHA_STREET/preview.webp';
+import SideImageAZHA_STREET from '@/images/products/AZHA_STREET/side.webp';
 import BackImageCEPTUS from '@/images/products/CEPTUS/back.webp';
 import BackBlackImageCEPTUS from '@/images/products/CEPTUS/back_black.webp';
 import CloseUpImageCEPTUS from '@/images/products/CEPTUS/closeup.webp';
 import CloseUpImage2CEPTUS from '@/images/products/CEPTUS/closeup2.webp';
-import CloseUpImage3CEPTUS from '@/images/products/CEPTUS/closeup3.webp';
 import FrontImageCEPTUS from '@/images/products/CEPTUS/front.webp';
 import FrontImage2CEPTUS from '@/images/products/CEPTUS/front2.webp';
 import FrontImageBlackCEPTUS from '@/images/products/CEPTUS/front_black.webp';
@@ -69,7 +70,6 @@ export {
     SideImageDIWO,
     BackBlackImageCEPTUS,
     BackImageCEPTUS,
-    CloseUpImage3CEPTUS,
     FrontImageBlackCEPTUS,
     FrontImage2CEPTUS,
     PreviewImageCEPTUS,
@@ -92,6 +92,8 @@ export {
     SideAZHA_BEACH,
     FrontImageAZHA_STREET,
     BackImageAZHA_STREET,
+    SideImageAZHA_STREET,
+    PreviewImageAZHA_STREET,
     FrontImageCEPTUS,
     CloseUpImageCEPTUS,
     CloseUpImage2CEPTUS,

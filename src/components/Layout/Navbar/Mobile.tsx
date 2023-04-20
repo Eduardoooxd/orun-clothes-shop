@@ -1,39 +1,55 @@
 'use client';
 
+import MiniBlackLogoImage from '@/images/logo/logo-mini.png';
 import { Transition } from '@headlessui/react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
 import { ClosedHamburgerMenu, OpenHamburgerMenu } from '../../Icons/HamburguerMenu';
-import NavbarLink from './NavbarLink';
-
-import MiniLogoImage from '@/images/logo/logo-mini.png';
 
 import useGetDictionary from '@/hooks/useGetDictionary';
 import { useLockBody } from '@/hooks/useLockBody';
+import LinkI18N from '../LinkI18N';
 import LocaleSwitcher from './LocaleSwitcher';
+import MobileCategoriesDropdown from './MobileCategoriesDropdown';
+import NavbarLink from './NavbarLink';
 
 interface MobileNavBarProps {
     isMobileMenuOpen: boolean;
+    isScrolled: boolean;
     setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
+    setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
     isMobileMenuOpen,
     setIsMobileMenuOpen,
+    setIsDropdownOpen,
+    isScrolled,
 }) => {
     return (
         <>
-            <div className="container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6">
+            <div
+                className={`${
+                    isScrolled ? 'text-black' : 'text-white'
+                } container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6`}
+            >
                 <div>
-                    <Link href="/">
-                        <Image priority src={MiniLogoImage} alt="logo" width={90} height={20} />
-                    </Link>
+                    <LinkI18N href="/">
+                        {isScrolled || isMobileMenuOpen ? (
+                            <Image
+                                priority
+                                src={MiniBlackLogoImage}
+                                alt="logo"
+                                width={100}
+                                height={20}
+                            />
+                        ) : null}
+                    </LinkI18N>
                 </div>
                 <button
                     type="button"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="relative h-10 w-10 rounded p-2 text-black transition duration-150 ease-in-out hover:bg-gray-900 hover:text-white focus:outline-none"
+                    className="relative h-10 w-10 rounded p-2  transition duration-150 ease-in-out hover:bg-gray-900 hover:text-white focus:outline-none"
                     aria-controls="mobile-menu"
                     aria-expanded="false"
                 >
@@ -42,16 +58,26 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
                     <ClosedHamburgerMenu isOpen={isMobileMenuOpen} />
                 </button>
             </div>
-            <MobileNavBarMenu isMobileMenuOpen={isMobileMenuOpen} />
+            <MobileNavBarMenu
+                setIsMobileMenuOpen={setIsMobileMenuOpen}
+                isMobileMenuOpen={isMobileMenuOpen}
+                setIsDropdownOpen={setIsDropdownOpen}
+            />
         </>
     );
 };
 
 interface MobileNavBarMenuProps {
     isMobileMenuOpen: boolean;
+    setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
+    setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({ isMobileMenuOpen }) => {
+const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({
+    isMobileMenuOpen,
+    setIsMobileMenuOpen,
+    setIsDropdownOpen,
+}) => {
     return (
         <>
             <Transition
@@ -63,13 +89,26 @@ const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({ isMobileMe
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
             >
-                {() => <MobileNavBarMenuOpen />}
+                {() => (
+                    <MobileNavBarMenuOpen
+                        setIsDropdownOpen={setIsDropdownOpen}
+                        setIsMobileMenuOpen={setIsMobileMenuOpen}
+                    />
+                )}
             </Transition>
         </>
     );
 };
 
-const MobileNavBarMenuOpen: FunctionComponent = () => {
+interface MobileNavBarMenuOpenProps {
+    setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
+    setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
+    setIsDropdownOpen,
+    setIsMobileMenuOpen,
+}) => {
     const dictionary = useGetDictionary();
     useLockBody();
 
@@ -78,8 +117,16 @@ const MobileNavBarMenuOpen: FunctionComponent = () => {
     return (
         <div className="h-[calc(100dvh-5rem)] p-4 sm:p-6 md:hidden">
             <div className="flex flex-col gap-4">
-                {[Category, AboutUs, ContactUs].map((navBarLink, index) => (
-                    <NavbarLink key={index} {...navBarLink} />
+                <MobileCategoriesDropdown onClickItem={() => setIsMobileMenuOpen(false)}>
+                    {Category.text}
+                </MobileCategoriesDropdown>
+
+                {[AboutUs, ContactUs].map((navBarLink, index) => (
+                    <NavbarLink
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        key={index}
+                        {...navBarLink}
+                    />
                 ))}
 
                 <LocaleSwitcher />

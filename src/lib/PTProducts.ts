@@ -12,7 +12,6 @@ import {
     CloseUpADHIL,
     CloseUpAZHA_BEACH,
     CloseUpImage2CEPTUS,
-    CloseUpImage3CEPTUS,
     CloseUpImageCEPTUS,
     CloseUpImageLYNX,
     CloseUpImageRIGEL,
@@ -30,6 +29,7 @@ import {
     FrontImageRIGEL,
     FrontImageSUOPUS,
     FrontImageVEGA,
+    PreviewImageAZHA_STREET,
     PreviewImageCEPTUS,
     PreviewImageDIWO,
     PreviewImageGreenLYNX,
@@ -42,6 +42,7 @@ import {
     SideBlackImageCEPTUS,
     SideGreenAZHA_BEACH,
     SideGreenImageLYNX,
+    SideImageAZHA_STREET,
     SideImageDIWO,
     SideImageHAMMAL,
     SideImageSUOPUS,
@@ -50,21 +51,28 @@ import {
 
 export const TunicasProducts: Product[] = [
     {
-        id: 'LYNX',
-        title: 'Túnica Trespasse - LYNX',
+        id: 'LYNX-BLACK',
+        title: 'Túnica Trespasse - LYNX PRETA',
         price: 89,
         description:
             'Peça que evoca a sensualidade masculina de forma descomplexada e arrojada. Decote livre numa peça cavada, em malha de duas folhas semi-transparente de alta qualidade. Com detalhes únicos no ombro a marcar e a definir o estilo do homem Orun.',
         category: 'Túnicas',
         sizes: ['S/M', 'M/L'],
-        colors: ['Preta', 'Verde'],
+        colors: ['Preta'],
+        images: [FrontImageLYNX, PreviewImageLYNX, BackImageLYNX, CloseUpImageLYNX],
+    },
+    {
+        id: 'LYNX-GREEN',
+        title: 'Túnica Trespasse - LYNX VERDE',
+        price: 89,
+        description:
+            'Peça que evoca a sensualidade masculina de forma descomplexada e arrojada. Decote livre numa peça cavada, em malha de duas folhas semi-transparente de alta qualidade. Com detalhes únicos no ombro a marcar e a definir o estilo do homem Orun.',
+        category: 'Túnicas',
+        sizes: ['S/M', 'M/L'],
+        colors: ['Verde'],
         images: [
-            PreviewImageLYNX,
-            FrontImageLYNX,
             PreviewImageGreenLYNX,
-            BackImageLYNX,
             BackGreenImageLYNX,
-            CloseUpImageLYNX,
             FrontImageGreenLYNX,
             SideGreenImageLYNX,
         ],
@@ -114,54 +122,64 @@ export const CamisolasProducts: Product[] = [
         category: 'Camisola',
         sizes: ['S/M', 'M/L'],
         colors: ['Branca'],
-        images: [FrontImageRIGEL, CloseUpImageRIGEL, BackImageRIGEL],
+        images: [CloseUpImageRIGEL, FrontImageRIGEL, BackImageRIGEL],
     },
 ];
 
 export const CamisasProducts: Product[] = [
     {
-        id: 'CEPTUS',
-        title: 'Camisa-Quimono - CEPTUS',
+        id: 'CEPTUS-TERRACOTA',
+        title: 'Camisa-Quimono - CEPTUS TERRACOTA',
         price: 77,
         description:
             'Malha de qualidade superior fluída, de toque macio. Corte largo e de decote livre. Ideal para ser usada como camisa ou como peça aberta correspondendo a um estilo descomprometido, sensual, discreto e marcante.',
         category: 'Camisa',
         sizes: ['S/M', 'M/L'],
-        colors: ['Terracota', 'Preta'],
+        colors: ['Terracotta'],
         images: [
-            PrincipalImageCEPTUS,
-            PreviewImageCEPTUS,
+            FrontImage2CEPTUS,
             FrontImageCEPTUS,
-            SideBlackImageCEPTUS,
+            PreviewImageCEPTUS,
             CloseUpImageCEPTUS,
             CloseUpImage2CEPTUS,
-            FrontImage2CEPTUS,
-            CloseUpImage3CEPTUS,
-            BackBlackImageCEPTUS,
             BackImageCEPTUS,
         ],
+    },
+    {
+        id: 'CEPTUS-BLACK',
+        title: 'Camisa-Quimono - CEPTUS PRETA',
+        price: 77,
+        description:
+            'Malha de qualidade superior fluída, de toque macio. Corte largo e de decote livre. Ideal para ser usada como camisa ou como peça aberta correspondendo a um estilo descomprometido, sensual, discreto e marcante.',
+        category: 'Camisa',
+        sizes: ['S/M', 'M/L'],
+        colors: ['Preta'],
+        images: [PrincipalImageCEPTUS, SideBlackImageCEPTUS, BackBlackImageCEPTUS],
     },
 ];
 
 export const CalcaoProducts: Product[] = [
     {
-        id: 'AZHA-BEACH',
-        title: 'Calção praia - AZHA-BEACH',
+        id: 'AZHA-BEACH-BLACK',
+        title: 'Calção praia - AZHA-BEACH PRETO',
         price: 55,
         description:
             'Com três folhas de malha e um design único este calção proporciona um look descontraído, fluído, e diferenciado. Veste a tua sunga e por cima o calção AZHA- BEACH, e prepara-te para dias de praia, calor, sensualidade e descontração.',
         category: 'Calção',
         sizes: ['Tamanho ajustável'],
-        colors: ['Preto', 'Verde'],
-        images: [
-            FrontImageAZHA_BEACH,
-            FrontImageGreenAZHA_BEACH,
-            CloseUpAZHA_BEACH,
-            BackImageAZHA_STREET,
-            BackImageGreenAZHA_BEACH,
-            SideAZHA_BEACH,
-            SideGreenAZHA_BEACH,
-        ],
+        colors: ['Preto'],
+        images: [FrontImageAZHA_BEACH, CloseUpAZHA_BEACH, SideAZHA_BEACH],
+    },
+    {
+        id: 'AZHA-BEACH-GREEN',
+        title: 'Calção praia - AZHA-BEACH VERDE',
+        price: 55,
+        description:
+            'Com três folhas de malha e um design único este calção proporciona um look descontraído, fluído, e diferenciado. Veste a tua sunga e por cima o calção AZHA- BEACH, e prepara-te para dias de praia, calor, sensualidade e descontração.',
+        category: 'Calção',
+        sizes: ['Tamanho ajustável'],
+        colors: ['Verde'],
+        images: [SideGreenAZHA_BEACH, FrontImageGreenAZHA_BEACH, BackImageGreenAZHA_BEACH],
     },
     {
         id: 'AZHA-STREET',
@@ -172,7 +190,12 @@ export const CalcaoProducts: Product[] = [
         category: 'Calção',
         sizes: ['Tamanho ajustável'],
         colors: ['Verde Caqui'],
-        images: [FrontImageAZHA_STREET, BackImageAZHA_STREET],
+        images: [
+            PreviewImageAZHA_STREET,
+            FrontImageAZHA_STREET,
+            BackImageAZHA_STREET,
+            SideImageAZHA_STREET,
+        ],
     },
 ];
 

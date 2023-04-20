@@ -13,11 +13,15 @@ export interface NavBar {
             href: string;
         };
     };
+    CategoryDropdown: {
+        allProductsText: string;
+    };
 }
 
 export interface AboutUs {
     title: string;
-    content: AboutUsContent[];
+    desktopContent: AboutUsContent[];
+    mobileContent: AboutUsContent[];
 }
 
 export interface AboutUsContent {
@@ -55,11 +59,35 @@ export interface Footer {
 export interface FooterLink {
     href: string;
     text: string;
+    isExternal: boolean;
 }
 
 export interface FooterLinkGroup {
     title: string;
     links: FooterLink[];
+}
+
+export interface ProductsPage {
+    productsContent: ProductsContent;
+    categoriesContent: CategoriesContent;
+}
+
+export interface ProductsContent {
+    title: string;
+}
+
+export interface CategoriesContent {
+    title: string;
+}
+
+export interface AboutUsPage {
+    title: string;
+    text: string[];
+}
+
+export interface ContactUsPage {
+    title: string;
+    description: string;
 }
 
 export interface Dictionary {
@@ -69,4 +97,7 @@ export interface Dictionary {
     topPicks: TopPicks;
     productPage: ProductPage;
     footer: Footer;
+    productsPage: ProductsPage;
+    aboutUsPage: AboutUsPage;
+    contactUsPage: ContactUsPage;
 }

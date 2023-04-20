@@ -1,26 +1,35 @@
-import SmallLogoAlternativeImage from '@/images/logo/logo-small-alternative.png';
+'use client';
+import useIsMobile from '@/hooks/useIsMobile';
+import LogoWhiteAlternativeImage from '@/images/logo/logo-white-small-alternative.png';
+import LogoWhiteImage from '@/images/logo/logo-white.png';
+
 import BackgroundImage from '@/images/main_background.webp';
+import BackgroundImageMobile from '@/images/main_background_mobile.webp';
+
 import Image from 'next/image';
-import './styles.css';
 
 export default function Hero() {
+    const isMobile = useIsMobile();
+
     return (
-        <section className="hero-container relative mt-[-5rem] min-h-screen w-full">
+        <section className="relative mt-[-5rem] min-h-screen w-full">
             <Image
                 priority
-                src={BackgroundImage}
+                src={isMobile ? BackgroundImageMobile : BackgroundImage}
                 alt="background"
                 fill
+                quality={100}
                 className="z-[-10]"
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', objectPosition: '20%' }}
             />
-            <div className={`flex min-h-screen w-full items-center justify-center `}>
+
+            <div className={`flex min-h-screen w-full items-center justify-center`}>
                 <Image
                     priority
-                    src={SmallLogoAlternativeImage}
+                    src={isMobile ? LogoWhiteImage : LogoWhiteAlternativeImage}
                     alt="logo"
-                    width={400}
-                    height={300}
+                    width={900}
+                    height={900}
                 />
             </div>
         </section>

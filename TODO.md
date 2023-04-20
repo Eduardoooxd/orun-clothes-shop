@@ -20,7 +20,7 @@
 
 ## Bugfixes
 
--   Fix a bug that on next link to / it redirects to /pt instead of /en
+-   URGENT: Fix a bug that on next link to / it redirects to /pt instead of /en
 -   Fix a bug where /product/SUOPUS does not have a good width for desktop
 
 ## Inspirations for design

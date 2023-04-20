@@ -1,13 +1,13 @@
-import ProductPreview from '@/components/ProductPreview';
-import { MainSectionTitle } from '@/components/Text';
 import { i18nConfig, Locale } from '@/config/i18nConfig';
-import { getProducts } from '@/lib/fetchProducts';
-import { Product } from '@/lib/products';
-import Sidebar from './sidebar';
+import { getCategories, getProducts } from '@/lib/fetchProducts';
+import ProductsFilter from './productsFilter';
 
 interface ProductsPageProps {
     params: {
         lang: Locale;
+    };
+    searchParams?: {
+        [key: string]: string | string[] | undefined;
     };
 }
 
@@ -17,31 +17,26 @@ export async function generateStaticParams() {
     return locales.map((lang) => ({ lang }));
 }
 
-export default async function Products({ params }: ProductsPageProps) {
+export default async function Products({ params, searchParams }: ProductsPageProps) {
     const { lang } = params;
+    const { category } = searchParams || {};
     const products = await getProducts(lang);
-    const categories = getCategories(products);
+
+    const categories = await getCategories(lang);
+
+    const selectedCategories = new Map<string, boolean>();
+    categories.forEach((category) => selectedCategories.set(category, false));
+    if (!!category) {
+        [category].flat().forEach((category) => selectedCategories.set(category, true));
+    }
 
     return (
-        <div className="flex flex-col md:flex-row">
-            <div className="w-full md:w-1/5">
-                <Sidebar allCategories={categories} />
-            </div>
-            <div className="w-full p-4 md:w-4/5">
-                <div className="flex">
-                    <MainSectionTitle textAlign="text-left">Products</MainSectionTitle>
-                </div>
-
-                <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    {products.map((product, index) => (
-                        <ProductPreview key={index} product={product} />
-                    ))}
-                </div>
-            </div>
+        <div className="flex flex-col justify-between md:flex-row">
+            <ProductsFilter
+                predefinedCategories={category}
+                allCategories={categories}
+                allProducts={products}
+            />
         </div>
     );
-}
-
-function getCategories(products: Product[]): string[] {
-    return Array.from(new Set(products.map((product) => product.category)));
 }
