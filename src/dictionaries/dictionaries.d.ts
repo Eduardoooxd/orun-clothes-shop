@@ -85,6 +85,11 @@ export interface AboutUsPage {
     text: string[];
 }
 
+export interface ContactUsPage {
+    title: string;
+    description: string;
+}
+
 export interface Dictionary {
     language: string;
     navBar: NavBar;
@@ -94,4 +99,5 @@ export interface Dictionary {
     footer: Footer;
     productsPage: ProductsPage;
     aboutUsPage: AboutUsPage;
+    contactUsPage: ContactUsPage;
 }

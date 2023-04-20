@@ -178,4 +178,8 @@ export const dictionary: Dictionary = {
             'Tiago Bastos.',
         ],
     },
+    contactUsPage: {
+        title: 'Contact Us',
+        description: 'You can contact us directly by email or WhatsApp.',
+    },
 };

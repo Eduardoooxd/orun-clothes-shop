@@ -5,7 +5,6 @@ import MiniBlackLogoImage from '@/images/logo/logo-mini.png';
 import MiniWhiteLogoImage from '@/images/logo/logo-white-mini.png';
 import Image from 'next/image';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
-import { CiSearch } from 'react-icons/ci';
 import LinkI18N from '../LinkI18N';
 import { CategoriesDropdown } from './CategoriesDropdown';
 import LocaleSwitcher from './LocaleSwitcher';
@@ -65,10 +64,11 @@ export const DesktopNavBar: FunctionComponent<DesktopNavBarProps> = ({
                 {/* 
                     <div className="grid aspect-square w-12 place-items-center">{<User /> }</div>
                     <div className="grid aspect-square w-12 place-items-center">{<Bag /> }</div>
-                */}
+                
                 <div className="grid aspect-square w-12 place-items-center">
                     <CiSearch size={'1.5rem'} />
                 </div>
+                */}
                 <LocaleSwitcher />
             </div>
         </div>

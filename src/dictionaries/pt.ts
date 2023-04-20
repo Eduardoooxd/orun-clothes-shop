@@ -177,4 +177,8 @@ export const dictionary: Dictionary = {
             'Tiago Bastos.',
         ],
     },
+    contactUsPage: {
+        title: 'Contacte-nos',
+        description: 'Você pode entrar em contato connosco diretamente por e-mail ou WhatsApp.',
+    },
 };
