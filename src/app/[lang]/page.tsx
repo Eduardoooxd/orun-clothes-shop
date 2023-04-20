@@ -16,10 +16,10 @@ export default async function Page() {
     return (
         <>
             <Hero />
-            <AboutUs />
             <Separator />
             {/* @ts-ignore */}
             <TopPicks />
+            <AboutUs />
         </>
     );
 }
