@@ -14,7 +14,7 @@ const ProductPage: FunctionComponent<ProductPageProps> = ({ product }) => {
     const { id } = product;
 
     return (
-        <main key={id} className="grid min-h-[calc(100dvh-5rem)] lg:grid-cols-2 lg:gap-0">
+        <main key={id} className="grid min-h-[calc(100dvh-5rem)] w-full lg:grid-cols-2 lg:gap-0">
             <ProductsCarousel>
                 <CarouselItems product={product} />
             </ProductsCarousel>

@@ -191,10 +191,10 @@ export const ShortsProducts: Product[] = [
         sizes: ['Adjustable size'],
         colors: ['Khaki Green'],
         images: [
-            PreviewImageAZHA_STREET,
-            FrontImageAZHA_STREET,
-            BackImageAZHA_STREET,
             SideImageAZHA_STREET,
+            FrontImageAZHA_STREET,
+            PreviewImageAZHA_STREET,
+            BackImageAZHA_STREET,
         ],
     },
 ];
