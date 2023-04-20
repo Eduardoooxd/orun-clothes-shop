@@ -3,14 +3,16 @@ import { futuraPTLight } from '@/lib/fontLoader';
 import { store } from '@/store';
 import React, { FunctionComponent } from 'react';
 import Container from '../Container';
+import { MainSectionTitle } from '../Text';
 
 const AboutUs: FunctionComponent = () => {
     const dictionary = store.getState().dictionary.dictionary;
-    const { desktopContent, mobileContent } = dictionary.aboutUs;
+    const { desktopContent, mobileContent, title } = dictionary.aboutUs;
 
     return (
         <section className="my-4 w-full" id="aboutUs">
             <Container>
+                <MainSectionTitle textAlign="text-left"> {title} </MainSectionTitle>
                 <DesktopContent desktopContent={desktopContent} />
                 <MobileContent mobileContent={mobileContent} />
             </Container>
@@ -19,7 +21,7 @@ const AboutUs: FunctionComponent = () => {
 };
 
 const DesktopContent = ({ desktopContent }: { desktopContent: AboutUsContent[] }) => (
-    <div className="mt-8 hidden flex-col justify-between gap-8 text-justify sm:mt-12 sm:flex sm:flex-row sm:gap-24 ">
+    <div className="mt-8 hidden flex-col justify-between gap-8 text-justify sm:mt-0 sm:flex sm:flex-row sm:gap-24 ">
         {desktopContent.map((content, index) => {
             const { title, paragraphs } = content;
             const ParagraphsComponents = paragraphs.map((paragraph, index) => (
