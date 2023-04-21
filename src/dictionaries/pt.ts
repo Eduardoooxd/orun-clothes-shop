@@ -5,8 +5,8 @@ export const dictionary: Dictionary = {
     navBar: {
         NAVBAR_LINKS: {
             Category: {
-                text: 'Categorias',
-                href: '/',
+                text: 'Produtos',
+                href: '/products',
             },
             AboutUs: {
                 text: 'Sobre nós',

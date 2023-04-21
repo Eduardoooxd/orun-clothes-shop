@@ -29,11 +29,6 @@ const ProductPreview: FunctionComponent<ProductPreviewProps> = ({ product }) => 
                     >
                         {title}
                     </h4>
-                    <p
-                        className={`${futuraPTLight.variable} font-futuraPTLight text-base font-semibold uppercase text-black`}
-                    >
-                        {price}&nbsp;EUR
-                    </p>
                 </div>
             </LinkI18N>
         </div>
