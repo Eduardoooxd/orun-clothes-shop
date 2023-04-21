@@ -10,7 +10,6 @@ import useGetDictionary from '@/hooks/useGetDictionary';
 import { useLockBody } from '@/hooks/useLockBody';
 import LinkI18N from '../LinkI18N';
 import LocaleSwitcher from './LocaleSwitcher';
-import MobileCategoriesDropdown from './MobileCategoriesDropdown';
 import NavbarLink from './NavbarLink';
 
 interface MobileNavBarProps {
@@ -117,11 +116,13 @@ const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
     return (
         <div className="h-[calc(100dvh-5rem)] p-4 sm:p-6 md:hidden">
             <div className="flex flex-col gap-4">
+                {/* 
                 <MobileCategoriesDropdown onClickItem={() => setIsMobileMenuOpen(false)}>
                     {Category.text}
                 </MobileCategoriesDropdown>
+                */}
 
-                {[AboutUs, ContactUs].map((navBarLink, index) => (
+                {[Category, AboutUs, ContactUs].map((navBarLink, index) => (
                     <NavbarLink
                         onClick={() => setIsMobileMenuOpen(false)}
                         key={index}

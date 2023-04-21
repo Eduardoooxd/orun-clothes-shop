@@ -6,7 +6,6 @@ import MiniWhiteLogoImage from '@/images/logo/logo-white-mini.png';
 import Image from 'next/image';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
 import LinkI18N from '../LinkI18N';
-import { CategoriesDropdown } from './CategoriesDropdown';
 import LocaleSwitcher from './LocaleSwitcher';
 import NavbarLink from './NavbarLink';
 
@@ -31,11 +30,13 @@ export const DesktopNavBar: FunctionComponent<DesktopNavBarProps> = ({
             } container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6`}
         >
             <div className="flex  flex-1 items-center gap-6 lg:gap-10">
-                <CategoriesDropdown setIsDropdownOpen={setIsDropdownOpen}>
-                    {Category.text}
-                </CategoriesDropdown>
+                {/* 
+                    <CategoriesDropdown setIsDropdownOpen={setIsDropdownOpen}>
+                        {Category.text}
+                    </CategoriesDropdown>
+                */}
 
-                {[AboutUs, ContactUs].map((navBarLink, index) => (
+                {[Category, AboutUs, ContactUs].map((navBarLink, index) => (
                     <NavbarLink key={index} {...navBarLink} />
                 ))}
             </div>
