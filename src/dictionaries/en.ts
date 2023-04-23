@@ -181,5 +181,29 @@ export const dictionary: Dictionary = {
     contactUsPage: {
         title: 'Contact Us',
         description: 'You can contact us directly by email or WhatsApp.',
+        formContent: {
+            nameInput: {
+                name: 'name',
+                label: 'Name',
+                placeholder: 'Your name',
+            },
+            emailInput: {
+                name: 'email',
+                label: 'Email',
+                placeholder: 'Your email',
+            },
+            phoneInput: {
+                name: 'phone',
+                label: 'Phone',
+                placeholder: 'Your phone',
+            },
+            messageInput: {
+                name: 'message',
+                label: 'Message',
+                placeholder: 'Your message',
+            },
+            submitMessage: 'Send',
+            loadingMessage: 'Sending...',
+        },
     },
 };

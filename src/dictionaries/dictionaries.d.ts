@@ -88,6 +88,22 @@ export interface AboutUsPage {
 export interface ContactUsPage {
     title: string;
     description: string;
+    formContent: ContactUsFormContent;
+}
+
+export interface ContactUsFormContent {
+    nameInput: ContactUsFormInput;
+    emailInput: ContactUsFormInput;
+    messageInput: ContactUsFormInput;
+    phoneInput: ContactUsFormInput;
+    submitMessage: string;
+    loadingMessage: string;
+}
+
+export interface ContactUsFormInput {
+    name: string;
+    label: string;
+    placeholder: string;
 }
 
 export interface Dictionary {
