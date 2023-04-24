@@ -130,7 +130,7 @@ export const ShirtProducts: Product[] = [
     {
         id: 'CEPTUS-TERRACOTA',
         title: 'Kimono Shirt - CEPTUS TERRACOTA',
-        price: 77,
+        price: 62,
         description:
             'Fluid superior quality fabric with a soft touch. Wide cut and free neckline. Ideal to be worn as a shirt or as an open piece corresponding to a casual, sensual, discreet, and striking style.',
         category: 'Shirt',
@@ -148,7 +148,7 @@ export const ShirtProducts: Product[] = [
     {
         id: 'CEPTUS-BLACK',
         title: 'Kimono Shirt - CEPTUS BLACK',
-        price: 77,
+        price: 62,
         description:
             'Fluid superior quality fabric with a soft touch. Wide cut and free neckline. Ideal to be worn as a shirt or as an open piece corresponding to a casual, sensual, discreet, and striking style.',
         category: 'Shirt',
