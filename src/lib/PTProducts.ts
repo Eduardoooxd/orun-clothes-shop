@@ -130,7 +130,7 @@ export const CamisasProducts: Product[] = [
     {
         id: 'CEPTUS-TERRACOTA',
         title: 'Camisa-Quimono - CEPTUS TERRACOTA',
-        price: 77,
+        price: 62,
         description:
             'Malha de qualidade superior fluída, de toque macio. Corte largo e de decote livre. Ideal para ser usada como camisa ou como peça aberta correspondendo a um estilo descomprometido, sensual, discreto e marcante.',
         category: 'Camisa',
@@ -148,7 +148,7 @@ export const CamisasProducts: Product[] = [
     {
         id: 'CEPTUS-BLACK',
         title: 'Camisa-Quimono - CEPTUS PRETA',
-        price: 77,
+        price: 62,
         description:
             'Malha de qualidade superior fluída, de toque macio. Corte largo e de decote livre. Ideal para ser usada como camisa ou como peça aberta correspondendo a um estilo descomprometido, sensual, discreto e marcante.',
         category: 'Camisa',
