@@ -2,7 +2,6 @@ import { Product } from './products';
 import {
     BackADHIL,
     BackBlackImageCEPTUS,
-    BackGreenImageLYNX,
     BackImageAZHA_STREET,
     BackImageCEPTUS,
     BackImageGreenAZHA_BEACH,
@@ -23,7 +22,6 @@ import {
     FrontImageCEPTUS,
     FrontImageDIWO,
     FrontImageGreenAZHA_BEACH,
-    FrontImageGreenLYNX,
     FrontImageHAMMAL,
     FrontImageLYNX,
     FrontImageRIGEL,
@@ -32,7 +30,6 @@ import {
     PreviewImageAZHA_STREET,
     PreviewImageCEPTUS,
     PreviewImageDIWO,
-    PreviewImageGreenLYNX,
     PreviewImageLYNX,
     PreviewImageSUOPUS,
     PrincipalADHIL,
@@ -41,7 +38,6 @@ import {
     SideAZHA_BEACH,
     SideBlackImageCEPTUS,
     SideGreenAZHA_BEACH,
-    SideGreenImageLYNX,
     SideImageAZHA_STREET,
     SideImageDIWO,
     SideImageHAMMAL,
@@ -61,6 +57,7 @@ export const TunicasProducts: Product[] = [
         colors: ['Preta'],
         images: [FrontImageLYNX, PreviewImageLYNX, BackImageLYNX, CloseUpImageLYNX],
     },
+    /*
     {
         id: 'LYNX-GREEN',
         title: 'Túnica Trespasse - LYNX VERDE',
@@ -76,7 +73,7 @@ export const TunicasProducts: Product[] = [
             FrontImageGreenLYNX,
             SideGreenImageLYNX,
         ],
-    },
+    },*/
     {
         id: 'HAMMAL',
         title: 'Túnica aberta - HAMMAL',
