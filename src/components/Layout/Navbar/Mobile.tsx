@@ -4,7 +4,7 @@ import MiniBlackLogoImage from '@/images/logo/logo-mini.png';
 import { Transition } from '@headlessui/react';
 import Image from 'next/image';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
-import { ClosedHamburgerMenu, OpenHamburgerMenu } from '../../Icons/HamburguerMenu';
+import { RxCross1, RxHamburgerMenu } from 'react-icons/rx';
 
 import useGetDictionary from '@/hooks/useGetDictionary';
 import { useLockBody } from '@/hooks/useLockBody';
@@ -29,7 +29,7 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
         <>
             <div
                 className={`${
-                    isScrolled ? 'text-black' : 'text-white'
+                    isScrolled || isMobileMenuOpen ? 'text-black' : 'text-white'
                 } container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6`}
             >
                 <div>
@@ -48,13 +48,16 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
                 <button
                     type="button"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="relative h-10 w-10 rounded p-2  transition duration-150 ease-in-out hover:bg-gray-900 hover:text-white focus:outline-none"
+                    className="relative h-10 w-10 rounded p-2  transition duration-150 ease-in-out focus:outline-none"
                     aria-controls="mobile-menu"
                     aria-expanded="false"
                 >
                     <span className="sr-only">Open main menu</span>
-                    <OpenHamburgerMenu isOpen={isMobileMenuOpen} />
-                    <ClosedHamburgerMenu isOpen={isMobileMenuOpen} />
+                    {isMobileMenuOpen ? (
+                        <RxCross1 size={'1.5rem'} />
+                    ) : (
+                        <RxHamburgerMenu size={'1.5rem'} />
+                    )}
                 </button>
             </div>
             <MobileNavBarMenu
