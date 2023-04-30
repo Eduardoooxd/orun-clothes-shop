@@ -20,9 +20,8 @@ export async function generateStaticParams() {
 export default async function Products({ params, searchParams }: ProductsPageProps) {
     const { lang } = params;
     const { category } = searchParams || {};
-    const products = await getProducts(lang);
 
-    const categories = await getCategories(lang);
+    const [products, categories] = await Promise.all([getProducts(lang), getCategories(lang)]);
 
     const selectedCategories = new Map<string, boolean>();
     categories.forEach((category) => selectedCategories.set(category, false));

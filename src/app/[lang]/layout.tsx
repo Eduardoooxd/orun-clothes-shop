@@ -34,15 +34,16 @@ interface PageLayoutProps {
 
 export default async function PageLayout({ children, params }: PageLayoutProps) {
     const { lang } = params;
+
+    const [dictionary, categories, products] = await Promise.all([
+        getDictionary(lang),
+        getCategories(lang),
+        getProducts(lang),
+    ]);
+
     store.dispatch(setLocale(lang));
-
-    const dictionary = await getDictionary(lang);
     store.dispatch(setDictionary(dictionary));
-
-    const categories = await getCategories(lang);
     store.dispatch(setCategories(categories));
-
-    const products = await getProducts(lang);
     store.dispatch(setProducts(products));
 
     return (
