@@ -2,7 +2,6 @@
 
 import useIsMobile from '@/hooks/useIsMobile';
 import useIsRootPage from '@/hooks/useIsRootPage';
-import useScrollToTop from '@/hooks/useScrollToTop';
 import { cn } from '@/lib/utils';
 import { FunctionComponent, useEffect, useState } from 'react';
 
@@ -17,8 +16,6 @@ export const Navbar: FunctionComponent = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
     const isMobile = useIsMobile();
     const isRootPage = useIsRootPage();
-
-    useScrollToTop();
 
     const stylesOnScroll =
         isScrolled || isMobileMenuOpen
