@@ -2,6 +2,7 @@
 
 import useIsRootPage from '@/hooks/useIsRootPage';
 import useIsTable from '@/hooks/useIsTablet';
+import useNavigationEvent from '@/hooks/useNavigationEvent';
 import { cn } from '@/lib/utils';
 import { FunctionComponent, useEffect, useState } from 'react';
 
@@ -16,6 +17,12 @@ export const Navbar: FunctionComponent = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
     const isMobile = useIsTable();
     const isRootPage = useIsRootPage();
+
+    useNavigationEvent({
+        // Workaround since Next Router on app router is not scrolling to top after navigation
+        // check: https://github.com/vercel/next.js/issues/28778
+        callback: () => window.scrollTo(0, 0),
+    });
 
     const stylesOnScroll =
         isScrolled || isMobileMenuOpen
