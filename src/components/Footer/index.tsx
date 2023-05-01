@@ -5,8 +5,8 @@ import { store } from '@/store';
 import Image from 'next/image';
 import { FunctionComponent } from 'react';
 import Container from '../Container';
-import LinkI18N from '../Layout/LinkI18N';
 import Separator from '../Separator';
+import LinkI18N from '../Shared/I18N/LinkI18N';
 
 const Footer: FunctionComponent = () => {
     const CURRENT_YEAR = new Date().getFullYear();

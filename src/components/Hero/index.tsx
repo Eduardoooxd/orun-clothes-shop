@@ -20,7 +20,7 @@ export default function Hero() {
                 fill
                 quality={100}
                 className="z-[-10]"
-                style={{ objectFit: 'cover', objectPosition: '20%' }}
+                style={{ objectFit: 'cover' }}
             />
 
             <div className={`flex min-h-screen w-full items-center justify-center`}>

@@ -2,8 +2,8 @@ import { getTopPicks } from '@/lib/fetchProducts';
 import { futuraPTLight } from '@/lib/fontLoader';
 import { store } from '@/store';
 import Container from '../Container';
-import LinkI18N from '../Layout/LinkI18N';
 import ProductPreview from '../ProductPreview';
+import LinkI18N from '../Shared/I18N/LinkI18N';
 
 const TopPicks = async () => {
     const dictionary = store.getState().dictionary.dictionary;

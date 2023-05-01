@@ -1,14 +1,14 @@
 'use client';
 
+import useGetDictionary from '@/hooks/useGetDictionary';
+import { useLockBody } from '@/hooks/useLockBody';
 import MiniBlackLogoImage from '@/images/logo/logo-mini.png';
+import { cn } from '@/lib/utils';
 import { Transition } from '@headlessui/react';
 import Image from 'next/image';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
 import { RxCross1, RxHamburgerMenu } from 'react-icons/rx';
-
-import useGetDictionary from '@/hooks/useGetDictionary';
-import { useLockBody } from '@/hooks/useLockBody';
-import LinkI18N from '../LinkI18N';
+import LinkI18N from '../../Shared/I18N/LinkI18N';
 import LocaleSwitcher from './LocaleSwitcher';
 import NavbarLink from './NavbarLink';
 
@@ -28,9 +28,10 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
     return (
         <>
             <div
-                className={`${
+                className={cn(
+                    'flex h-20 items-center justify-between',
                     isScrolled || isMobileMenuOpen ? 'text-black' : 'text-white'
-                } container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6`}
+                )}
             >
                 <div>
                     <LinkI18N href="/">
@@ -117,7 +118,7 @@ const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
     const { Category, AboutUs, ContactUs } = dictionary.navBar.NAVBAR_LINKS;
 
     return (
-        <div className="h-[calc(100dvh-5rem)] p-4 sm:p-6 md:hidden">
+        <div className="h-[calc(100dvh-5rem)]">
             <div className="flex flex-col gap-4">
                 {/* 
                 <MobileCategoriesDropdown onClickItem={() => setIsMobileMenuOpen(false)}>

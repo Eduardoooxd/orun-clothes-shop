@@ -3,9 +3,10 @@ import useGetDictionary from '@/hooks/useGetDictionary';
 // TODO Remove this
 import MiniBlackLogoImage from '@/images/logo/logo-mini.png';
 import MiniWhiteLogoImage from '@/images/logo/logo-white-mini.png';
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
-import LinkI18N from '../LinkI18N';
+import LinkI18N from '../../Shared/I18N/LinkI18N';
 import LocaleSwitcher from './LocaleSwitcher';
 import NavbarLink from './NavbarLink';
 
@@ -25,11 +26,12 @@ export const DesktopNavBar: FunctionComponent<DesktopNavBarProps> = ({
 
     return (
         <div
-            className={`${
+            className={cn(
+                'flex h-20 items-center justify-between',
                 isScrolled || isDropdownOpen ? 'text-black' : 'text-white'
-            } container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6`}
+            )}
         >
-            <div className="flex  flex-1 items-center gap-6 lg:gap-10">
+            <div className="flex flex-1 items-center gap-6 lg:gap-10">
                 {/* 
                     <CategoriesDropdown setIsDropdownOpen={setIsDropdownOpen}>
                         {Category.text}

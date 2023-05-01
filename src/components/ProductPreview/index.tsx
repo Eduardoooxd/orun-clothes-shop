@@ -2,7 +2,7 @@ import { futuraPTLight } from '@/lib/fontLoader';
 import { Product } from '@/lib/products';
 import Image from 'next/image';
 import { FunctionComponent } from 'react';
-import LinkI18N from '../Layout/LinkI18N';
+import LinkI18N from '../Shared/I18N/LinkI18N';
 
 export interface ProductPreviewProps {
     product: Product;

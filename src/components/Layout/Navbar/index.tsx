@@ -1,7 +1,7 @@
 'use client';
 
-import useIsMobile from '@/hooks/useIsMobile';
 import useIsRootPage from '@/hooks/useIsRootPage';
+import useIsTable from '@/hooks/useIsTablet';
 import { cn } from '@/lib/utils';
 import { FunctionComponent, useEffect, useState } from 'react';
 
@@ -14,7 +14,7 @@ export const Navbar: FunctionComponent = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const [isScrolled, setIsScrolled] = useState<boolean>(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
-    const isMobile = useIsMobile();
+    const isMobile = useIsTable();
     const isRootPage = useIsRootPage();
 
     const stylesOnScroll =
@@ -44,7 +44,7 @@ export const Navbar: FunctionComponent = () => {
                 `sticky top-0 z-50 flex min-h-[5rem] w-full flex-col justify-evenly transition duration-100 ease-in-out ${stylesOnScroll} ${stylesOnDropdownOpen}`
             )}
         >
-            <nav>
+            <nav className="mx-auto w-full px-4 lg:container sm:px-6">
                 {isMobile ? (
                     <MobileNavBar
                         isMobileMenuOpen={isMobileMenuOpen}

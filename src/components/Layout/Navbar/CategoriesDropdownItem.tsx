@@ -1,6 +1,6 @@
 import { commutersSans } from '@/lib/fontLoader';
 import { FunctionComponent } from 'react';
-import LinkI18N from '../LinkI18N';
+import LinkI18N from '../../Shared/I18N/LinkI18N';
 
 interface CategoriesDropdownItemProps {
     category: string;

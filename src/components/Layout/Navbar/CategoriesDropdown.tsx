@@ -6,7 +6,7 @@ import { commutersSans } from '@/lib/fontLoader';
 import * as HoverCard from '@radix-ui/react-hover-card';
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
 import { Dispatch, FunctionComponent, SetStateAction, useEffect, useState } from 'react';
-import LinkI18N from '../LinkI18N';
+import LinkI18N from '../../Shared/I18N/LinkI18N';
 import CategoriesDropdownItem from './CategoriesDropdownItem';
 
 interface CategoriesDropdownProps {
