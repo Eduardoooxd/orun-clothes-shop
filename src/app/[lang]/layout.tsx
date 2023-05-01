@@ -12,8 +12,8 @@ import Preloader from '@/store/Preloader';
 import { setCategories } from '@/store/productsSlice';
 import Providers from '@/store/Provider';
 import { setProducts } from '@/store/searchSlice';
+import '@/styles/globals.css';
 import { Analytics } from '@vercel/analytics/react';
-import './globals.css';
 
 export const metadata = {
     title: {
@@ -34,6 +34,7 @@ interface PageLayoutProps {
 
 export default async function PageLayout({ children, params }: PageLayoutProps) {
     const { lang } = params;
+    store.dispatch(setLocale(lang));
 
     const [dictionary, categories, products] = await Promise.all([
         getDictionary(lang),

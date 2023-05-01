@@ -1,16 +1,10 @@
-import { Locale } from '@/config/i18nConfig';
-import { getProduct } from '@/lib/fetchProducts';
+import { getProducts } from '@/lib/shopify';
+import { convertToShopifyLanguage } from '@/lib/shopify/converters';
 import { NextResponse } from 'next/server';
 
-export async function GET(req: Request, { params }: { params: { lang: Locale } }) {
+export async function GET(request: Request, { params }: { params: { lang: string } }) {
     const { lang } = params;
-    const { searchParams } = new URL(req.url);
-    const id = searchParams.get('id');
+    const shopifyProducts = await getProducts({ language: convertToShopifyLanguage(lang) });
 
-    if (!id) {
-        return NextResponse.error();
-    }
-
-    const product = await getProduct(id, lang);
-    return NextResponse.json(product);
+    return NextResponse.json({ shopifyProducts });
 }

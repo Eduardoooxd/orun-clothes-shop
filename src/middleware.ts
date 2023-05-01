@@ -38,4 +38,15 @@ const getLocale = (request: NextRequest) => {
 };
 
 // Stop Middleware running on static files
-export const config = { matcher: ['/((?!_next|.*\\..*).*)'] };
+export const config = {
+    matcher: [
+        /*
+         * Match all request paths except for the ones starting with:
+         * - api (API routes)
+         * - _next/static (static files)
+         * - _next/image (image optimization files)
+         * - favicon.ico (favicon file)
+         */
+        '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    ],
+};

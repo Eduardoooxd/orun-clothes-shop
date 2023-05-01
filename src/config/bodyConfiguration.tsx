@@ -8,7 +8,9 @@ function BodyConfiguration({ children }: { children: React.ReactNode }) {
     const currentUrl = useGetClientUrl();
 
     useNavigationEvent({
-        callback: () => window.scrollTo(0, 0),
+        // Workaround since Next Router on app router is not scrolling to top after navigation
+        // check: https://github.com/vercel/next.js/issues/28778
+        callback: () => window.document.scrollingElement?.scrollTo(0, 0),
     });
 
     useNavigationEvent({ callback: () => pageView(currentUrl) });
