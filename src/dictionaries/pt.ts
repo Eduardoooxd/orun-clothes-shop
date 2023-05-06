@@ -122,16 +122,6 @@ export const dictionary: Dictionary = {
                         text: 'facebook',
                         isExternal: true,
                     },
-                    {
-                        href: 'http://tiktok.com/@orunfreespiritmen',
-                        text: 'tik tok',
-                        isExternal: true,
-                    },
-                    {
-                        href: 'https://pin.it/3KhN1lp',
-                        text: 'pinterest',
-                        isExternal: true,
-                    },
                 ],
             },
             {
@@ -204,5 +194,11 @@ export const dictionary: Dictionary = {
             submitMessage: 'Enviar',
             loadingMessage: 'Enviando...',
         },
+    },
+    privacyPage: {
+        title: 'Privacidade',
+        text: [
+            '<p><strong>ACCESSIBILITY</strong><br>OAS Company is committed to facilitating and improving the accessibility and usability of our website (<a href="http://www.oascompany.com)">www.oascompany.com)</a>. <br>OAS Company strives to ensure that its website services and content are accessible to persons with disabilities including users of screen reader technology. OAS Company are committed to test, remediate, and maintain our website (<a href="http://www.oascompany.com">www.oascompany.com</a>) in-line with the Web Content Accessibility Guidelines (WCAG), which also bring the Website into conformance with the Americans with Disabilities Act of 1990.</p>',
+        ],
     },
 };

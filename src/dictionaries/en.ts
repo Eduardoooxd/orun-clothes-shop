@@ -123,16 +123,6 @@ export const dictionary: Dictionary = {
                         text: 'facebook',
                         isExternal: true,
                     },
-                    {
-                        href: 'http://tiktok.com/@orunfreespiritmen',
-                        text: 'tik tok',
-                        isExternal: true,
-                    },
-                    {
-                        href: 'https://pin.it/3KhN1lp',
-                        text: 'pinterest',
-                        isExternal: true,
-                    },
                 ],
             },
             {
@@ -205,5 +195,9 @@ export const dictionary: Dictionary = {
             submitMessage: 'Send',
             loadingMessage: 'Sending...',
         },
+    },
+    privacyPage: {
+        title: 'Privacidade',
+        text: [],
     },
 };

@@ -10,11 +10,11 @@ import { Dispatch, FunctionComponent, SetStateAction } from 'react';
 import { RxCross1, RxHamburgerMenu } from 'react-icons/rx';
 import LinkI18N from '../../Shared/I18N/LinkI18N';
 import LocaleSwitcher from './LocaleSwitcher';
+import { useNavbarContext } from './NavbarContext';
 import NavbarLink from './NavbarLink';
 
 interface MobileNavBarProps {
     isMobileMenuOpen: boolean;
-    isScrolled: boolean;
     setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
     setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
 }
@@ -23,19 +23,22 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
     isMobileMenuOpen,
     setIsMobileMenuOpen,
     setIsDropdownOpen,
-    isScrolled,
 }) => {
+    const { isNavbarActive } = useNavbarContext();
+
+    const activeMobileMenu = isNavbarActive || isMobileMenuOpen;
+
     return (
         <>
             <div
                 className={cn(
                     'flex h-20 items-center justify-between',
-                    isScrolled || isMobileMenuOpen ? 'text-black' : 'text-white'
+                    activeMobileMenu ? 'text-black' : 'text-white'
                 )}
             >
                 <div>
                     <LinkI18N href="/">
-                        {isScrolled || isMobileMenuOpen ? (
+                        {activeMobileMenu ? (
                             <Image
                                 priority
                                 src={MiniBlackLogoImage}
@@ -79,7 +82,6 @@ interface MobileNavBarMenuProps {
 const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({
     isMobileMenuOpen,
     setIsMobileMenuOpen,
-    setIsDropdownOpen,
 }) => {
     return (
         <>
@@ -92,24 +94,17 @@ const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
             >
-                {() => (
-                    <MobileNavBarMenuOpen
-                        setIsDropdownOpen={setIsDropdownOpen}
-                        setIsMobileMenuOpen={setIsMobileMenuOpen}
-                    />
-                )}
+                {() => <MobileNavBarMenuOpen setIsMobileMenuOpen={setIsMobileMenuOpen} />}
             </Transition>
         </>
     );
 };
 
 interface MobileNavBarMenuOpenProps {
-    setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
     setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
-    setIsDropdownOpen,
     setIsMobileMenuOpen,
 }) => {
     const dictionary = useGetDictionary();
@@ -129,7 +124,7 @@ const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
                 {[Category, AboutUs, ContactUs].map((navBarLink, index) => (
                     <NavbarLink
                         onClick={() => setIsMobileMenuOpen(false)}
-                        key={index}
+                        key={navBarLink.href}
                         {...navBarLink}
                     />
                 ))}

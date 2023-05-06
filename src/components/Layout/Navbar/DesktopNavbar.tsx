@@ -8,27 +8,29 @@ import Image from 'next/image';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
 import LinkI18N from '../../Shared/I18N/LinkI18N';
 import LocaleSwitcher from './LocaleSwitcher';
+import { useNavbarContext } from './NavbarContext';
 import NavbarLink from './NavbarLink';
 
 interface DesktopNavBarProps {
     setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
-    isScrolled: boolean;
     isDropdownOpen: boolean;
 }
 
 export const DesktopNavBar: FunctionComponent<DesktopNavBarProps> = ({
     isDropdownOpen,
     setIsDropdownOpen,
-    isScrolled,
 }) => {
     const dictionary = useGetDictionary();
     const { Category, AboutUs, ContactUs } = dictionary.navBar.NAVBAR_LINKS;
+
+    const { isNavbarActive } = useNavbarContext();
+    const isDesktopNavbarActive = isNavbarActive || isDropdownOpen;
 
     return (
         <div
             className={cn(
                 'flex h-20 items-center justify-between',
-                isScrolled || isDropdownOpen ? 'text-black' : 'text-white'
+                isDesktopNavbarActive ? 'text-black' : 'text-white'
             )}
         >
             <div className="flex flex-1 items-center gap-6 lg:gap-10">
@@ -44,7 +46,7 @@ export const DesktopNavBar: FunctionComponent<DesktopNavBarProps> = ({
             </div>
             <div className="flex items-center gap-6 lg:gap-10 ">
                 <LinkI18N href="/">
-                    {isScrolled ? (
+                    {isNavbarActive ? (
                         <Image
                             priority
                             src={MiniBlackLogoImage}

@@ -24,8 +24,8 @@ const DesktopContent = ({ desktopContent }: { desktopContent: AboutUsContent[] }
     <div className="mt-8 hidden flex-col justify-between gap-8 text-justify sm:mt-0 sm:flex sm:flex-row sm:gap-24 ">
         {desktopContent.map((content, index) => {
             const { title, paragraphs } = content;
-            const ParagraphsComponents = paragraphs.map((paragraph, index) => (
-                <ContentText key={index}> {paragraph} </ContentText>
+            const ParagraphsComponents = paragraphs.map((paragraph) => (
+                <ContentText key={paragraph}> {paragraph} </ContentText>
             ));
             return (
                 <div key={index} className="w-[50%] text-gray-600 lg:mt-12">
@@ -41,8 +41,8 @@ const MobileContent = ({ mobileContent }: { mobileContent: AboutUsContent[] }) =
     <div className="mt-8 flex flex-col gap-8 text-justify sm:mt-12 sm:hidden sm:flex-row sm:gap-24 ">
         {mobileContent.map((content, index) => {
             const { title, paragraphs } = content;
-            const ParagraphsComponents = paragraphs.map((paragraph, index) => (
-                <ContentText key={index}> {paragraph} </ContentText>
+            const ParagraphsComponents = paragraphs.map((paragraph) => (
+                <ContentText key={paragraph}> {paragraph} </ContentText>
             ));
             return (
                 <div key={index} className="max-w-3xl text-gray-600 lg:mt-12">

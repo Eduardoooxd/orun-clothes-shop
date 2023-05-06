@@ -8,6 +8,7 @@ import { FunctionComponent, useEffect, useState } from 'react';
 
 import { DesktopNavBar } from './DesktopNavbar';
 import { MobileNavBar } from './Mobile';
+import NavbarContext from './NavbarContext';
 
 import './styles.css';
 
@@ -46,27 +47,27 @@ export const Navbar: FunctionComponent = () => {
     }, []);
 
     return (
-        <header
-            className={cn(
-                `sticky top-0 z-50 flex min-h-[5rem] w-full flex-col justify-evenly transition duration-100 ease-in-out ${stylesOnScroll} ${stylesOnDropdownOpen}`
-            )}
-        >
-            <nav className="mx-auto w-full px-4 lg:container sm:px-6">
-                {isMobile ? (
-                    <MobileNavBar
-                        isMobileMenuOpen={isMobileMenuOpen}
-                        setIsMobileMenuOpen={setIsMobileMenuOpen}
-                        isScrolled={isScrolled || !isRootPage}
-                        setIsDropdownOpen={setIsDropdownOpen}
-                    />
-                ) : (
-                    <DesktopNavBar
-                        isScrolled={isScrolled || !isRootPage}
-                        isDropdownOpen={isDropdownOpen}
-                        setIsDropdownOpen={setIsDropdownOpen}
-                    />
+        <NavbarContext.Provider value={{ isNavbarActive: isScrolled || !isRootPage }}>
+            <header
+                className={cn(
+                    `sticky top-0 z-50 flex min-h-[5rem] w-full flex-col justify-evenly transition duration-100 ease-in-out ${stylesOnScroll} ${stylesOnDropdownOpen}`
                 )}
-            </nav>
-        </header>
+            >
+                <nav className="mx-auto w-full px-4 lg:container sm:px-6">
+                    {isMobile ? (
+                        <MobileNavBar
+                            isMobileMenuOpen={isMobileMenuOpen}
+                            setIsMobileMenuOpen={setIsMobileMenuOpen}
+                            setIsDropdownOpen={setIsDropdownOpen}
+                        />
+                    ) : (
+                        <DesktopNavBar
+                            isDropdownOpen={isDropdownOpen}
+                            setIsDropdownOpen={setIsDropdownOpen}
+                        />
+                    )}
+                </nav>
+            </header>
+        </NavbarContext.Provider>
     );
 };

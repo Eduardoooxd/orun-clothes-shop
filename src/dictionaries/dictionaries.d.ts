@@ -106,6 +106,11 @@ export interface ContactUsFormInput {
     placeholder: string;
 }
 
+export interface PrivacyPage {
+    title: string;
+    text: string[];
+}
+
 export interface Dictionary {
     language: string;
     navBar: NavBar;
@@ -116,4 +121,5 @@ export interface Dictionary {
     productsPage: ProductsPage;
     aboutUsPage: AboutUsPage;
     contactUsPage: ContactUsPage;
+    privacyPage: PrivacyPage;
 }
