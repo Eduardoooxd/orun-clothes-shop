@@ -108,7 +108,12 @@ export interface ContactUsFormInput {
 
 export interface PrivacyPage {
     title: string;
-    text: string[];
+    topics: PrivacyTopic[];
+}
+
+export interface PrivacyTopic {
+    privacyTopicTitle: string;
+    privacyTopicText: string[];
 }
 
 export interface Dictionary {

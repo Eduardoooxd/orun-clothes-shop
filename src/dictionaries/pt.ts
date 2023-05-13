@@ -128,17 +128,17 @@ export const dictionary: Dictionary = {
                 title: 'Jurídico',
                 links: [
                     {
-                        href: '',
+                        href: 'legal/privacy',
                         text: 'Privacidade',
                         isExternal: false,
                     },
                     {
-                        href: '',
+                        href: 'legal/licensing',
                         text: 'Licenciamento',
                         isExternal: false,
                     },
                     {
-                        href: '',
+                        href: 'legal/terms',
                         text: 'Termos',
                         isExternal: false,
                     },
@@ -196,9 +196,51 @@ export const dictionary: Dictionary = {
         },
     },
     privacyPage: {
-        title: 'Privacidade',
-        text: [
-            '<p><strong>ACCESSIBILITY</strong><br>OAS Company is committed to facilitating and improving the accessibility and usability of our website (<a href="http://www.oascompany.com)">www.oascompany.com)</a>. <br>OAS Company strives to ensure that its website services and content are accessible to persons with disabilities including users of screen reader technology. OAS Company are committed to test, remediate, and maintain our website (<a href="http://www.oascompany.com">www.oascompany.com</a>) in-line with the Web Content Accessibility Guidelines (WCAG), which also bring the Website into conformance with the Americans with Disabilities Act of 1990.</p>',
+        title: 'Política de Privacidade',
+        topics: [
+            {
+                privacyTopicTitle: 'Informações de conteúdo',
+                privacyTopicText: [
+                    'A Loja Online da Orun reserva-se o direito de modificar a qualquer momento a informação e oferta comercial apresentada sobre: produtos, preços, promoções, condições comerciais e serviços.',
+                    'É terminantemente proibida a inserção de links neste site, para fins comerciais sem autorização  prévia. Da mesma forma, a utilização do domínio www.orun.pt para fins abusivos, e sem autorização prévia, poderá estar sujeita ao recurso aos meios legais competentes por parte da Loja Online Orun.',
+                    'Caso encontre links em outros sites que permitam o acesso, informamos que não nos responsabilizamos nem pela origem da página nem pelos conteúdos nela registados.',
+                    'Fazemos todos os esforços para que a informação apresentada esteja isenta de erros tipográficos e sempre que estes ocorram, iremos corrigi-los o mais rapidamente possível.',
+                    'As fotos apresentadas no site são meramente ilustrativas e correspondem ao produto à venda. Recomendamos que você consulte as informações detalhadas do produto para obter informações sobre as suas características.',
+                    'Os preços e especificações dos produtos estão sujeitos a alterações sem aviso prévio.',
+                    'Apesar dos esforços da loja online Orun, alguns produtos podem estar com preços incorretos, por isso verificamos os preços sempre que processamos os pedidos. Se o preço do produto for inferior ao preço anunciado, reembolsaremos a diferença.',
+                    'Se o preço for superior, informaremos o cliente por e-mail e aguardamos a sua decisão de aceitar a nova proposta ou cancelar a encomenda.	Em caso de indisponibilidade do produto e/ou rutura de stock, será informado do cancelamento parcial ou total da sua encomenda com direito ao reembolso do respetivo valor pago.',
+                ],
+            },
+            {
+                privacyTopicTitle: 'Propriedade Industrial e Intelectual',
+                privacyTopicText: [
+                    'Todos os textos, comentários, trabalhos, ilustrações, trabalhos e imagens reproduzidos ou representados no site www.orun.pt são estritamente reservados em termos de direitos autorais, bem como direitos de propriedade intelectual, em todo o mundo.',
+                    'Assim, e nos termos do Código da Propriedade Intelectual, a utilização para fins privados só é autorizada mediante disposições em contrário, incluindo disposições mais restritivas contidas naquele código.',
+                    'Qualquer reprodução ou representação total ou parcial de www.orun.pt ou de todos ou parte dos elementos nele incluídos é estritamente proibida.',
+                ],
+            },
+            {
+                privacyTopicTitle: 'Disponibilidade de produto',
+                privacyTopicText: [
+                    'A Loja Online Orun apenas processa uma encomenda efetuada por um cliente após confirmação do respetivo pagamento, pelo que não pode garantir a disponibilidade dos artigos até ao início do referido processamento.',
+                    'Data estimada de envio: até 1/2 dias úteis.',
+                    'Ao tempo estimado de envio, existe também o tempo de envio, que depende da transportadora que escolher e do destino da sua encomenda.',
+                    'Para entregas em território nacional continental, estimamos um prazo de entrega até 5 dias úteis, a partir do momento da confirmação do pagamento.',
+                    'A loja online da Orun envia apenas durante a semana. Desta forma, nem fins de semana nem feriados são contabilizados para a estimativa de entrega dos pedidos.',
+                    'Qualquer atraso no envio dos artigos, atendendo às datas estimadas apresentadas, não confere direito a indemnização.',
+                    'Em caso de rutura de stock, o cliente será informado. Se a substituição for superior a 5 dias úteis, será dada ao cliente a opção de cancelar, com o respetivo reembolso, parte ou a totalidade da encomenda.',
+                ],
+            },
+            {
+                privacyTopicTitle: 'Protecção de Dados Pessoais',
+                privacyTopicText: [
+                    'Em cumprimento da Lei n.0 67/98, de 26 de Outubro, sobre a Proteção de Dados Pessoais, informamos que o tratamento dos dados pessoais recolhidos no website www.orun.pt é da responsabilidade de Tiago Filipe Frederico Bastos, pessoa singular portando o número de contribuinte 240866444.',
+                    'Os dados pessoais são tratados informaticamente, para envios correspondentes às suas encomendas, respetivo suporte administrativo, e para fins estatísticos.',
+                    'Os dados pessoais recolhidos poderão ser comunicados a entidades terceiras de reconhecida reputação para efeitos de marketing direto. É garantido ao titular o direito de acesso, retificação, alteração ou eliminação dos seus dados pessoais, para o fazer, ou contactar-nos indicando o seu nome, apelidos, morada e número de cliente, através do email: info@orun.pt.',
+                    'O Cliente autoriza a Orun a tratar automaticamente os dados pessoais fornecidos, nomeadamente através da utilização de cookies.',
+                    'Não obstante a Orun pode recolher e tratar dados de forma segura e prevenir a sua perda ou manipulação, recorrendo às técnicas mais aperfeiçoadas para o efeito, informamos que a recolha em rede aberta permite a circulação de dados pessoais sem condições de segurança, sob o risco de serem vistos e utilizados por terceiros não autorizados.',
+                ],
+            },
         ],
     },
 };
