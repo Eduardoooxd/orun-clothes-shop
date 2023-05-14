@@ -99,12 +99,12 @@ export const dictionary: Dictionary = {
                 title: 'Client Service',
                 links: [
                     {
-                        href: '/delivery',
+                        href: 'service/delivery',
                         text: 'Delivery',
                         isExternal: false,
                     },
                     {
-                        href: '/delivery',
+                        href: 'service/returns',
                         text: 'Returns',
                         isExternal: false,
                     },
@@ -252,6 +252,30 @@ export const dictionary: Dictionary = {
             'Orun may, at any time, change all or part of the terms and conditions of sale sustained herein.',
             'The general conditions of sale observed for Orun products can be found below on the website www.orun.pt (the "web page"). As such, the use of this website, when applicable, will imply acceptance by the user of these general conditions of sale.',
             'However, if you have any questions about them, please contact our Customer Service via email: info@orun.pt',
+        ],
+    },
+    deliveryPage: {
+        title: 'Delivery policy',
+        topics: [
+            {
+                deliveryTopicTitle: 'Shipping and Delivery',
+                deliveryTopicText: [
+                    'From the moment of delivery, the risk of the product shall be supported by the customer. The shipment of products purchased through www.orun.pt will be carried out through an express courier company, and these will be delivered within the deadlines indicated by them.',
+                    'To avoid delivery problems (wrong address, missing recipient, etc.) it is essential to send all the correct information when ordering.',
+                    'The delivery price is calculated according to the chosen shipping method and the products purchased. The exact shipping price will be calculated whenever an item is added to the shopping cart, and will be displayed on the checkout page that appears before the customer confirms the order and before entering the payment data.',
+                    'Shipping costs may change at any time without prior notice. This amendment will apply from the moment the new cost is included in the Terms and Conditions of Sale. In any case, the applicable costs will be the shipping costs shown at the time of ordering.',
+                ],
+            },
+            {
+                deliveryTopicTitle: 'Payment Methods',
+                deliveryTopicText: [
+                    'After confirming your order, you will find several payment options available in your shopping cart, and you can choose the one that suits you best, from among the following:',
+                    'MBWay.',
+                    'Revolut.',
+                    'Bank transfer.',
+                    'Orun does not accept checks or cash as payment for online purchases, only the payment options listed above.',
+                ],
+            },
         ],
     },
 };

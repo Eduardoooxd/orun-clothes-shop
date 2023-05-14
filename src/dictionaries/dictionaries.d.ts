@@ -1,4 +1,4 @@
-import { TermsOfServicePage } from './dictionaries.d';
+import { DeliveryPage, TermsOfServicePage } from './dictionaries.d';
 export interface NavBar {
     NAVBAR_LINKS: {
         Category: {
@@ -122,6 +122,16 @@ export interface TermsOfServicePage {
     topics: string[];
 }
 
+export interface DeliveryPage {
+    title: string;
+    topics: DeliveryPageTopic[];
+}
+
+export interface DeliveryPageTopic {
+    deliveryTopicTitle: string;
+    deliveryTopicText: string[];
+}
+
 export interface Dictionary {
     language: string;
     navBar: NavBar;
@@ -134,4 +144,5 @@ export interface Dictionary {
     contactUsPage: ContactUsPage;
     privacyPage: PrivacyPage;
     termsOfServicePage: TermsOfServicePage;
+    deliveryPage: DeliveryPage;
 }

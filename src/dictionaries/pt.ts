@@ -98,12 +98,12 @@ export const dictionary: Dictionary = {
                 title: 'Serviço',
                 links: [
                     {
-                        href: '/delivery',
+                        href: 'service/delivery',
                         text: 'Entrega',
                         isExternal: false,
                     },
                     {
-                        href: '/delivery',
+                        href: 'service/returns',
                         text: 'Devoluções',
                         isExternal: false,
                     },
@@ -251,6 +251,30 @@ export const dictionary: Dictionary = {
             'A Orun poderá, a qualquer momento, alterar total ou parcialmente os termos e condições de venda aqui estabelecidos.',
             'As condições gerais de venda aplicáveis aos produtos Orun podem ser encontradas abaixo no site www.orun.pt (a "página web"). Como tal, a utilização deste website, quando aplicável, implicará a aceitação por parte do utilizador das presentes condições gerais de venda.',
             'No entanto, se você tiver alguma dúvida sobre eles, entre em contacto com o nosso Serviço de Apoio ao Cliente através do email: info@orun.pt',
+        ],
+    },
+    deliveryPage: {
+        title: 'Política de entregas',
+        topics: [
+            {
+                deliveryTopicTitle: 'Envio e Entrega',
+                deliveryTopicText: [
+                    'A partir do momento da entrega, o risco do produto será suportado pelo cliente. O envio dos produtos adquiridos através de www.orun.pt será realizado através de uma empresa de correio expresso, e estes serão entregues  dentro dos prazos indicados pelas mesmas.',
+                    'Para evitar problemas de entrega (endereço errado, destinatário ausente, etc.) é essencial enviar toda a informação correta no ato de encomenda.',
+                    'O preço de entrega é calculado de acordo com o método de envio escolhido e os produtos adquiridos.	O preço exato do transporte será calculado sempre que um artigo for adicionado ao cesto de compras, e será apresentado na página de checkout que aparece antes de o cliente confirmar a encomenda e antes de introduzir os dados de pagamento.',
+                    'Os custos de envio podem ser alterados a qualquer momento sem aviso prévio.	Esta alteração será aplicável a partir do momento em que o novo custo for incluído nos Termos e Condições de Venda.	Em qualquer caso, os custos aplicáveis serão os portes de envio apresentados no momento da encomenda.',
+                ],
+            },
+            {
+                deliveryTopicTitle: 'Métodos de Pagamento',
+                deliveryTopicText: [
+                    'Após a confirmação da sua encomenda, encontrará várias opções de pagamento disponíveis no seu carrinho de compras, podendo escolher a que mais lhe convém, de entre as seguintes:',
+                    'MBWay.',
+                    'Revolut.',
+                    'Transferência Bancária.',
+                    'A Orun não aceita cheques ou dinheiro como pagamento para compras online, apenas as opções de pagamento listadas acima.',
+                ],
+            },
         ],
     },
 };

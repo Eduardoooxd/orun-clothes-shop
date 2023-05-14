@@ -6,7 +6,7 @@ interface ContactLayoutProps {
 
 export default async function ContactLayout({ children }: ContactLayoutProps) {
     return (
-        <div className="w-full flex-1">
+        <div className="flex-1 w-full">
             <Container>{children}</Container>
         </div>
     );
