@@ -244,4 +244,14 @@ export const dictionary: Dictionary = {
             },
         ],
     },
+    termsOfServicePage: {
+        title: 'Terms of Service',
+        topics: [
+            'Any and all orders placed with Orun through the online store will be governed by these Purchase Conditions:',
+            'By ordering, you acknowledge that you have read, understood and accepted these conditions of purchase.',
+            'Orun may, at any time, change all or part of the terms and conditions of sale sustained herein.',
+            'The general conditions of sale observed for Orun products can be found below on the website www.orun.pt (the "web page"). As such, the use of this website, when applicable, will imply acceptance by the user of these general conditions of sale.',
+            'However, if you have any questions about them, please contact our Customer Service via email: info@orun.pt',
+        ],
+    },
 };

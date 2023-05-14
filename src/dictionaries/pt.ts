@@ -243,4 +243,14 @@ export const dictionary: Dictionary = {
             },
         ],
     },
+    termsOfServicePage: {
+        title: 'Termos de Serviço',
+        topics: [
+            'Todo e qualquer pedido feito à Orun através da loja online será regido por estas Condições de Compra:',
+            'Ao fazer o pedido, você reconhece que leu, entendeu e aceitou as presentes condições de compra.',
+            'A Orun poderá, a qualquer momento, alterar total ou parcialmente os termos e condições de venda aqui estabelecidos.',
+            'As condições gerais de venda aplicáveis aos produtos Orun podem ser encontradas abaixo no site www.orun.pt (a "página web"). Como tal, a utilização deste website, quando aplicável, implicará a aceitação por parte do utilizador das presentes condições gerais de venda.',
+            'No entanto, se você tiver alguma dúvida sobre eles, entre em contacto com o nosso Serviço de Apoio ao Cliente através do email: info@orun.pt',
+        ],
+    },
 };
