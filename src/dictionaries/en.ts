@@ -134,11 +134,6 @@ export const dictionary: Dictionary = {
                         isExternal: false,
                     },
                     {
-                        href: 'legal/licensing',
-                        text: 'Licensing',
-                        isExternal: false,
-                    },
-                    {
                         href: 'legal/terms',
                         text: 'Terms',
                         isExternal: false,
@@ -274,6 +269,55 @@ export const dictionary: Dictionary = {
                     'Revolut.',
                     'Bank transfer.',
                     'Orun does not accept checks or cash as payment for online purchases, only the payment options listed above.',
+                ],
+            },
+        ],
+    },
+    returnsPage: {
+        returnsTopicTitle: 'Return Policy',
+        topics: [
+            {
+                returnsTopicTitle: 'Exchanges and Returns',
+                returnsTopicText: [
+                    'The User may opt for the free termination of the contract, under the applicable legal terms.',
+                    "In order to exercise their right of free termination, the user must notify Orun's Customer Service of their decision to terminate this contract by means of an unequivocal statement (for example, postal mail, or email to info@orun.pt).",
+                    'In order for the free resolution period to be respected, it is sufficient that your communication regarding the exercise of the right of free resolution is sent to Orun before the end of the resolution period, 14 calendar days from the date of delivery of the articles.',
+                    'In the event of termination of this contract, all payments made will be refunded, excluding costs, without undue delay and, in any case, within a maximum period of 14 (fourteen) days from the date on which Orun is informed of your decision to terminate this contract.',
+                    'You must reimburse the item(s) in good condition, in the complete original packaging and accompanied by the order number, the return costs will be the sole responsibility of the customer.',
+                    'The customer must always keep proof of shipment of the items. All items will be checked upon arrival at our facilities and only those that comply with the aforementioned conditions will be accepted for return.',
+                ],
+            },
+            {
+                returnsTopicTitle: 'Return Conditions',
+                returnsTopicText: [
+                    'The customer benefits from a period of 15 (fifteen) days for returns from the date of receipt of the items (except for special conditions granted in time).',
+                    'The customer must reimburse the item(s) in good condition, with no signs of use, in the complete original packaging, accompanied by the order number.',
+                    'The customer must first contact us via email info@orun.pt describing in detail the reason for the return.',
+                    'All items will be checked upon arrival at our facilities and only those that respect the return conditions will be accepted for exchange or return.',
+                    'Returns of items with signs of wear, misuse and/or any problem that may have caused the defect or misuse of the item (eg: fall, humidity, etc.) are not accepted.',
+                    'The customer may choose another method of return, fully bearing the costs of the return and must always keep the proof of shipment of the items, to the address "Rua da Boa Vista nº112 4560-124 Galegos, Penafiel"',
+                    'Orun is only responsible for return and re-shipping costs if:',
+                    '- There is an internal error and the product sent does not match the order.',
+                    '- The product is defective at the origin.',
+                    '- If it has been damaged during transport (the damage must be noted on the delivery note at the time of delivery).',
+                    'For the purpose of refunding the return cost, the customer will have to present the respective invoice/proof.',
+                    'In the case of returning all items, if the order has entitled the Customer to a gift, this must also be returned.',
+                    'In the case of a refund request for an item purchased at a reduced price, due to a special offer, Orun will refund the amount actually paid by the Customer and not the total amount.',
+                ],
+            },
+            {
+                returnsTopicTitle: 'Exchange Conditions',
+                returnsTopicText: [
+                    'The exchange of articles is only possible in cases where the customer wants another size and/or color of the same articles that he intends to exchange.',
+                    'Exchange items will be automatically shipped to the same address the items were originally shipped to.',
+                    'If there is a difference in value, it will be charged by sending an ATM reference. After the payment deadline, the exchange order will be canceled and refunded.',
+                    "Regardless of the payment method used for your purchase, refunds resulting from exchanges, and/or exchange rate adjustments, will always be made to IBAN. If the IBAN is omitted from the customer's account, it will be done by check, which will be sent by post to the customer's account address. It is the customer's responsibility to keep this information up to date.",
+                ],
+            },
+            {
+                returnsTopicTitle: 'Refunds',
+                returnsTopicText: [
+                    'Regardless of the payment method used for your purchase, refunds resulting from returns, where there is at least 1 item to be exchanged, and/or adjustments to the exchange value, will always be made to IBAN.',
                 ],
             },
         ],

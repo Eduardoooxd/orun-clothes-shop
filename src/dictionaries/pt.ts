@@ -133,11 +133,6 @@ export const dictionary: Dictionary = {
                         isExternal: false,
                     },
                     {
-                        href: 'legal/licensing',
-                        text: 'Licenciamento',
-                        isExternal: false,
-                    },
-                    {
                         href: 'legal/terms',
                         text: 'Termos',
                         isExternal: false,
@@ -273,6 +268,54 @@ export const dictionary: Dictionary = {
                     'Revolut.',
                     'Transferência Bancária.',
                     'A Orun não aceita cheques ou dinheiro como pagamento para compras online, apenas as opções de pagamento listadas acima.',
+                ],
+            },
+        ],
+    },
+    returnsPage: {
+        returnsTopicTitle: 'Política de Devoluções',
+        topics: [
+            {
+                returnsTopicTitle: 'Trocas e Devoluções',
+                returnsTopicText: [
+                    'O utilizador pode optar pela livre resolução do contrato, nos termos legais aplicáveis. Para exercer o seu direito de livre resolução, o utilizador deverá comunicar ao Serviço de Apoio ao Cliente da Orun, a sua decisão de resolução do presente contrato através de uma declaração inequívoca (por exemplo, correio postal , ou e-mail para info@orun.pt).',
+                    'Para que o prazo de livre resolução seja respeitado, basta que a sua comunicação referente ao exercício do direito de livre resolução seja enviada à Orun antes do término do prazo de resolução, 14 dias corridos a partir da data de entrega dos artigos.',
+                    'Em caso de rescisão deste contrato, todos os pagamentos efetuados serão reembolsados, excluídos os custos de, sem demora injustificada e, em qualquer caso, no prazo máximo de 14 (quatorze) dias a partir da data em que a Orun for informada de sua decisão rescindir este contrato.',
+                    'Deverá proceder ao reembolso do(s) artigo(s) em bom estado, na embalagem original completa e acompanhado do número de encomenda, as despesas de devolução serão de inteira responsabilidade do cliente.',
+                    'O cliente deve sempre guardar o comprovativo de envio dos artigos. Todos os artigos serão verificados à chegada às nossas instalações e só serão aceites para devolução aqueles que cumpram com as condições referidas.',
+                ],
+            },
+            {
+                returnsTopicTitle: 'Condições de Devolução',
+                returnsTopicText: [
+                    'O cliente beneficia de um prazo de 15 (quinze) dias para devolução a partir da data de receção dos artigos (salvo condições especiais concedidas a tempo).',
+                    'O cliente deverá proceder ao reembolso do(s) artigo(s) em bom estado, sem sinais de uso, na embalagem original completa, acompanhado do número de encomenda.',
+                    'O cliente deve primeiro entrar em contacto connosco através do e-mail info@orun.pt descrevendo detalhadamente o motivo da devolução.',
+                    'Todos os artigos serão verificados à chegada às nossas instalações e só serão aceites para troca ou devolução aqueles que respeitarem as condições de devolução.',
+                    'Não são aceites devoluções de artigos com sinais de desgaste, mau uso e/ou qualquer problema que possa ter causado o defeito ou mau uso do artigo (ex: queda, humidade, etc.).',
+                    'O Cliente poderá optar por outro meio de devolução, suportando integralmente os custos da devolução e devendo sempre guardar o comprovativo de envio dos artigos, para a seguinte morada: Rua da Boa Vista nº112 4560-124 Galegos, Penafiel.',
+                    'A Orun só é responsável pelas despesas de devolução e reenvio se:',
+                    '-	Houver um erro interno e o produto enviado não corresponde ao pedido.',
+                    '-	O produto é defeituoso na origem.',
+                    '-	Se tiver sido danificado durante o transporte (o dano deve ser anotado na guia de remessa no momento da entrega).',
+                    'Para efeitos de reembolso do gasto de devolução, o cliente terá de apresentar a respetiva fatura/comprovativo.',
+                    'No caso de devolução de todos os artigos, se a encomenda tiver dado direito ao Cliente a um brinde, este também deverá ser devolvido.',
+                    'No caso de pedido de reembolso de um artigo adquirido a preço reduzido, devido a uma oferta especial, a Orun reembolsará o valor efetivamente pago pelo Cliente e não o valor total.',
+                ],
+            },
+            {
+                returnsTopicTitle: 'Condições de troca',
+                returnsTopicText: [
+                    'A troca de artigos só é possível nos casos em que o cliente pretenda outro tamanho e/ou cor dos mesmos artigos que pretende trocar.',
+                    'Os itens de troca serão enviados automaticamente para o mesmo endereço para o qual os itens foram originalmente enviados.',
+                    'Caso haja diferença de valor, o mesmo será cobrado mediante envio de referência multibanco. Após o prazo de pagamento, o pedido de troca será cancelado e reembolsado.',
+                    'Independentemente do método de pagamento utilizado na sua compra, os reembolsos resultantes de trocas, e/ou ajustes de valor de câmbio, serão sempre efetuados para IBAN. Caso o IBAN seja omitido da conta do cliente, o mesmo será feito por cheque, que será enviado por correio para a morada da conta do cliente. É responsabilidade do cliente manter essas informações atualizadas.',
+                ],
+            },
+            {
+                returnsTopicTitle: 'Reembolsos',
+                returnsTopicText: [
+                    'Independentemente do método de pagamento utilizado na sua compra, os reembolsos resultantes de devoluções, onde exista pelo menos 1 artigo para troca, e/ou ajustes do valor da troca, serão sempre efetuados para IBAN.',
                 ],
             },
         ],

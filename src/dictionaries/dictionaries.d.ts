@@ -132,6 +132,16 @@ export interface DeliveryPageTopic {
     deliveryTopicText: string[];
 }
 
+export interface ReturnsPage {
+    returnsTopicTitle: string;
+    topics: ReturnsPageTopic[];
+}
+
+export interface ReturnsPageTopic {
+    returnsTopicTitle: string;
+    returnsTopicText: string[];
+}
+
 export interface Dictionary {
     language: string;
     navBar: NavBar;
@@ -145,4 +155,5 @@ export interface Dictionary {
     privacyPage: PrivacyPage;
     termsOfServicePage: TermsOfServicePage;
     deliveryPage: DeliveryPage;
+    returnsPage: ReturnsPage;
 }
