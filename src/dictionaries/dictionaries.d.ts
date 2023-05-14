@@ -1,3 +1,4 @@
+import { DeliveryPage, TermsOfServicePage } from './dictionaries.d';
 export interface NavBar {
     NAVBAR_LINKS: {
         Category: {
@@ -106,6 +107,41 @@ export interface ContactUsFormInput {
     placeholder: string;
 }
 
+export interface PrivacyPage {
+    title: string;
+    topics: PrivacyTopic[];
+}
+
+export interface PrivacyTopic {
+    privacyTopicTitle: string;
+    privacyTopicText: string[];
+}
+
+export interface TermsOfServicePage {
+    title: string;
+    topics: string[];
+}
+
+export interface DeliveryPage {
+    title: string;
+    topics: DeliveryPageTopic[];
+}
+
+export interface DeliveryPageTopic {
+    deliveryTopicTitle: string;
+    deliveryTopicText: string[];
+}
+
+export interface ReturnsPage {
+    returnsTopicTitle: string;
+    topics: ReturnsPageTopic[];
+}
+
+export interface ReturnsPageTopic {
+    returnsTopicTitle: string;
+    returnsTopicText: string[];
+}
+
 export interface Dictionary {
     language: string;
     navBar: NavBar;
@@ -116,4 +152,8 @@ export interface Dictionary {
     productsPage: ProductsPage;
     aboutUsPage: AboutUsPage;
     contactUsPage: ContactUsPage;
+    privacyPage: PrivacyPage;
+    termsOfServicePage: TermsOfServicePage;
+    deliveryPage: DeliveryPage;
+    returnsPage: ReturnsPage;
 }

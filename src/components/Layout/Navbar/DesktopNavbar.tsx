@@ -3,33 +3,37 @@ import useGetDictionary from '@/hooks/useGetDictionary';
 // TODO Remove this
 import MiniBlackLogoImage from '@/images/logo/logo-mini.png';
 import MiniWhiteLogoImage from '@/images/logo/logo-white-mini.png';
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
-import LinkI18N from '../LinkI18N';
+import LinkI18N from '../../Shared/I18N/LinkI18N';
 import LocaleSwitcher from './LocaleSwitcher';
+import { useNavbarContext } from './NavbarContext';
 import NavbarLink from './NavbarLink';
 
 interface DesktopNavBarProps {
     setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
-    isScrolled: boolean;
     isDropdownOpen: boolean;
 }
 
 export const DesktopNavBar: FunctionComponent<DesktopNavBarProps> = ({
     isDropdownOpen,
     setIsDropdownOpen,
-    isScrolled,
 }) => {
     const dictionary = useGetDictionary();
     const { Category, AboutUs, ContactUs } = dictionary.navBar.NAVBAR_LINKS;
 
+    const { isNavbarActive } = useNavbarContext();
+    const isDesktopNavbarActive = isNavbarActive || isDropdownOpen;
+
     return (
         <div
-            className={`${
-                isScrolled || isDropdownOpen ? 'text-black' : 'text-white'
-            } container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6`}
+            className={cn(
+                'flex h-20 items-center justify-between',
+                isDesktopNavbarActive ? 'text-black' : 'text-white'
+            )}
         >
-            <div className="flex  flex-1 items-center gap-6 lg:gap-10">
+            <div className="flex flex-1 items-center gap-6 lg:gap-10">
                 {/* 
                     <CategoriesDropdown setIsDropdownOpen={setIsDropdownOpen}>
                         {Category.text}
@@ -42,7 +46,7 @@ export const DesktopNavBar: FunctionComponent<DesktopNavBarProps> = ({
             </div>
             <div className="flex items-center gap-6 lg:gap-10 ">
                 <LinkI18N href="/">
-                    {isScrolled ? (
+                    {isNavbarActive ? (
                         <Image
                             priority
                             src={MiniBlackLogoImage}

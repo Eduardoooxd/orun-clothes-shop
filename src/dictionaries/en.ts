@@ -99,12 +99,12 @@ export const dictionary: Dictionary = {
                 title: 'Client Service',
                 links: [
                     {
-                        href: '/delivery',
+                        href: 'service/delivery',
                         text: 'Delivery',
                         isExternal: false,
                     },
                     {
-                        href: '/delivery',
+                        href: 'service/returns',
                         text: 'Returns',
                         isExternal: false,
                     },
@@ -123,33 +123,18 @@ export const dictionary: Dictionary = {
                         text: 'facebook',
                         isExternal: true,
                     },
-                    {
-                        href: 'http://tiktok.com/@orunfreespiritmen',
-                        text: 'tik tok',
-                        isExternal: true,
-                    },
-                    {
-                        href: 'https://pin.it/3KhN1lp',
-                        text: 'pinterest',
-                        isExternal: true,
-                    },
                 ],
             },
             {
                 title: 'Legal',
                 links: [
                     {
-                        href: '',
+                        href: 'legal/privacy',
                         text: 'Privacy Policy',
                         isExternal: false,
                     },
                     {
-                        href: '',
-                        text: 'Licensing',
-                        isExternal: false,
-                    },
-                    {
-                        href: '',
+                        href: 'legal/terms',
                         text: 'Terms',
                         isExternal: false,
                     },
@@ -205,5 +190,136 @@ export const dictionary: Dictionary = {
             submitMessage: 'Send',
             loadingMessage: 'Sending...',
         },
+    },
+    privacyPage: {
+        title: 'Privacy Policy',
+        topics: [
+            {
+                privacyTopicTitle: 'Content Information',
+                privacyTopicText: [
+                    'The Orun Online Store reserves the right to modify at any time the information and commercial offer presented on: products, prices, promotions, commercial conditions and services.',
+                    'It is strictly forbidden to insert links on this site for commercial purposes without prior authorization. Likewise, the use of the www.orun.pt domain for abusive purposes, and without prior authorization, may be subject to recourse to the competent legal means by the Orun Online Store.',
+                    'If you find links on other sites that allow access, we inform you that we are not responsible for the origin of the page or for the contents registered therein.',
+                    'We make every effort to ensure that the information presented is free of typographical errors and whenever they occur, we will correct them as quickly as possible.',
+                    'The photos presented on the website are merely illustrative and correspond to the product for sale. We recommend that you consult the detailed product information for information about its features.',
+                    'Product prices and specifications are subject to change without notice.',
+                    'Despite the best efforts of the Orun online store, some products may be incorrectly priced, so we check prices every time we process orders. If the price of the product is lower than the advertised price, we will refund the difference.',
+                    'If the price is higher, we will inform the customer by email and await their decision to accept the new proposal or cancel the order. In the event of product unavailability and/or out of stock, you will be informed of the partial or total cancellation of your order with the right to a refund of the amount paid.',
+                ],
+            },
+            {
+                privacyTopicTitle: 'Industrial and Intellectual Property',
+                privacyTopicText: [
+                    'All texts, comments, works, illustrations, works and images reproduced or represented on the website www.orun.pt are strictly reserved in terms of copyright, as well as intellectual property rights, worldwide.',
+                    'Thus, and under the terms of the Intellectual Property Code, use for private purposes is only authorized under provisions to the contrary, including more restrictive provisions contained in that code.',
+                    'Any total or partial reproduction or representation of www.orun.pt or of all or part of the elements included therein is strictly prohibited.',
+                ],
+            },
+            {
+                privacyTopicTitle: 'Product Availability',
+                privacyTopicText: [
+                    'The Orun Online Store only processes an order placed by a customer after confirmation of the respective payment, so it cannot guarantee the availability of the articles until the beginning of said processing.',
+                    'Estimated shipping date: up to 1/2 business days.',
+                    'In addition to the estimated shipping time, there is also the shipping time, which depends on the carrier you choose and the destination of your order.',
+                    'For deliveries in mainland national territory, we estimate a delivery time of up to 5 working days, from the moment of confirmation of payment.',
+                    "Orun's online store only ships on weekdays. In this way, neither weekends nor holidays are counted for the order delivery estimate.",
+                    'Any delay in sending the items, taking into account the estimated dates presented, does not confer the right to compensation.',
+                    'In the event of a stock break, the customer will be informed. If the replacement takes longer than 5 business days, the customer will be given the option to cancel, with the respective refund, part or all of the order.',
+                ],
+            },
+            {
+                privacyTopicTitle: 'Personal Data Protection',
+                privacyTopicText: [
+                    'In compliance with Law n.0 67/98, of October 26, on the Protection of Personal Data, we inform you that the processing of personal data collected on the website www.orun.pt is the responsibility of Tiago Filipe Frederico Bastos, a natural person carrying the taxpayer number 240866444.',
+                    'Personal data are processed by computer, for shipments corresponding to your orders, respective administrative support, and for statistical purposes.',
+                    "The personal data collected may be communicated to third parties of recognized reputation for the purposes of direct marketing. It's guaranteed gives the holder the right to access, rectify, change or delete their personal data, to do so, or contact us indicating their name, surname, address and customer number, via email: info@orun.pt.",
+                    'The Customer authorizes Orun to automatically process the personal data provided, namely through the use of cookies.',
+                    'Although Orun can collect and process data safely and prevent its loss or manipulation, using the most perfected techniques for this purpose, we inform you that the collection in an open network allows the circulation of personal data without security conditions, under the risk of being seen and used by unauthorized third parties.',
+                ],
+            },
+        ],
+    },
+    termsOfServicePage: {
+        title: 'Terms of Service',
+        topics: [
+            'Any and all orders placed with Orun through the online store will be governed by these Purchase Conditions:',
+            'By ordering, you acknowledge that you have read, understood and accepted these conditions of purchase.',
+            'Orun may, at any time, change all or part of the terms and conditions of sale sustained herein.',
+            'The general conditions of sale observed for Orun products can be found below on the website www.orun.pt (the "web page"). As such, the use of this website, when applicable, will imply acceptance by the user of these general conditions of sale.',
+            'However, if you have any questions about them, please contact our Customer Service via email: info@orun.pt',
+        ],
+    },
+    deliveryPage: {
+        title: 'Delivery policy',
+        topics: [
+            {
+                deliveryTopicTitle: 'Shipping and Delivery',
+                deliveryTopicText: [
+                    'From the moment of delivery, the risk of the product shall be supported by the customer. The shipment of products purchased through www.orun.pt will be carried out through an express courier company, and these will be delivered within the deadlines indicated by them.',
+                    'To avoid delivery problems (wrong address, missing recipient, etc.) it is essential to send all the correct information when ordering.',
+                    'The delivery price is calculated according to the chosen shipping method and the products purchased. The exact shipping price will be calculated whenever an item is added to the shopping cart, and will be displayed on the checkout page that appears before the customer confirms the order and before entering the payment data.',
+                    'Shipping costs may change at any time without prior notice. This amendment will apply from the moment the new cost is included in the Terms and Conditions of Sale. In any case, the applicable costs will be the shipping costs shown at the time of ordering.',
+                ],
+            },
+            {
+                deliveryTopicTitle: 'Payment Methods',
+                deliveryTopicText: [
+                    'After confirming your order, you will find several payment options available in your shopping cart, and you can choose the one that suits you best, from among the following:',
+                    'MBWay.',
+                    'Revolut.',
+                    'Bank transfer.',
+                    'Orun does not accept checks or cash as payment for online purchases, only the payment options listed above.',
+                ],
+            },
+        ],
+    },
+    returnsPage: {
+        returnsTopicTitle: 'Return Policy',
+        topics: [
+            {
+                returnsTopicTitle: 'Exchanges and Returns',
+                returnsTopicText: [
+                    'The User may opt for the free termination of the contract, under the applicable legal terms.',
+                    "In order to exercise their right of free termination, the user must notify Orun's Customer Service of their decision to terminate this contract by means of an unequivocal statement (for example, postal mail, or email to info@orun.pt).",
+                    'In order for the free resolution period to be respected, it is sufficient that your communication regarding the exercise of the right of free resolution is sent to Orun before the end of the resolution period, 14 calendar days from the date of delivery of the articles.',
+                    'In the event of termination of this contract, all payments made will be refunded, excluding costs, without undue delay and, in any case, within a maximum period of 14 (fourteen) days from the date on which Orun is informed of your decision to terminate this contract.',
+                    'You must reimburse the item(s) in good condition, in the complete original packaging and accompanied by the order number, the return costs will be the sole responsibility of the customer.',
+                    'The customer must always keep proof of shipment of the items. All items will be checked upon arrival at our facilities and only those that comply with the aforementioned conditions will be accepted for return.',
+                ],
+            },
+            {
+                returnsTopicTitle: 'Return Conditions',
+                returnsTopicText: [
+                    'The customer benefits from a period of 15 (fifteen) days for returns from the date of receipt of the items (except for special conditions granted in time).',
+                    'The customer must reimburse the item(s) in good condition, with no signs of use, in the complete original packaging, accompanied by the order number.',
+                    'The customer must first contact us via email info@orun.pt describing in detail the reason for the return.',
+                    'All items will be checked upon arrival at our facilities and only those that respect the return conditions will be accepted for exchange or return.',
+                    'Returns of items with signs of wear, misuse and/or any problem that may have caused the defect or misuse of the item (eg: fall, humidity, etc.) are not accepted.',
+                    'The customer may choose another method of return, fully bearing the costs of the return and must always keep the proof of shipment of the items, to the address "Rua da Boa Vista nº112 4560-124 Galegos, Penafiel"',
+                    'Orun is only responsible for return and re-shipping costs if:',
+                    '- There is an internal error and the product sent does not match the order.',
+                    '- The product is defective at the origin.',
+                    '- If it has been damaged during transport (the damage must be noted on the delivery note at the time of delivery).',
+                    'For the purpose of refunding the return cost, the customer will have to present the respective invoice/proof.',
+                    'In the case of returning all items, if the order has entitled the Customer to a gift, this must also be returned.',
+                    'In the case of a refund request for an item purchased at a reduced price, due to a special offer, Orun will refund the amount actually paid by the Customer and not the total amount.',
+                ],
+            },
+            {
+                returnsTopicTitle: 'Exchange Conditions',
+                returnsTopicText: [
+                    'The exchange of articles is only possible in cases where the customer wants another size and/or color of the same articles that he intends to exchange.',
+                    'Exchange items will be automatically shipped to the same address the items were originally shipped to.',
+                    'If there is a difference in value, it will be charged by sending an ATM reference. After the payment deadline, the exchange order will be canceled and refunded.',
+                    "Regardless of the payment method used for your purchase, refunds resulting from exchanges, and/or exchange rate adjustments, will always be made to IBAN. If the IBAN is omitted from the customer's account, it will be done by check, which will be sent by post to the customer's account address. It is the customer's responsibility to keep this information up to date.",
+                ],
+            },
+            {
+                returnsTopicTitle: 'Refunds',
+                returnsTopicText: [
+                    'Regardless of the payment method used for your purchase, refunds resulting from returns, where there is at least 1 item to be exchanged, and/or adjustments to the exchange value, will always be made to IBAN.',
+                ],
+            },
+        ],
     },
 };

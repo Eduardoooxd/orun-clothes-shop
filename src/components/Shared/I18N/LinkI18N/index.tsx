@@ -1,6 +1,6 @@
 'use client';
 
-import { i18nConfig } from '@/config/i18nConfig';
+import { includesLocale } from '@/config/i18nConfig';
 import useGetCurrentLocale from '@/hooks/useGetCurrentLocale';
 import Link from 'next/link';
 import { FunctionComponent } from 'react';
@@ -21,11 +21,9 @@ const LinkI18N: FunctionComponent<LinkI18NProps> = ({
     const currentLocale = useGetCurrentLocale();
 
     const redirectedWithLocale = (url: string) => {
-        const { locales } = i18nConfig;
-
         const [localeToTest] = url.split('/').filter(Boolean);
-        /* @ts-ignore TODO Improve this */
-        if (locales.includes(localeToTest)) {
+
+        if (includesLocale(localeToTest)) {
             return url;
         }
 

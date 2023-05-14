@@ -1,20 +1,20 @@
 'use client';
 
+import useGetDictionary from '@/hooks/useGetDictionary';
+import { useLockBody } from '@/hooks/useLockBody';
 import MiniBlackLogoImage from '@/images/logo/logo-mini.png';
+import { cn } from '@/lib/utils';
 import { Transition } from '@headlessui/react';
 import Image from 'next/image';
 import { Dispatch, FunctionComponent, SetStateAction } from 'react';
-import { ClosedHamburgerMenu, OpenHamburgerMenu } from '../../Icons/HamburguerMenu';
-
-import useGetDictionary from '@/hooks/useGetDictionary';
-import { useLockBody } from '@/hooks/useLockBody';
-import LinkI18N from '../LinkI18N';
+import { RxCross1, RxHamburgerMenu } from 'react-icons/rx';
+import LinkI18N from '../../Shared/I18N/LinkI18N';
 import LocaleSwitcher from './LocaleSwitcher';
+import { useNavbarContext } from './NavbarContext';
 import NavbarLink from './NavbarLink';
 
 interface MobileNavBarProps {
     isMobileMenuOpen: boolean;
-    isScrolled: boolean;
     setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
     setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
 }
@@ -23,18 +23,22 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
     isMobileMenuOpen,
     setIsMobileMenuOpen,
     setIsDropdownOpen,
-    isScrolled,
 }) => {
+    const { isNavbarActive } = useNavbarContext();
+
+    const activeMobileMenu = isNavbarActive || isMobileMenuOpen;
+
     return (
         <>
             <div
-                className={`${
-                    isScrolled ? 'text-black' : 'text-white'
-                } container mx-auto flex h-20 w-full items-center justify-between p-4 sm:p-6`}
+                className={cn(
+                    'flex h-20 items-center justify-between',
+                    activeMobileMenu ? 'text-black' : 'text-white'
+                )}
             >
                 <div>
                     <LinkI18N href="/">
-                        {isScrolled || isMobileMenuOpen ? (
+                        {activeMobileMenu ? (
                             <Image
                                 priority
                                 src={MiniBlackLogoImage}
@@ -48,13 +52,16 @@ export const MobileNavBar: FunctionComponent<MobileNavBarProps> = ({
                 <button
                     type="button"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="relative h-10 w-10 rounded p-2  transition duration-150 ease-in-out hover:bg-gray-900 hover:text-white focus:outline-none"
+                    className="relative h-10 w-10 rounded p-2  transition duration-150 ease-in-out focus:outline-none"
                     aria-controls="mobile-menu"
                     aria-expanded="false"
                 >
                     <span className="sr-only">Open main menu</span>
-                    <OpenHamburgerMenu isOpen={isMobileMenuOpen} />
-                    <ClosedHamburgerMenu isOpen={isMobileMenuOpen} />
+                    {isMobileMenuOpen ? (
+                        <RxCross1 size={'1.5rem'} />
+                    ) : (
+                        <RxHamburgerMenu size={'1.5rem'} />
+                    )}
                 </button>
             </div>
             <MobileNavBarMenu
@@ -75,7 +82,6 @@ interface MobileNavBarMenuProps {
 const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({
     isMobileMenuOpen,
     setIsMobileMenuOpen,
-    setIsDropdownOpen,
 }) => {
     return (
         <>
@@ -88,24 +94,17 @@ const MobileNavBarMenu: FunctionComponent<MobileNavBarMenuProps> = ({
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
             >
-                {() => (
-                    <MobileNavBarMenuOpen
-                        setIsDropdownOpen={setIsDropdownOpen}
-                        setIsMobileMenuOpen={setIsMobileMenuOpen}
-                    />
-                )}
+                {() => <MobileNavBarMenuOpen setIsMobileMenuOpen={setIsMobileMenuOpen} />}
             </Transition>
         </>
     );
 };
 
 interface MobileNavBarMenuOpenProps {
-    setIsDropdownOpen: Dispatch<SetStateAction<boolean>>;
     setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
-    setIsDropdownOpen,
     setIsMobileMenuOpen,
 }) => {
     const dictionary = useGetDictionary();
@@ -114,7 +113,7 @@ const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
     const { Category, AboutUs, ContactUs } = dictionary.navBar.NAVBAR_LINKS;
 
     return (
-        <div className="h-[calc(100dvh-5rem)] p-4 sm:p-6 md:hidden">
+        <div className="h-[calc(100dvh-5rem)]">
             <div className="flex flex-col gap-4">
                 {/* 
                 <MobileCategoriesDropdown onClickItem={() => setIsMobileMenuOpen(false)}>
@@ -125,7 +124,7 @@ const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
                 {[Category, AboutUs, ContactUs].map((navBarLink, index) => (
                     <NavbarLink
                         onClick={() => setIsMobileMenuOpen(false)}
-                        key={index}
+                        key={navBarLink.href}
                         {...navBarLink}
                     />
                 ))}

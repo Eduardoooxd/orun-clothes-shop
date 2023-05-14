@@ -73,8 +73,8 @@ const ProductsFilter: FunctionComponent<ProductsFilterProps> = ({
                 </div>
 
                 <div className="mt-4 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
-                    {filteredProducts.map((product, index) => (
-                        <ProductPreview key={index} product={product} />
+                    {filteredProducts.map((product) => (
+                        <ProductPreview key={product.id} product={product} />
                     ))}
                 </div>
             </div>

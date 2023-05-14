@@ -5,7 +5,7 @@ import { commutersSans } from '@/lib/fontLoader';
 import { AnimatePresence, motion, useAnimationControls } from 'framer-motion';
 import { FunctionComponent, useEffect, useState } from 'react';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
-import LinkI18N from '../LinkI18N';
+import LinkI18N from '../../Shared/I18N/LinkI18N';
 import CategoriesDropdownItem from './CategoriesDropdownItem';
 import './styles.css';
 
