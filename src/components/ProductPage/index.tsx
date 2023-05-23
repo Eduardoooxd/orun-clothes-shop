@@ -42,7 +42,7 @@ function CarouselItems({ product }: CarouselItemsProps) {
                         priority
                         alt={description}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 25vw, 20vw"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, 50vw"
                         loading={'eager'}
                         style={{ objectFit: 'cover' }}
                     />
@@ -68,9 +68,9 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
         <div className="px-4 lg:px-24">
             <div>
                 {/** Section to Title and Price */}
-                <header className="py-4  sm:pt-0">
+                <header className="py-4 sm:pt-0">
                     <h1
-                        className={`${futuraPTLight.variable} -ml-1 font-futuraPTLight text-4xl font-bold leading-10 text-black`}
+                        className={`${futuraPTLight.variable} font-futuraPTLight -ml-1 text-4xl font-bold leading-10 text-black`}
                     >
                         {title}
                     </h1>
@@ -78,14 +78,14 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                         <p
                             className={`${
                                 futuraPTLight.variable
-                            } mt-4 font-futuraPTLight text-2xl font-bold text-black ${
+                            } font-futuraPTLight mt-4 text-2xl font-bold text-black ${
                                 price > 99 ? 'ml-[-6px]' : ''
                             } `}
                         >
                             {price}&nbsp;EUR
                         </p>
                         <p
-                            className={`${futuraPTLight.variable} mt-4 font-futuraPTLight text-base font-extrabold uppercase text-black`}
+                            className={`${futuraPTLight.variable} font-futuraPTLight mt-4 text-base font-extrabold uppercase text-black`}
                         >
                             {category}
                         </p>
@@ -112,7 +112,7 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                                 {colors.map((color, index) => (
                                     <>
                                         <p
-                                            className={`${futuraPTLight.variable} flex list-none justify-end font-futuraPTLight text-sm uppercase`}
+                                            className={`${futuraPTLight.variable} font-futuraPTLight flex list-none justify-end text-sm uppercase`}
                                             key={index}
                                         >
                                             {color}
@@ -158,7 +158,7 @@ const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ produc
     return (
         <section className="flex flex-col gap-2 py-4 my-4">
             <a
-                className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
+                className={`${futuraPTLight.variable} font-futuraPTLight block w-full bg-black p-4 text-center font-bold uppercase text-white`}
                 href={`mailto:${process.env.CONTACT_EMAIL}?subject=${parsedEmailSubject}&body=${mailBody}`}
             >
                 {orderText}

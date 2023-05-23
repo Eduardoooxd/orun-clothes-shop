@@ -10,7 +10,7 @@ const AboutUsContent: FunctionComponent = () => {
 
     return (
         <section className="flex flex-col gap-12 sm:gap-24 lg:flex-row">
-            <div className="relative w-full h-80 shrink-0 lg:h-auto lg:w-1/2">
+            <div className="relative h-80 w-full shrink-0 lg:h-auto lg:w-1/2">
                 <Image
                     priority
                     src={TiagoImage}
