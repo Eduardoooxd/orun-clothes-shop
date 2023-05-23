@@ -20,6 +20,7 @@ const ProductPreview: FunctionComponent<ProductPreviewProps> = ({ product }) => 
                         src={previewImage}
                         alt={description}
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 25vw, 20vw"
                         style={{ objectFit: 'cover' }}
                     />
                 </div>
