@@ -70,22 +70,22 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                 {/** Section to Title and Price */}
                 <header className="py-4 sm:pt-0">
                     <h1
-                        className={`${futuraPTLight.variable} font-futuraPTLight -ml-1 text-4xl font-bold leading-10 text-black`}
+                        className={`${futuraPTLight.variable} -ml-1 font-futuraPTLight text-4xl font-bold leading-10 text-black`}
                     >
                         {title}
                     </h1>
-                    <div className="flex justify-between w-full">
+                    <div className="flex w-full justify-between">
                         <p
                             className={`${
                                 futuraPTLight.variable
-                            } font-futuraPTLight mt-4 text-2xl font-bold text-black ${
+                            } mt-4 font-futuraPTLight text-2xl font-bold text-black ${
                                 price > 99 ? 'ml-[-6px]' : ''
                             } `}
                         >
                             {price}&nbsp;EUR
                         </p>
                         <p
-                            className={`${futuraPTLight.variable} font-futuraPTLight mt-4 text-base font-extrabold uppercase text-black`}
+                            className={`${futuraPTLight.variable} mt-4 font-futuraPTLight text-base font-extrabold uppercase text-black`}
                         >
                             {category}
                         </p>
@@ -93,7 +93,7 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                 </header>
                 <hr className="border-t border-black" />
                 {/** Section to Description */}
-                <section className="py-4 my-4">
+                <section className="my-4 py-4">
                     <p className={`${futuraPTLight.variable} font-futuraPTLight text-base`}>
                         {description}
                     </p>
@@ -102,7 +102,7 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                 {/** Section to chose Size */}
                 {colors?.length > 0 && (
                     <>
-                        <section className="flex justify-between py-4 my-4">
+                        <section className="my-4 flex justify-between py-4">
                             <p
                                 className={`${futuraPTLight.variable} font-futuraPTLight text-base uppercase`}
                             >
@@ -112,7 +112,7 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                                 {colors.map((color, index) => (
                                     <>
                                         <p
-                                            className={`${futuraPTLight.variable} font-futuraPTLight flex list-none justify-end text-sm uppercase`}
+                                            className={`${futuraPTLight.variable} flex list-none justify-end font-futuraPTLight text-sm uppercase`}
                                             key={index}
                                         >
                                             {color}
@@ -156,9 +156,9 @@ const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ produc
     const { orderText } = dictionary.productPage;
 
     return (
-        <section className="flex flex-col gap-2 py-4 my-4">
+        <section className="my-4 flex flex-col gap-2 py-4">
             <a
-                className={`${futuraPTLight.variable} font-futuraPTLight block w-full bg-black p-4 text-center font-bold uppercase text-white`}
+                className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
                 href={`mailto:${process.env.CONTACT_EMAIL}?subject=${parsedEmailSubject}&body=${mailBody}`}
             >
                 {orderText}
