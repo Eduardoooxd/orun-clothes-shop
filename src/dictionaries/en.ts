@@ -189,6 +189,14 @@ export const dictionary: Dictionary = {
             },
             submitMessage: 'Send',
             loadingMessage: 'Sending...',
+            successMessage: {
+                title: 'Message sent successfully!',
+                description: 'We will contact you as soon as possible.',
+            },
+            errorMessage: {
+                title: 'Error sending message!',
+                description: 'Please try again later.',
+            },
         },
     },
     privacyPage: {

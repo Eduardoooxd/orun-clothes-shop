@@ -99,6 +99,13 @@ export interface ContactUsFormContent {
     phoneInput: ContactUsFormInput;
     submitMessage: string;
     loadingMessage: string;
+    successMessage: ToastMessageContent;
+    errorMessage: ToastMessageContent;
+}
+
+export interface ToastMessageContent {
+    title?: string;
+    description: string;
 }
 
 export interface ContactUsFormInput {

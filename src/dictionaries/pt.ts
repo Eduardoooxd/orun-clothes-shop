@@ -188,6 +188,14 @@ export const dictionary: Dictionary = {
             },
             submitMessage: 'Enviar',
             loadingMessage: 'Enviando...',
+            successMessage: {
+                title: 'Mensagem enviada com sucesso!',
+                description: 'Iremos responder o mais breve possível.',
+            },
+            errorMessage: {
+                title: 'Erro ao enviar a mensagem!',
+                description: 'Por favor, tente novamente mais tarde.',
+            },
         },
     },
     privacyPage: {

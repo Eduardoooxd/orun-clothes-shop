@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer';
 import { Navbar } from '@/components/Layout/Navbar';
+import { Toaster } from '@/components/ui/toaster';
 import BodyConfiguration from '@/config/bodyConfiguration';
 import { GoogleAnalyticsScripts } from '@/config/googleAnalyticsConfig';
 import { Locale } from '@/config/i18nConfig';
@@ -59,11 +60,12 @@ export default async function PageLayout({ children, params }: PageLayoutProps) 
             <Providers>
                 <BodyConfiguration>
                     <body>
-                        <main className="flex min-h-screen w-full flex-col items-center justify-between">
+                        <main className="flex flex-col items-center justify-between w-full min-h-screen">
                             <Navbar />
                             {children}
                             <Footer />
                         </main>
+                        <Toaster />
                         <Analytics />
                     </body>
                 </BodyConfiguration>
