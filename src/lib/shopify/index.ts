@@ -1,4 +1,8 @@
-import { DEFAULT_SHOPIFY_LANGUAGE, SHOPIFY_GRAPHQL_API_ENDPOINT } from '@/config/shopifyConfig';
+import {
+    DEFAULT_SHOPIFY_LANGUAGE,
+    SHOPIFY_GRAPHQL_API_ENDPOINT,
+    SHOPIFY_REVALIDATE_TAG,
+} from '@/config/shopifyConfig';
 import { isShopifyError } from '../type-guards';
 import {
     removeEdgesAndNodes,
@@ -46,7 +50,7 @@ async function shopifyFetch<T>({
                 ...(variables && { variables }),
             }),
             cache,
-            next: { revalidate: 900 }, // 15 minutes
+            next: { tags: [SHOPIFY_REVALIDATE_TAG] },
         });
 
         const body = await result.json();
