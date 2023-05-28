@@ -1,6 +1,11 @@
 import { DEFAULT_SHOPIFY_LANGUAGE, SHOPIFY_GRAPHQL_API_ENDPOINT } from '@/config/shopifyConfig';
 import { isShopifyError } from '../type-guards';
-import { removeEdgesAndNodes, reshapeProduct, reshapeProducts } from './converters';
+import {
+    removeEdgesAndNodes,
+    reshapeCategories,
+    reshapeProduct,
+    reshapeProducts,
+} from './converters';
 import { getProductQuery, getProductsQuery } from './queries/product';
 import {
     Product,
@@ -70,7 +75,7 @@ async function shopifyFetch<T>({
     }
 }
 
-export async function getProducts({
+export async function getShopifyProducts({
     query,
     reverse,
     sortKey,
@@ -93,7 +98,7 @@ export async function getProducts({
     return reshapeProducts(removeEdgesAndNodes(res.body.data.products));
 }
 
-export async function getProduct({
+export async function getShopifyProduct({
     handle,
     language = DEFAULT_SHOPIFY_LANGUAGE,
 }: {
@@ -108,4 +113,16 @@ export async function getProduct({
     });
 
     return reshapeProduct(res.body.data.product);
+}
+
+export async function getShopifyCategories({
+    language = DEFAULT_SHOPIFY_LANGUAGE,
+}: {
+    language?: ShopifySupportedLanguages;
+}): Promise<string[]> {
+    const products = await getShopifyProducts({
+        language,
+    });
+
+    return reshapeCategories(products);
 }

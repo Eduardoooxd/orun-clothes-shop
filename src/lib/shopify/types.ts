@@ -20,17 +20,16 @@ export type SEO = {
     description: string;
 };
 
+export type Metafield = {
+    key: string;
+    value: string;
+};
+
 export type Image = {
     url: string;
     altText: string;
     width: number;
     height: number;
-};
-
-export type ProductOption = {
-    id: string;
-    name: string;
-    values: string[];
 };
 
 export type ProductVariant = {
@@ -51,7 +50,8 @@ export type ShopifyProduct = {
     title: string;
     description: string;
     descriptionHtml: string;
-    options: ProductOption[];
+    productType: string;
+    metafields: Metafield[];
     priceRange: {
         maxVariantPrice: Money;
         minVariantPrice: Money;
@@ -85,4 +85,7 @@ export type ShopifyProductsOperation = {
 export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {
     variants: ProductVariant[];
     images: Image[];
+    sizes: string[];
+    colors: string[];
+    category: string;
 };

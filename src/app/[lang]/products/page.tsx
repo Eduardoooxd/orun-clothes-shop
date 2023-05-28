@@ -1,5 +1,6 @@
 import { i18nConfig, Locale } from '@/config/i18nConfig';
-import { getCategories, getProducts } from '@/lib/fetchProducts';
+import { getShopifyCategories, getShopifyProducts } from '@/lib/shopify';
+import { convertToShopifyLanguage } from '@/lib/shopify/converters';
 import ProductsFilter from './productsFilter';
 
 interface ProductsPageProps {
@@ -21,7 +22,10 @@ export default async function Products({ params, searchParams }: ProductsPagePro
     const { lang } = params;
     const { category } = searchParams || {};
 
-    const [products, categories] = await Promise.all([getProducts(lang), getCategories(lang)]);
+    const [categories, products] = await Promise.all([
+        getShopifyCategories({ language: convertToShopifyLanguage(lang) }),
+        getShopifyProducts({ language: convertToShopifyLanguage(lang) }),
+    ]);
 
     const selectedCategories = new Map<string, boolean>();
     categories.forEach((category) => selectedCategories.set(category, false));

@@ -5,8 +5,9 @@ import BodyConfiguration from '@/config/bodyConfiguration';
 import { GoogleAnalyticsScripts } from '@/config/googleAnalyticsConfig';
 import { Locale } from '@/config/i18nConfig';
 import { siteConfig } from '@/config/site';
-import { getCategories, getProducts } from '@/lib/fetchProducts';
 import { getDictionary } from '@/lib/getDictionary';
+import { getShopifyCategories, getShopifyProducts } from '@/lib/shopify';
+import { convertToShopifyLanguage } from '@/lib/shopify/converters';
 import { store } from '@/store';
 import { setDictionary, setLocale } from '@/store/dictionarySlice';
 import Preloader from '@/store/Preloader';
@@ -39,8 +40,8 @@ export default async function PageLayout({ children, params }: PageLayoutProps) 
 
     const [dictionary, categories, products] = await Promise.all([
         getDictionary(lang),
-        getCategories(lang),
-        getProducts(lang),
+        getShopifyCategories({ language: convertToShopifyLanguage(lang) }),
+        getShopifyProducts({ language: convertToShopifyLanguage(lang) }),
     ]);
 
     store.dispatch(setLocale(lang));
@@ -60,7 +61,7 @@ export default async function PageLayout({ children, params }: PageLayoutProps) 
             <Providers>
                 <BodyConfiguration>
                     <body>
-                        <main className="flex min-h-screen w-full flex-col items-center justify-between">
+                        <main className="flex flex-col items-center justify-between w-full min-h-screen">
                             <Navbar />
                             {children}
                             <Footer />

@@ -1,5 +1,5 @@
 import { futuraPTLight } from '@/lib/fontLoader';
-import { Product } from '@/lib/products';
+import { Product } from '@/lib/shopify/types';
 import { store } from '@/store';
 import Image from 'next/image';
 import { FunctionComponent } from 'react';
@@ -34,11 +34,11 @@ function CarouselItems({ product }: CarouselItemsProps) {
         <>
             {images.map((image) => (
                 <div
-                    key={image.src}
+                    key={image.url}
                     className="relative h-full min-h-[400px] cursor-crosshair sm:min-h-[500px]"
                 >
                     <Image
-                        src={image}
+                        src={image.url}
                         priority
                         alt={description}
                         fill
@@ -59,13 +59,13 @@ interface ProductDescriptionProps {
 }
 
 const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ product }) => {
-    const { title, price, description, category, sizes, colors } = product;
+    const { title, priceRange, description, category, colors, sizes, id } = product;
 
     const dictionary = store.getState().dictionary.dictionary;
     const { colorsText } = dictionary.productPage;
 
     return (
-        <div className="px-4 lg:px-24">
+        <div key={id} className="px-4 lg:px-24">
             <div>
                 {/** Section to Title and Price */}
                 <header className="py-4 sm:pt-0">
@@ -74,15 +74,16 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                     >
                         {title}
                     </h1>
-                    <div className="flex w-full justify-between">
+                    <div className="flex justify-between w-full">
                         <p
                             className={`${
                                 futuraPTLight.variable
                             } mt-4 font-futuraPTLight text-2xl font-bold text-black ${
-                                price > 99 ? 'ml-[-6px]' : ''
+                                Number(priceRange.maxVariantPrice.amount) > 99 ? 'ml-[-6px]' : ''
                             } `}
                         >
-                            {price}&nbsp;EUR
+                            {priceRange.maxVariantPrice.amount}&nbsp;
+                            {priceRange.maxVariantPrice.currencyCode}
                         </p>
                         <p
                             className={`${futuraPTLight.variable} mt-4 font-futuraPTLight text-base font-extrabold uppercase text-black`}
@@ -93,7 +94,7 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                 </header>
                 <hr className="border-t border-black" />
                 {/** Section to Description */}
-                <section className="my-4 py-4">
+                <section className="py-4 my-4">
                     <p className={`${futuraPTLight.variable} font-futuraPTLight text-base`}>
                         {description}
                     </p>
@@ -102,7 +103,7 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                 {/** Section to chose Size */}
                 {colors?.length > 0 && (
                     <>
-                        <section className="my-4 flex justify-between py-4">
+                        <section className="flex justify-between py-4 my-4">
                             <p
                                 className={`${futuraPTLight.variable} font-futuraPTLight text-base uppercase`}
                             >
@@ -118,7 +119,9 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                                             {color}
                                         </p>
                                         {index != colors.length - 1 && (
-                                            <p className="text-black">|</p>
+                                            <p key={index} className="text-black">
+                                                |
+                                            </p>
                                         )}
                                     </>
                                 ))}
@@ -143,7 +146,7 @@ interface ProductContactFormProps {
 }
 
 const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ product }) => {
-    const { title, price } = product;
+    const { title, priceRange } = product;
 
     const dictionary = store.getState().dictionary.dictionary;
     const { mailSubject } = dictionary.productPage.contactForm;
@@ -151,12 +154,12 @@ const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ produc
     const parsedEmailSubject = mailSubject.replace('${title}', title);
     // TODO Improve this
     let mailBody = dictionary.productPage.contactForm.mailBody.replaceAll('${title}', title);
-    mailBody = mailBody.replaceAll('${price}', price.toString());
+    mailBody = mailBody.replaceAll('${price}', priceRange.maxVariantPrice.amount);
 
     const { orderText } = dictionary.productPage;
 
     return (
-        <section className="my-4 flex flex-col gap-2 py-4">
+        <section className="flex flex-col gap-2 py-4 my-4">
             <a
                 className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
                 href={`mailto:${process.env.CONTACT_EMAIL}?subject=${parsedEmailSubject}&body=${mailBody}`}

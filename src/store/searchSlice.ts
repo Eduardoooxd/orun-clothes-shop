@@ -1,4 +1,4 @@
-import { Product } from '@/lib/products';
+import { Product } from '@/lib/shopify/types';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 

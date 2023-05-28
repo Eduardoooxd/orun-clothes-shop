@@ -11,11 +11,7 @@ const productFragment =
             title
             description
             descriptionHtml
-            options {
-                id
-                name
-                values
-            }
+            productType
             priceRange {
                 maxVariantPrice {
                     amount
@@ -25,6 +21,10 @@ const productFragment =
                     amount
                     currencyCode
                 }
+            }
+            metafields(identifiers: [{ namespace: "custom", key: "category" }]) {
+                key
+                value
             }
             variants(first: 250) {
                 edges {

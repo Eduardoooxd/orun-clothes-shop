@@ -1,5 +1,5 @@
 import { DEFAULT_SHOPIFY_LANGUAGE } from '@/config/shopifyConfig';
-import { Connection, ShopifyProduct } from './types';
+import { Connection, Product, ShopifyProduct } from './types';
 
 export const convertToShopifyLanguage = (language: string) => {
     switch (language) {
@@ -40,9 +40,50 @@ export const reshapeProduct = (product: ShopifyProduct) => {
 
     const { images, variants, ...rest } = product;
 
+    const sizes: string[] = [];
+    const colors: string[] = [];
+    const category =
+        product.metafields.find((metafield) => metafield?.key === 'category')?.value || '';
+
+    variants.edges.forEach((variant) => {
+        const { selectedOptions } = variant.node;
+        selectedOptions.forEach((option) => {
+            if (
+                (option.name === 'Size' || option.name === 'Tamanho') &&
+                option.value &&
+                !sizes.includes(option.value)
+            ) {
+                sizes.push(option.value);
+            }
+            if (
+                (option.name === 'Color' || option.name === 'Cor') &&
+                option.value &&
+                !colors.includes(option.value)
+            ) {
+                colors.push(option.value);
+            }
+        });
+    });
+
     return {
         ...rest,
         images: removeEdgesAndNodes(images),
         variants: removeEdgesAndNodes(variants),
+        sizes,
+        colors,
+        category,
     };
+};
+
+export const reshapeCategories = (products: Product[]) => {
+    const categories: string[] = [];
+
+    products.forEach((product) => {
+        const { category } = product;
+        if (category && !categories.includes(category)) {
+            categories.push(category);
+        }
+    });
+
+    return categories;
 };
