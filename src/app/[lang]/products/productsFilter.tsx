@@ -65,14 +65,14 @@ const ProductsFilter: FunctionComponent<ProductsFilterProps> = ({
                     categories={selectedCategories}
                 />
             </div>
-            <div className="w-full mt-4 sm:mt-0 md:w-4/5">
+            <div className="mt-4 w-full sm:mt-0 md:w-4/5">
                 <div className="flex">
                     <MainSectionTitle textAlign="text-left">
                         {productsContent.title}
                     </MainSectionTitle>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4 mt-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+                <div className="mt-4 grid grid-cols-1 gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
                     {filteredProducts.map((product) => (
                         <ProductPreview key={product.id} product={product} />
                     ))}

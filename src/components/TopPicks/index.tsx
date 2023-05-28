@@ -15,7 +15,7 @@ const TopPicks = async () => {
 
     return (
         <>
-            <section className="w-full my-4">
+            <section className="my-4 w-full">
                 <Container>
                     <div className="flex">
                         <LinkI18N href="/products">
@@ -27,7 +27,7 @@ const TopPicks = async () => {
                         </LinkI18N>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-4 mt-12 sm:grid-cols-2 lg:grid-cols-4">
+                    <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                         {topPicks.slice(0, 4).map((product, index) => (
                             <ProductPreview key={index} product={product} />
                         ))}
