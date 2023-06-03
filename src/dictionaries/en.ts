@@ -158,7 +158,7 @@ export const dictionary: Dictionary = {
             'Awaken male sensuality. With something sacred and something profane. As the textile industry is the one that most contributes to pollution, I took the urgent need to use resources that are industrial waste in the textile sector, supporting myself in an ideology of sustainability and reuse.',
             'I create timeless pieces within the definition of Slow Fashion, with small-scale production and free from the volatility of market trends. Free-form work: without seasonal collections, defending the quality of materials, design, exclusivity, local and artisanal production, choosing raw materials that guarantee greater durability.',
             'The sky and the wind inspire me. Earth, fire and water. Inspire me what is divine. Inspire me who freed himself.',
-                   'Orun.',
+            'Orun.',
             'Tiago Bastos.',
         ],
     },

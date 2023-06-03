@@ -61,7 +61,7 @@ const ContactForm: FunctionComponent = () => {
                     toast({
                         title: successMessage.title,
                         description: successMessage.description,
-                        variant: 'success'
+                        variant: 'success',
                     });
                 },
                 onError: () => {
