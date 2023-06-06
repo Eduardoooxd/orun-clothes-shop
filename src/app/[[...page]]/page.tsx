@@ -35,8 +35,9 @@ export default async function Page(props: PageProps) {
             <Head>
                 <title>{content?.data.title}</title>
             </Head>
-            {/* Render the Builder page */}
-            <RenderBuilderContent content={content} />
+            <section className="relative mt-[-5rem] min-h-screen w-full overflow-x-hidden">
+                <RenderBuilderContent content={content} model={props?.params?.page?.at(-1)} />
+            </section>
         </>
     );
 }

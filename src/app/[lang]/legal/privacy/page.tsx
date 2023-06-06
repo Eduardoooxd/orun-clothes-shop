@@ -1,3 +1,9 @@
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from '@/components/ui/accordion';
 import { i18nConfig } from '@/config/i18nConfig';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { store } from '@/store';
@@ -22,25 +28,31 @@ export default async function PrivacyPage() {
             <section>
                 {topics.map((topic) => {
                     const { privacyTopicTitle, privacyTopicText } = topic;
-                    return (
-                        <section className="mb-8" key={privacyTopicTitle}>
-                            <h2
-                                className={`${futuraPTLight.variable} mb-4 font-futuraPTLight text-lg font-bold uppercase tracking-wider`}
-                            >
-                                {privacyTopicTitle}
-                            </h2>
 
-                            <div className={`flex flex-col gap-y-4 lg:max-w-4xl`}>
-                                {privacyTopicText.map((text, index) => (
-                                    <p
-                                        className={`${commutersSans.variable} font-commutersSans text-base tracking-tight`}
-                                        key={`${privacyTopicTitle}-${index}`}
+                    return (
+                        <Accordion type="single" collapsible key={privacyTopicTitle}>
+                            <AccordionItem value="item-1">
+                                <AccordionTrigger>
+                                    <h2
+                                        className={`${futuraPTLight.variable} mb-4 text-justify font-futuraPTLight text-lg font-bold uppercase`}
                                     >
-                                        {text}
-                                    </p>
-                                ))}
-                            </div>
-                        </section>
+                                        {privacyTopicTitle}
+                                    </h2>
+                                </AccordionTrigger>
+                                <AccordionContent>
+                                    <section className={`flex flex-col gap-y-4 lg:max-w-4xl`}>
+                                        {privacyTopicText.map((text, index) => (
+                                            <p
+                                                className={`${commutersSans.variable} font-commutersSans text-base tracking-tight`}
+                                                key={`${privacyTopicTitle}-${index}`}
+                                            >
+                                                {text}
+                                            </p>
+                                        ))}
+                                    </section>
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
                     );
                 })}
             </section>
