@@ -24,7 +24,7 @@ export default async function Products({ params, searchParams }: ProductsPagePro
 
     const [categories, products] = await Promise.all([
         getShopifyCategories({ language: convertToShopifyLanguage(lang) }),
-        getShopifyProducts({ language: convertToShopifyLanguage(lang) }),
+        getShopifyProducts({ language: convertToShopifyLanguage(lang), sortKey: 'TITLE' }),
     ]);
 
     const selectedCategories = new Map<string, boolean>();

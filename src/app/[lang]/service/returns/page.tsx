@@ -2,7 +2,7 @@ import {
     Accordion,
     AccordionContent,
     AccordionItem,
-    AccordionTrigger
+    AccordionTrigger,
 } from '@/components/ui/accordion';
 import { i18nConfig } from '@/config/i18nConfig';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
