@@ -54,14 +54,14 @@ export const Navbar: FunctionComponent = () => {
                 stylesMobileMenu
             )}
         >
-            <nav className="flex flex-col w-full gap-8 px-4 mx-auto lg:container sm:px-6">
+            <nav className="mx-auto flex w-full flex-col gap-8 px-4 lg:container sm:px-6">
                 <div
                     className={cn(
                         'min-h-20 flex items-center justify-between',
                         navBarActive ? 'text-black' : 'text-white'
                     )}
                 >
-                    <div className="items-center flex-1 hidden gap-6 lg:flex lg:gap-10">
+                    <div className="hidden flex-1 items-center gap-6 lg:flex lg:gap-10">
                         {[Category, AboutUs, ContactUs].map((navBarLink, index) => (
                             <NavbarLink key={index} {...navBarLink} />
                         ))}
@@ -89,9 +89,9 @@ export const Navbar: FunctionComponent = () => {
                         </LinkI18N>
                     </div>
 
-                    <div className="items-center justify-end flex-1 hidden gap-10 lg:flex">
-                        <div className="grid w-12 aspect-square place-items-center">{<User />}</div>
-                        <div className="grid w-12 aspect-square place-items-center">{<Bag />}</div>
+                    <div className="hidden flex-1 items-center justify-end gap-10 lg:flex">
+                        <div className="grid aspect-square w-12 place-items-center">{<User />}</div>
+                        <div className="grid aspect-square w-12 place-items-center">{<Bag />}</div>
 
                         <LocaleSwitcher />
                     </div>
@@ -99,7 +99,7 @@ export const Navbar: FunctionComponent = () => {
                     <button
                         type="button"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                        className="relative w-10 h-10 p-2 transition duration-150 ease-in-out rounded focus:outline-none lg:hidden"
+                        className="relative h-10 w-10 rounded p-2 transition duration-150 ease-in-out focus:outline-none lg:hidden"
                         aria-controls="mobile-menu"
                         aria-expanded="false"
                     >
