@@ -34,7 +34,7 @@ export default async function DeliveryPage() {
                             <AccordionItem value="item-1">
                                 <AccordionTrigger>
                                     <h2
-                                        className={`${futuraPTLight.variable} mb-4 text-justify font-futuraPTLight text-lg font-bold uppercase`}
+                                        className={`${futuraPTLight.variable}  text-justify font-futuraPTLight text-lg font-bold uppercase`}
                                     >
                                         {deliveryTopicTitle}
                                     </h2>

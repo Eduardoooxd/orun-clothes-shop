@@ -2,7 +2,7 @@ import {
     Accordion,
     AccordionContent,
     AccordionItem,
-    AccordionTrigger,
+    AccordionTrigger
 } from '@/components/ui/accordion';
 import { i18nConfig } from '@/config/i18nConfig';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
@@ -33,7 +33,7 @@ export default async function ReturnsPage() {
                             <AccordionItem value="item-1">
                                 <AccordionTrigger>
                                     <h2
-                                        className={`${futuraPTLight.variable} mb-4 text-justify font-futuraPTLight text-lg font-bold uppercase`}
+                                        className={`${futuraPTLight.variable}  text-justify font-futuraPTLight text-lg font-bold uppercase`}
                                     >
                                         {returnsTopicTitle}
                                     </h2>
