@@ -43,7 +43,6 @@ function CarouselItems({ product }: CarouselItemsProps) {
                         alt={description}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 65vw, 50vw"
-                        loading={'eager'}
                         style={{ objectFit: 'cover' }}
                     />
                 </div>
