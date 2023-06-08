@@ -1,5 +1,5 @@
 import { DEFAULT_SHOPIFY_LANGUAGE } from '@/config/shopifyConfig';
-import { Connection, Product, ShopifyProduct } from './types';
+import { Cart, Connection, Product, ShopifyCart, ShopifyProduct } from './types';
 
 export const convertToShopifyLanguage = (language: string) => {
     switch (language) {
@@ -86,4 +86,18 @@ export const reshapeCategories = (products: Product[]) => {
     });
 
     return categories;
+};
+
+export const reshapeCart = (cart: ShopifyCart): Cart => {
+    if (!cart.cost?.totalTaxAmount) {
+        cart.cost.totalTaxAmount = {
+            amount: '0.0',
+            currencyCode: 'EUR',
+        };
+    }
+
+    return {
+        ...cart,
+        lines: removeEdgesAndNodes(cart.lines),
+    };
 };
