@@ -19,10 +19,10 @@ builder.init(BUILDER_IO_API_KEY);
 export default async function Page() {
     return (
         <>
-            {/* @ts-ignore */}
+            {/* @ts-expect-error */}
             <Hero />
             <Separator />
-            {/* @ts-ignore */}
+            {/* @ts-expect-error */}
             <TopPicks />
             <AboutUs />
         </>

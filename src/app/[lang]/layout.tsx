@@ -1,3 +1,4 @@
+import Cart from '@/components/Cart';
 import Footer from '@/components/Footer';
 import { Navbar } from '@/components/Layout/Navbar';
 import { Toaster } from '@/components/ui/toaster';
@@ -61,8 +62,9 @@ export default async function PageLayout({ children, params }: PageLayoutProps) 
             <Providers>
                 <BodyConfiguration>
                     <body>
-                        <main className="flex min-h-screen w-full flex-col items-center justify-between">
-                            <Navbar />
+                        <main className="flex flex-col items-center justify-between w-full min-h-screen">
+                            {/* @ts-expect-error */}
+                            <Navbar cart={<Cart />} />
                             {children}
                             <Footer />
                         </main>

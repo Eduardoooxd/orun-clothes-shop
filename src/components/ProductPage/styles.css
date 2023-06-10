@@ -1,11 +1,3 @@
 :is(.carousel-slider, .slider-wrapper, .slider-wrapper .slider) {
     height: 100%;
 }
-
-.chooseSizeButton[data-state='open'] :is(.downIcon) {
-    transform: rotate(180deg);
-}
-
-.chooseSizeButton[data-state='open'] :is(.sizeText) {
-    text-decoration: underline;
-}

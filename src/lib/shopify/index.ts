@@ -1,7 +1,7 @@
 import {
     DEFAULT_SHOPIFY_LANGUAGE,
     SHOPIFY_GRAPHQL_API_ENDPOINT,
-    SHOPIFY_REVALIDATE_TAG,
+    TAGS,
 } from '@/config/shopifyConfig';
 import { isShopifyError } from '../type-guards';
 import {
@@ -42,11 +42,13 @@ async function shopifyFetch<T>({
     query,
     variables,
     headers,
+    tags,
     cache = 'force-cache',
 }: {
     query: string;
     variables?: ExtractVariables<T>;
     headers?: HeadersInit;
+    tags?: string[];
     cache?: RequestCache;
 }): Promise<{ status: number; body: T } | never> {
     if (!endpoint || !key) throw new Error('Missing Shopify credentials.');
@@ -64,7 +66,7 @@ async function shopifyFetch<T>({
                 ...(variables && { variables }),
             }),
             cache,
-            next: { tags: [SHOPIFY_REVALIDATE_TAG] },
+            ...(tags && { next: { tags } }),
         });
 
         const body = await result.json();
@@ -106,6 +108,7 @@ export async function getShopifyProducts({
 }): Promise<Product[]> {
     const res = await shopifyFetch<ShopifyProductsOperation>({
         query: getProductsQuery(language),
+        tags: [TAGS.products],
         variables: {
             query,
             reverse,
@@ -125,6 +128,7 @@ export async function getShopifyProduct({
 }): Promise<Product | undefined> {
     const res = await shopifyFetch<ShopifyProductOperation>({
         query: getProductQuery(language),
+        tags: [TAGS.products],
         variables: {
             handle,
         },

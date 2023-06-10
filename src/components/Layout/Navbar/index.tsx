@@ -1,6 +1,6 @@
 'use client';
 
-import Bag from '@/components/Icons/Bag';
+import CartIcon from '@/components/Icons/Cart';
 import LinkI18N from '@/components/Shared/I18N/LinkI18N';
 import { i18nConfig } from '@/config/i18nConfig';
 import useGetCurrentLocale from '@/hooks/useGetCurrentLocale';
@@ -15,10 +15,20 @@ import { User } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Dispatch, FunctionComponent, SetStateAction, useEffect, useState } from 'react';
+import {
+    Dispatch,
+    FC,
+    FunctionComponent,
+    SetStateAction, useEffect,
+    useState
+} from 'react';
 import { RxCross1, RxHamburgerMenu } from 'react-icons/rx';
 
-export const Navbar: FunctionComponent = () => {
+interface NavbarProps {
+    cart: React.ReactNode;
+}
+
+export const Navbar: FC<NavbarProps> = ({ cart }) => {
     const dictionary = useGetDictionary();
     const { Category, AboutUs, ContactUs } = dictionary.navBar.NAVBAR_LINKS;
 
@@ -91,7 +101,9 @@ export const Navbar: FunctionComponent = () => {
 
                     <div className="hidden flex-1 items-center justify-end gap-10 lg:flex">
                         <div className="grid aspect-square w-12 place-items-center">{<User />}</div>
-                        <div className="grid aspect-square w-12 place-items-center">{<Bag />}</div>
+                        <div className="grid aspect-square w-12 place-items-center">
+                            {cart}
+                        </div>
 
                         <LocaleSwitcher />
                     </div>
@@ -140,6 +152,11 @@ const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
                     {...navBarLink}
                 />
             ))}
+
+            <div className="grid aspect-square w-12 place-items-center">{<User />}</div>
+            <div className="grid aspect-square w-12 place-items-center">
+                {<CartIcon quantity={5} />}
+            </div>
 
             <LocaleSwitcher />
         </div>
