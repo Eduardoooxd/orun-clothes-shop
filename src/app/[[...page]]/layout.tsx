@@ -62,7 +62,7 @@ export default async function PageLayout({ children, params }: PageLayoutProps) 
             <Providers>
                 <BodyConfiguration>
                     <body>
-                        <main className="flex flex-col items-center justify-between w-full min-h-screen">
+                        <main className="flex min-h-screen w-full flex-col items-center justify-between">
                             {/* @ts-expect-error */}
                             <Navbar cart={<Cart />} />
                             {children}

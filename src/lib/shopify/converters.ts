@@ -1,5 +1,5 @@
 import { DEFAULT_SHOPIFY_LANGUAGE } from '@/config/shopifyConfig';
-import { Cart, Connection, Product, ShopifyCart, ShopifyProduct } from './types';
+import { Cart, Connection, Product, ProductVariant, ShopifyCart, ShopifyProduct } from './types';
 
 export const convertToShopifyLanguage = (language: string) => {
     switch (language) {
@@ -15,6 +15,35 @@ export const convertToShopifyLanguage = (language: string) => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const removeEdgesAndNodes = (array: Connection<any>) => {
     return array.edges.map((edge) => edge?.node);
+};
+
+const reshapeVariants = (product: ShopifyProduct): ProductVariant[] => {
+    const variants = removeEdgesAndNodes(product.variants);
+
+    const reshapedVariants = variants.map((variant) => {
+        const { selectedOptions } = variant;
+        let size = undefined;
+        let color = undefined;
+
+        if (!selectedOptions && !Array.isArray(selectedOptions)) return variant;
+
+        selectedOptions.forEach((option: { name: string; value: string }) => {
+            if ((option.name === 'Size' || option.name === 'Tamanho') && option.value) {
+                size = option.value;
+            }
+            if ((option.name === 'Color' || option.name === 'Cor') && option.value) {
+                color = option.value;
+            }
+        });
+
+        return {
+            ...variant,
+            size,
+            color,
+        };
+    });
+
+    return reshapedVariants;
 };
 
 export const reshapeProducts = (products: ShopifyProduct[]) => {
@@ -38,37 +67,30 @@ export const reshapeProduct = (product: ShopifyProduct) => {
         return undefined;
     }
 
-    const { images, variants, ...rest } = product;
+    const { images, ...rest } = product;
+    const variantsReshaped = reshapeVariants(product);
 
     const sizes: string[] = [];
     const colors: string[] = [];
     const category =
         product.metafields.find((metafield) => metafield?.key === 'category')?.value || '';
 
-    variants.edges.forEach((variant) => {
-        const { selectedOptions } = variant.node;
-        selectedOptions.forEach((option) => {
-            if (
-                (option.name === 'Size' || option.name === 'Tamanho') &&
-                option.value &&
-                !sizes.includes(option.value)
-            ) {
-                sizes.push(option.value);
-            }
-            if (
-                (option.name === 'Color' || option.name === 'Cor') &&
-                option.value &&
-                !colors.includes(option.value)
-            ) {
-                colors.push(option.value);
-            }
-        });
+    variantsReshaped.forEach((variant) => {
+        const { size, color } = variant;
+
+        if (size) {
+            !sizes.includes(size) && sizes.push(size);
+        }
+
+        if (color) {
+            !colors.includes(color) && colors.push(color);
+        }
     });
 
     return {
         ...rest,
         images: removeEdgesAndNodes(images),
-        variants: removeEdgesAndNodes(variants),
+        variants: variantsReshaped,
         sizes,
         colors,
         category,

@@ -12,3 +12,7 @@ export const createUrl = (pathname: string, params: URLSearchParams | ReadonlyUR
 
     return `${pathname}${queryString}`;
 };
+
+export const createApiUrl = (relativePath: string) => {
+    return `${process.env.NEXT_PUBLIC_API_URL}${relativePath}`;
+};

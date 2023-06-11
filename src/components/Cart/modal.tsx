@@ -55,7 +55,7 @@ export default function CartModal({
                                 closed: { translateX: '100%' },
                             }}
                             transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
-                            className="flex flex-col w-full p-8 text-black bg-white dark:bg-black dark:text-white md:w-3/5 lg:w-2/5"
+                            className="flex w-full flex-col bg-white p-8 text-black dark:bg-black dark:text-white md:w-3/5 lg:w-2/5"
                         >
                             <div className="flex items-center justify-between">
                                 <p className="text-lg font-bold">My Cart</p>
@@ -70,15 +70,15 @@ export default function CartModal({
                             </div>
 
                             {cart.lines.length === 0 ? (
-                                <div className="flex flex-col items-center justify-center w-full mt-20 overflow-hidden">
-                                    <p className="mt-6 text-2xl font-bold text-center">
+                                <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
+                                    <p className="mt-6 text-center text-2xl font-bold">
                                         Your cart is empty.
                                     </p>
                                 </div>
                             ) : null}
                             {cart.lines.length !== 0 ? (
-                                <div className="flex flex-col justify-between h-full overflow-hidden">
-                                    <ul className="p-6 overflow-auto grow">
+                                <div className="flex h-full flex-col justify-between overflow-hidden">
+                                    <ul className="grow overflow-auto p-6">
                                         {cart.lines.map((item, i) => {
                                             const merchandiseSearchParams =
                                                 {} as MerchandiseSearchParams;
@@ -101,13 +101,13 @@ export default function CartModal({
                                             return (
                                                 <li key={i} data-testid="cart-item">
                                                     <LinkI18N
-                                                        className="flex flex-row py-4 space-x-4"
+                                                        className="flex flex-row space-x-4 py-4"
                                                         href={merchandiseUrl}
                                                         onClick={onClose}
                                                     >
-                                                        <div className="relative w-16 h-16 overflow-hidden bg-white cursor-pointer">
+                                                        <div className="relative h-16 w-16 cursor-pointer overflow-hidden bg-white">
                                                             <Image
-                                                                className="object-cover w-full h-full"
+                                                                className="h-full w-full object-cover"
                                                                 width={64}
                                                                 height={64}
                                                                 alt={
@@ -121,7 +121,7 @@ export default function CartModal({
                                                                 }
                                                             />
                                                         </div>
-                                                        <div className="flex flex-col flex-1 text-base">
+                                                        <div className="flex flex-1 flex-col text-base">
                                                             <span className="font-semibold">
                                                                 {item.merchandise.product.title}
                                                             </span>
@@ -143,9 +143,9 @@ export default function CartModal({
                                                             }
                                                         />
                                                     </LinkI18N>
-                                                    <div className="flex flex-row h-9">
+                                                    <div className="flex h-9 flex-row">
                                                         <DeleteItemButton item={item} />
-                                                        <p className="flex items-center justify-center w-full ml-2 border dark:border-gray-700">
+                                                        <p className="ml-2 flex w-full items-center justify-center border dark:border-gray-700">
                                                             <span className="w-full px-2">
                                                                 {item.quantity}
                                                             </span>
@@ -163,8 +163,8 @@ export default function CartModal({
                                             );
                                         })}
                                     </ul>
-                                    <div className="pt-2 text-sm text-black border-t border-gray-200 dark:text-white">
-                                        <div className="flex items-center justify-between mb-2">
+                                    <div className="border-t border-gray-200 pt-2 text-sm text-black dark:text-white">
+                                        <div className="mb-2 flex items-center justify-between">
                                             <p>Subtotal</p>
                                             <Price
                                                 className="text-right"
@@ -172,7 +172,7 @@ export default function CartModal({
                                                 currencyCode={cart.cost.subtotalAmount.currencyCode}
                                             />
                                         </div>
-                                        <div className="flex items-center justify-between mb-2">
+                                        <div className="mb-2 flex items-center justify-between">
                                             <p>Taxes</p>
                                             <Price
                                                 className="text-right"
@@ -180,11 +180,11 @@ export default function CartModal({
                                                 currencyCode={cart.cost.totalTaxAmount.currencyCode}
                                             />
                                         </div>
-                                        <div className="flex items-center justify-between pb-2 mb-2 border-b border-gray-200">
+                                        <div className="mb-2 flex items-center justify-between border-b border-gray-200 pb-2">
                                             <p>Shipping</p>
                                             <p className="text-right">Calculated at checkout</p>
                                         </div>
-                                        <div className="flex items-center justify-between mb-2 font-bold">
+                                        <div className="mb-2 flex items-center justify-between font-bold">
                                             <p>Total</p>
                                             <Price
                                                 className="text-right"
@@ -195,7 +195,7 @@ export default function CartModal({
                                     </div>
                                     <a
                                         href={cart.checkoutUrl}
-                                        className="flex items-center justify-center w-full p-3 text-sm font-medium text-white uppercase bg-black opacity-90 hover:opacity-100 dark:bg-white dark:text-black"
+                                        className="flex w-full items-center justify-center bg-black p-3 text-sm font-medium uppercase text-white opacity-90 hover:opacity-100 dark:bg-white dark:text-black"
                                     >
                                         <span>Proceed to Checkout</span>
                                     </a>

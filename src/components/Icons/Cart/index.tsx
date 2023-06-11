@@ -17,7 +17,7 @@ export default function CartIcon({
                 )}
             />
             {quantity ? (
-                <div className="absolute bottom-0 left-0 flex items-center justify-center w-5 h-5 -mb-3 -ml-3 text-xs text-white bg-black border-2 border-white rounded-full dark:border-black dark:bg-white dark:text-black">
+                <div className="absolute bottom-0 left-0 -mb-3 -ml-3 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-black text-xs text-white dark:border-black dark:bg-white dark:text-black">
                     {quantity}
                 </div>
             ) : null}

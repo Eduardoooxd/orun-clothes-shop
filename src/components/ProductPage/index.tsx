@@ -1,10 +1,9 @@
 import { futuraPTLight } from '@/lib/fontLoader';
 import { Product } from '@/lib/shopify/types';
-import { store } from '@/store';
 import Image from 'next/image';
 import { FunctionComponent } from 'react';
-import ChooseSize from './ChooseSize';
 import ProductsCarousel from './ProductsCarousel';
+import { VariantSelector } from './variantSelector';
 
 interface ProductPageProps {
     product: Product;
@@ -58,10 +57,7 @@ interface ProductDescriptionProps {
 }
 
 const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ product }) => {
-    const { title, priceRange, description, category, colors, sizes, id } = product;
-
-    const dictionary = store.getState().dictionary.dictionary;
-    const { colorsText } = dictionary.productPage;
+    const { title, priceRange, description, category, id } = product;
 
     return (
         <div key={id} className="px-4 lg:px-24">
@@ -98,73 +94,9 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                         {description}
                     </p>
                 </section>
-                <hr className="border-t border-black" />
-                {/** Section to chose Size */}
-                {colors?.length > 0 && (
-                    <>
-                        <section className="my-4 flex justify-between py-4">
-                            <p
-                                className={`${futuraPTLight.variable} font-futuraPTLight text-base uppercase`}
-                            >
-                                {colorsText}
-                            </p>
-                            <div className="flex items-center justify-between gap-2">
-                                {colors.map((color, index) => (
-                                    <>
-                                        <p
-                                            className={`${futuraPTLight.variable} flex list-none justify-end font-futuraPTLight text-sm uppercase`}
-                                            key={index}
-                                        >
-                                            {color}
-                                        </p>
-                                        {index != colors.length - 1 && (
-                                            <p key={index} className="text-black">
-                                                |
-                                            </p>
-                                        )}
-                                    </>
-                                ))}
-                            </div>
-                        </section>
-                        <hr className="border-t border-black" />
-                    </>
-                )}
 
-                <ChooseSize sizes={sizes} />
-                <hr className="border-t border-black" />
-
-                {/** Section for button */}
-                <ProductContactForm product={product} />
+                <VariantSelector product={product} />
             </div>
         </div>
-    );
-};
-
-interface ProductContactFormProps {
-    product: Product;
-}
-
-const ProductContactForm: FunctionComponent<ProductContactFormProps> = ({ product }) => {
-    const { title, priceRange } = product;
-
-    const dictionary = store.getState().dictionary.dictionary;
-    const { mailSubject } = dictionary.productPage.contactForm;
-
-    const parsedEmailSubject = mailSubject.replace('${title}', title);
-    // TODO Improve this
-    let mailBody = dictionary.productPage.contactForm.mailBody.replaceAll('${title}', title);
-    mailBody = mailBody.replaceAll('${price}', priceRange.maxVariantPrice.amount);
-
-    const { orderText } = dictionary.productPage;
-
-    return (
-        <section className="my-4 flex flex-col gap-2 py-4">
-            <a
-                className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
-                href={`mailto:${process.env.CONTACT_EMAIL}?subject=${parsedEmailSubject}&body=${mailBody}`}
-            >
-                {orderText}
-            </a>
-        </section>
     );
 };

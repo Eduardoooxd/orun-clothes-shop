@@ -61,7 +61,10 @@ export const dictionary: Dictionary = {
             sizeText: 'Size',
             chooseSizeText: 'Choose size',
         },
-        colorsText: 'Colors',
+        colorContent: {
+            colorText: 'Color',
+            chooseColorText: 'Choose a color',
+        },
         comingSoonText: 'Online Shop Coming Soon',
         orderText: 'Order',
         contactForm: {

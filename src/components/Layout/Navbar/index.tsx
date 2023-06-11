@@ -15,13 +15,7 @@ import { User } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-    Dispatch,
-    FC,
-    FunctionComponent,
-    SetStateAction, useEffect,
-    useState
-} from 'react';
+import { Dispatch, FC, FunctionComponent, SetStateAction, useEffect, useState } from 'react';
 import { RxCross1, RxHamburgerMenu } from 'react-icons/rx';
 
 interface NavbarProps {
@@ -39,7 +33,7 @@ export const Navbar: FC<NavbarProps> = ({ cart }) => {
     const navBarActive = isScrolled || isMobileMenuOpen || !isRootPage;
 
     const stylesOnScroll = navBarActive
-        ? 'bg-white shadow-md border-b border-black'
+        ? 'bg-white dark:bg-black shadow-md border-b border-black'
         : 'bg-transparent';
 
     const stylesMobileMenu = isMobileMenuOpen
@@ -68,7 +62,7 @@ export const Navbar: FC<NavbarProps> = ({ cart }) => {
                 <div
                     className={cn(
                         'min-h-20 flex items-center justify-between',
-                        navBarActive ? 'text-black' : 'text-white'
+                        navBarActive ? 'text-black dark:text-white' : 'text-white'
                     )}
                 >
                     <div className="hidden flex-1 items-center gap-6 lg:flex lg:gap-10">
@@ -101,9 +95,7 @@ export const Navbar: FC<NavbarProps> = ({ cart }) => {
 
                     <div className="hidden flex-1 items-center justify-end gap-10 lg:flex">
                         <div className="grid aspect-square w-12 place-items-center">{<User />}</div>
-                        <div className="grid aspect-square w-12 place-items-center">
-                            {cart}
-                        </div>
+                        <div className="grid aspect-square w-12 place-items-center">{cart}</div>
 
                         <LocaleSwitcher />
                     </div>

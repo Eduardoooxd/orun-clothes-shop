@@ -41,6 +41,8 @@ export type ProductVariant = {
         value: string;
     }[];
     price: Money;
+    size?: string;
+    color?: string;
 };
 
 export type ShopifyProduct = {
