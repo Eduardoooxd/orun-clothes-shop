@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 
+import { store } from '@/store';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import LoadingDots from '../Icons/loadingDots';
@@ -18,6 +19,10 @@ interface EditItemQuantityButtonProps {
 }
 
 export default function EditItemQuantityButton({ item, type }: EditItemQuantityButtonProps) {
+    const dictionary = store.getState().dictionary.dictionary;
+    const { successMessage, errorMessage, increaseMessage, decreaseMessage } =
+        dictionary.editItemQuantityForm;
+
     const router = useRouter();
     const [isPending, startTransition] = useTransition();
     const { toast } = useToast();
@@ -43,31 +48,30 @@ export default function EditItemQuantityButton({ item, type }: EditItemQuantityB
                     startTransition(() => {
                         router.refresh();
                         toast({
-                            title: 'successMessage.title',
-                            description: 'successMessage.description',
+                            description: successMessage.description,
                             variant: 'success',
                         });
                     });
                 },
                 onError: () => {
                     toast({
-                        title: ' errorMessage.title',
-                        description: 'errorMessage.description',
+                        title: errorMessage.title,
+                        description: errorMessage.description,
                         variant: 'destructive',
                     });
                 },
             });
         } catch (_) {
             toast({
-                title: 'errorMessage.title',
-                description: 'errorMessage.description',
+                title: errorMessage.title,
+                description: errorMessage.description,
                 variant: 'destructive',
             });
         }
     }
     return (
         <button
-            aria-label={type === 'plus' ? 'Increase item quantity' : 'Reduce item quantity'}
+            aria-label={type === 'plus' ? increaseMessage : decreaseMessage}
             onClick={handleEdit}
             disabled={isMutating}
             className={cn(

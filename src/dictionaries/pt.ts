@@ -65,11 +65,23 @@ export const dictionary: Dictionary = {
             chooseColorText: 'Escolha a cor',
         },
         comingSoonText: 'Loja online em breve',
-        orderText: 'Encomende',
+        addToCartContent: {
+            addToBagText: 'Adicionar ao carrinho',
+            selectOptionText: 'Selecione uma opção',
+            disabledProductText: 'Produto esgotado',
+        },
         contactForm: {
             mailSubject: 'Estou interessado no produto "${title}"',
             mailBody:
                 'Olá !%0D%0A%0D%0A%20%20%20%20Quero comprar o seguinte produto:%0D%0A%20%20%20%20${title} com tamanho (se aplicável) [inserir tamanho].%0D%0A%0D%0A%20%20%20%20Detalhes de envio:%0D%0A------------------%0D%0A%0D%0A%20%20%20%20Telemóvel: [inserir contacto telefónico]%0D%0A%20%20%20%20 Morada : [inserir morada]%0D%0A%20%20%20%20 NIF (Opcional) : [inserir NIF]%0D%0A%0D%0ADetalhes do Produto:%0D%0A------------------%0D%0A%20%20%20%20Nome da peça: ${title}%0D%0A%20%20%20%20Preço: ${price} euros%0D%0A%0D%0A%0D%0A%0D%0AObrigado!',
+        },
+        successMessage: {
+            title: 'Produto adicionado ao carrinho com sucesso !',
+            description: 'Aceda ao seu carrinho para concluir a compra.',
+        },
+        errorMessage: {
+            title: 'Erro ao adicionar o produto !',
+            description: 'Por favor, tente novamente mais tarde.',
         },
     },
     footer: {
@@ -329,5 +341,26 @@ export const dictionary: Dictionary = {
                 ],
             },
         ],
+    },
+    editItemQuantityForm: {
+        successMessage: {
+            description: 'Quantidade alterada com sucesso',
+        },
+        errorMessage: {
+            title: 'Erro ao alterar quantidade',
+            description: 'Por favor, tente novamente mais tarde.',
+        },
+        increaseMessage: 'Incrementar quantidade do produto',
+        decreaseMessage: 'Reduzir quantidade do produto',
+    },
+    deleteItemForm: {
+        successMessage: {
+            description: 'Produto retirado do carrinho com sucesso',
+        },
+        errorMessage: {
+            title: 'Erro ao remover o produto',
+            description: 'Por favor, tente novamente mais tarde.',
+        },
+        deleteMessage: 'Apagar produto do carrinho',
     },
 };

@@ -3,6 +3,7 @@
 import { convertCartLineIdToId } from '@/lib/shopify/converters';
 import { CartItem } from '@/lib/shopify/types';
 import { cn } from '@/lib/utils';
+import { store } from '@/store';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -16,6 +17,9 @@ interface DeleteItemButtonProps {
 }
 
 export default function DeleteItemButton({ item }: DeleteItemButtonProps) {
+    const dictionary = store.getState().dictionary.dictionary;
+    const { successMessage, errorMessage, deleteMessage } = dictionary.deleteItemForm;
+
     const router = useRouter();
     const [isPending, startTransition] = useTransition();
     const { toast } = useToast();
@@ -35,36 +39,31 @@ export default function DeleteItemButton({ item }: DeleteItemButtonProps) {
                     startTransition(() => {
                         router.refresh();
                         toast({
-                            title: 'successMessage.title',
-                            description: 'successMessage.description',
+                            description: successMessage.description,
                             variant: 'success',
                         });
                     });
                 },
                 onError: () => {
                     toast({
-                        title: ' errorMessage.title',
-                        description: 'errorMessage.description',
+                        title: errorMessage.title,
+                        description: errorMessage.description,
                         variant: 'destructive',
                     });
                 },
             });
         } catch (_) {
             toast({
-                title: 'errorMessage.title',
-                description: 'errorMessage.description',
+                title: errorMessage.title,
+                description: errorMessage.description,
                 variant: 'destructive',
-            });
-        } finally {
-            startTransition(() => {
-                router.refresh();
             });
         }
     }
 
     return (
         <button
-            aria-label="Remove cart item"
+            aria-label={deleteMessage}
             onClick={handleRemove}
             disabled={isMutating}
             className={cn(

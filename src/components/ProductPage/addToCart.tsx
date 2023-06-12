@@ -3,6 +3,7 @@
 import { futuraPTLight } from '@/lib/fontLoader';
 import { ProductVariant } from '@/lib/shopify/types';
 import { cn } from '@/lib/utils';
+import { store } from '@/store';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -31,14 +32,18 @@ export function AddToCart({ selectedVariant }: AddToCartProps) {
     const isDisabled = !selectedVariant || isMutating;
     const isForSale = selectedVariant && selectedVariant.availableForSale;
 
+    const dictionary = store.getState().dictionary.dictionary;
+    const { successMessage, errorMessage } = dictionary.productPage;
+    const { addToBagText, selectOptionText, disabledProductText } =
+        dictionary.productPage.addToCartContent;
+
     async function handleAdd() {
         if (isDisabled || !isForSale) return;
 
-        // TODO ADD Messages
         if (!selectedVariant) {
             toast({
-                title: 'successMessage.title',
-                description: 'successMessage.description',
+                title: errorMessage.title,
+                description: errorMessage.description,
                 variant: 'destructive',
             });
             return;
@@ -50,36 +55,32 @@ export function AddToCart({ selectedVariant }: AddToCartProps) {
                     startTransition(() => {
                         router.refresh();
                         toast({
-                            title: 'successMessage.title',
-                            description: 'successMessage.description',
+                            title: successMessage.title,
+                            description: successMessage.description,
                             variant: 'success',
                         });
                     });
                 },
                 onError: () => {
                     toast({
-                        title: ' errorMessage.title',
-                        description: 'errorMessage.description',
+                        title: errorMessage.title,
+                        description: errorMessage.description,
                         variant: 'destructive',
                     });
                 },
             });
         } catch (_) {
             toast({
-                title: 'errorMessage.title',
-                description: 'errorMessage.description',
+                title: errorMessage.title,
+                description: errorMessage.description,
                 variant: 'destructive',
-            });
-        } finally {
-            startTransition(() => {
-                router.refresh();
             });
         }
     }
 
     return (
         <button
-            aria-label="Add item to cart"
+            aria-label={addToBagText}
             disabled={isDisabled || !isForSale}
             onClick={handleAdd}
             className={cn(
@@ -90,7 +91,13 @@ export function AddToCart({ selectedVariant }: AddToCartProps) {
                 `${futuraPTLight.variable}`
             )}
         >
-            <span>{isForSale ? 'Add to Cart' : 'Not available'}</span>
+            <span>
+                {selectedVariant === null
+                    ? selectOptionText
+                    : isForSale
+                    ? addToBagText
+                    : disabledProductText}
+            </span>
             {isMutating ? <LoadingDots className="bg-white dark:bg-black" /> : null}
         </button>
     );

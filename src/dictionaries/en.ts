@@ -66,11 +66,23 @@ export const dictionary: Dictionary = {
             chooseColorText: 'Choose a color',
         },
         comingSoonText: 'Online Shop Coming Soon',
-        orderText: 'Order',
+        addToCartContent: {
+            addToBagText: 'Add to the bag',
+            selectOptionText: 'Select an option',
+            disabledProductText: 'Sold out',
+        },
         contactForm: {
             mailSubject: 'I\'m interested in buying "${title}"',
             mailBody:
                 "Hello,%0D%0A%0D%0A%20%20%20%20I'm interested in purchasing the following product:%0D%0A%20%20%20%20${title} with size (if applicable) [Insert Size].%0D%0A%0D%0A%20%20%20%20Shipping details:%0D%0A------------------%0D%0A%0D%0A%20%20%20%20 Mobile: [Insert phone contact]%0D%0A %20%20%20%20 Address : [Insert Address]%0D%0A%20%20%20%20 NIF (Optional) : [Insert NIF] %0D%0A%0D%0AProduct Details:%0D%0A------------------%0D%0A%20%20%20%20Product: ${title}%0D%0A%20%20%20%20Price: ${price} euros%0D%0A%0D%0A%0D%0A%0D%0AThank you!",
+        },
+        successMessage: {
+            title: 'Added product to the bag !',
+            description: 'Access your bag to finish the buy.',
+        },
+        errorMessage: {
+            title: 'Error adding the product to the bag !',
+            description: 'Please, try again later.',
         },
     },
     footer: {
@@ -331,5 +343,26 @@ export const dictionary: Dictionary = {
                 ],
             },
         ],
+    },
+    editItemQuantityForm: {
+        successMessage: {
+            description: 'Change quantity with success.',
+        },
+        errorMessage: {
+            title: 'Error changing the quantity.',
+            description: 'Please try again later.',
+        },
+        increaseMessage: 'Increase product quantity',
+        decreaseMessage: 'Reduce product quantity',
+    },
+    deleteItemForm: {
+        successMessage: {
+            description: 'Retired product with success.',
+        },
+        errorMessage: {
+            title: 'Error removing the product.',
+            description: 'Please try again later.',
+        },
+        deleteMessage: 'Delete the product from the bag.',
     },
 };

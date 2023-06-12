@@ -35,8 +35,16 @@ export interface ProductPage {
     colorContent: ColorContent;
     sizeContent: SizeContent;
     comingSoonText: string;
-    orderText: string;
     contactForm: ProductContactForm;
+    successMessage: ToastMessageContent;
+    errorMessage: ToastMessageContent;
+    addToCartContent: AddToCartContent;
+}
+
+export interface AddToCartContent {
+    addToBagText: string;
+    selectOptionText: string;
+    disabledProductText: string;
 }
 
 export interface ColorContent {
@@ -95,6 +103,19 @@ export interface ContactUsPage {
     title: string;
     description: string;
     formContent: ContactUsFormContent;
+}
+
+export interface EditItemQuantityFormContent {
+    successMessage: ToastMessageContent;
+    errorMessage: ToastMessageContent;
+    increaseMessage: string;
+    decreaseMessage: string;
+}
+
+export interface DeleteItemFormContent {
+    successMessage: ToastMessageContent;
+    errorMessage: ToastMessageContent;
+    deleteMessage: string;
 }
 
 export interface ContactUsFormContent {
@@ -168,4 +189,6 @@ export interface Dictionary {
     termsOfServicePage: TermsOfServicePage;
     deliveryPage: DeliveryPage;
     returnsPage: ReturnsPage;
+    editItemQuantityForm: EditItemQuantityFormContent;
+    deleteItemForm: DeleteItemFormContent;
 }
