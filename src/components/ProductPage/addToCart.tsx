@@ -1,10 +1,10 @@
 'use client';
 
-import { axiosBase } from '@/config/axios';
 import { futuraPTLight } from '@/lib/fontLoader';
 import { ProductVariant } from '@/lib/shopify/types';
 import { cn } from '@/lib/utils';
 import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import LoadingDots from '../Icons/loadingDots';
@@ -21,7 +21,7 @@ export function AddToCart({ selectedVariant }: AddToCartProps) {
 
     const mutation = useMutation({
         mutationFn: (variantId: string) => {
-            return axiosBase.post('/api/cart', {
+            return axios.post('/api/cart', {
                 merchandiseId: variantId,
             });
         },
