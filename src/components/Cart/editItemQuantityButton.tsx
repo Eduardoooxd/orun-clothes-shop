@@ -81,9 +81,9 @@ export default function EditItemQuantityButton({ item, type }: EditItemQuantityB
             {isMutating ? (
                 <LoadingDots className="bg-black dark:bg-white" />
             ) : type === 'plus' ? (
-                <PlusIcon className="w-4 h-4" />
+                <PlusIcon className="h-4 w-4" />
             ) : (
-                <MinusIcon className="w-4 h-4" />
+                <MinusIcon className="h-4 w-4" />
             )}
         </button>
     );
