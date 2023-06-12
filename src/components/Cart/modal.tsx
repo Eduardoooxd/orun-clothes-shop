@@ -78,7 +78,7 @@ export default function CartModal({
                             ) : null}
                             {cart.lines.length !== 0 ? (
                                 <div className="flex h-full flex-col justify-between overflow-hidden">
-                                    <ul className="grow overflow-auto p-6">
+                                    <ul className="grow overflow-auto">
                                         {cart.lines.map((item, i) => {
                                             const merchandiseSearchParams =
                                                 {} as MerchandiseSearchParams;

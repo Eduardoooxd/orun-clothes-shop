@@ -1,6 +1,5 @@
 'use client';
 
-import CartIcon from '@/components/Icons/Cart';
 import LinkI18N from '@/components/Shared/I18N/LinkI18N';
 import { i18nConfig } from '@/config/i18nConfig';
 import useGetCurrentLocale from '@/hooks/useGetCurrentLocale';
@@ -116,7 +115,7 @@ export const Navbar: FC<NavbarProps> = ({ cart }) => {
                     </button>
                 </div>
                 {isMobileMenuOpen ? (
-                    <MobileNavBarMenuOpen setIsMobileMenuOpen={setIsMobileMenuOpen} />
+                    <MobileNavBarMenuOpen cart={cart} setIsMobileMenuOpen={setIsMobileMenuOpen} />
                 ) : null}
             </nav>
         </header>
@@ -125,10 +124,12 @@ export const Navbar: FC<NavbarProps> = ({ cart }) => {
 
 interface MobileNavBarMenuOpenProps {
     setIsMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
+    cart: React.ReactNode;
 }
 
 const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
     setIsMobileMenuOpen,
+    cart,
 }) => {
     const dictionary = useGetDictionary();
     useLockBody();
@@ -137,6 +138,15 @@ const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
 
     return (
         <div className="flex flex-col gap-4">
+            <div className="flex flex-wrap items-center justify-between">
+                <LocaleSwitcher />
+
+                <div className="flex gap-4">
+                    <div className="grid aspect-square w-12 place-items-center">{<User />}</div>
+                    <div className="grid aspect-square w-12 place-items-center">{cart}</div>
+                </div>
+            </div>
+
             {[Category, AboutUs, ContactUs].map((navBarLink) => (
                 <NavbarLink
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -144,13 +154,6 @@ const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
                     {...navBarLink}
                 />
             ))}
-
-            <div className="grid aspect-square w-12 place-items-center">{<User />}</div>
-            <div className="grid aspect-square w-12 place-items-center">
-                {<CartIcon quantity={5} />}
-            </div>
-
-            <LocaleSwitcher />
         </div>
     );
 };
