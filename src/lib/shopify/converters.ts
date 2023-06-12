@@ -123,3 +123,12 @@ export const reshapeCart = (cart: ShopifyCart): Cart => {
         lines: removeEdgesAndNodes(cart.lines),
     };
 };
+
+export const convertCartLineIdToId = (resourceString: string) => {
+    const parts = resourceString.split('/');
+    return parts.at(-1);
+};
+
+export const convertIdToCartLineId = (id: string, cartId: string) => {
+    return `gid://shopify/CartLine/${id}?cart=${cartId}`;
+};

@@ -29,3 +29,7 @@ export const createRootUrl = (): string => {
         ? 'http://localhost:3000'
         : `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
 };
+
+export function formatErrorMessage(err: Error): string {
+    return JSON.stringify(err, Object.getOwnPropertyNames(err));
+}

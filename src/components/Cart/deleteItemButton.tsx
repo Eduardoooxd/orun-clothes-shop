@@ -1,5 +1,6 @@
 'use client';
 
+import { convertCartLineIdToId } from '@/lib/shopify/converters';
 import { CartItem } from '@/lib/shopify/types';
 import { cn } from '@/lib/utils';
 import { useMutation } from '@tanstack/react-query';
@@ -20,22 +21,16 @@ export default function DeleteItemButton({ item }: DeleteItemButtonProps) {
     const { toast } = useToast();
 
     const mutation = useMutation({
-        mutationFn: (body: { lineId: string; variantId: string; quantity: number }) => {
-            return axios.put(`/api/cart`, body);
+        mutationFn: (lineId: string) => {
+            return axios.delete(`/api/cart/${convertCartLineIdToId(lineId)}`);
         },
     });
 
     const isMutating = mutation.isLoading || isPending;
 
     async function handleRemove() {
-        const body = {
-            lineId: item.id,
-            variantId: item.merchandise.id,
-            quantity: 0,
-        };
-
         try {
-            mutation.mutate(body, {
+            mutation.mutate(item.id, {
                 onSuccess: () => {
                     startTransition(() => {
                         router.refresh();

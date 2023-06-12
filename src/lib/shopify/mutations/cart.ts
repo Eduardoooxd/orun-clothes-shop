@@ -34,7 +34,7 @@ export const editCartItemsMutation = /* GraphQL */ `
 `;
 
 export const removeFromCartMutation = /* GraphQL */ `
-    mutation cartLinesRemove($cartId: ID!, $lineIds: [ID!]!) {
+    mutation removeCartLines($cartId: ID!, $lineIds: [ID!]!) {
         cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
             cart {
                 ...cart
