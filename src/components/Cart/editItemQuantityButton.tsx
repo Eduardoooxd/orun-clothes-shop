@@ -40,10 +40,13 @@ export default function EditItemQuantityButton({ item, type }: EditItemQuantityB
         try {
             mutation.mutate(body, {
                 onSuccess: () => {
-                    toast({
-                        title: 'successMessage.title',
-                        description: 'successMessage.description',
-                        variant: 'success',
+                    startTransition(() => {
+                        router.refresh();
+                        toast({
+                            title: 'successMessage.title',
+                            description: 'successMessage.description',
+                            variant: 'success',
+                        });
                     });
                 },
                 onError: () => {
@@ -59,10 +62,6 @@ export default function EditItemQuantityButton({ item, type }: EditItemQuantityB
                 title: 'errorMessage.title',
                 description: 'errorMessage.description',
                 variant: 'destructive',
-            });
-        } finally {
-            startTransition(() => {
-                router.refresh();
             });
         }
     }
@@ -82,9 +81,9 @@ export default function EditItemQuantityButton({ item, type }: EditItemQuantityB
             {isMutating ? (
                 <LoadingDots className="bg-black dark:bg-white" />
             ) : type === 'plus' ? (
-                <PlusIcon className="h-4 w-4" />
+                <PlusIcon className="w-4 h-4" />
             ) : (
-                <MinusIcon className="h-4 w-4" />
+                <MinusIcon className="w-4 h-4" />
             )}
         </button>
     );
