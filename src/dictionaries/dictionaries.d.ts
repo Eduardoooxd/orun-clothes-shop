@@ -175,6 +175,12 @@ export interface ReturnsPageTopic {
     returnsTopicText: string[];
 }
 
+export interface CartModalContent {
+    title: string;
+    emptyCartText: string;
+    checkoutText: string;
+}
+
 export interface Dictionary {
     language: string;
     navBar: NavBar;
@@ -191,4 +197,5 @@ export interface Dictionary {
     returnsPage: ReturnsPage;
     editItemQuantityForm: EditItemQuantityFormContent;
     deleteItemForm: DeleteItemFormContent;
+    cartModalContent: CartModalContent;
 }

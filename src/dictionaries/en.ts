@@ -365,4 +365,9 @@ export const dictionary: Dictionary = {
         },
         deleteMessage: 'Delete the product from the bag.',
     },
+    cartModalContent: {
+        title: 'My cart',
+        emptyCartText: 'Your cart is empty.',
+        checkoutText: 'Proceed to checkout',
+    },
 };

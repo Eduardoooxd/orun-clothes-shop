@@ -3,8 +3,10 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 
 import { DEFAULT_OPTION } from '@/config/constants';
+import { futuraPTLight } from '@/lib/fontLoader';
 import { Cart } from '@/lib/shopify/types';
-import { createUrl } from '@/lib/utils';
+import { cn, createUrl } from '@/lib/utils';
+import { store } from '@/store';
 import { RxCross1 } from 'react-icons/rx';
 import LinkI18N from '../Shared/I18N/LinkI18N';
 import Price from '../Text/price';
@@ -24,6 +26,9 @@ export default function CartModal({
     onClose: () => void;
     cart: Cart;
 }) {
+    const dictionary = store.getState().dictionary.dictionary;
+    const { title, emptyCartText, checkoutText } = dictionary.cartModalContent;
+
     return (
         <AnimatePresence initial={false}>
             {isOpen && (
@@ -58,7 +63,14 @@ export default function CartModal({
                             className="flex w-full flex-col bg-white p-8 text-black dark:bg-black dark:text-white md:w-3/5 lg:w-2/5"
                         >
                             <div className="flex items-center justify-between">
-                                <p className="text-lg font-bold">My Cart</p>
+                                <p
+                                    className={cn(
+                                        'text-lg font-bold uppercase',
+                                        `${futuraPTLight.variable} font-futuraPTLight`
+                                    )}
+                                >
+                                    {title}
+                                </p>
                                 <button
                                     aria-label="Close cart"
                                     onClick={onClose}
@@ -71,8 +83,13 @@ export default function CartModal({
 
                             {cart.lines.length === 0 ? (
                                 <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
-                                    <p className="mt-6 text-center text-2xl font-bold">
-                                        Your cart is empty.
+                                    <p
+                                        className={cn(
+                                            'mt-6 text-center text-2xl font-bold',
+                                            `${futuraPTLight.variable} font-futuraPTLight`
+                                        )}
+                                    >
+                                        {emptyCartText}
                                     </p>
                                 </div>
                             ) : null}
@@ -164,27 +181,12 @@ export default function CartModal({
                                         })}
                                     </ul>
                                     <div className="border-t border-gray-200 pt-2 text-sm text-black dark:text-white">
-                                        <div className="mb-2 flex items-center justify-between">
-                                            <p>Subtotal</p>
-                                            <Price
-                                                className="text-right"
-                                                amount={cart.cost.subtotalAmount.amount}
-                                                currencyCode={cart.cost.subtotalAmount.currencyCode}
-                                            />
-                                        </div>
-                                        <div className="mb-2 flex items-center justify-between">
-                                            <p>Taxes</p>
-                                            <Price
-                                                className="text-right"
-                                                amount={cart.cost.totalTaxAmount.amount}
-                                                currencyCode={cart.cost.totalTaxAmount.currencyCode}
-                                            />
-                                        </div>
-                                        <div className="mb-2 flex items-center justify-between border-b border-gray-200 pb-2">
-                                            <p>Shipping</p>
-                                            <p className="text-right">Calculated at checkout</p>
-                                        </div>
-                                        <div className="mb-2 flex items-center justify-between font-bold">
+                                        <div
+                                            className={cn(
+                                                'mb-2 flex items-center justify-between font-bold uppercase',
+                                                `${futuraPTLight.variable} font-futuraPTLight`
+                                            )}
+                                        >
                                             <p>Total</p>
                                             <Price
                                                 className="text-right"
@@ -195,9 +197,12 @@ export default function CartModal({
                                     </div>
                                     <a
                                         href={cart.checkoutUrl}
-                                        className="flex w-full items-center justify-center bg-black p-3 text-sm font-medium uppercase text-white opacity-90 hover:opacity-100 dark:bg-white dark:text-black"
+                                        className={cn(
+                                            'flex w-full items-center justify-center bg-black p-3 text-sm font-medium uppercase text-white opacity-90 hover:opacity-100 dark:bg-white dark:text-black',
+                                            `${futuraPTLight.variable} font-futuraPTLight`
+                                        )}
                                     >
-                                        <span>Proceed to Checkout</span>
+                                        <span>{checkoutText}</span>
                                     </a>
                                 </div>
                             ) : null}

@@ -363,4 +363,9 @@ export const dictionary: Dictionary = {
         },
         deleteMessage: 'Apagar produto do carrinho',
     },
+    cartModalContent: {
+        title: 'O meu carrinho',
+        emptyCartText: 'O seu carrinho está vazio',
+        checkoutText: 'Finalizar compra',
+    },
 };
