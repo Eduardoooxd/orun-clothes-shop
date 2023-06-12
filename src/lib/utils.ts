@@ -13,6 +13,10 @@ export const createUrl = (pathname: string, params: URLSearchParams | ReadonlyUR
     return `${pathname}${queryString}`;
 };
 
+export const isDevEnv = (): boolean => {
+    return process.env.NODE_ENV === 'development';
+};
+
 export const createApiUrl = (relativePath: string): string => {
     return `${createRootUrl()}${relativePath}`;
 };
