@@ -3,8 +3,8 @@ import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 
+import { axiosBase } from '@/config/axios';
 import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
 import LoadingDots from '../Icons/loadingDots';
 import MinusIcon from '../Icons/minus';
 import PlusIcon from '../Icons/plus';
@@ -24,7 +24,7 @@ export default function EditItemQuantityButton({ item, type }: EditItemQuantityB
 
     const mutation = useMutation({
         mutationFn: (body: { lineId: string; variantId: string; quantity: number }) => {
-            return axios.put(`../api/cart`, body);
+            return axiosBase.put(`/api/cart`, body);
         },
     });
 
@@ -82,9 +82,9 @@ export default function EditItemQuantityButton({ item, type }: EditItemQuantityB
             {isMutating ? (
                 <LoadingDots className="bg-black dark:bg-white" />
             ) : type === 'plus' ? (
-                <PlusIcon className="h-4 w-4" />
+                <PlusIcon className="w-4 h-4" />
             ) : (
-                <MinusIcon className="h-4 w-4" />
+                <MinusIcon className="w-4 h-4" />
             )}
         </button>
     );

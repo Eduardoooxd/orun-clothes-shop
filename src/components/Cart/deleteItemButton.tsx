@@ -1,9 +1,9 @@
 'use client';
 
+import { axiosBase } from '@/config/axios';
 import { CartItem } from '@/lib/shopify/types';
 import { cn } from '@/lib/utils';
 import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 import CloseIcon from '../Icons/close';
@@ -21,7 +21,7 @@ export default function DeleteItemButton({ item }: DeleteItemButtonProps) {
 
     const mutation = useMutation({
         mutationFn: (body: { lineId: string; variantId: string; quantity: number }) => {
-            return axios.put(`../api/cart`, body);
+            return axiosBase.put(`/api/cart`, body);
         },
     });
 
