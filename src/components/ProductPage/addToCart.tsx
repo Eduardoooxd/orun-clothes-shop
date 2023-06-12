@@ -47,10 +47,13 @@ export function AddToCart({ selectedVariant }: AddToCartProps) {
         try {
             mutation.mutate(selectedVariant.id, {
                 onSuccess: () => {
-                    toast({
-                        title: 'successMessage.title',
-                        description: 'successMessage.description',
-                        variant: 'success',
+                    startTransition(() => {
+                        router.refresh();
+                        toast({
+                            title: 'successMessage.title',
+                            description: 'successMessage.description',
+                            variant: 'success',
+                        });
                     });
                 },
                 onError: () => {

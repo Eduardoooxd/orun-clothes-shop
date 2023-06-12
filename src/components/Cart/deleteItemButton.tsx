@@ -37,10 +37,13 @@ export default function DeleteItemButton({ item }: DeleteItemButtonProps) {
         try {
             mutation.mutate(body, {
                 onSuccess: () => {
-                    toast({
-                        title: 'successMessage.title',
-                        description: 'successMessage.description',
-                        variant: 'success',
+                    startTransition(() => {
+                        router.refresh();
+                        toast({
+                            title: 'successMessage.title',
+                            description: 'successMessage.description',
+                            variant: 'success',
+                        });
                     });
                 },
                 onError: () => {
