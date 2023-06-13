@@ -62,7 +62,14 @@ export function VariantSelector({ product, ...props }: VariantSelectorProps) {
 
         return (
             product.variants.find((variant) => {
-                return variant.color === color && variant.size === size;
+                if (color && size) {
+                    return variant.color === color && variant.size === size;
+                } else if (color) {
+                    return variant.color === color;
+                } else if (size) {
+                    return variant.size === size;
+                }
+                return false; // Neither color nor size provided
             }) || null
         );
     };
