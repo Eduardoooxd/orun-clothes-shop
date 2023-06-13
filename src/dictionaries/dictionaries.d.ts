@@ -193,6 +193,12 @@ export interface SearchPageContent {
     forText: string;
 }
 
+export interface CookiesSettingContent {
+    title: string;
+    description: string;
+    acceptAllCookiesText: string;
+}
+
 export interface Dictionary {
     language: string;
     navBar: NavBar;
@@ -212,4 +218,5 @@ export interface Dictionary {
     cartModalContent: CartModalContent;
     searchTooltipContent: SearchTooltipContent;
     searchPageContent: SearchPageContent;
+    cookiesSettingContent: CookiesSettingContent;
 }

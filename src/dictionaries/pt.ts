@@ -378,4 +378,10 @@ export const dictionary: Dictionary = {
         showingText: 'Mostrando',
         forText: 'para',
     },
+    cookiesSettingContent: {
+        title: 'Definições de cookies',
+        description:
+            'Usamos cookies para fornecer uma experiência de usuário personalizada. Ao clicar em “Aceitar todos os cookies”, você concorda com o armazenamento de cookies em seu dispositivo. Se você quiser saber mais sobre cookies e por que os usamos, consulte a nossa pagina de privacidade.',
+        acceptAllCookiesText: 'Aceitar as cookies',
+    },
 };

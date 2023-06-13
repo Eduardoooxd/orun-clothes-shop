@@ -44,3 +44,9 @@ export const createRootUrl = (): string => {
 export function formatErrorMessage(err: Error): string {
     return JSON.stringify(err, Object.getOwnPropertyNames(err));
 }
+
+export const timeout = (delay: number): Promise<void> => {
+    return new Promise<void>((resolve) => {
+        setTimeout(resolve, delay);
+    });
+};

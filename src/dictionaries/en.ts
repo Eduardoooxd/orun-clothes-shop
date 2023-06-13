@@ -380,4 +380,10 @@ export const dictionary: Dictionary = {
         showingText: 'Showing',
         forText: 'for',
     },
+    cookiesSettingContent: {
+        title: 'COOKIES SETTINGS',
+        description:
+            'We use cookies to provide you with a personalized user experience. By clicking on “Accept all cookies”, you agree to the storage of cookies on your device. If you would like to find out more about cookies and why we use them, please see our privacy page.',
+        acceptAllCookiesText: 'Accept all cookies',
+    },
 };
