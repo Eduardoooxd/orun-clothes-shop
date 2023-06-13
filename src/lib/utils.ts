@@ -1,3 +1,4 @@
+import { includesLocale } from '@/config/i18nConfig';
 import { ClassValue, clsx } from 'clsx';
 import { ReadonlyURLSearchParams } from 'next/navigation';
 import { twMerge } from 'tailwind-merge';
@@ -5,6 +6,16 @@ import { twMerge } from 'tailwind-merge';
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
+
+export const redirectedWithLocale = (url: string, currentLocale: string | null) => {
+    const [localeToTest] = url.split('/').filter(Boolean);
+
+    if (includesLocale(localeToTest)) {
+        return url;
+    }
+
+    return `/${currentLocale}/${url}`;
+};
 
 export const createUrl = (pathname: string, params: URLSearchParams | ReadonlyURLSearchParams) => {
     const paramsString = params.toString();

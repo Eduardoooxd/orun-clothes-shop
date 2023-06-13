@@ -1,4 +1,4 @@
-import { DeliveryPage, TermsOfServicePage } from './dictionaries.d';
+import { DeliveryPage, SearchTooltipContent, TermsOfServicePage } from './dictionaries.d';
 export interface NavBar {
     NAVBAR_LINKS: {
         Category: {
@@ -181,6 +181,18 @@ export interface CartModalContent {
     checkoutText: string;
 }
 
+export interface SearchTooltipContent {
+    searchProductsText: string;
+}
+
+export interface SearchPageContent {
+    multipleResultsText: string;
+    singleResultText: string;
+    noResultsText: string;
+    showingText: string;
+    forText: string;
+}
+
 export interface Dictionary {
     language: string;
     navBar: NavBar;
@@ -198,4 +210,6 @@ export interface Dictionary {
     editItemQuantityForm: EditItemQuantityFormContent;
     deleteItemForm: DeleteItemFormContent;
     cartModalContent: CartModalContent;
+    searchTooltipContent: SearchTooltipContent;
+    searchPageContent: SearchPageContent;
 }

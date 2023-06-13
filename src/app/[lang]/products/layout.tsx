@@ -7,7 +7,9 @@ interface ProductsLayoutProps {
 export default async function ProductsLayout({ children }: ProductsLayoutProps) {
     return (
         <div className="w-full">
-            <Container>{children}</Container>
+            <Container>
+                <div className="flex flex-col justify-between md:flex-row">{children}</div>
+            </Container>
         </div>
     );
 }

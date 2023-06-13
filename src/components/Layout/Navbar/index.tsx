@@ -16,6 +16,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Dispatch, FC, FunctionComponent, SetStateAction, useEffect, useState } from 'react';
 import { RxCross1, RxHamburgerMenu } from 'react-icons/rx';
+import Search from '../Search';
 
 interface NavbarProps {
     cart: React.ReactNode;
@@ -93,6 +94,9 @@ export const Navbar: FC<NavbarProps> = ({ cart }) => {
                     </div>
 
                     <div className="hidden flex-1 items-center justify-end gap-10 lg:flex">
+                        <div className="grid aspect-square w-12 place-items-center">
+                            {<Search />}
+                        </div>
                         <div className="grid aspect-square w-12 place-items-center">{<User />}</div>
                         <div className="grid aspect-square w-12 place-items-center">{cart}</div>
 
@@ -139,9 +143,15 @@ const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
     return (
         <div className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center justify-between">
-                <LocaleSwitcher />
+                <div className="flex gap-4">
+                    <LocaleSwitcher />
+                </div>
 
                 <div className="flex gap-4">
+                    <div className="grid aspect-square w-12 place-items-center">
+                        {<Search setIsMobileMenuOpen={setIsMobileMenuOpen} />}
+                    </div>
+
                     <div className="grid aspect-square w-12 place-items-center">{<User />}</div>
                     <div className="grid aspect-square w-12 place-items-center">{cart}</div>
                 </div>
@@ -190,7 +200,7 @@ export default function LocaleSwitcher() {
     const activeLocale = useGetCurrentLocale();
 
     return (
-        <ul className="flex flex-row gap-2">
+        <ul className="flex flex-row items-center gap-2">
             {locales.map((locale) => {
                 return (
                     <li key={locale}>

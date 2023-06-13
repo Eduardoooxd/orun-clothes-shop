@@ -370,4 +370,14 @@ export const dictionary: Dictionary = {
         emptyCartText: 'Your cart is empty.',
         checkoutText: 'Proceed to checkout',
     },
+    searchTooltipContent: {
+        searchProductsText: 'Search products',
+    },
+    searchPageContent: {
+        multipleResultsText: 'results',
+        singleResultText: 'result',
+        noResultsText: 'No results found.',
+        showingText: 'Showing',
+        forText: 'for',
+    },
 };

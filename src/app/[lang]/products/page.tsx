@@ -34,12 +34,10 @@ export default async function Products({ params, searchParams }: ProductsPagePro
     }
 
     return (
-        <div className="flex flex-col justify-between md:flex-row">
-            <ProductsFilter
-                predefinedCategories={category}
-                allCategories={categories}
-                allProducts={products}
-            />
-        </div>
+        <ProductsFilter
+            predefinedCategories={category}
+            allCategories={categories}
+            allProducts={products}
+        />
     );
 }
