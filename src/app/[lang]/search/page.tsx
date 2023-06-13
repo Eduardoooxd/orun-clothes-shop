@@ -40,8 +40,9 @@ export default async function SearchPage({ params, searchParams }: SearchPagePro
                 <p>
                     {products.length === 0
                         ? noResultsText
-                        : `${showingText} ${products.length} ${resultsText} ${forText}`}
-                    <span className="font-bold">&quot;{searchValue}&quot;</span>
+                        : `${showingText} ${products.length} ${resultsText}`}
+                    {''} {forText}
+                    <span className="font-bold"> &quot;{searchValue}&quot;.</span>
                 </p>
             ) : null}
             {products.length > 0 ? (

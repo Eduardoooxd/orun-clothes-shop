@@ -376,7 +376,7 @@ export const dictionary: Dictionary = {
     searchPageContent: {
         multipleResultsText: 'results',
         singleResultText: 'result',
-        noResultsText: 'No results found.',
+        noResultsText: 'No results found',
         showingText: 'Showing',
         forText: 'for',
     },
