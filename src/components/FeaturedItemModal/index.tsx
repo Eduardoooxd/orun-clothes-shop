@@ -41,7 +41,7 @@ const FeaturedItemModal = () => {
                 />
             </div>
             <section
-                className={cn('flex w-1/2 flex-col justify-evenly px-2 pt-10 pb-2 sm:px-4 lg:px-6')}
+                className={cn('flex w-1/2 flex-col justify-evenly px-2 pt-8 pb-2 sm:px-4 lg:px-6')}
             >
                 <div className={cn('flex flex-col gap-y-1 text-center')}>
                     <h3
