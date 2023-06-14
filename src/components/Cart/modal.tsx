@@ -60,7 +60,7 @@ export default function CartModal({
                                 closed: { translateX: '100%' },
                             }}
                             transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
-                            className="flex w-full flex-col bg-white p-8 text-black dark:bg-black dark:text-white md:w-3/5 lg:w-2/5"
+                            className="flex flex-col w-full p-8 text-black bg-white dark:bg-black dark:text-white md:w-3/5 lg:w-2/5"
                         >
                             <div className="flex items-center justify-between">
                                 <p
@@ -82,7 +82,7 @@ export default function CartModal({
                             </div>
 
                             {cart.lines.length === 0 ? (
-                                <div className="mt-20 flex w-full flex-col items-center justify-center overflow-hidden">
+                                <div className="flex flex-col items-center justify-center w-full mt-20 overflow-hidden">
                                     <p
                                         className={cn(
                                             'mt-6 text-center text-2xl font-bold',
@@ -94,8 +94,8 @@ export default function CartModal({
                                 </div>
                             ) : null}
                             {cart.lines.length !== 0 ? (
-                                <div className="flex h-full flex-col justify-between overflow-hidden">
-                                    <ul className="grow overflow-auto">
+                                <div className="flex flex-col justify-between h-full overflow-hidden">
+                                    <ul className="overflow-auto grow">
                                         {cart.lines.map((item, i) => {
                                             const merchandiseSearchParams =
                                                 {} as MerchandiseSearchParams;
@@ -118,15 +118,15 @@ export default function CartModal({
                                             return (
                                                 <li key={i} data-testid="cart-item">
                                                     <LinkI18N
-                                                        className="flex flex-row space-x-4 py-4"
+                                                        className="flex flex-row py-4 space-x-4"
                                                         href={merchandiseUrl}
                                                         onClick={onClose}
                                                     >
-                                                        <div className="relative h-16 w-16 cursor-pointer overflow-hidden bg-white">
+                                                        <div className="relative w-16 h-16 overflow-hidden bg-white cursor-pointer">
                                                             <Image
-                                                                className="h-full w-full object-cover"
-                                                                width={64}
-                                                                height={64}
+                                                                className="object-cover w-full h-full"
+                                                                width={128}
+                                                                height={128}
                                                                 alt={
                                                                     item.merchandise.product
                                                                         .featuredImage.altText ||
@@ -138,7 +138,7 @@ export default function CartModal({
                                                                 }
                                                             />
                                                         </div>
-                                                        <div className="flex flex-1 flex-col text-base">
+                                                        <div className="flex flex-col flex-1 text-base">
                                                             <span className="font-semibold">
                                                                 {item.merchandise.product.title}
                                                             </span>
@@ -160,9 +160,9 @@ export default function CartModal({
                                                             }
                                                         />
                                                     </LinkI18N>
-                                                    <div className="flex h-9 flex-row">
+                                                    <div className="flex flex-row h-9">
                                                         <DeleteItemButton item={item} />
-                                                        <p className="ml-2 flex w-full items-center justify-center border dark:border-gray-700">
+                                                        <p className="flex items-center justify-center w-full ml-2 border dark:border-gray-700">
                                                             <span className="w-full px-2">
                                                                 {item.quantity}
                                                             </span>
@@ -180,7 +180,7 @@ export default function CartModal({
                                             );
                                         })}
                                     </ul>
-                                    <div className="border-t border-gray-200 pt-2 text-sm text-black dark:text-white">
+                                    <div className="pt-2 text-sm text-black border-t border-gray-200 dark:text-white">
                                         <div
                                             className={cn(
                                                 'mb-2 flex items-center justify-between font-bold uppercase',
