@@ -384,4 +384,20 @@ export const dictionary: Dictionary = {
             'Usamos cookies para fornecer uma experiência de utilizador personalizada. Ao clicar em “Aceitar todos os cookies”, você concorda com o armazenamento de cookies em seu dispositivo. Se você quiser saber mais sobre cookies e por que as usamos, consulte a nossa pagina de privacidade.',
         acceptAllCookiesText: 'Aceitar as cookies',
     },
+    newsletterValidation: {
+        invalidEmail: 'Por favor, insira um endereço de e-mail válido.',
+        requireCheckboxEmail: 'Concordo em receber e-mails de marketing relevantes da Orun.',
+        emailPlaceholder: 'Insira o seu endereço de e-mail',
+        signUpCallout:
+            'Subscreva a nossa newsletter para obter atualizações e acesso antecipado a novos produtos.',
+        signUpButtonText: 'Subscrever',
+        successMessage: {
+            title: 'Subscrição efetuada com sucesso',
+            description: 'Obrigado por subscrever a nossa newsletter!',
+        },
+        errorMessage: {
+            title: 'Erro ao subscrever a newsletter',
+            description: 'Por favor, tente novamente mais tarde.',
+        },
+    },
 };

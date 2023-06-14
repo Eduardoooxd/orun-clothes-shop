@@ -386,4 +386,19 @@ export const dictionary: Dictionary = {
             'We use cookies to provide you with a personalized user experience. By clicking on “Accept all cookies”, you agree to the storage of cookies on your device. If you would like to find out more about cookies and why we use them, please see our privacy page.',
         acceptAllCookiesText: 'Accept all cookies',
     },
+    newsletterValidation: {
+        invalidEmail: 'Please enter a valid email address.',
+        emailPlaceholder: 'Enter your email address',
+        requireCheckboxEmail: 'I agree to receive relevant marketing emails from Orun.',
+        signUpCallout: 'Subscribe to our newsletter for updates and early access to new products.',
+        signUpButtonText: 'Subscribe',
+        successMessage: {
+            title: 'Successfully subscribed',
+            description: 'Thank you for subscribing to our newsletter!',
+        },
+        errorMessage: {
+            title: 'Error subscribing to newsletter',
+            description: 'Please try again later.',
+        },
+    },
 };

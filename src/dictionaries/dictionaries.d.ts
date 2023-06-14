@@ -199,6 +199,16 @@ export interface CookiesSettingContent {
     acceptAllCookiesText: string;
 }
 
+export interface NewsLetterValidation {
+    invalidEmail: string;
+    emailPlaceholder: string;
+    requireCheckboxEmail: string;
+    signUpCallout: string;
+    signUpButtonText: string;
+    successMessage: ToastMessageContent;
+    errorMessage: ToastMessageContent;
+}
+
 export interface Dictionary {
     language: string;
     navBar: NavBar;
@@ -219,4 +229,5 @@ export interface Dictionary {
     searchTooltipContent: SearchTooltipContent;
     searchPageContent: SearchPageContent;
     cookiesSettingContent: CookiesSettingContent;
+    newsletterValidation: NewsLetterValidation;
 }

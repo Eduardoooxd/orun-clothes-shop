@@ -1,11 +1,12 @@
 'use client';
 
-import MiniBlackLogoImage from '@/images/logo/logo-mini.png';
 import FrontImageAdhil from '@/images/products/ADHIL/principal.webp';
+import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useSessionStorage } from 'usehooks-ts';
+import { NewsLetter } from '../Newsletter';
 import Modal from '../ui/modal';
 
 export default function FeatureItemModal() {
@@ -29,23 +30,39 @@ export default function FeatureItemModal() {
 
 const FeaturedItemModal = () => {
     return (
-        <section className={cn('flex flex-col justify-between')}>
-            <header className={cn('flex items-center justify-between')}>
-                <div className={cn('flex flex-col gap-y-4')}>
-                    <h3 className={cn('text-xl font-bold')}>ORUNIZA-TE</h3>
-                    <p>-15% de dia 21 a 28 de Junho</p>
-                </div>
-                <Image priority src={MiniBlackLogoImage} alt="logo" width={100} height={20} />
-            </header>
-            <div className={cn('relative aspect-square max-h-[30rem]')}>
+        <section className={cn('flex h-full flex-1 justify-between')}>
+            <div className={cn('relative w-1/2')}>
                 <Image
                     src={FrontImageAdhil}
                     alt={'Product Image'}
                     fill
-                    sizes="(max-width: 768px) 33vw, (max-width: 1024px) 20vw"
+                    sizes="(max-width: 768px) 50vw"
                     style={{ objectFit: 'cover' }}
                 />
             </div>
+            <section
+                className={cn('flex w-1/2 flex-col justify-evenly px-2 pt-10 pb-2 sm:px-4 lg:px-6')}
+            >
+                <div className={cn('flex flex-col gap-y-1 text-center')}>
+                    <h3
+                        className={cn(
+                            'text-xl font-bold uppercase sm:text-2xl lg:text-3xl',
+                            `${commutersSans.variable} font-commutersSans`
+                        )}
+                    >
+                        ORUNIZA-TE
+                    </h3>
+                    <p
+                        className={cn(
+                            'text-xs uppercase sm:text-sm lg:text-base',
+                            `${futuraPTLight.variable}  font-futuraPTLight`
+                        )}
+                    >
+                        -15% de dia 21 a 28 de Junho
+                    </p>
+                </div>
+                <NewsLetter />
+            </section>
         </section>
     );
 };

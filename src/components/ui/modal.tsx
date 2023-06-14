@@ -5,11 +5,10 @@ import { RxCross1 } from 'react-icons/rx';
 interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
-    header?: React.ReactNode;
     children: React.ReactNode;
 }
 
-export default function Modal({ header, isOpen, children, onClose }: ModalProps) {
+export default function Modal({ isOpen, children, onClose }: ModalProps) {
     return (
         <AnimatePresence initial={false}>
             {isOpen && (
@@ -41,17 +40,14 @@ export default function Modal({ header, isOpen, children, onClose }: ModalProps)
                                 closed: { translateY: '100%' },
                             }}
                             transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
-                            className="m-auto flex max-h-[90%] min-h-[30rem] w-4/5 flex-col rounded-md bg-white p-4 text-black  dark:bg-black dark:text-white "
+                            className="relative m-auto h-[50%]  w-full rounded-sm bg-white text-black dark:bg-black dark:text-white sm:w-4/5 "
                         >
-                            <div className="flex items-center justify-end">
-                                {header}
-                                <button
-                                    onClick={onClose}
-                                    className="text-black transition-colors hover:text-gray-500 dark:text-gray-100"
-                                >
-                                    <RxCross1 size={'1.75rem'} />
-                                </button>
-                            </div>
+                            <button
+                                onClick={onClose}
+                                className="absolute text-black transition-colors top-4 right-4 hover:text-gray-500 dark:text-gray-100"
+                            >
+                                <RxCross1 size={'1.75rem'} />
+                            </button>
 
                             {children}
                         </Dialog.Panel>
