@@ -57,7 +57,8 @@ interface ProductDescriptionProps {
 }
 
 const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ product }) => {
-    const { title, priceRange, description, category, id } = product;
+    const { title, priceRange, description, category, id, variants } = product;
+    const price = variants[0].price.amount;
 
     return (
         <div key={id} className="px-4 lg:px-24">
@@ -69,15 +70,15 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                     >
                         {title}
                     </h1>
-                    <div className="flex w-full justify-between">
+                    <div className="flex justify-between w-full">
                         <p
                             className={`${
                                 futuraPTLight.variable
                             } mt-4 font-futuraPTLight text-2xl font-bold text-black ${
-                                Number(priceRange.maxVariantPrice.amount) > 99 ? 'ml-[-6px]' : ''
+                                Number(price) > 99 ? 'ml-[-6px]' : ''
                             } `}
                         >
-                            {priceRange.maxVariantPrice.amount}&nbsp;
+                            {price}&nbsp;
                             {priceRange.maxVariantPrice.currencyCode}
                         </p>
                         <p
@@ -89,7 +90,7 @@ const ProductDescription: FunctionComponent<ProductDescriptionProps> = ({ produc
                 </header>
                 <hr className="border-t border-black" />
                 {/** Section to Description */}
-                <section className="my-4 py-4">
+                <section className="py-4 my-4">
                     <p className={`${futuraPTLight.variable} font-futuraPTLight text-base`}>
                         {description}
                     </p>
