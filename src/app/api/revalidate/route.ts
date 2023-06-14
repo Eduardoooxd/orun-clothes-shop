@@ -9,7 +9,7 @@ export const runtime = 'edge';
 export async function POST(): Promise<Response> {
     // We need to wait a time to ensure that the graphql API data is updated, before we can cache it again.
 
-    await timeout(5000);
+    await timeout(20000);
     revalidateTag(TAGS.products);
 
     return NextResponse.json({ status: 200, revalidated: true, now: Date.now() });
