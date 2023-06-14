@@ -14,6 +14,7 @@ export async function POST(req: NextRequest): Promise<Response> {
     const isProductUpdate = productWebhooks.includes(topic);
 
     if (!secret || secret !== process.env.SHOPIFY_REVALIDATION_SECRET) {
+        console.log(`Secret is ${secret}`);
         console.error('Invalid revalidation secret.');
         return NextResponse.json({ status: 200 });
     }
