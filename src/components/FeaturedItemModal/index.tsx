@@ -4,7 +4,6 @@ import FrontImageAdhil from '@/images/products/ADHIL/principal.webp';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { useState } from 'react';
 import { useSessionStorage } from 'usehooks-ts';
 import { NewsLetter } from '../Newsletter';
 import Modal from '../ui/modal';
@@ -12,16 +11,12 @@ import Modal from '../ui/modal';
 export default function FeatureItemModal() {
     const [featureItemShowed, setFeatureItemShowed] = useSessionStorage('featuredItemShow', false);
 
-    const [show, setShow] = useState(!featureItemShowed);
-    // TODO REFACTOR THIS
-
     return (
         <Modal
             onClose={() => {
-                setShow(false);
                 setFeatureItemShowed(true);
             }}
-            isOpen={show}
+            open={!featureItemShowed}
         >
             <FeaturedItemModal />
         </Modal>

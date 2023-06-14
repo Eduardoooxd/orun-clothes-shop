@@ -2,7 +2,7 @@
 import { commutersSans } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import CloseIcon from '../Icons/close';
 import { useStickyWarningContext } from './stickyWarningContext';
 
@@ -15,7 +15,7 @@ interface StickyWarningProps {
 export const StickyWarning = ({ children, open = true, title }: StickyWarningProps) => {
     const { isOpen, setIsOpen } = useStickyWarningContext();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         setIsOpen(open);
     }, [open, setIsOpen]);
 
@@ -41,7 +41,7 @@ export const StickyWarning = ({ children, open = true, title }: StickyWarningPro
                                 {title}
                             </h4>
                             <button
-                                className="flex h-5 w-5 items-center"
+                                className="flex items-center w-5 h-5"
                                 onClick={() => setIsOpen(false)}
                             >
                                 <CloseIcon className="h-6 transition-all ease-in-out hover:scale-110 hover:text-gray-500 dark:hover:text-gray-300" />

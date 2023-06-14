@@ -1,14 +1,22 @@
 import { Dialog } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLayoutEffect } from 'react';
 import { RxCross1 } from 'react-icons/rx';
+import { useModalContext } from './modalContext';
 
 interface ModalProps {
-    isOpen: boolean;
+    open: boolean;
     onClose: () => void;
     children: React.ReactNode;
 }
 
-export default function Modal({ isOpen, children, onClose }: ModalProps) {
+export default function Modal({ open, children, onClose }: ModalProps) {
+    const { isOpen, setIsOpen } = useModalContext();
+
+    useLayoutEffect(() => {
+        setIsOpen(open);
+    }, [open, setIsOpen]);
+
     return (
         <AnimatePresence initial={false}>
             {isOpen && (
@@ -20,7 +28,10 @@ export default function Modal({ isOpen, children, onClose }: ModalProps) {
                     key="dialog"
                     static
                     open={isOpen}
-                    onClose={onClose}
+                    onClose={() => {
+                        onClose();
+                        setIsOpen(false);
+                    }}
                     className="relative z-50"
                 >
                     <motion.div
@@ -43,7 +54,10 @@ export default function Modal({ isOpen, children, onClose }: ModalProps) {
                             className="relative m-auto h-[50%]  w-full rounded-sm bg-white text-black dark:bg-black dark:text-white sm:w-4/5 "
                         >
                             <button
-                                onClick={onClose}
+                                onClick={() => {
+                                    onClose();
+                                    setIsOpen(false);
+                                }}
                                 className="absolute text-black transition-colors top-4 right-4 hover:text-gray-500 dark:text-gray-100"
                             >
                                 <RxCross1 size={'1.75rem'} />
