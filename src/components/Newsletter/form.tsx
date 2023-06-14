@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
+import { NewsletterBody } from '@/app/api/newsletter/route';
 import { Button } from '@/components/ui/button';
 import {
     Form,
@@ -17,10 +18,15 @@ import {
 import { Input } from '@/components/ui/input';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
+import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
+import LoadingDots from '../Icons/loadingDots';
 import { Checkbox } from '../ui/checkbox';
+import { toast } from '../ui/use-toast';
 
 const dictionary = store.getState().dictionary.dictionary;
-const { invalidEmail, requireCheckboxEmail, signUpButtonText } = dictionary.newsletterValidation;
+const { invalidEmail, requireCheckboxEmail, signUpButtonText, successMessage, errorMessage } =
+    dictionary.newsletterValidation;
 
 const formSchema = z.object({
     email: z.string().email({ message: invalidEmail }),
@@ -41,8 +47,39 @@ export default function NewsletterForm() {
         },
     });
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        console.log(values);
+    const mutation = useMutation({
+        mutationFn: (body: NewsletterBody) => {
+            return axios.post(`/api/newsletter`, body);
+        },
+    });
+
+    function onSubmit(formData: z.infer<typeof formSchema>) {
+        try {
+            mutation.mutate(formData, {
+                onSuccess: () => {
+                    toast({
+                        title: successMessage.title,
+                        description: successMessage.description,
+                        variant: 'success',
+                    });
+                },
+                onError: () => {
+                    toast({
+                        title: errorMessage.title,
+                        description: errorMessage.description,
+                        variant: 'destructive',
+                    });
+                },
+            });
+        } catch (_) {
+            toast({
+                title: errorMessage.title,
+                description: errorMessage.description,
+                variant: 'destructive',
+            });
+        } finally {
+            form.reset();
+        }
     }
 
     return (
@@ -95,6 +132,7 @@ export default function NewsletterForm() {
                 />
 
                 <Button
+                    disabled={mutation.isLoading}
                     className={cn(
                         'w-full uppercase',
                         `${commutersSans.variable} font-commutersSans`
@@ -102,6 +140,7 @@ export default function NewsletterForm() {
                     type="submit"
                 >
                     {signUpButtonText}
+                    {mutation.isLoading && <LoadingDots className="bg-white dark:bg-black" />}
                 </Button>
             </form>
         </Form>
