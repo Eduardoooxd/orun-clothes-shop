@@ -3,9 +3,7 @@ import { timeout } from '@/lib/utils';
 import { revalidateTag } from 'next/cache';
 import { NextResponse } from 'next/server';
 
-export const config = {
-    runtime: 'edge',
-};
+export const runtime = 'edge';
 
 // We always need to respond with a 200 status code to Shopify,
 // otherwise it will continue to retry the request.
