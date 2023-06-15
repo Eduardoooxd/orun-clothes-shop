@@ -12,8 +12,7 @@ import { commutersSans } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
 import { User } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Dispatch, FC, FunctionComponent, SetStateAction, useEffect, useState } from 'react';
 import { RxCross1, RxHamburgerMenu } from 'react-icons/rx';
 import Search from '../Search';
@@ -198,22 +197,23 @@ export default function LocaleSwitcher() {
 
     const { locales } = i18nConfig;
     const activeLocale = useGetCurrentLocale();
+    const router = useRouter();
 
     return (
         <ul className="flex flex-row items-center gap-2">
             {locales.map((locale) => {
                 return (
                     <li key={locale}>
-                        <Link
+                        <button
+                            onClick={() => router.replace(redirectedPathName(locale))}
                             className={`${
                                 commutersSans.variable
                             } flex font-commutersSans font-extralight uppercase transition  ${
                                 activeLocale === locale ? 'underline' : 'hover:underline'
                             }`}
-                            href={redirectedPathName(locale)}
                         >
                             {locale}
-                        </Link>
+                        </button>
                     </li>
                 );
             })}
