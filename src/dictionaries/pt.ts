@@ -6,7 +6,7 @@ export const dictionary: Dictionary = {
         NAVBAR_LINKS: {
             Category: {
                 text: 'Produtos',
-                href: '/products',
+                href: '/search',
             },
             AboutUs: {
                 text: 'Sobre nós',

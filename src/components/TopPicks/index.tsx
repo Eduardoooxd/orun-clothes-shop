@@ -18,7 +18,7 @@ const TopPicks = async () => {
             <section className="my-4 w-full">
                 <Container>
                     <div className="flex">
-                        <LinkI18N href="/products">
+                        <LinkI18N href="/search">
                             <h2
                                 className={`font-futuraPTLight text-2xl font-semibold uppercase sm:text-3xl ${futuraPTLight.variable} text-left hover:underline`}
                             >
