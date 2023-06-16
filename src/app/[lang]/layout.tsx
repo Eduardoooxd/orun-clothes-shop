@@ -1,6 +1,6 @@
 import Cart from '@/components/Cart';
 import CookiesConsent from '@/components/CookiesConsent';
-import FeatureItemModal from '@/components/FeaturedItemModal';
+import { FeatureItemModalContainer } from '@/components/FeaturedItemModal';
 import Footer from '@/components/Footer';
 import { Navbar } from '@/components/Layout/Navbar';
 import { Toaster } from '@/components/ui/toaster';
@@ -69,7 +69,8 @@ export default async function PageLayout({ children, params }: PageLayoutProps) 
                             {children}
                             <Footer />
                         </main>
-                        <FeatureItemModal />
+
+                        <FeatureItemModalContainer />
                         <Toaster />
                         <CookiesConsent />
                         <Analytics />

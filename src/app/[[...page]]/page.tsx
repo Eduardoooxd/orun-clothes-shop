@@ -35,9 +35,7 @@ export default async function Page(props: PageProps) {
     return (
         <>
             <section className="relative mt-[-5rem] min-h-screen w-full overflow-x-hidden">
-                {isDevEnv() ? null : (
-                    <RenderBuilderContent content={content} model={props?.params?.page?.at(-1)} />
-                )}
+                {isDevEnv() ? null : <RenderBuilderContent content={content} model={'page'} />}
             </section>
         </>
     );

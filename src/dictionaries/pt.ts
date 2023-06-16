@@ -398,4 +398,8 @@ export const dictionary: Dictionary = {
             description: 'Por favor, tente novamente mais tarde.',
         },
     },
+    popUpContent: {
+        title: 'ORUNIZA-TE',
+        description: '-15% de dia 21 a 28 de Junho',
+    },
 };

@@ -1,4 +1,6 @@
 import Cart from '@/components/Cart';
+import CookiesConsent from '@/components/CookiesConsent';
+import { FeatureItemModalContainer } from '@/components/FeaturedItemModal';
 import Footer from '@/components/Footer';
 import { Navbar } from '@/components/Layout/Navbar';
 import { Toaster } from '@/components/ui/toaster';
@@ -17,7 +19,6 @@ import Providers from '@/store/Provider';
 import { setProducts } from '@/store/searchSlice';
 import '@/styles/globals.css';
 import { Analytics } from '@vercel/analytics/react';
-
 export const metadata = {
     title: {
         default: siteConfig.name,
@@ -68,7 +69,9 @@ export default async function PageLayout({ children, params }: PageLayoutProps) 
                             {children}
                             <Footer />
                         </main>
+                        <FeatureItemModalContainer />
                         <Toaster />
+                        <CookiesConsent />
                         <Analytics />
                     </body>
                 </BodyConfiguration>

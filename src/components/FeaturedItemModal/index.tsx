@@ -1,29 +1,60 @@
 'use client';
 
+import { BUILDER_IO_API_KEY } from '@/config/builderIO';
 import FrontImageAdhil from '@/images/products/ADHIL/principal.webp';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
+import { store } from '@/store';
+import builder from '@builder.io/react';
 import Image from 'next/image';
 import { useSessionStorage } from 'usehooks-ts';
 import { NewsLetter } from '../Newsletter';
 import Modal from '../ui/modal';
 
-export default function FeatureItemModal() {
+builder.init(BUILDER_IO_API_KEY);
+
+export function FeatureItemModalContainer() {
+    // @ts-expect-error
+    return <FeatureItemModal />;
+}
+
+interface FeatureItemModalProps {
+    toShow?: boolean;
+}
+
+export async function FeatureItemModal({ toShow = true }: FeatureItemModalProps) {
     const [featureItemShowed, setFeatureItemShowed] = useSessionStorage('featuredItemShow', false);
+
+    {
+        /* 
+    const POP_UP_MODEL = 'pop-up';
+
+    const POP_UP_CONTENT = await builder
+        .get(POP_UP_MODEL, {
+            prerender: false,
+        })
+        .toPromise();
+
+        */
+    }
 
     return (
         <Modal
             onClose={() => {
-                setFeatureItemShowed(true);
+                setFeatureItemShowed(!setFeatureItemShowed);
             }}
             open={!featureItemShowed}
         >
             <FeaturedItemModal />
+            {/*<RenderBuilderContent model={POP_UP_MODEL} content={POP_UP_CONTENT} /> */}
         </Modal>
     );
 }
 
 const FeaturedItemModal = () => {
+    const dictionary = store.getState().dictionary.dictionary;
+    const { title, description } = dictionary.popUpContent;
+
     return (
         <section className={cn('flex h-full flex-1 justify-between')}>
             <div className={cn('relative w-1/2')}>
@@ -45,7 +76,7 @@ const FeaturedItemModal = () => {
                             `${commutersSans.variable} font-commutersSans`
                         )}
                     >
-                        ORUNIZA-TE
+                        {title}
                     </h3>
                     <p
                         className={cn(
@@ -53,7 +84,7 @@ const FeaturedItemModal = () => {
                             `${futuraPTLight.variable}  font-futuraPTLight`
                         )}
                     >
-                        -15% de dia 21 a 28 de Junho
+                        {description}
                     </p>
                 </div>
                 <NewsLetter />

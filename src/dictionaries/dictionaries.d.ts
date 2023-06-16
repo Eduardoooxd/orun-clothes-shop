@@ -209,6 +209,11 @@ export interface NewsLetterValidation {
     errorMessage: ToastMessageContent;
 }
 
+export interface PopUpContent {
+    title: string;
+    description: string;
+}
+
 export interface Dictionary {
     language: string;
     navBar: NavBar;
@@ -230,4 +235,5 @@ export interface Dictionary {
     searchPageContent: SearchPageContent;
     cookiesSettingContent: CookiesSettingContent;
     newsletterValidation: NewsLetterValidation;
+    popUpContent: PopUpContent;
 }
