@@ -409,6 +409,6 @@ export const dictionary: Dictionary = {
     },
     newsletterFooter: {
         calloutText: 'Stay in the loop',
-        learnMoreText: 'Learn more',
+        learnMoreText: 'Subscreve a nossa newsletter',
     },
 };

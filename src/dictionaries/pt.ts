@@ -408,6 +408,6 @@ export const dictionary: Dictionary = {
     },
     newsletterFooter: {
         calloutText: 'Fica connosco',
-        learnMoreText: 'Aprenda mais',
+        learnMoreText: 'Subscreve a nossa newsletter',
     },
 };
