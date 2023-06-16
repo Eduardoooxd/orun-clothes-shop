@@ -391,8 +391,8 @@ export const dictionary: Dictionary = {
         signUpCallout: 'Subscribe to our newsletter for updates and early access to new products.',
         signUpButtonText: 'Subscribe',
         successMessage: {
-            title: 'Successfully subscribed',
-            description: 'Thank you for subscribing to our newsletter!',
+            title: 'Thank you for subscribing!',
+            description: 'Here is your discount code: <b>ORUN-15<b/>',
         },
         errorMessage: {
             title: 'Error subscribing to newsletter',

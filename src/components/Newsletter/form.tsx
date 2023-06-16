@@ -59,8 +59,11 @@ export default function NewsletterForm() {
                 onSuccess: () => {
                     toast({
                         title: successMessage.title,
-                        description: successMessage.description,
+                        description: (
+                            <p dangerouslySetInnerHTML={{ __html: successMessage.description }} />
+                        ),
                         variant: 'success',
+                        duration: 60000,
                     });
                 },
                 onError: () => {
@@ -115,7 +118,7 @@ export default function NewsletterForm() {
                     control={form.control}
                     name="agreeMarketing"
                     render={({ field }) => (
-                        <FormItem className="flex flex-row items-center space-x-3 space-y-0 text-justify rounded-md">
+                        <FormItem className="flex flex-row items-center space-x-3 space-y-0 rounded-md text-justify">
                             <FormControl>
                                 <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                             </FormControl>

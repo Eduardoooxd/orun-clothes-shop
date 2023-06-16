@@ -390,11 +390,11 @@ export const dictionary: Dictionary = {
             'Subscreva a nossa newsletter para obter atualizações e acesso antecipado a novos produtos.',
         signUpButtonText: 'Subscrever',
         successMessage: {
-            title: 'Subscrição efetuada com sucesso',
-            description: 'Obrigado por subscrever a nossa newsletter!',
+            title: 'Obrigado por subscreveres!',
+            description: 'Utiliza o teu código de desconto: <b>ORUN-15<b/>',
         },
         errorMessage: {
-            title: 'Erro ao subscrever a newsletter',
+            title: 'Erro ao subscreveres a newsletter',
             description: 'Por favor, tente novamente mais tarde.',
         },
     },
