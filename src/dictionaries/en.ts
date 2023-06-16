@@ -409,6 +409,6 @@ export const dictionary: Dictionary = {
     },
     newsletterFooter: {
         calloutText: 'ORUNIZA-TE',
-        learnMoreText: 'Subscreve a nossa newsletter',
+        learnMoreText: 'Subscribe to our newsletter',
     },
 };
