@@ -96,7 +96,6 @@ export const Navbar: FC<NavbarProps> = ({ cart }) => {
                         <div className="grid aspect-square w-12 place-items-center">
                             {<Search />}
                         </div>
-                        <div className="grid aspect-square w-12 place-items-center">{<User />}</div>
                         <div className="grid aspect-square w-12 place-items-center">{cart}</div>
 
                         <LocaleSwitcher />
@@ -151,7 +150,6 @@ const MobileNavBarMenuOpen: FunctionComponent<MobileNavBarMenuOpenProps> = ({
                         {<Search setIsMobileMenuOpen={setIsMobileMenuOpen} />}
                     </div>
 
-                    <div className="grid aspect-square w-12 place-items-center">{<User />}</div>
                     <div className="grid aspect-square w-12 place-items-center">{cart}</div>
                 </div>
             </div>
