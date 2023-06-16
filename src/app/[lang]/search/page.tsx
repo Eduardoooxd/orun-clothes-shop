@@ -2,8 +2,10 @@ import Grid from '@/components/Grid';
 import ProductPreview from '@/components/ProductPreview';
 import { Locale } from '@/config/i18nConfig';
 import { defaultSort, sorting } from '@/config/shopifyConfig';
+import { commutersSans } from '@/lib/fontLoader';
 import { getShopifyProducts } from '@/lib/shopify';
 import { convertToShopifyLanguage } from '@/lib/shopify/converters';
+import { cn } from '@/lib/utils';
 import { store } from '@/store';
 
 interface SearchPageProps {
@@ -15,6 +17,8 @@ interface SearchPageProps {
     };
 }
 
+export const dynamic = 'force-dynamic';
+
 export default async function SearchPage({ params, searchParams }: SearchPageProps) {
     const { lang } = params;
 
@@ -22,13 +26,14 @@ export default async function SearchPage({ params, searchParams }: SearchPagePro
     const { multipleResultsText, singleResultText, noResultsText, forText, showingText } =
         dictionary.searchPageContent;
 
-    const { sort, query: searchValue } = searchParams as { [key: string]: string };
+    const { sort, query: searchValue, category } = searchParams as { [key: string]: string };
     const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
 
     const products = await getShopifyProducts({
         language: convertToShopifyLanguage(lang),
         sortKey,
         reverse,
+        category,
         query: searchValue,
     });
 
@@ -37,7 +42,7 @@ export default async function SearchPage({ params, searchParams }: SearchPagePro
     return (
         <>
             {searchValue ? (
-                <p>
+                <p className={cn('mt-5', `${commutersSans.variable}  font-commutersSans`)}>
                     {products.length === 0
                         ? noResultsText
                         : `${showingText} ${products.length} ${resultsText}`}

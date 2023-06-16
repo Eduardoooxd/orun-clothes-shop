@@ -99,11 +99,13 @@ export async function getShopifyProducts({
     query,
     reverse,
     sortKey,
+    category,
     language = DEFAULT_SHOPIFY_LANGUAGE,
 }: {
     query?: string;
     reverse?: boolean;
     sortKey?: string;
+    category?: string;
     language?: ShopifySupportedLanguages;
 }): Promise<Product[]> {
     const res = await shopifyFetch<ShopifyProductsOperation>({
@@ -116,7 +118,15 @@ export async function getShopifyProducts({
         },
     });
 
-    return reshapeProducts(removeEdgesAndNodes(res.body.data.products));
+    const products = reshapeProducts(removeEdgesAndNodes(res.body.data.products));
+
+    if (category) {
+        return products.filter(
+            (product) => product.category.toLowerCase() === category.toLowerCase()
+        );
+    }
+
+    return products;
 }
 
 export async function getShopifyProduct({
