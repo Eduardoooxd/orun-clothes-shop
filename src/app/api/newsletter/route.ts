@@ -11,7 +11,7 @@ mailchimp.setConfig({
 
 const LIST_ID = mailChimpEnv.MAILCHIMP_LIST_ID;
 
-const newsletterBodySchema = z.object({
+export const newsletterBodySchema = z.object({
     email: z.string().email(),
     agreeMarketing: z.boolean().refine((data) => data === true),
     firstName: z.string().min(2).max(100).optional(),

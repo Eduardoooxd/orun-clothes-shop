@@ -3,6 +3,7 @@ import CookiesConsent from '@/components/CookiesConsent';
 import { FeatureItemModalContainer } from '@/components/FeaturedItemModal';
 import Footer from '@/components/Footer';
 import { Navbar } from '@/components/Layout/Navbar';
+import { NewsletterFooter } from '@/components/Newsletter/footer';
 import { Toaster } from '@/components/ui/toaster';
 import BodyConfiguration from '@/config/bodyConfiguration';
 import { GoogleAnalyticsScripts } from '@/config/googleAnalyticsConfig';
@@ -67,6 +68,7 @@ export default async function PageLayout({ children, params }: PageLayoutProps) 
                             {/* @ts-expect-error */}
                             <Navbar cart={<Cart />} />
                             {children}
+                            <NewsletterFooter />
                             <Footer />
                         </main>
 

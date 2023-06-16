@@ -398,9 +398,17 @@ export const dictionary: Dictionary = {
             title: 'Error subscribing to newsletter',
             description: 'Please try again later.',
         },
+        firstNamePlaceholder: 'First name',
+        invalidFirstName: 'Please enter a valid first name.',
+        lastNamePlaceholder: 'Last Name',
+        invalidLastName: 'Please enter a valid last name.',
     },
     popUpContent: {
         title: 'ORUNIZA-TE',
         description: '-15% from 21 to 28 June',
+    },
+    newsletterFooter: {
+        calloutText: 'Stay in the loop',
+        learnMoreText: 'Learn more',
     },
 };

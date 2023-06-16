@@ -207,6 +207,15 @@ export interface NewsLetterValidation {
     signUpButtonText: string;
     successMessage: ToastMessageContent;
     errorMessage: ToastMessageContent;
+    firstNamePlaceholder: string;
+    invalidFirstName: string;
+    lastNamePlaceholder: string;
+    invalidLastName: string;
+}
+
+export interface NewsletterFooter {
+    calloutText: string;
+    learnMoreText: string;
 }
 
 export interface PopUpContent {
@@ -236,4 +245,5 @@ export interface Dictionary {
     cookiesSettingContent: CookiesSettingContent;
     newsletterValidation: NewsLetterValidation;
     popUpContent: PopUpContent;
+    newsletterFooter: NewsletterFooter;
 }

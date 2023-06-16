@@ -397,9 +397,17 @@ export const dictionary: Dictionary = {
             title: 'Erro ao subscreveres a newsletter',
             description: 'Por favor, tente novamente mais tarde.',
         },
+        firstNamePlaceholder: 'Primeiro nome',
+        invalidFirstName: 'Por favor, insira um primeiro nome válido.',
+        lastNamePlaceholder: 'Último nome',
+        invalidLastName: 'Por favor, insira um último nome válido.',
     },
     popUpContent: {
         title: 'ORUNIZA-TE',
         description: '-15% de dia 21 a 28 de Junho',
+    },
+    newsletterFooter: {
+        calloutText: 'Fica connosco',
+        learnMoreText: 'Aprenda mais',
     },
 };

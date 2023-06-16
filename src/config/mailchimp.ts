@@ -7,9 +7,9 @@ const envSchema = z.object({
 });
 
 const envVars = {
-    MAILCHIMP_API_KEY: process.env.MAILCHIMP_API_KEY,
-    MAILCHIMP_SERVER_PREFIX: process.env.MAILCHIMP_SERVER_PREFIX,
-    MAILCHIMP_LIST_ID: process.env.MAILCHIMP_LIST_ID,
+    MAILCHIMP_API_KEY: `${process.env.MAILCHIMP_API_KEY}`,
+    MAILCHIMP_SERVER_PREFIX: `${process.env.MAILCHIMP_SERVER_PREFIX}`,
+    MAILCHIMP_LIST_ID: `${process.env.MAILCHIMP_LIST_ID}`,
 };
 
 export const mailChimpEnv = envSchema.parse(envVars);

@@ -65,6 +65,7 @@ export default function NewsletterForm() {
                         variant: 'success',
                         duration: 60000,
                     });
+                    form.reset();
                 },
                 onError: () => {
                     toast({
@@ -80,8 +81,6 @@ export default function NewsletterForm() {
                 description: errorMessage.description,
                 variant: 'destructive',
             });
-        } finally {
-            form.reset();
         }
     }
 
