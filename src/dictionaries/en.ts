@@ -408,7 +408,7 @@ export const dictionary: Dictionary = {
         description: '-15% from 21 to 28 June',
     },
     newsletterFooter: {
-        calloutText: 'Stay in the loop',
+        calloutText: 'ORUNIZA-TE',
         learnMoreText: 'Subscreve a nossa newsletter',
     },
 };

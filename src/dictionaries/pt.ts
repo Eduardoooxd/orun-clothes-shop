@@ -407,7 +407,7 @@ export const dictionary: Dictionary = {
         description: '-15% de dia 21 a 28 de Junho',
     },
     newsletterFooter: {
-        calloutText: 'Fica connosco',
+        calloutText: 'ORUNIZA-TE',
         learnMoreText: 'Subscreve a nossa newsletter',
     },
 };
