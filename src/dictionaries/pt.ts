@@ -167,12 +167,10 @@ export const dictionary: Dictionary = {
     aboutUsPage: {
         title: 'Orun',
         text: [
-            'Desenhei roupa que queria vestir e que não encontrava à venda - basicamente foi isso. A partir daí, reactivei e pacifiquei o meu gosto pela imagem dando oportunidade à veia da criatividade de se expressar, agora de forma madura. Pretendo descomplexar e sensualizar a imagem masculina trabalhando com tecidos e cortes fluídos que conferem suavidade, movimento e sensibilidade.',
-            'Há um processo pessoal que acompanha o nascimento da Orun: é como se fosse o culminar de uma fase em que guardei para mim, e só para mim, a liberdade criativa que no meu caso ocupa múltiplas formas. A noção de harmonia, o gosto pelo belo, e a vontade de criar típica de um libriano, fez com que desenhasse uma marca-conceito para um homem que rompe com uma imagem fechada de masculinidade e se entrega ao carácter, à ousadia e à libertação de conceitos pré-definidos.',
-            'Despertar a sensualidade masculina. Com um quê de sagrado, outro de profano. Sendo a indústria têxtil a que mais contribui para a poluição, tomei como urgente a necessidade de utilização de recursos que são desperdício industrial do setor têxtil, apoiando-me numa ideologia na sustentabilidade e reaproveitamento.',
-            'Crio peças intemporais inseridas na definição de Slow Fashion, com produção em pequena escala e livre da volatilidade das tendências de mercado. Trabalho de forma livre: sem colecções sazonais, defendendo a qualidade dos materiais, o design, a exclusividade, a produção local e artesanal, escolhendo matérias primas que garantam maior durabilidade.',
-            'Inspira-me o céu e o vento. A terra, o fogo e a água. Inspira-me o que é  divino. Inspira-me quem se libertou.',
-            'Orun.',
+            'Orunizar: vestir peças intemporais inseridas na definição de Slow Fashion, com produção em pequena escala e livre da volatilidade das tendências de mercado.',
+            'Sem colecções sazonais, defendendo a qualidade dos materiais, o design, a exclusividade, a produção local e artesanal, escolher matérias primas que garantam maior durabilidade é o que move a Orun.',
+            'Inspira-me o céu e o vento, a terra, o fogo e a água. Inspiram-me a liberdade e quem se libertou e poder traduzir tudo isso numa peça de roupa tem sido dar matéria à criatividade que está por trás deste projeto.',
+            'Orun. Que significa céu.',
             'Tiago Bastos.',
         ],
     },
