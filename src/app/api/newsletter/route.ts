@@ -11,14 +11,14 @@ mailchimp.setConfig({
 
 const LIST_ID = mailChimpEnv.MAILCHIMP_LIST_ID;
 
-export const newsletterBodySchema = z.object({
+const newsletterBodySchema = z.object({
     email: z.string().email(),
     agreeMarketing: z.boolean().refine((data) => data === true),
     firstName: z.string().min(2).max(100).optional(),
     lastName: z.string().min(2).max(100).optional(),
 });
 
-export type NewsletterBody = z.infer<typeof newsletterBodySchema>;
+type NewsletterBody = z.infer<typeof newsletterBodySchema>;
 
 export async function POST(request: Request): Promise<Response> {
     const body = await request.json();

@@ -5,7 +5,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
-import { NewsletterBody } from '@/app/api/newsletter/route';
 import { Button } from '@/components/ui/button';
 import {
     Form,
@@ -37,6 +36,8 @@ const formSchema = z.object({
         })
         .refine((data) => data === true, { message: requireCheckboxEmail }),
 });
+
+type NewsletterBody = z.infer<typeof formSchema>;
 
 export default function NewsletterForm() {
     const form = useForm<z.infer<typeof formSchema>>({
