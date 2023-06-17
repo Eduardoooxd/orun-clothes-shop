@@ -212,9 +212,12 @@ export async function updateCart(
     return reshapeCart(res.body.data.cartLinesUpdate.cart);
 }
 
-export async function getCart(cartId: string): Promise<Cart | null> {
+export async function getCart(
+    cartId: string,
+    language = DEFAULT_SHOPIFY_LANGUAGE
+): Promise<Cart | null> {
     const res = await shopifyFetch<ShopifyCartOperation>({
-        query: getCartQuery,
+        query: getCartQuery(language),
         variables: { cartId },
         cache: 'no-store',
     });

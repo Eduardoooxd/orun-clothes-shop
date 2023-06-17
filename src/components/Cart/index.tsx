@@ -1,4 +1,6 @@
 import { createCart, getCart } from '@/lib/shopify';
+import { convertToShopifyLanguage } from '@/lib/shopify/converters';
+import { store } from '@/store';
 import { cookies } from 'next/headers';
 import CartButton from './cardButton';
 
@@ -7,8 +9,10 @@ export default async function Cart() {
     let cartIdUpdated = false;
     let cart;
 
+    const dictionary = store.getState().dictionary.dictionary;
+
     if (cartId) {
-        cart = await getCart(cartId);
+        cart = await getCart(cartId, convertToShopifyLanguage(dictionary.language));
     }
 
     // If the `cartId` from the cookie is not set or the cart is empty
