@@ -7,9 +7,9 @@ import {
     SelectTrigger,
     SelectValue,
 } from '@/components/ui/select';
+import useGetDictionary from '@/hooks/useGetDictionary';
 import { futuraPTLight } from '@/lib/fontLoader';
 import { Product, ProductVariant } from '@/lib/shopify/types';
-import { store } from '@/store';
 import { useState } from 'react';
 import { AddToCart } from './addToCart';
 
@@ -29,7 +29,7 @@ interface VariantSelectorProps {
 }
 
 export function VariantSelector({ product, ...props }: VariantSelectorProps) {
-    const dictionary = store.getState().dictionary.dictionary;
+    const dictionary = useGetDictionary();
     const { colorText, chooseColorText } = dictionary.productPage.colorContent;
     const { sizeText, chooseSizeText } = dictionary.productPage.sizeContent;
 

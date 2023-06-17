@@ -1,8 +1,8 @@
 'use client';
 
+import useGetDictionary from '@/hooks/useGetDictionary';
 import { futuraPTLight } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
-import { store } from '@/store';
 import { useLocalStorage } from 'usehooks-ts';
 import { Button } from '../ui/button';
 import { StickyWarning } from '../ui/stickyWarning';
@@ -11,7 +11,7 @@ import { useStickyWarningContext } from '../ui/stickyWarningContext';
 export default function CookiesConsent() {
     const [cookiesConsent, setCookiesConsent] = useLocalStorage('cookiesConsent', false);
 
-    const dictionary = store.getState().dictionary.dictionary;
+    const dictionary = useGetDictionary();
     const { title, description, acceptAllCookiesText } = dictionary.cookiesSettingContent;
     const { setIsOpen } = useStickyWarningContext();
 

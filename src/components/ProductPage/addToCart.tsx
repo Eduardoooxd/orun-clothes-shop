@@ -1,9 +1,9 @@
 'use client';
 
+import useGetDictionary from '@/hooks/useGetDictionary';
 import { futuraPTLight } from '@/lib/fontLoader';
 import { ProductVariant } from '@/lib/shopify/types';
 import { cn } from '@/lib/utils';
-import { store } from '@/store';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -32,7 +32,7 @@ export function AddToCart({ selectedVariant }: AddToCartProps) {
     const isDisabled = !selectedVariant || isMutating;
     const isForSale = selectedVariant && selectedVariant.availableForSale;
 
-    const dictionary = store.getState().dictionary.dictionary;
+    const dictionary = useGetDictionary();
     const { successMessage, errorMessage } = dictionary.productPage;
     const { addToBagText, selectOptionText, disabledProductText } =
         dictionary.productPage.addToCartContent;

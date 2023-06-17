@@ -3,9 +3,9 @@
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import useGetDictionary from '@/hooks/useGetDictionary';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
-import { store } from '@/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
@@ -16,41 +16,40 @@ import LoadingDots from '../Icons/loadingDots';
 import Separator from '../Separator';
 import { toast } from '../ui/use-toast';
 
-const dictionary = store.getState().dictionary.dictionary;
-const {
-    lastNamePlaceholder,
-    firstNamePlaceholder,
-    signUpButtonText,
-    successMessage,
-    errorMessage,
-    invalidEmail,
-    requireCheckboxEmail,
-    invalidFirstName,
-    invalidLastName,
-} = dictionary.newsletterValidation;
-
-type NewsletterBody = z.infer<typeof newsletterBodySchema>;
-
-const newsletterBodySchema = z.object({
-    email: z.string().email({ message: invalidEmail }),
-    agreeMarketing: z
-        .boolean({
-            required_error: requireCheckboxEmail,
-            invalid_type_error: requireCheckboxEmail,
-        })
-        .refine((data) => data === true, { message: requireCheckboxEmail }),
-    firstName: z
-        .string()
-        .min(2, { message: invalidFirstName })
-        .max(100, { message: invalidFirstName }),
-    lastName: z
-        .string()
-        .min(2, { message: invalidLastName })
-        .max(100, { message: invalidLastName }),
-});
-
 export function NewsletterFooter() {
+    const dictionary = useGetDictionary();
+
+    const {
+        lastNamePlaceholder,
+        firstNamePlaceholder,
+        signUpButtonText,
+        successMessage,
+        errorMessage,
+        invalidEmail,
+        requireCheckboxEmail,
+        invalidFirstName,
+        invalidLastName,
+    } = dictionary.newsletterValidation;
+
     const { calloutText, learnMoreText } = dictionary.newsletterFooter;
+
+    const newsletterBodySchema = z.object({
+        email: z.string().email({ message: invalidEmail }),
+        agreeMarketing: z
+            .boolean({
+                required_error: requireCheckboxEmail,
+                invalid_type_error: requireCheckboxEmail,
+            })
+            .refine((data) => data === true, { message: requireCheckboxEmail }),
+        firstName: z
+            .string()
+            .min(2, { message: invalidFirstName })
+            .max(100, { message: invalidFirstName }),
+        lastName: z
+            .string()
+            .min(2, { message: invalidLastName })
+            .max(100, { message: invalidLastName }),
+    });
 
     const form = useForm<z.infer<typeof newsletterBodySchema>>({
         resolver: zodResolver(newsletterBodySchema),
@@ -61,6 +60,8 @@ export function NewsletterFooter() {
             lastName: '',
         },
     });
+
+    type NewsletterBody = z.infer<typeof newsletterBodySchema>;
 
     const mutation = useMutation({
         mutationFn: (body: NewsletterBody) => {

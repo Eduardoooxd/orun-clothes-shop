@@ -1,6 +1,5 @@
 'use client';
 
-import { store } from '@/store';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
@@ -15,6 +14,7 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import useGetDictionary from '@/hooks/useGetDictionary';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
 import { useMutation } from '@tanstack/react-query';
@@ -23,23 +23,23 @@ import LoadingDots from '../Icons/loadingDots';
 import { Checkbox } from '../ui/checkbox';
 import { toast } from '../ui/use-toast';
 
-const dictionary = store.getState().dictionary.dictionary;
-const { invalidEmail, requireCheckboxEmail, signUpButtonText, successMessage, errorMessage } =
-    dictionary.newsletterValidation;
-
-const formSchema = z.object({
-    email: z.string().email({ message: invalidEmail }),
-    agreeMarketing: z
-        .boolean({
-            required_error: requireCheckboxEmail,
-            invalid_type_error: requireCheckboxEmail,
-        })
-        .refine((data) => data === true, { message: requireCheckboxEmail }),
-});
-
-type NewsletterBody = z.infer<typeof formSchema>;
-
 export default function NewsletterForm() {
+    const dictionary = useGetDictionary();
+    const { invalidEmail, requireCheckboxEmail, signUpButtonText, successMessage, errorMessage } =
+        dictionary.newsletterValidation;
+
+    const formSchema = z.object({
+        email: z.string().email({ message: invalidEmail }),
+        agreeMarketing: z
+            .boolean({
+                required_error: requireCheckboxEmail,
+                invalid_type_error: requireCheckboxEmail,
+            })
+            .refine((data) => data === true, { message: requireCheckboxEmail }),
+    });
+
+    type NewsletterBody = z.infer<typeof formSchema>;
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {

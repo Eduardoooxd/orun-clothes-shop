@@ -1,12 +1,13 @@
+'use client';
 import { Dialog } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 
 import { DEFAULT_OPTION } from '@/config/constants';
+import useGetDictionary from '@/hooks/useGetDictionary';
 import { futuraPTLight } from '@/lib/fontLoader';
 import { Cart } from '@/lib/shopify/types';
 import { cn, createUrl } from '@/lib/utils';
-import { store } from '@/store';
 import { RxCross1 } from 'react-icons/rx';
 import LinkI18N from '../Shared/I18N/LinkI18N';
 import Price from '../Text/price';
@@ -26,7 +27,7 @@ export default function CartModal({
     onClose: () => void;
     cart: Cart;
 }) {
-    const dictionary = store.getState().dictionary.dictionary;
+    const dictionary = useGetDictionary();
     const { title, emptyCartText, checkoutText } = dictionary.cartModalContent;
 
     return (

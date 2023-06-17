@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 
-import { store } from '@/store';
+import useGetDictionary from '@/hooks/useGetDictionary';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import LoadingDots from '../Icons/loadingDots';
@@ -19,7 +19,7 @@ interface EditItemQuantityButtonProps {
 }
 
 export default function EditItemQuantityButton({ item, type }: EditItemQuantityButtonProps) {
-    const dictionary = store.getState().dictionary.dictionary;
+    const dictionary = useGetDictionary();
     const { successMessage, errorMessage, increaseMessage, decreaseMessage } =
         dictionary.editItemQuantityForm;
 

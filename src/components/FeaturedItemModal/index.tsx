@@ -1,10 +1,10 @@
 'use client';
 
 import { BUILDER_IO_API_KEY } from '@/config/builderIO';
+import useGetDictionary from '@/hooks/useGetDictionary';
 import FrontImageAdhil from '@/images/products/ADHIL/principal.webp';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
-import { store } from '@/store';
 import builder from '@builder.io/react';
 import Image from 'next/image';
 import { useSessionStorage } from 'usehooks-ts';
@@ -52,7 +52,7 @@ export async function FeatureItemModal({ toShow = true }: FeatureItemModalProps)
 }
 
 const FeaturedItemModal = () => {
-    const dictionary = store.getState().dictionary.dictionary;
+    const dictionary = useGetDictionary();
     const { title, description } = dictionary.popUpContent;
 
     return (

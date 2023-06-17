@@ -1,9 +1,9 @@
 'use client';
 
 import useGetCurrentLocale from '@/hooks/useGetCurrentLocale';
+import useGetDictionary from '@/hooks/useGetDictionary';
 import { commutersSans } from '@/lib/fontLoader';
 import { cn, createUrl, redirectedWithLocale } from '@/lib/utils';
-import { store } from '@/store';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Dispatch, SetStateAction } from 'react';
 
@@ -13,7 +13,7 @@ interface SearchProps {
 }
 
 export function SearchBar({ setIsMobileMenuOpen, className }: SearchProps) {
-    const dictionary = store.getState().dictionary.dictionary;
+    const dictionary = useGetDictionary();
     const { searchProductsText } = dictionary.searchTooltipContent;
 
     const router = useRouter();

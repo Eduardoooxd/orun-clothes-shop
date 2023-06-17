@@ -1,9 +1,9 @@
 'use client';
 
+import useGetDictionary from '@/hooks/useGetDictionary';
 import { convertCartLineIdToId } from '@/lib/shopify/converters';
 import { CartItem } from '@/lib/shopify/types';
 import { cn } from '@/lib/utils';
-import { store } from '@/store';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -17,7 +17,7 @@ interface DeleteItemButtonProps {
 }
 
 export default function DeleteItemButton({ item }: DeleteItemButtonProps) {
-    const dictionary = store.getState().dictionary.dictionary;
+    const dictionary = useGetDictionary();
     const { successMessage, errorMessage, deleteMessage } = dictionary.deleteItemForm;
 
     const router = useRouter();
