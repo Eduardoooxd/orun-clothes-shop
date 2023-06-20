@@ -2,7 +2,7 @@
 
 import { BUILDER_IO_API_KEY } from '@/config/builderIO';
 import useGetDictionary from '@/hooks/useGetDictionary';
-import FrontImageAdhil from '@/images/products/ADHIL/principal.webp';
+import PopUpImage from '@/images/popup/popup-image.webp';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
 import builder from '@builder.io/react';
@@ -59,11 +59,11 @@ const FeaturedItemModal = () => {
         <section className={cn('flex h-full flex-1 justify-between')}>
             <div className={cn('relative w-1/2')}>
                 <Image
-                    src={FrontImageAdhil}
-                    alt={'Product Image'}
+                    src={PopUpImage}
+                    alt={'ORUN Values'}
                     fill
-                    sizes="(max-width: 768px) 50vw"
-                    style={{ objectFit: 'cover' }}
+                    sizes="100vw (max-width: 768px) 50vw"
+                    style={{ objectFit: 'cover', objectPosition: 'right' }}
                 />
             </div>
             <section
