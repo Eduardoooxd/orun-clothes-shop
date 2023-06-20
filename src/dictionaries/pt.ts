@@ -405,7 +405,7 @@ export const dictionary: Dictionary = {
     },
     popUpContent: {
         title: 'ORUNIZA-TE',
-        description: '-15% de dia 21 a 28 de Junho',
+        description: '-15% de dia 22 a 28 de Junho',
     },
     newsletterFooter: {
         calloutText: 'ORUNIZA-TE',

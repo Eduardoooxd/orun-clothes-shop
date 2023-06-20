@@ -406,7 +406,7 @@ export const dictionary: Dictionary = {
     },
     popUpContent: {
         title: 'ORUNIZA-TE',
-        description: '-15% from 21 to 28 June',
+        description: '-15% from 22 to 28 June',
     },
     newsletterFooter: {
         calloutText: 'ORUNIZA-TE',
