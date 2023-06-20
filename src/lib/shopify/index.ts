@@ -43,12 +43,16 @@ async function shopifyFetch<T>({
     variables,
     headers,
     tags,
+    toRevalidate = false,
+    revalidate,
     cache = 'force-cache',
 }: {
     query: string;
     variables?: ExtractVariables<T>;
     headers?: HeadersInit;
     tags?: string[];
+    toRevalidate?: boolean;
+    revalidate?: number;
     cache?: RequestCache;
 }): Promise<{ status: number; body: T } | never> {
     if (!endpoint || !key) throw new Error('Missing Shopify credentials.');
@@ -67,6 +71,7 @@ async function shopifyFetch<T>({
             }),
             cache,
             ...(tags && { next: { tags } }),
+            ...(toRevalidate && { next: { revalidate } }),
         });
 
         const body = await result.json();
@@ -111,6 +116,8 @@ export async function getShopifyProducts({
     const res = await shopifyFetch<ShopifyProductsOperation>({
         query: getProductsQuery(language),
         tags: [TAGS.products],
+        toRevalidate: true,
+        revalidate: 60 * 15,
         variables: {
             query,
             reverse,
@@ -139,6 +146,8 @@ export async function getShopifyProduct({
     const res = await shopifyFetch<ShopifyProductOperation>({
         query: getProductQuery(language),
         tags: [TAGS.products],
+        toRevalidate: true,
+        revalidate: 60 * 15,
         variables: {
             handle,
         },

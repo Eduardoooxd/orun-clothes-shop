@@ -41,7 +41,7 @@ export async function FeatureItemModal({ toShow = true }: FeatureItemModalProps)
     return (
         <Modal
             onClose={() => {
-                setFeatureItemShowed(!setFeatureItemShowed);
+                //setFeatureItemShowed(true);
             }}
             open={!featureItemShowed}
         >
