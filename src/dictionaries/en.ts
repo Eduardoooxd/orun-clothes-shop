@@ -72,9 +72,9 @@ export const dictionary: Dictionary = {
             disabledProductText: 'Sold out',
         },
         contactForm: {
-            mailSubject: 'I\'m interested in buying "${title}"',
+            mailSubject: 'Stock availability for "${title}"',
             mailBody:
-                "Hello,%0D%0A%0D%0A%20%20%20%20I'm interested in purchasing the following product:%0D%0A%20%20%20%20${title} with size (if applicable) [Insert Size].%0D%0A%0D%0A%20%20%20%20Shipping details:%0D%0A------------------%0D%0A%0D%0A%20%20%20%20 Mobile: [Insert phone contact]%0D%0A %20%20%20%20 Address : [Insert Address]%0D%0A%20%20%20%20 NIF (Optional) : [Insert NIF] %0D%0A%0D%0AProduct Details:%0D%0A------------------%0D%0A%20%20%20%20Product: ${title}%0D%0A%20%20%20%20Price: ${price} euros%0D%0A%0D%0A%0D%0A%0D%0AThank you!",
+                "Hello,%0D%0A%0D%0A%20%20%20%20I'm interested in purchasing the following product ${title} whenever there are available stock. %0D%0A%20%20%20%20${title} with size (if applicable) [Insert Size].%0D%0A%0D%0A%20%20%20%20Shipping details:%0D%0A------------------%0D%0A%0D%0A%20%20%20%20 Mobile: [Insert phone contact]%0D%0A %20%20%20%20 Address : [Insert Address]%0D%0A%20%20%20%20 NIF (Optional) : [Insert NIF] %0D%0A%0D%0AProduct Details:%0D%0A------------------%0D%0A%20%20%20%20Product: ${title}%0D%0A%20%20%20%20Price: ${price} euros%0D%0A%0D%0A%0D%0A%0D%0AThank you!",
         },
         successMessage: {
             title: 'Added product to the bag !',
@@ -84,6 +84,7 @@ export const dictionary: Dictionary = {
             title: 'Error adding the product to the bag !',
             description: 'Please, try again later.',
         },
+        contactUsItemAvailableText: 'Contact to know stock availability',
     },
     footer: {
         ABOUT_LINKS: [

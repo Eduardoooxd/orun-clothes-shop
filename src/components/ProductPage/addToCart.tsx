@@ -11,6 +11,35 @@ import { useTransition } from 'react';
 import LoadingDots from '../Icons/loadingDots';
 import { useToast } from '../ui/use-toast';
 
+interface ProductContactFormProps {
+    selectedVariant: ProductVariant;
+}
+
+const ProductContactForm = ({ selectedVariant }: ProductContactFormProps) => {
+    const { title, price } = selectedVariant;
+
+    const dictionary = useGetDictionary();
+    const { mailSubject } = dictionary.productPage.contactForm;
+
+    const parsedEmailSubject = mailSubject.replace('${title}', title);
+    let mailBody = dictionary.productPage.contactForm.mailBody.replaceAll('${title}', title);
+    mailBody = mailBody.replaceAll('${price}', price.toString());
+
+    const { contactUsItemAvailableText } = dictionary.productPage;
+
+    return (
+        <section className="my-4 flex flex-col gap-2 py-4">
+            <a
+                target={'_blank'}
+                className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
+                href={`mailto:${process.env.CONTACT_EMAIL}?subject=${parsedEmailSubject}&body=${mailBody}`}
+            >
+                {contactUsItemAvailableText}
+            </a>
+        </section>
+    );
+};
+
 interface AddToCartProps {
     selectedVariant: ProductVariant | null;
 }
@@ -78,7 +107,7 @@ export function AddToCart({ selectedVariant }: AddToCartProps) {
         }
     }
 
-    return (
+    return !selectedVariant || isForSale ? (
         <button
             aria-label={addToBagText}
             disabled={isDisabled || !isForSale}
@@ -100,5 +129,7 @@ export function AddToCart({ selectedVariant }: AddToCartProps) {
             </span>
             {isMutating ? <LoadingDots className="bg-white dark:bg-black" /> : null}
         </button>
+    ) : (
+        <ProductContactForm selectedVariant={selectedVariant} />
     );
 }

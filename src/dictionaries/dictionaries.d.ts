@@ -39,6 +39,7 @@ export interface ProductPage {
     successMessage: ToastMessageContent;
     errorMessage: ToastMessageContent;
     addToCartContent: AddToCartContent;
+    contactUsItemAvailableText: string;
 }
 
 export interface AddToCartContent {
