@@ -123,7 +123,7 @@ export function NewsletterFooter() {
                                 alt={'ORUN Values'}
                                 fill
                                 sizes="100vw (max-width: 768px) 50vw"
-                                style={{ objectFit: 'cover', objectPosition: 'center' }}
+                                style={{ objectFit: 'cover' }}
                             />
                         </div>
                     </div>
