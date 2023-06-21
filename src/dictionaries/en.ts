@@ -6,7 +6,7 @@ export const dictionary: Dictionary = {
         NAVBAR_LINKS: {
             Category: {
                 text: 'Products',
-                href: '/products',
+                href: '/search',
             },
             AboutUs: {
                 text: 'About us',
@@ -53,7 +53,7 @@ export const dictionary: Dictionary = {
         ],
     },
     topPicks: {
-        title: 'Top picks',
+        title: 'Latest products',
     },
     productPage: {
         title: 'Product',
@@ -61,14 +61,30 @@ export const dictionary: Dictionary = {
             sizeText: 'Size',
             chooseSizeText: 'Choose size',
         },
-        colorsText: 'Colors',
-        comingSoonText: 'Online Shop Coming Soon',
-        orderText: 'Order',
-        contactForm: {
-            mailSubject: 'I\'m interested in buying "${title}"',
-            mailBody:
-                "Hello,%0D%0A%0D%0A%20%20%20%20I'm interested in purchasing the following product:%0D%0A%20%20%20%20${title} with size (if applicable) [Insert Size].%0D%0A%0D%0A%20%20%20%20Shipping details:%0D%0A------------------%0D%0A%0D%0A%20%20%20%20 Mobile: [Insert phone contact]%0D%0A %20%20%20%20 Address : [Insert Address]%0D%0A%20%20%20%20 NIF (Optional) : [Insert NIF] %0D%0A%0D%0AProduct Details:%0D%0A------------------%0D%0A%20%20%20%20Product: ${title}%0D%0A%20%20%20%20Price: ${price} euros%0D%0A%0D%0A%0D%0A%0D%0AThank you!",
+        colorContent: {
+            colorText: 'Color',
+            chooseColorText: 'Choose a color',
         },
+        comingSoonText: 'Online Shop Coming Soon',
+        addToCartContent: {
+            addToBagText: 'Add to the bag',
+            selectOptionText: 'Select an option',
+            disabledProductText: 'Sold out',
+        },
+        contactForm: {
+            mailSubject: 'Stock availability for "${title}"',
+            mailBody:
+                "Hello,%0D%0A%0D%0A%20%20%20%20I'm interested in purchasing the following product ${title} whenever there are available stock. %0D%0A%20%20%20%20${title} with size (if applicable) [Insert Size].%0D%0A%0D%0A%20%20%20%20Shipping details:%0D%0A------------------%0D%0A%0D%0A%20%20%20%20 Mobile: [Insert phone contact]%0D%0A %20%20%20%20 Address : [Insert Address]%0D%0A%20%20%20%20 NIF (Optional) : [Insert NIF] %0D%0A%0D%0AProduct Details:%0D%0A------------------%0D%0A%20%20%20%20Product: ${title}%0D%0A%20%20%20%20Price: ${price} euros%0D%0A%0D%0A%0D%0A%0D%0AThank you!",
+        },
+        successMessage: {
+            title: 'Added product to the bag !',
+            description: 'Access your bag to finish the buy.',
+        },
+        errorMessage: {
+            title: 'Error adding the product to the bag !',
+            description: 'Please, try again later.',
+        },
+        contactUsItemAvailableText: 'Contact to know stock availability',
     },
     footer: {
         ABOUT_LINKS: [
@@ -153,13 +169,10 @@ export const dictionary: Dictionary = {
     aboutUsPage: {
         title: 'Orun',
         text: [
-            "I designed clothes that I wanted to wear that I couldn't find for sale - that was basically it. From then on, I reactivated and pacified my taste for the image, giving opportunity to the vein of creativity to express itself, now in a mature way. I intend to uncomplicate and sensualize the male image by working with fluid fabrics and cuts that provide smoothness, movement and sensitivity.",
-            'There is a personal process that accompanies the birth of Orun: it is as if it were the culmination of a phase in which I kept for myself, and only for myself, the creative freedom that in my case takes on multiple forms. The notion of harmony, the taste for beauty, and the will to create typical of a Libra, led him to design a concept brand for a man who breaks with a closed image of masculinity and surrenders to character, daring and liberation of pre-defined concepts.',
-            'Awaken male sensuality. With something sacred and something profane. As the textile industry is the one that most contributes to pollution, I took the urgent need to use resources that are industrial waste in the textile sector, supporting myself in an ideology of sustainability and reuse.',
-            'I create timeless pieces within the definition of Slow Fashion, with small-scale production and free from the volatility of market trends. Free-form work: without seasonal collections, defending the quality of materials, design, exclusivity, local and artisanal production, choosing raw materials that guarantee greater durability.',
-            'The sky and the wind inspire me. Earth, fire and water. Inspire me what is divine. Inspire me who freed himself.',
-            'Like me. Carla, Conceição, Carlos, and Berto inspire me. Thiago, Rodrigo, Diogo, Andréia and Rafael. I am inspired by those who conspire in favor of Good. Like me. This is free territory. And so it will continue to be.',
-            'Orun.',
+            'Orunizar: wearing timeless pieces within the definition of Slow Fashion, with small-scale production and free from the volatility of market trends.',
+            'Without seasonal collections, defending the quality of materials, design, exclusivity, local and artisanal production, choosing raw materials that guarantee greater durability is what moves Orun.',
+            'The sky and the wind, the earth, fire and water inspire me. Freedom inspires me and whoever freed himself and being able to translate all that into a piece of clothing has been giving material to the creativity that is behind this project.',
+            'Orun. Which means heaven.',
             'Tiago Bastos.',
         ],
     },
@@ -189,6 +202,14 @@ export const dictionary: Dictionary = {
             },
             submitMessage: 'Send',
             loadingMessage: 'Sending...',
+            successMessage: {
+                title: 'Message sent successfully!',
+                description: 'We will contact you as soon as possible.',
+            },
+            errorMessage: {
+                title: 'Error sending message!',
+                description: 'Please try again later.',
+            },
         },
     },
     privacyPage: {
@@ -321,5 +342,74 @@ export const dictionary: Dictionary = {
                 ],
             },
         ],
+    },
+    editItemQuantityForm: {
+        successMessage: {
+            description: 'Change quantity with success.',
+        },
+        errorMessage: {
+            title: 'Error changing the quantity.',
+            description: 'Please try again later.',
+        },
+        increaseMessage: 'Increase product quantity',
+        decreaseMessage: 'Reduce product quantity',
+    },
+    deleteItemForm: {
+        successMessage: {
+            description: 'Retired product with success.',
+        },
+        errorMessage: {
+            title: 'Error removing the product.',
+            description: 'Please try again later.',
+        },
+        deleteMessage: 'Delete the product from the bag.',
+    },
+    cartModalContent: {
+        title: 'My cart',
+        emptyCartText: 'Your cart is empty.',
+        checkoutText: 'Proceed to checkout',
+    },
+    searchTooltipContent: {
+        searchProductsText: 'Search products',
+    },
+    searchPageContent: {
+        multipleResultsText: 'results',
+        singleResultText: 'result',
+        noResultsText: 'No results found',
+        showingText: 'Showing',
+        forText: 'for',
+    },
+    cookiesSettingContent: {
+        title: 'COOKIES SETTINGS',
+        description:
+            'We use cookies to provide you with a personalized user experience. By clicking on “Accept all cookies”, you agree to the storage of cookies on your device. If you would like to find out more about cookies and why we use them, please see our privacy page.',
+        acceptAllCookiesText: 'Accept all cookies',
+    },
+    newsletterValidation: {
+        invalidEmail: 'Please enter a valid email address.',
+        emailPlaceholder: 'Enter your email address',
+        requireCheckboxEmail: 'I agree to receive relevant marketing emails from Orun.',
+        signUpCallout: 'Subscribe to our newsletter for updates and early access to new products.',
+        signUpButtonText: 'Subscribe',
+        successMessage: {
+            title: 'Thank you for subscribing!',
+            description: 'Here is your discount code: <b>ORUN-15<b/>',
+        },
+        errorMessage: {
+            title: 'Error subscribing to newsletter',
+            description: 'Please try again later.',
+        },
+        firstNamePlaceholder: 'First name',
+        invalidFirstName: 'Please enter a valid first name.',
+        lastNamePlaceholder: 'Last Name',
+        invalidLastName: 'Please enter a valid last name.',
+    },
+    popUpContent: {
+        title: 'ORUNIZA-TE',
+        description: '-15% from 22 to 28 June',
+    },
+    newsletterFooter: {
+        calloutText: 'ORUNIZA-TE',
+        learnMoreText: 'Subscribe to our newsletter',
     },
 };

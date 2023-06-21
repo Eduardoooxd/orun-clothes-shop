@@ -7,9 +7,11 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'images.clerk.dev',
-                port: '',
-                pathname: '/**',
+                hostname: 'cdn.shopify.com',
+            },
+            {
+                protocol: 'https',
+                hostname: '**.shopify.com',
             },
         ],
     },

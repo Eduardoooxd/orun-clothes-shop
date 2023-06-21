@@ -1,5 +1,6 @@
-import { getTopPicks } from '@/lib/fetchProducts';
 import { futuraPTLight } from '@/lib/fontLoader';
+import { getShopifyProducts } from '@/lib/shopify';
+import { convertToShopifyLanguage } from '@/lib/shopify/converters';
 import { store } from '@/store';
 import Container from '../Container';
 import ProductPreview from '../ProductPreview';
@@ -8,7 +9,12 @@ import LinkI18N from '../Shared/I18N/LinkI18N';
 const TopPicks = async () => {
     const dictionary = store.getState().dictionary.dictionary;
     const lang = store.getState().dictionary.locale;
-    const topPicks = await getTopPicks(lang);
+
+    const topPicks = await getShopifyProducts({
+        language: convertToShopifyLanguage(lang),
+        sortKey: 'CREATED_AT',
+        reverse: true,
+    });
     const { title } = dictionary.topPicks;
 
     return (
@@ -16,7 +22,7 @@ const TopPicks = async () => {
             <section className="my-4 w-full">
                 <Container>
                     <div className="flex">
-                        <LinkI18N href="/products">
+                        <LinkI18N href="/search">
                             <h2
                                 className={`font-futuraPTLight text-2xl font-semibold uppercase sm:text-3xl ${futuraPTLight.variable} text-left hover:underline`}
                             >

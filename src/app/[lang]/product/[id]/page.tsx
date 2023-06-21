@@ -1,6 +1,7 @@
 import ProductPage from '@/components/ProductPage';
 import { Locale } from '@/config/i18nConfig';
-import { getProduct, getProducts } from '@/lib/fetchProducts';
+import { getShopifyProduct, getShopifyProducts } from '@/lib/shopify';
+import { convertToShopifyLanguage } from '@/lib/shopify/converters';
 import { notFound } from 'next/navigation';
 
 interface PageProps {
@@ -18,21 +19,27 @@ export async function generateStaticParams() {
     ] = [];
 
     // TODO Improve logic whenever if we have more than 2 locales on the future
-    const [PTProducts, ENProducts] = await Promise.all([getProducts('pt'), getProducts('en')]);
+    const [PTProducts, ENProducts] = await Promise.all([
+        getShopifyProducts({ language: 'PT' }),
+        getShopifyProducts({ language: 'EN' }),
+    ]);
 
-    PTProducts.forEach((product) => params.push({ id: product.id, lang: 'pt' }));
-    ENProducts.forEach((product) => params.push({ id: product.id, lang: 'en' }));
+    PTProducts.forEach((product) => params.push({ id: product.handle, lang: 'pt' }));
+    ENProducts.forEach((product) => params.push({ id: product.handle, lang: 'en' }));
 
     return params;
 }
 
 export default async function Page({ params }: PageProps) {
     const { id, lang } = params;
-    const product = await getProduct(id, lang);
+    const shopifyProduct = await getShopifyProduct({
+        handle: id,
+        language: convertToShopifyLanguage(lang),
+    });
 
-    if (!product) {
+    if (!shopifyProduct) {
         notFound();
     }
 
-    return <ProductPage product={product} />;
+    return <ProductPage product={shopifyProduct} />;
 }

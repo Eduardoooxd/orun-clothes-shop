@@ -1,11 +1,17 @@
+import Cart from '@/components/Cart';
+import CookiesConsent from '@/components/CookiesConsent';
+import { FeatureItemModalContainer } from '@/components/FeaturedItemModal';
 import Footer from '@/components/Footer';
 import { Navbar } from '@/components/Layout/Navbar';
+import { NewsletterFooter } from '@/components/Newsletter/footer';
+import { Toaster } from '@/components/ui/toaster';
 import BodyConfiguration from '@/config/bodyConfiguration';
 import { GoogleAnalyticsScripts } from '@/config/googleAnalyticsConfig';
 import { Locale } from '@/config/i18nConfig';
 import { siteConfig } from '@/config/site';
-import { getCategories, getProducts } from '@/lib/fetchProducts';
 import { getDictionary } from '@/lib/getDictionary';
+import { getShopifyCategories, getShopifyProducts } from '@/lib/shopify';
+import { convertToShopifyLanguage } from '@/lib/shopify/converters';
 import { store } from '@/store';
 import { setDictionary, setLocale } from '@/store/dictionarySlice';
 import Preloader from '@/store/Preloader';
@@ -14,7 +20,6 @@ import Providers from '@/store/Provider';
 import { setProducts } from '@/store/searchSlice';
 import '@/styles/globals.css';
 import { Analytics } from '@vercel/analytics/react';
-
 export const metadata = {
     title: {
         default: siteConfig.name,
@@ -38,8 +43,8 @@ export default async function PageLayout({ children, params }: PageLayoutProps) 
 
     const [dictionary, categories, products] = await Promise.all([
         getDictionary(lang),
-        getCategories(lang),
-        getProducts(lang),
+        getShopifyCategories({ language: convertToShopifyLanguage(lang) }),
+        getShopifyProducts({ language: convertToShopifyLanguage(lang) }),
     ]);
 
     store.dispatch(setLocale(lang));
@@ -60,10 +65,16 @@ export default async function PageLayout({ children, params }: PageLayoutProps) 
                 <BodyConfiguration>
                     <body>
                         <main className="flex min-h-screen w-full flex-col items-center justify-between">
-                            <Navbar />
+                            {/* @ts-expect-error */}
+                            <Navbar cart={<Cart />} />
                             {children}
+                            <NewsletterFooter />
                             <Footer />
                         </main>
+
+                        <FeatureItemModalContainer />
+                        <Toaster />
+                        <CookiesConsent />
                         <Analytics />
                     </body>
                 </BodyConfiguration>

@@ -2,7 +2,7 @@
 
 import { Locale } from '@/config/i18nConfig';
 import { Dictionary } from '@/dictionaries/dictionaries';
-import { Product } from '@/lib/products';
+import { Product } from '@/lib/shopify/types';
 import { store } from '@/store';
 import { setDictionary, setLocale } from '@/store/dictionarySlice';
 import { useRef } from 'react';

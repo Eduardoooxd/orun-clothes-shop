@@ -15,15 +15,16 @@ const Footer: FunctionComponent = () => {
 
     return (
         <>
-            <Separator />
             <footer className="mb-4 w-full lg:mb-12">
+                <Separator />
+
                 <Container>
                     <div className="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:gap-8">
                         {ABOUT_LINKS.map((column, index) => (
                             <FooterColumn key={index} footerLinkColumn={column} />
                         ))}
 
-                        <div className="col-span-full flex flex-col  justify-between lg:order-first lg:col-span-4">
+                        <div className="col-span-full flex flex-col justify-between lg:order-first lg:col-span-4">
                             <div className="mb-6 hidden md:mb-0 lg:block">
                                 <LinkI18N href="/">
                                     <Image

@@ -13,7 +13,17 @@ export type ContactFormBody = z.infer<typeof contactFormSchema>;
 
 export async function POST(request: Request) {
     const body = await request.json();
+
+    const parsedBody = contactFormSchema.safeParse(body);
+    if (!parsedBody.success) {
+        return NextResponse.json({ message: 'Wrong format for body' }, { status: 400 });
+    }
+
     const { name, email, message, phone } = contactFormSchema.parse(body);
+
+    if (process.env.NODE_ENV === 'development') {
+        return NextResponse.json({ message: 'Sending Emails disabled for dev env' });
+    }
 
     const transporter = nodemailer.createTransport({
         host: `${process.env.CONTACT_HOST}`,

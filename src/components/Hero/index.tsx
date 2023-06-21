@@ -1,12 +1,42 @@
+import { BUILDER_IO_API_KEY } from '@/config/builderIO';
+import { builder } from '@builder.io/sdk';
+
+import { RenderBuilderContent } from '../builder';
+
 import LogoWhiteAlternativeImage from '@/images/logo/logo-white-small-alternative.png';
 import LogoWhiteImage from '@/images/logo/logo-white.png';
 
 import BackgroundImage from '@/images/main_background.webp';
 import BackgroundImageMobile from '@/images/main_background_mobile.webp';
 
+import { isDevEnv } from '@/lib/utils';
 import Image from 'next/image';
 
-export default function Hero() {
+builder.init(BUILDER_IO_API_KEY);
+
+export default async function Hero() {
+    const HERO_MODEL = 'hero';
+
+    const hero = isDevEnv()
+        ? null
+        : await builder
+              .get(HERO_MODEL, {
+                  prerender: false,
+              })
+              .toPromise();
+
+    return (
+        <section className="relative mt-[-5rem] min-h-screen w-full overflow-x-hidden">
+            {isDevEnv() ? (
+                <LocalHero />
+            ) : (
+                <RenderBuilderContent model={HERO_MODEL} content={hero} />
+            )}
+        </section>
+    );
+}
+
+const LocalHero = () => {
     return (
         <section className="relative mt-[-5rem] min-h-screen w-full">
             <Image
@@ -49,4 +79,4 @@ export default function Hero() {
             </div>
         </section>
     );
-}
+};

@@ -6,7 +6,7 @@ export const dictionary: Dictionary = {
         NAVBAR_LINKS: {
             Category: {
                 text: 'Produtos',
-                href: '/products',
+                href: '/search',
             },
             AboutUs: {
                 text: 'Sobre nós',
@@ -52,7 +52,7 @@ export const dictionary: Dictionary = {
         ],
     },
     topPicks: {
-        title: 'As nossas escolhas',
+        title: 'Novidades',
     },
     productPage: {
         title: 'Produto',
@@ -60,14 +60,30 @@ export const dictionary: Dictionary = {
             sizeText: 'Tamanho',
             chooseSizeText: 'Escolha o tamanho',
         },
-        colorsText: 'Cores',
-        comingSoonText: 'Loja online em breve',
-        orderText: 'Encomende',
-        contactForm: {
-            mailSubject: 'Estou interessado no produto "${title}"',
-            mailBody:
-                'Olá !%0D%0A%0D%0A%20%20%20%20Quero comprar o seguinte produto:%0D%0A%20%20%20%20${title} com tamanho (se aplicável) [inserir tamanho].%0D%0A%0D%0A%20%20%20%20Detalhes de envio:%0D%0A------------------%0D%0A%0D%0A%20%20%20%20Telemóvel: [inserir contacto telefónico]%0D%0A%20%20%20%20 Morada : [inserir morada]%0D%0A%20%20%20%20 NIF (Opcional) : [inserir NIF]%0D%0A%0D%0ADetalhes do Produto:%0D%0A------------------%0D%0A%20%20%20%20Nome da peça: ${title}%0D%0A%20%20%20%20Preço: ${price} euros%0D%0A%0D%0A%0D%0A%0D%0AObrigado!',
+        colorContent: {
+            colorText: 'Cor',
+            chooseColorText: 'Escolha a cor',
         },
+        comingSoonText: 'Loja online em breve',
+        addToCartContent: {
+            addToBagText: 'Adicionar ao carrinho',
+            selectOptionText: 'Selecione uma opção',
+            disabledProductText: 'Produto esgotado',
+        },
+        contactForm: {
+            mailSubject: 'Disponibilidade de stock do produto "${title}"',
+            mailBody:
+                'Olá !%0D%0A%0D%0A%20%20%20%20Queria comprar o seguinte produto ${title} quando houver disponibilidade de stock.%0D%0A%20%20%20%20${title} com tamanho (se aplicável) [inserir tamanho].%0D%0A%0D%0A%20%20%20%20Detalhes de envio:%0D%0A------------------%0D%0A%0D%0A%20%20%20%20Telemóvel: [inserir contacto telefónico]%0D%0A%20%20%20%20 Morada : [inserir morada]%0D%0A%20%20%20%20 NIF (Opcional) : [inserir NIF]%0D%0A%0D%0ADetalhes do Produto:%0D%0A------------------%0D%0A%20%20%20%20Nome da peça: ${title}%0D%0A%20%20%20%20Preço: ${price} euros%0D%0A%0D%0A%0D%0A%0D%0AObrigado!',
+        },
+        successMessage: {
+            title: 'Produto adicionado ao carrinho com sucesso !',
+            description: 'Aceda ao seu carrinho para concluir a compra.',
+        },
+        errorMessage: {
+            title: 'Erro ao adicionar o produto !',
+            description: 'Por favor, tente novamente mais tarde.',
+        },
+        contactUsItemAvailableText: 'Contacte-nos para saber disponibilidade de stock',
     },
     footer: {
         ABOUT_LINKS: [
@@ -152,13 +168,10 @@ export const dictionary: Dictionary = {
     aboutUsPage: {
         title: 'Orun',
         text: [
-            'Desenhei roupa que queria vestir e que não encontrava à venda - basicamente foi isso. A partir daí, reactivei e pacifiquei o meu gosto pela imagem dando oportunidade à veia da criatividade de se expressar, agora de forma madura. Pretendo descomplexar e sensualizar a imagem masculina trabalhando com tecidos e cortes fluídos que conferem suavidade, movimento e sensibilidade.',
-            'Há um processo pessoal que acompanha o nascimento da Orun: é como se fosse o culminar de uma fase em que guardei para mim, e só para mim, a liberdade criativa que no meu caso ocupa múltiplas formas. A noção de harmonia, o gosto pelo belo, e a vontade de criar típica de um libriano, fez com que desenhasse uma marca-conceito para um homem que rompe com uma imagem fechada de masculinidade e se entrega ao carácter, à ousadia e à libertação de conceitos pré-definidos.',
-            'Despertar a sensualidade masculina. Com um quê de sagrado, outro de profano. Sendo a indústria têxtil a que mais contribui para a poluição, tomei como urgente a necessidade de utilização de recursos que são desperdício industrial do setor têxtil, apoiando-me numa ideologia na sustentabilidade e reaproveitamento.',
-            'Crio peças intemporais inseridas na definição de Slow Fashion, com produção em pequena escala e livre da volatilidade das tendências de mercado. Trabalho de forma livre: sem colecções sazonais, defendendo a qualidade dos materiais, o design, a exclusividade, a produção local e artesanal, escolhendo matérias primas que garantam maior durabilidade.',
-            'Inspira-me o céu e o vento. A terra, o fogo e a água. Inspira-me o que é  divino. Inspira-me quem se libertou.',
-            'Como eu. Inspira-me a Carla, a Conceição, o Carlos, e o Berto. O Thiago, o Rodrigo, o Diogo, a Andréia e o Rafael. Inspira-me quem conspira a favor do Bem. Como eu. Este é um território livre. E assim continuará a ser.',
-            'Orun.',
+            'Orunizar: vestir peças intemporais inseridas na definição de Slow Fashion, com produção em pequena escala e livre da volatilidade das tendências de mercado.',
+            'Sem colecções sazonais, defendendo a qualidade dos materiais, o design, a exclusividade, a produção local e artesanal, escolher matérias primas que garantam maior durabilidade é o que move a Orun.',
+            'Inspira-me o céu e o vento, a terra, o fogo e a água. Inspiram-me a liberdade e quem se libertou e poder traduzir tudo isso numa peça de roupa tem sido dar matéria à criatividade que está por trás deste projeto.',
+            'Orun. Que significa céu.',
             'Tiago Bastos.',
         ],
     },
@@ -188,6 +201,14 @@ export const dictionary: Dictionary = {
             },
             submitMessage: 'Enviar',
             loadingMessage: 'Enviando...',
+            successMessage: {
+                title: 'Mensagem enviada com sucesso!',
+                description: 'Iremos responder o mais breve possível.',
+            },
+            errorMessage: {
+                title: 'Erro ao enviar a mensagem!',
+                description: 'Por favor, tente novamente mais tarde.',
+            },
         },
     },
     privacyPage: {
@@ -319,5 +340,75 @@ export const dictionary: Dictionary = {
                 ],
             },
         ],
+    },
+    editItemQuantityForm: {
+        successMessage: {
+            description: 'Quantidade alterada com sucesso',
+        },
+        errorMessage: {
+            title: 'Erro ao alterar quantidade',
+            description: 'Por favor, tente novamente mais tarde.',
+        },
+        increaseMessage: 'Incrementar quantidade do produto',
+        decreaseMessage: 'Reduzir quantidade do produto',
+    },
+    deleteItemForm: {
+        successMessage: {
+            description: 'Produto retirado do carrinho com sucesso',
+        },
+        errorMessage: {
+            title: 'Erro ao remover o produto',
+            description: 'Por favor, tente novamente mais tarde.',
+        },
+        deleteMessage: 'Apagar produto do carrinho',
+    },
+    cartModalContent: {
+        title: 'O meu carrinho',
+        emptyCartText: 'O seu carrinho está vazio',
+        checkoutText: 'Finalizar compra',
+    },
+    searchTooltipContent: {
+        searchProductsText: 'Procure por produtos',
+    },
+    searchPageContent: {
+        multipleResultsText: 'resultados',
+        singleResultText: 'resultado',
+        noResultsText: 'Nenhum resultado encontrado',
+        showingText: 'Mostrando',
+        forText: 'para',
+    },
+    cookiesSettingContent: {
+        title: 'Definições de cookies',
+        description:
+            'Usamos cookies para fornecer uma experiência de utilizador personalizada. Ao clicar em “Aceitar todos os cookies”, você concorda com o armazenamento de cookies em seu dispositivo. Se você quiser saber mais sobre cookies e por que as usamos, consulte a nossa pagina de privacidade.',
+        acceptAllCookiesText: 'Aceitar as cookies',
+    },
+    newsletterValidation: {
+        invalidEmail: 'Por favor, insira um endereço de e-mail válido.',
+        requireCheckboxEmail: 'Concordo em receber e-mails de marketing relevantes da Orun.',
+        emailPlaceholder: 'Insira o seu endereço de e-mail',
+        signUpCallout:
+            'Subscreva a nossa newsletter para obter atualizações e acesso antecipado a novos produtos.',
+        signUpButtonText: 'Subscrever',
+        successMessage: {
+            title: 'Obrigado por subscreveres!',
+            description: 'Utiliza o teu código de desconto: <b>ORUN-15<b/>',
+        },
+        errorMessage: {
+            title: 'Erro ao subscreveres a newsletter',
+            description: 'Por favor, tente novamente mais tarde.',
+        },
+        firstNamePlaceholder: 'Primeiro nome',
+        invalidFirstName: 'Por favor, insira um primeiro nome válido.',
+        lastNamePlaceholder: 'Último nome',
+        invalidLastName: 'Por favor, insira um último nome válido.',
+    },
+    popUpContent: {
+        title: 'ORUNIZA-TE',
+        description: '-15% de dia 22 a 28 de Junho',
+    },
+    newsletterFooter: {
+        calloutText: 'ORUNIZA-TE',
+        learnMoreText: 'Subscreve a nossa newsletter',
     },
 };

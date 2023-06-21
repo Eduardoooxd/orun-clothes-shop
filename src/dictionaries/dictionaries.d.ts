@@ -1,4 +1,4 @@
-import { DeliveryPage, TermsOfServicePage } from './dictionaries.d';
+import { DeliveryPage, SearchTooltipContent, TermsOfServicePage } from './dictionaries.d';
 export interface NavBar {
     NAVBAR_LINKS: {
         Category: {
@@ -32,11 +32,25 @@ export interface AboutUsContent {
 
 export interface ProductPage {
     title: string;
-    colorsText: string;
+    colorContent: ColorContent;
     sizeContent: SizeContent;
     comingSoonText: string;
-    orderText: string;
     contactForm: ProductContactForm;
+    successMessage: ToastMessageContent;
+    errorMessage: ToastMessageContent;
+    addToCartContent: AddToCartContent;
+    contactUsItemAvailableText: string;
+}
+
+export interface AddToCartContent {
+    addToBagText: string;
+    selectOptionText: string;
+    disabledProductText: string;
+}
+
+export interface ColorContent {
+    colorText: string;
+    chooseColorText: string;
 }
 
 export interface ProductContactForm {
@@ -92,6 +106,19 @@ export interface ContactUsPage {
     formContent: ContactUsFormContent;
 }
 
+export interface EditItemQuantityFormContent {
+    successMessage: ToastMessageContent;
+    errorMessage: ToastMessageContent;
+    increaseMessage: string;
+    decreaseMessage: string;
+}
+
+export interface DeleteItemFormContent {
+    successMessage: ToastMessageContent;
+    errorMessage: ToastMessageContent;
+    deleteMessage: string;
+}
+
 export interface ContactUsFormContent {
     nameInput: ContactUsFormInput;
     emailInput: ContactUsFormInput;
@@ -99,6 +126,13 @@ export interface ContactUsFormContent {
     phoneInput: ContactUsFormInput;
     submitMessage: string;
     loadingMessage: string;
+    successMessage: ToastMessageContent;
+    errorMessage: ToastMessageContent;
+}
+
+export interface ToastMessageContent {
+    title?: string;
+    description: string;
 }
 
 export interface ContactUsFormInput {
@@ -142,6 +176,54 @@ export interface ReturnsPageTopic {
     returnsTopicText: string[];
 }
 
+export interface CartModalContent {
+    title: string;
+    emptyCartText: string;
+    checkoutText: string;
+}
+
+export interface SearchTooltipContent {
+    searchProductsText: string;
+}
+
+export interface SearchPageContent {
+    multipleResultsText: string;
+    singleResultText: string;
+    noResultsText: string;
+    showingText: string;
+    forText: string;
+}
+
+export interface CookiesSettingContent {
+    title: string;
+    description: string;
+    acceptAllCookiesText: string;
+}
+
+export interface NewsLetterValidation {
+    invalidEmail: string;
+    emailPlaceholder: string;
+    requireCheckboxEmail: string;
+    signUpCallout: string;
+    signUpButtonText: string;
+    successMessage: ToastMessageContent;
+    errorMessage: ToastMessageContent;
+    firstNamePlaceholder: string;
+    invalidFirstName: string;
+    lastNamePlaceholder: string;
+    invalidLastName: string;
+}
+
+export interface NewsletterFooter {
+    calloutText: string;
+    learnMoreText: string;
+}
+
+export interface PopUpContent {
+    title: string;
+    description: string;
+}
+
 export interface Dictionary {
     language: string;
     navBar: NavBar;
@@ -156,4 +238,13 @@ export interface Dictionary {
     termsOfServicePage: TermsOfServicePage;
     deliveryPage: DeliveryPage;
     returnsPage: ReturnsPage;
+    editItemQuantityForm: EditItemQuantityFormContent;
+    deleteItemForm: DeleteItemFormContent;
+    cartModalContent: CartModalContent;
+    searchTooltipContent: SearchTooltipContent;
+    searchPageContent: SearchPageContent;
+    cookiesSettingContent: CookiesSettingContent;
+    newsletterValidation: NewsLetterValidation;
+    popUpContent: PopUpContent;
+    newsletterFooter: NewsletterFooter;
 }

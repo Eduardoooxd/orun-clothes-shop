@@ -20,17 +20,16 @@ export type SEO = {
     description: string;
 };
 
+export type Metafield = {
+    key: string;
+    value: string;
+};
+
 export type Image = {
     url: string;
     altText: string;
     width: number;
     height: number;
-};
-
-export type ProductOption = {
-    id: string;
-    name: string;
-    values: string[];
 };
 
 export type ProductVariant = {
@@ -42,6 +41,8 @@ export type ProductVariant = {
         value: string;
     }[];
     price: Money;
+    size?: string;
+    color?: string;
 };
 
 export type ShopifyProduct = {
@@ -51,7 +52,8 @@ export type ShopifyProduct = {
     title: string;
     description: string;
     descriptionHtml: string;
-    options: ProductOption[];
+    productType: string;
+    metafields: Metafield[];
     priceRange: {
         maxVariantPrice: Money;
         minVariantPrice: Money;
@@ -85,4 +87,96 @@ export type ShopifyProductsOperation = {
 export type Product = Omit<ShopifyProduct, 'variants' | 'images'> & {
     variants: ProductVariant[];
     images: Image[];
+    sizes: string[];
+    colors: string[];
+    category: string;
+};
+
+export type Cart = Omit<ShopifyCart, 'lines'> & {
+    lines: CartItem[];
+};
+
+export type ShopifyCart = {
+    id: string;
+    checkoutUrl: string;
+    cost: {
+        subtotalAmount: Money;
+        totalAmount: Money;
+        totalTaxAmount: Money;
+    };
+    lines: Connection<CartItem>;
+    totalQuantity: number;
+};
+
+export type CartItem = {
+    id: string;
+    quantity: number;
+    cost: {
+        totalAmount: Money;
+    };
+    merchandise: {
+        id: string;
+        title: string;
+        selectedOptions: {
+            name: string;
+            value: string;
+        }[];
+        product: Product;
+    };
+};
+
+export type ShopifyCartOperation = {
+    data: {
+        cart: ShopifyCart;
+    };
+    variables: {
+        cartId: string;
+    };
+};
+
+export type ShopifyCreateCartOperation = {
+    data: { cartCreate: { cart: ShopifyCart } };
+};
+
+export type ShopifyAddToCartOperation = {
+    data: {
+        cartLinesAdd: {
+            cart: ShopifyCart;
+        };
+    };
+    variables: {
+        cartId: string;
+        lines: {
+            merchandiseId: string;
+            quantity: number;
+        }[];
+    };
+};
+
+export type ShopifyRemoveFromCartOperation = {
+    data: {
+        cartLinesRemove: {
+            cart: ShopifyCart;
+        };
+    };
+    variables: {
+        cartId: string;
+        lineIds: string[];
+    };
+};
+
+export type ShopifyUpdateCartOperation = {
+    data: {
+        cartLinesUpdate: {
+            cart: ShopifyCart;
+        };
+    };
+    variables: {
+        cartId: string;
+        lines: {
+            id: string;
+            merchandiseId: string;
+            quantity: number;
+        }[];
+    };
 };

@@ -1,5 +1,7 @@
 'use client';
 
+import { useToast } from '@/components/ui/use-toast';
+import useGetCurrentLocale from '@/hooks/useGetCurrentLocale';
 import useGetDictionary from '@/hooks/useGetDictionary';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { useMutation } from '@tanstack/react-query';
@@ -8,6 +10,8 @@ import { ChangeEvent, FormEvent, FunctionComponent, useState } from 'react';
 import type { ContactFormBody } from '../api/contact/route';
 
 const ContactForm: FunctionComponent = () => {
+    const currentLocale = useGetCurrentLocale();
+
     const DEFAULT_CONTACT_STATE: ContactFormBody = {
         name: '',
         email: '',
@@ -15,13 +19,23 @@ const ContactForm: FunctionComponent = () => {
         phone: '',
     };
 
+    const { toast } = useToast();
+
     const dictionary = useGetDictionary();
-    const { nameInput, emailInput, phoneInput, messageInput, submitMessage, loadingMessage } =
-        dictionary.contactUsPage.formContent;
+    const {
+        nameInput,
+        emailInput,
+        phoneInput,
+        messageInput,
+        submitMessage,
+        loadingMessage,
+        successMessage,
+        errorMessage,
+    } = dictionary.contactUsPage.formContent;
 
     const mutation = useMutation({
         mutationFn: (contactForm: ContactFormBody) => {
-            return axios.post('../api/contact', contactForm);
+            return axios.post(`../${currentLocale}/api/contact`, contactForm);
         },
     });
 
@@ -40,9 +54,34 @@ const ContactForm: FunctionComponent = () => {
 
     const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        mutation.mutate(formData);
-        setFormData(DEFAULT_CONTACT_STATE);
-        setSubmitted(false);
+
+        try {
+            mutation.mutate(formData, {
+                onSuccess: () => {
+                    toast({
+                        title: successMessage.title,
+                        description: successMessage.description,
+                        variant: 'success',
+                    });
+                },
+                onError: () => {
+                    toast({
+                        title: errorMessage.title,
+                        description: errorMessage.description,
+                        variant: 'destructive',
+                    });
+                },
+            });
+        } catch (_) {
+            toast({
+                title: errorMessage.title,
+                description: errorMessage.description,
+                variant: 'destructive',
+            });
+        } finally {
+            setFormData(DEFAULT_CONTACT_STATE);
+            setSubmitted(false);
+        }
     };
 
     return (
@@ -95,8 +134,9 @@ const ContactForm: FunctionComponent = () => {
                 required
             />
             <button
-                className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white`}
+                className={`${futuraPTLight.variable} block w-full bg-black p-4 text-center font-futuraPTLight font-bold uppercase text-white  disabled:bg-gray-400 `}
                 type="submit"
+                disabled={mutation.isLoading}
                 onClick={() => setSubmitted(true)}
             >
                 {mutation.isLoading ? loadingMessage : submitMessage}
