@@ -4,11 +4,13 @@ import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import useGetDictionary from '@/hooks/useGetDictionary';
+import NewsletterSectionImage from '@/images/newsletterSection/newsletterSection.png';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
+import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import Container from '../Container';
@@ -106,7 +108,7 @@ export function NewsletterFooter() {
             <Separator />
             <Container>
                 <div className="flex flex-col justify-evenly sm:flex-row">
-                    <div className="mb-2 w-full sm:w-[50%] sm:py-0 lg:mb-0">
+                    <div className="mb-2 flex w-full flex-col sm:w-[50%] sm:py-0 lg:mb-0">
                         <h5
                             className={cn(
                                 'text-4xl uppercase lg:text-8xl',
@@ -115,6 +117,15 @@ export function NewsletterFooter() {
                         >
                             {calloutText}
                         </h5>
+                        <div className="relative hidden  w-[75%] sm:block sm:min-h-[75%]">
+                            <Image
+                                src={NewsletterSectionImage}
+                                alt={'ORUN Values'}
+                                fill
+                                sizes="100vw (max-width: 768px) 50vw"
+                                style={{ objectFit: 'cover', objectPosition: 'center' }}
+                            />
+                        </div>
                     </div>
                     <div className="flex w-full flex-col gap-4 sm:w-[50%]">
                         <p
