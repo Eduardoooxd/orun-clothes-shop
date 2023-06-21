@@ -2,7 +2,7 @@
 
 import { BUILDER_IO_API_KEY } from '@/config/builderIO';
 import useGetDictionary from '@/hooks/useGetDictionary';
-import PopUpImage from '@/images/popup/popup-image.webp';
+import PopUpImage from '@/images/popup/popup-image.png';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
 import builder from '@builder.io/react';
@@ -63,7 +63,7 @@ const FeaturedItemModal = () => {
                     alt={'ORUN Values'}
                     fill
                     sizes="100vw (max-width: 768px) 50vw"
-                    style={{ objectFit: 'cover', objectPosition: 'right' }}
+                    style={{ objectFit: 'cover', objectPosition: 'center' }}
                 />
             </div>
             <section

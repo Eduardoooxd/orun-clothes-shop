@@ -52,7 +52,7 @@ export const dictionary: Dictionary = {
         ],
     },
     topPicks: {
-        title: 'As nossas escolhas',
+        title: 'Novidades',
     },
     productPage: {
         title: 'Produto',

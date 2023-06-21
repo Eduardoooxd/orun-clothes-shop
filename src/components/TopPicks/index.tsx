@@ -10,7 +10,11 @@ const TopPicks = async () => {
     const dictionary = store.getState().dictionary.dictionary;
     const lang = store.getState().dictionary.locale;
 
-    const topPicks = await getShopifyProducts({ language: convertToShopifyLanguage(lang) });
+    const topPicks = await getShopifyProducts({
+        language: convertToShopifyLanguage(lang),
+        sortKey: 'CREATED_AT',
+        reverse: true,
+    });
     const { title } = dictionary.topPicks;
 
     return (

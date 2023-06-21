@@ -53,7 +53,7 @@ export const dictionary: Dictionary = {
         ],
     },
     topPicks: {
-        title: 'Top picks',
+        title: 'Latest products',
     },
     productPage: {
         title: 'Product',
