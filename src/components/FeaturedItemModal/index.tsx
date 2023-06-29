@@ -43,7 +43,7 @@ export async function FeatureItemModal({ toShow = true }: FeatureItemModalProps)
             onClose={() => {
                 //setFeatureItemShowed(true);
             }}
-            open={!featureItemShowed}
+            open={false}
         >
             <FeaturedItemModal />
             {/*<RenderBuilderContent model={POP_UP_MODEL} content={POP_UP_CONTENT} /> */}
