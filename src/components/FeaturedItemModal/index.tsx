@@ -29,15 +29,10 @@ export async function FeatureItemModal() {
 
     //const toShowUser = false;
 
-    if (featureItemShowed && !builderEditing) return null;
+    //if (featureItemShowed && !builderEditing) return null;
 
     return (
-        <Modal
-            onClose={() => {
-                console.log('close');
-            }}
-            open={!featureItemShowed || builderEditing}
-        >
+        <Modal>
             <RenderBuilderContent model={POP_UP_MODEL} content={POP_UP_CONTENT} />
         </Modal>
     );
