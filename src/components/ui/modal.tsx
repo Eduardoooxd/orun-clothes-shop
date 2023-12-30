@@ -58,9 +58,9 @@ export default function Modal({ open, children, onClose }: ModalProps) {
                                     onClose();
                                     setIsOpen(false);
                                 }}
-                                className="absolute text-black transition-colors top-4 right-4 hover:text-gray-500 dark:text-gray-100"
+                                className="absolute top-4 right-4 z-[9999] text-black transition-colors hover:text-gray-500 dark:text-gray-100"
                             >
-                                <RxCross1 size={'1.75rem'} />
+                                <RxCross1 className="z-[9999]" size={'1.75rem'} />
                             </button>
 
                             {children}
