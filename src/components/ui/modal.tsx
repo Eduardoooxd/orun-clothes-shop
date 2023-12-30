@@ -1,21 +1,15 @@
 import { Dialog } from '@headlessui/react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useLayoutEffect } from 'react';
 import { RxCross1 } from 'react-icons/rx';
 import { useModalContext } from './modalContext';
 
 interface ModalProps {
-    open: boolean;
-    onClose: () => void;
+    onClose?: () => void;
     children: React.ReactNode;
 }
 
-export default function Modal({ open, children, onClose }: ModalProps) {
+export default function Modal({ children, onClose }: ModalProps) {
     const { isOpen, setIsOpen } = useModalContext();
-
-    useLayoutEffect(() => {
-        setIsOpen(open);
-    }, [open, setIsOpen]);
 
     return (
         <AnimatePresence initial={false}>
@@ -29,8 +23,10 @@ export default function Modal({ open, children, onClose }: ModalProps) {
                     static
                     open={isOpen}
                     onClose={() => {
-                        onClose();
                         setIsOpen(false);
+                        if (onClose) {
+                            onClose();
+                        }
                     }}
                     className="relative z-50"
                 >
@@ -55,12 +51,14 @@ export default function Modal({ open, children, onClose }: ModalProps) {
                         >
                             <button
                                 onClick={() => {
-                                    onClose();
                                     setIsOpen(false);
+                                    if (onClose) {
+                                        onClose();
+                                    }
                                 }}
-                                className="absolute text-black transition-colors top-4 right-4 hover:text-gray-500 dark:text-gray-100"
+                                className="absolute top-4 right-4 z-[9999] text-black transition-colors hover:text-gray-500 dark:text-gray-100"
                             >
-                                <RxCross1 size={'1.75rem'} />
+                                <RxCross1 className="z-[9999]" size={'1.75rem'} />
                             </button>
 
                             {children}
