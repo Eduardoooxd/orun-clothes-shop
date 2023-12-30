@@ -5,9 +5,10 @@ import useGetDictionary from '@/hooks/useGetDictionary';
 import PopUpImage from '@/images/popup/popup-image.png';
 import { commutersSans, futuraPTLight } from '@/lib/fontLoader';
 import { cn } from '@/lib/utils';
-import builder from '@builder.io/react';
+import builder, { Builder } from '@builder.io/react';
 import Image from 'next/image';
 import { useSessionStorage } from 'usehooks-ts';
+import { RenderBuilderContent } from '../builder';
 import { NewsLetter } from '../Newsletter';
 import Modal from '../ui/modal';
 
@@ -25,8 +26,6 @@ interface FeatureItemModalProps {
 export async function FeatureItemModal({ toShow = true }: FeatureItemModalProps) {
     const [featureItemShowed, setFeatureItemShowed] = useSessionStorage('featuredItemShow', false);
 
-    {
-        /* 
     const POP_UP_MODEL = 'pop-up';
 
     const POP_UP_CONTENT = await builder
@@ -35,18 +34,21 @@ export async function FeatureItemModal({ toShow = true }: FeatureItemModalProps)
         })
         .toPromise();
 
-        */
-    }
+    const builderEditing = Builder.isEditing || Builder.isPreviewing;
+    //console.log(POP_UP_CONTENT);
+
+    //const toShowUser = false;
+
+    if ((!toShow || featureItemShowed) && !builderEditing) return null;
 
     return (
         <Modal
             onClose={() => {
-                //setFeatureItemShowed(true);
+                setFeatureItemShowed(true);
             }}
-            open={false}
+            open={!featureItemShowed || builderEditing}
         >
-            <FeaturedItemModal />
-            {/*<RenderBuilderContent model={POP_UP_MODEL} content={POP_UP_CONTENT} /> */}
+            <RenderBuilderContent model={POP_UP_MODEL} content={POP_UP_CONTENT} />
         </Modal>
     );
 }
