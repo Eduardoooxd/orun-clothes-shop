@@ -23,10 +23,10 @@ export default function Modal({ children, onClose }: ModalProps) {
                     static
                     open={isOpen}
                     onClose={() => {
+                        setIsOpen(false);
                         if (onClose) {
                             onClose();
                         }
-                        setIsOpen(false);
                     }}
                     className="relative z-50"
                 >
